@@ -7,38 +7,10 @@
         "ticketPrice": 34.3
     },
     {
-        "name": "jeje",
-        "id": "3453634",
-        "address": "direccion",
-        "maxCapacity": 345,
-        "ticketPrice": 34.3
-    },
-    {
-        "name": "jeje",
-        "id": "3453634",
-        "address": "direccion",
-        "maxCapacity": 345,
-        "ticketPrice": 34.3
-    },
-    {
         "name": "hhhhhhhhh",
         "id": 1601607866,
         "address": "fg",
         "maxCapacity": 675,
         "ticketPrice": 876
-    },
-    {
-        "name": "Cinemacenter",
-        "id": 1601999347,
-        "address": "mar 15",
-        "maxCapacity": 100,
-        "ticketPrice": 20
-    },
-    {
-        "name": "Cinemacenter",
-        "id": 1601999626,
-        "address": "mar 15",
-        "maxCapacity": 100,
-        "ticketPrice": 20
     }
 ]

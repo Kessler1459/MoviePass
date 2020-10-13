@@ -35,6 +35,7 @@ class MovieDAO{
         return $flag;
     }
 
+
     public function getAll()
     {
         $this->retrieveData();
@@ -65,12 +66,37 @@ class MovieDAO{
         }
         $this->saveData();
     }
+
+    public function getByGenre($genresArray){
+        $this->retrieveData();
+        $newArray=array();
+        foreach ($this->movies as $movie) {
+            $bool=false;
+            $u=0;
+            $genresMovie=$movie->getGenres();
+            while ($bool==false && $u<count($genresMovie)) {
+                $i=0;
+                while ($bool==false && $i<count($genresArray)) {
+                    if ($genresArray[$i] ==$genresMovie[$u]->getName()){
+                        $bool=true;
+                    }
+                    $i++;
+                }
+                $u++;
+            }     
+            if ($bool==true) {
+               // $newArray[]=$movie;
+            }
+        }
+        return $newArray;
+    }
+
         public function searchByName($name)
     {
         $this->retrieveData();
         $arrayFinded = array();
         foreach ($this->movies as $value) {
-            if (stripos($value->getName(),$name)!==false)
+            if (stripos($value->getTitle(),$name)!==false)
             {
                 array_push($arrayFinded,$value);
             }
@@ -108,5 +134,3 @@ class MovieDAO{
         }
     }
 }
-
-?>

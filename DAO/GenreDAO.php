@@ -42,7 +42,7 @@ class GenreDAO{
     public function getAll()
     {
         $this->retrieveData();
-        return $this->cinemas;
+        return $this->genres;
     }
 
     private function saveData(){

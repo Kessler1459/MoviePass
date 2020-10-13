@@ -1,14 +1,17 @@
 <nav class="navbar navbar-expand-lg  navbar-dark bg-dark fixed-top" >
      <button class="btn btn-dark " type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
-          <span class="lead">Busqueda </span> <i class="fas fa-angle-down"></i>
+          <span class="lead">Search </span> <i class="fas fa-angle-down"></i>
           </button>
      <ul class="navbar-nav ml-auto">
           <li class="nav-item">
           <li class="nav-item">
-               <a class="nav-link" href=" <?php echo FRONT_ROOT ?>Cinema/showCinemasList">Agregar Cine</a>
+               <a class="nav-link" href=" <?php echo FRONT_ROOT ?>Cinema/showCinemasList">Add cinema</a>
           </li>
           <li class="nav-item">
-               <a class="nav-link" href=" <?php echo FRONT_ROOT ?>Movie/showMoviesList">Listar Peliculas</a>
+               <a class="nav-link" href=" <?php echo FRONT_ROOT ?>Movie/showMoviesList">Movies list</a>
+          </li>
+          <li class="nav-item">
+               <a class="nav-link" href=" <?php echo FRONT_ROOT ?>Movie/updateNowPlaying">Update movies list</a>
           </li>
      </ul>
 </nav>

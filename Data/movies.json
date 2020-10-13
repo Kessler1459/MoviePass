@@ -26,26 +26,22 @@
         "release_date": "2020-09-25"
     },
     {
-        "title": "Train To Busan 2: Peninsula",
-        "id": 581392,
+        "title": "2067",
+        "id": 528085,
         "length": "",
-        "overview": "Despu\u00e9s de que la infecci\u00f3n que se extendi\u00f3 hace 4 a\u00f1os, solo algunas partes de Corea del Sur permanecen resguardadas, aunque la Pen\u00ednsula de Busan es la \u00fanica parte en donde pueden buscar refugio los coreanos, muchos a\u00fan mantienen la esperanza de ser rescatados por ayuda internacional.",
-        "poster": "https:\/\/image.tmdb.org\/t\/p\/original\/ew1lAU8yV66JbivBU1Zh4Wj4pOB.jpg",
+        "overview": "El viaje de un hombre hacia el futuro para salvar un mundo moribundo.",
+        "poster": "https:\/\/image.tmdb.org\/t\/p\/original\/7D430eqZj8y3oVkLFfsWXGRcpEG.jpg",
         "genre": [
             {
-                "id": 28,
-                "name": "Action"
-            },
-            {
-                "id": 27,
-                "name": "Horror"
+                "id": 878,
+                "name": "Science Fiction"
             },
             {
                 "id": 53,
                 "name": "Thriller"
             }
         ],
-        "release_date": "2020-08-21"
+        "release_date": "2020-10-02"
     },
     {
         "title": "The Owners",
@@ -70,6 +66,46 @@
         "release_date": "2020-09-04"
     },
     {
+        "title": "Bill & Ted Face the Music",
+        "id": 501979,
+        "length": "",
+        "overview": "A dos aspirantes a rockeros de San Dimas, California, se les dijo una vez que salvar\u00edan el universo durante una aventura de viaje en el tiempo, pero se encuentran como padres de mediana edad que a\u00fan intentan poner en marcha una canci\u00f3n exitosa y cumplir su destino. Sin suerte e inspiraci\u00f3n, Bill y Ted emprendieron otra aventura de viaje en el tiempo para buscar la canci\u00f3n que establecer\u00e1 su mundo correcto y traer\u00e1 armon\u00eda al universo tal como lo conocemos.",
+        "poster": "https:\/\/image.tmdb.org\/t\/p\/original\/4V2nTPfeB59TcqJcUfQ9ziTi7VN.jpg",
+        "genre": [
+            {
+                "id": 12,
+                "name": "Adventure"
+            },
+            {
+                "id": 35,
+                "name": "Comedy"
+            },
+            {
+                "id": 878,
+                "name": "Science Fiction"
+            }
+        ],
+        "release_date": "2020-08-28"
+    },
+    {
+        "title": "I Am Not a Bird",
+        "id": 479259,
+        "length": "",
+        "overview": "Margaret est\u00e1 haciendo todo lo que est\u00e1 a su alcance para olvidar su hogar, y la vida nocturna ex\u00f3tica de Tokio, repleta de bebidas, drogas y hoteles de amor de tres horas, le permite mantener sus demonios a raya. Trabajando como especialista inglesa en Air-Pro Stewardess Training Institute durante el d\u00eda y perdi\u00e9ndose en un olvido sexual y narcotizado por la noche, Margaret reprime recuerdos de su dolorosa infancia en Canad\u00e1 y el descenso de su hermano mayor Frank a la locura. -an\u00f3nimo",
+        "poster": "https:\/\/image.tmdb.org\/t\/p\/original\/vQgXwuJrlpzGDI8169tRQRy71Nv.jpg",
+        "genre": [
+            {
+                "id": 18,
+                "name": "Drama"
+            },
+            {
+                "id": 53,
+                "name": "Thriller"
+            }
+        ],
+        "release_date": "2020-09-18"
+    },
+    {
         "title": "El diablo a todas horas",
         "id": 499932,
         "length": "",
@@ -92,24 +128,6 @@
         "release_date": "2020-09-11"
     },
     {
-        "title": "I Am Not a Bird",
-        "id": 479259,
-        "length": "",
-        "overview": "Margaret est\u00e1 haciendo todo lo que est\u00e1 a su alcance para olvidar su hogar, y la vida nocturna ex\u00f3tica de Tokio, repleta de bebidas, drogas y hoteles de amor de tres horas, le permite mantener sus demonios a raya. Trabajando como especialista inglesa en Air-Pro Stewardess Training Institute durante el d\u00eda y perdi\u00e9ndose en un olvido sexual y narcotizado por la noche, Margaret reprime recuerdos de su dolorosa infancia en Canad\u00e1 y el descenso de su hermano mayor Frank a la locura. -an\u00f3nimo",
-        "poster": "https:\/\/image.tmdb.org\/t\/p\/original\/vQgXwuJrlpzGDI8169tRQRy71Nv.jpg",
-        "genre": [
-            {
-                "id": 18,
-                "name": "Drama"
-            },
-            {
-                "id": 53,
-                "name": "Thriller"
-            }
-        ],
-        "release_date": "2020-09-18"
-    },
-    {
         "title": "Tenet",
         "id": 577922,
         "length": "",
@@ -130,28 +148,6 @@
             }
         ],
         "release_date": "2020-09-03"
-    },
-    {
-        "title": "Bill & Ted Face the Music",
-        "id": 501979,
-        "length": "",
-        "overview": "A dos aspirantes a rockeros de San Dimas, California, se les dijo una vez que salvar\u00edan el universo durante una aventura de viaje en el tiempo, pero se encuentran como padres de mediana edad que a\u00fan intentan poner en marcha una canci\u00f3n exitosa y cumplir su destino. Sin suerte e inspiraci\u00f3n, Bill y Ted emprendieron otra aventura de viaje en el tiempo para buscar la canci\u00f3n que establecer\u00e1 su mundo correcto y traer\u00e1 armon\u00eda al universo tal como lo conocemos.",
-        "poster": "https:\/\/image.tmdb.org\/t\/p\/original\/4V2nTPfeB59TcqJcUfQ9ziTi7VN.jpg",
-        "genre": [
-            {
-                "id": 12,
-                "name": "Adventure"
-            },
-            {
-                "id": 35,
-                "name": "Comedy"
-            },
-            {
-                "id": 878,
-                "name": "Science Fiction"
-            }
-        ],
-        "release_date": "2020-08-28"
     },
     {
         "title": "Los nuevos mutantes",
@@ -180,40 +176,26 @@
         "release_date": "2020-08-28"
     },
     {
-        "title": "2067",
-        "id": 528085,
+        "title": "The War with Grandpa",
+        "id": 425001,
         "length": "",
-        "overview": "El viaje de un hombre hacia el futuro para salvar un mundo moribundo.",
-        "poster": "https:\/\/image.tmdb.org\/t\/p\/original\/7D430eqZj8y3oVkLFfsWXGRcpEG.jpg",
+        "overview": "Molesto de que tenga que compartir la habitaci\u00f3n que ama con su abuelo, Peter decide declarar la guerra en un intento por recuperarla.",
+        "poster": "https:\/\/image.tmdb.org\/t\/p\/original\/ltyARDw2EFXZ2H2ERnlEctXPioP.jpg",
         "genre": [
             {
-                "id": 878,
-                "name": "Science Fiction"
+                "id": 35,
+                "name": "Comedy"
             },
             {
-                "id": 53,
-                "name": "Thriller"
-            }
-        ],
-        "release_date": "2020-10-02"
-    },
-    {
-        "title": "The Pale Door",
-        "id": 610201,
-        "length": "",
-        "overview": "Despu\u00e9s de un robo de tren, dos hermanos que lideran una banda de vaqueros deben sobrevivir a la noche en un pueblo fantasma habitado por un aquelarre de brujas.",
-        "poster": "https:\/\/image.tmdb.org\/t\/p\/original\/jkAZb9jteax1XRnEFlCU9Oer1YJ.jpg",
-        "genre": [
-            {
-                "id": 27,
-                "name": "Horror"
+                "id": 18,
+                "name": "Drama"
             },
             {
-                "id": 37,
-                "name": "Western"
+                "id": 10751,
+                "name": "Family"
             }
         ],
-        "release_date": "2020-08-21"
+        "release_date": "2020-10-09"
     },
     {
         "title": "Estoy pensando en dejarlo",
@@ -234,30 +216,20 @@
         "release_date": "2020-08-28"
     },
     {
-        "title": "Belleza eterna",
-        "id": 501953,
+        "title": "12 Hour Shift",
+        "id": 667141,
         "length": "",
-        "overview": "Cuando Jane es abandonada en el altar sufre una crisis y se sumerge en un mundo ca\u00f3tico, donde el amor \u2013tanto real como imaginario\u2013 y las relaciones familiares chocan con consecuencias conmovedoras y humor\u00edsticas.",
-        "poster": "https:\/\/image.tmdb.org\/t\/p\/original\/uKsUO0jv05LGB5SWAYF3Z3VF7zA.jpg",
+        "overview": "Los cuerpos comienzan a acumularse cuando una enfermera drogadicta y su prima intentan encontrar un ri\u00f1\u00f3n de reemplazo para un traficante de \u00f3rganos",
+        "poster": "https:\/\/image.tmdb.org\/t\/p\/original\/zDo6t0cgFVof4Pvu9BnkhGfDT79.jpg",
         "genre": [
             {
                 "id": 35,
                 "name": "Comedy"
             },
             {
-                "id": 18,
-                "name": "Drama"
-            }
-        ],
-        "release_date": "2020-08-21"
-    },
-    {
-        "title": "The Unfamiliar",
-        "id": 675490,
-        "length": "",
-        "overview": "Un m\u00e9dico del ej\u00e9rcito brit\u00e1nico regresa de una guerra, pensando que tiene PTSD solo para descubrir que hay una malevolencia m\u00e1s desalentadora en el trabajo que hace que la vida que conoc\u00eda le resulte desconocida.",
-        "poster": "https:\/\/image.tmdb.org\/t\/p\/original\/Xt37loPwHjipC1qaCbfLfDcFu4.jpg",
-        "genre": [
+                "id": 80,
+                "name": "Crime"
+            },
             {
                 "id": 27,
                 "name": "Horror"
@@ -267,7 +239,7 @@
                 "name": "Thriller"
             }
         ],
-        "release_date": "2020-08-21"
+        "release_date": "2020-10-02"
     },
     {
         "title": "Infidel",
@@ -284,61 +256,21 @@
         "release_date": "2020-09-18"
     },
     {
-        "title": "Fuera de control",
-        "id": 625568,
+        "title": "Cagefighter: Worlds Collide",
+        "id": 697039,
         "length": "",
-        "overview": "Un caso de rabia en la carretera se convierte en terror total cuando un conductor inestable sigue a una mujer y a su hijo.",
-        "poster": "https:\/\/image.tmdb.org\/t\/p\/original\/zUQechHj8djNKlOMhdKT9Mfm4xp.jpg",
+        "overview": "Reis es el campeon m\u00e1s grande que jam\u00e1s haya peleado en una jaula LEGENDS. Pero cuando el promotor Max Black lo enfrenta a la superestrella de la lucha libre Randy Stone, Reiss se encuentra en la pelea m\u00e1s dura de su vida.",
+        "poster": "https:\/\/image.tmdb.org\/t\/p\/original\/96OFYM1mP6UJ0NOXDM2zL3APsnp.jpg",
         "genre": [
             {
                 "id": 28,
                 "name": "Action"
-            },
-            {
-                "id": 53,
-                "name": "Thriller"
             }
         ],
-        "release_date": "2020-08-21"
+        "release_date": "2020-10-09"
     },
     {
-        "title": "12 Hour Shift",
-        "id": 667141,
-        "length": "",
-        "overview": "Los cuerpos comienzan a acumularse cuando una enfermera drogadicta y su prima intentan encontrar un ri\u00f1\u00f3n de reemplazo para un traficante de \u00f3rganos",
-        "poster": "https:\/\/image.tmdb.org\/t\/p\/original\/zDo6t0cgFVof4Pvu9BnkhGfDT79.jpg",
-        "genre": [
-            {
-                "id": 35,
-                "name": "Comedy"
-            },
-            {
-                "id": 27,
-                "name": "Horror"
-            },
-            {
-                "id": 53,
-                "name": "Thriller"
-            }
-        ],
-        "release_date": "2020-10-02"
-    },
-    {
-        "title": "Death of Me",
-        "id": 595149,
-        "length": "",
-        "overview": "Una pareja que se encuentra de vacaciones en un lugar ex\u00f3tico se ve envuelto en una trama que llevar\u00e1 a la ejecuci\u00f3n de un asesinato ritual.",
-        "poster": "https:\/\/image.tmdb.org\/t\/p\/original\/8F9xUvb1JMWUMkFV2Yq3aiueAbq.jpg",
-        "genre": [
-            {
-                "id": 27,
-                "name": "Horror"
-            }
-        ],
-        "release_date": "2020-10-02"
-    },
-    {
-        "title": "Save Yourselves!",
+        "title": "\u00a1S\u00e1lvese quien pueda!",
         "id": 653569,
         "length": "",
         "overview": "Una joven pareja de Brooklyn se dirige al norte del estado para desconectarse de sus tel\u00e9fonos y volver a conectarse con ellos mismos. Separados de sus dispositivos, se pierden la noticia de que el planeta est\u00e1 siendo atacado.",
@@ -356,30 +288,20 @@
         "release_date": "2020-10-01"
     },
     {
-        "title": "The Broken Hearts Gallery",
-        "id": 616251,
+        "title": "Honest Thief",
+        "id": 553604,
         "length": "",
         "overview": "",
-        "poster": "https:\/\/image.tmdb.org\/t\/p\/original\/wGkr4r1e8nubmSNKJpv3HL6sFrA.jpg",
+        "poster": "https:\/\/image.tmdb.org\/t\/p\/original\/AbJ96LJ7JJakKqYsBwRqpLlaqJc.jpg",
         "genre": [
             {
-                "id": 35,
-                "name": "Comedy"
+                "id": 28,
+                "name": "Action"
             },
             {
-                "id": 10749,
-                "name": "Romance"
-            }
-        ],
-        "release_date": "2020-09-11"
-    },
-    {
-        "title": "A Call to Spy",
-        "id": 589612,
-        "length": "",
-        "overview": "",
-        "poster": "https:\/\/image.tmdb.org\/t\/p\/original\/1GFlfHQcB06lruWFybEvgJ9VBAr.jpg",
-        "genre": [
+                "id": 80,
+                "name": "Crime"
+            },
             {
                 "id": 18,
                 "name": "Drama"
@@ -387,10 +309,42 @@
             {
                 "id": 53,
                 "name": "Thriller"
+            }
+        ],
+        "release_date": "2020-10-09"
+    },
+    {
+        "title": "Rompiendo las normas",
+        "id": 567965,
+        "length": "",
+        "overview": "A\u00f1o 1970. El certamen de Miss Mundo se celebra en Londres presentado por Bob Hope, leyenda de la comedia estadounidense. En ese momento Miss Mundo es el programa de televisi\u00f3n m\u00e1s visto en el planeta, con m\u00e1s de 100 millones de espectadores. En pleno directo el reci\u00e9n creado Movimiento de Liberaci\u00f3n de Mujeres invade el escenario e interrumpe la retransmisi\u00f3n afirmando que los concursos de belleza degradan a las mujeres. As\u00ed, de la noche a la ma\u00f1ana, el Movimiento se hace famoso... Al reanudarse el programa, la elecci\u00f3n de la ganadora provoca un nuevo gran revuelo: no es la favorita sueca, sino Miss Grenada, la primera mujer negra en ser coronada Miss Mundo. En cuesti\u00f3n de horas, una audiencia global fue testigo de la expulsi\u00f3n del patriarcado del escenario y del nacimiento del nuevo ideal de belleza occidental.",
+        "poster": "https:\/\/image.tmdb.org\/t\/p\/original\/aRzjOm1ZehUKWUHaXFv8Rhnde7P.jpg",
+        "genre": [
+            {
+                "id": 35,
+                "name": "Comedy"
             },
             {
-                "id": 10752,
-                "name": "War"
+                "id": 18,
+                "name": "Drama"
+            },
+            {
+                "id": 36,
+                "name": "History"
+            }
+        ],
+        "release_date": "2020-09-25"
+    },
+    {
+        "title": "Death of Me",
+        "id": 595149,
+        "length": "",
+        "overview": "Una pareja que se encuentra de vacaciones en un lugar ex\u00f3tico se ve envuelto en una trama que llevar\u00e1 a la ejecuci\u00f3n de un asesinato ritual.",
+        "poster": "https:\/\/image.tmdb.org\/t\/p\/original\/8F9xUvb1JMWUMkFV2Yq3aiueAbq.jpg",
+        "genre": [
+            {
+                "id": 27,
+                "name": "Horror"
             }
         ],
         "release_date": "2020-10-02"
@@ -418,26 +372,18 @@
         "release_date": "2020-09-18"
     },
     {
-        "title": "Rompiendo las normas",
-        "id": 567965,
+        "title": "Faith Based",
+        "id": 616982,
         "length": "",
-        "overview": "A\u00f1o 1970. El certamen de Miss Mundo se celebra en Londres presentado por Bob Hope, leyenda de la comedia estadounidense. En ese momento Miss Mundo es el programa de televisi\u00f3n m\u00e1s visto en el planeta, con m\u00e1s de 100 millones de espectadores. En pleno directo el reci\u00e9n creado Movimiento de Liberaci\u00f3n de Mujeres invade el escenario e interrumpe la retransmisi\u00f3n afirmando que los concursos de belleza degradan a las mujeres. As\u00ed, de la noche a la ma\u00f1ana, el Movimiento se hace famoso... Al reanudarse el programa, la elecci\u00f3n de la ganadora provoca un nuevo gran revuelo: no es la favorita sueca, sino Miss Grenada, la primera mujer negra en ser coronada Miss Mundo. En cuesti\u00f3n de horas, una audiencia global fue testigo de la expulsi\u00f3n del patriarcado del escenario y del nacimiento del nuevo ideal de belleza occidental.",
-        "poster": "https:\/\/image.tmdb.org\/t\/p\/original\/aRzjOm1ZehUKWUHaXFv8Rhnde7P.jpg",
+        "overview": "",
+        "poster": "https:\/\/image.tmdb.org\/t\/p\/original\/2EobXh41lnhIo9RPoH3Sf2exxu2.jpg",
         "genre": [
             {
                 "id": 35,
                 "name": "Comedy"
-            },
-            {
-                "id": 18,
-                "name": "Drama"
-            },
-            {
-                "id": 36,
-                "name": "History"
             }
         ],
-        "release_date": "2020-09-25"
+        "release_date": "2020-10-09"
     },
     {
         "title": "Kajillionaire",
@@ -458,6 +404,72 @@
         "release_date": "2020-09-25"
     },
     {
+        "title": "A Call to Spy",
+        "id": 589612,
+        "length": "",
+        "overview": "La historia de Vera Atkins, una h\u00e1bil reclutadora de esp\u00edas, y dos de las primeras mujeres que selecciona para el \"ej\u00e9rcito secreto\" de Churchill: Virginia Hall, una estadounidense atrevida que no se deja intimidar por una discapacidad y Noor Inayat Khan, una pacifista. Estas mujeres civiles forman una hermandad poco probable mientras se enredan en peligrosas misiones para cambiar el rumbo de la guerra.",
+        "poster": "https:\/\/image.tmdb.org\/t\/p\/original\/1GFlfHQcB06lruWFybEvgJ9VBAr.jpg",
+        "genre": [
+            {
+                "id": 18,
+                "name": "Drama"
+            },
+            {
+                "id": 53,
+                "name": "Thriller"
+            },
+            {
+                "id": 10752,
+                "name": "War"
+            }
+        ],
+        "release_date": "2020-10-02"
+    },
+    {
+        "title": "Break The Silence: The Movie",
+        "id": 730647,
+        "length": "",
+        "overview": "",
+        "poster": "https:\/\/image.tmdb.org\/t\/p\/original\/kucz66uCOc5vqRXd0xA7YtSUtg4.jpg",
+        "genre": [
+            {
+                "id": 99,
+                "name": "Documentary"
+            },
+            {
+                "id": 10402,
+                "name": "Music"
+            }
+        ],
+        "release_date": "2020-09-24"
+    },
+    {
+        "title": "Spontaneous",
+        "id": 604578,
+        "length": "",
+        "overview": "Cuando los estudiantes de su escuela secundaria comienzan a explotar inexplicablemente (literalmente ...), Mara y Dylan luchan por sobrevivir en un mundo donde cada momento puede ser el \u00faltimo.",
+        "poster": "https:\/\/image.tmdb.org\/t\/p\/original\/22jwKxZf4rcrmh2NS07SZAQYYNY.jpg",
+        "genre": [
+            {
+                "id": 35,
+                "name": "Comedy"
+            },
+            {
+                "id": 27,
+                "name": "Horror"
+            },
+            {
+                "id": 878,
+                "name": "Science Fiction"
+            },
+            {
+                "id": 10749,
+                "name": "Romance"
+            }
+        ],
+        "release_date": "2020-10-02"
+    },
+    {
         "title": "El reflejo de Sibyl",
         "id": 559401,
         "length": "",
@@ -471,6 +483,24 @@
             {
                 "id": 53,
                 "name": "Thriller"
+            }
+        ],
+        "release_date": "2020-09-11"
+    },
+    {
+        "title": "The Broken Hearts Gallery",
+        "id": 616251,
+        "length": "",
+        "overview": "",
+        "poster": "https:\/\/image.tmdb.org\/t\/p\/original\/wGkr4r1e8nubmSNKJpv3HL6sFrA.jpg",
+        "genre": [
+            {
+                "id": 35,
+                "name": "Comedy"
+            },
+            {
+                "id": 10749,
+                "name": "Romance"
             }
         ],
         "release_date": "2020-09-11"
@@ -496,6 +526,413 @@
             }
         ],
         "release_date": "2020-10-02"
+    },
+    {
+        "title": "Yellow Rose",
+        "id": 593427,
+        "length": "",
+        "overview": "Rose es una chica de 17 sin papeles procedente de filipinas que sue\u00f1a con abandonar el pueblo de Texas (Estados Unidos) en el que reside para perseguir su sue\u00f1o como cantante de m\u00fasica. Su mundo se viene abajo cuando Inmigraci\u00f3n descubre y apresa a su madre, suceso que deja a Rose desamparada para sobrevivir al d\u00eda a d\u00eda. Sin otra opci\u00f3n que huir, la adolescente pone rumbo a la alocada ciudad de Austin, donde adem\u00e1s de empezar a conocerse mejor a s\u00ed misma, tendr\u00e1 que encontrar un nuevo hogar a toda costa",
+        "poster": "https:\/\/image.tmdb.org\/t\/p\/original\/kmnH8KmoiM7VpHZAADiTPWbpFGl.jpg",
+        "genre": [
+            {
+                "id": 18,
+                "name": "Drama"
+            },
+            {
+                "id": 10402,
+                "name": "Music"
+            }
+        ],
+        "release_date": "2020-10-09"
+    },
+    {
+        "title": "El juicio de los 7 de Chicago",
+        "id": 556984,
+        "length": "",
+        "overview": "En 1969 se celebr\u00f3 uno de los juicios m\u00e1s populares de la Historia de Estados Unidos, en el que siete individuos fueron juzgados tras ser acusados de conspirar en contra de la seguridad nacional. Este hecho traer\u00eda una serie de conflictos sociales (manifestaciones, movimientos ciudadanos) que pasar\u00edan a la posteridad en una \u00e9poca de grandes cambios en todos los niveles del pueblo norteamericano.",
+        "poster": "https:\/\/image.tmdb.org\/t\/p\/original\/3pbPyNkwl8DOGUgO9OqHdHiIrAi.jpg",
+        "genre": [
+            {
+                "id": 18,
+                "name": "Drama"
+            },
+            {
+                "id": 36,
+                "name": "History"
+            },
+            {
+                "id": 53,
+                "name": "Thriller"
+            }
+        ],
+        "release_date": "2020-09-25"
+    },
+    {
+        "title": "Tomiris",
+        "id": 644613,
+        "length": "",
+        "overview": "Esta es la historia de la vida de la gran reina de la estepa, la legendaria Tomiris. Ella est\u00e1 destinada a convertirse en una h\u00e1bil guerrera, sobrevivir a la p\u00e9rdida de personas cercanas y unir a las tribus escita \/ saka bajo su autoridad.",
+        "poster": "https:\/\/image.tmdb.org\/t\/p\/original\/lu9kpN9NEDnpMinYgse30l1kV2k.jpg",
+        "genre": [
+            {
+                "id": 18,
+                "name": "Drama"
+            },
+            {
+                "id": 36,
+                "name": "History"
+            }
+        ],
+        "release_date": "2020-09-29"
+    },
+    {
+        "title": "F\u00e1tima, la pel\u00edcula",
+        "id": 520318,
+        "length": "",
+        "overview": "Portugal, 1917. Tres ni\u00f1os afirman haber visto a la Virgen Mar\u00eda en F\u00e1tima. Sus revelaciones enfurecen al Gobierno y a la Iglesia que intentan obligarles a retractarse de su historia. Pero a medida que se extiende la noticia de su profec\u00eda, miles de peregrinos acuden a F\u00e1tima con la esperanza de presenciar un milagro. Lo que all\u00ed experimentar\u00e1n cambiar\u00e1 sus vidas para siempre.",
+        "poster": "https:\/\/image.tmdb.org\/t\/p\/original\/eRAToGJITHaK6QvfImPaE2ofBwF.jpg",
+        "genre": [
+            {
+                "id": 18,
+                "name": "Drama"
+            },
+            {
+                "id": 10751,
+                "name": "Family"
+            }
+        ],
+        "release_date": "2020-08-28"
+    },
+    {
+        "title": "The Secrets We Keep",
+        "id": 615115,
+        "length": "",
+        "overview": "En la Am\u00e9rica posterior a la Segunda Guerra Mundial, una mujer, reconstruyendo su vida en los suburbios con su esposo, secuestra a su vecino y busca venganza por los atroces cr\u00edmenes de guerra que cree que \u00e9l cometi\u00f3 contra ella.",
+        "poster": "https:\/\/image.tmdb.org\/t\/p\/original\/sZ2zmWy8YK7ca3go1L124S8xjIM.jpg",
+        "genre": [
+            {
+                "id": 53,
+                "name": "Thriller"
+            }
+        ],
+        "release_date": "2020-09-16"
+    },
+    {
+        "title": "Rogue Warfare: Death of a Nation",
+        "id": 635780,
+        "length": "",
+        "overview": "Un grupo de \u00e9lite militar de EE. UU., Rusia, Reino Unido, China y Francia unen fuerzas para luchar contra una red terrorista de \u00e9lite.",
+        "poster": "https:\/\/image.tmdb.org\/t\/p\/original\/w1ZxQAHPDW2roZF1fcKGHfRpUYi.jpg",
+        "genre": [
+            {
+                "id": 28,
+                "name": "Action"
+            },
+            {
+                "id": 10752,
+                "name": "War"
+            }
+        ],
+        "release_date": "2020-09-25"
+    },
+    {
+        "title": "Time",
+        "id": 653729,
+        "length": "",
+        "overview": "",
+        "poster": "https:\/\/image.tmdb.org\/t\/p\/original\/hchRmyJ2FIkJtoqALWScxGlwu5E.jpg",
+        "genre": [
+            {
+                "id": 99,
+                "name": "Documentary"
+            }
+        ],
+        "release_date": "2020-10-09"
+    },
+    {
+        "title": "The Devil to Pay",
+        "id": 637620,
+        "length": "",
+        "overview": "Despu\u00e9s de la desaparici\u00f3n de su esposo, un granjero en apuros en una comunidad aislada de los Apalaches lucha por salvar a su hijo cuando la matriarca de coraz\u00f3n fr\u00edo de la familia m\u00e1s vieja de la monta\u00f1a exige el pago de una deuda que podr\u00eda destruir una tregua de una d\u00e9cada.",
+        "poster": "https:\/\/image.tmdb.org\/t\/p\/original\/6tO1xcrm7646GGyszLs2cUb6HZa.jpg",
+        "genre": [
+            {
+                "id": 18,
+                "name": "Drama"
+            },
+            {
+                "id": 53,
+                "name": "Thriller"
+            }
+        ],
+        "release_date": "2020-10-02"
+    },
+    {
+        "title": "Alive",
+        "id": 492414,
+        "length": "",
+        "overview": "Un hombre y una mujer gravemente heridos despiertan en un sanatorio abandonado solo para descubrir que un cuidador s\u00e1dico posee las llaves de su libertad y las respuestas horribles sobre su verdadera identidad.",
+        "poster": "https:\/\/image.tmdb.org\/t\/p\/original\/3KqM6l45QQVDYQgYWnQnK1jDDHa.jpg",
+        "genre": [
+            {
+                "id": 27,
+                "name": "Horror"
+            },
+            {
+                "id": 53,
+                "name": "Thriller"
+            }
+        ],
+        "release_date": "2020-09-18"
+    },
+    {
+        "title": "I Am Woman",
+        "id": 531033,
+        "length": "",
+        "overview": "",
+        "poster": "https:\/\/image.tmdb.org\/t\/p\/original\/gpAkNeMzrSTJX2YIYcuwfqBrEqS.jpg",
+        "genre": [
+            {
+                "id": 18,
+                "name": "Drama"
+            },
+            {
+                "id": 10402,
+                "name": "Music"
+            }
+        ],
+        "release_date": "2020-09-11"
+    },
+    {
+        "title": "Mighty Ira",
+        "id": 748963,
+        "length": "",
+        "overview": "",
+        "poster": "https:\/\/image.tmdb.org\/t\/p\/original\/cr894G2T6G1hcpzCY5hBMI76xb5.jpg",
+        "genre": [],
+        "release_date": "2020-10-09"
+    },
+    {
+        "title": "UFC on ESPN 16: Holm vs. Aldana",
+        "id": 748403,
+        "length": "",
+        "overview": "",
+        "poster": "https:\/\/image.tmdb.org\/t\/p\/original\/lK2LouNUzXvixhpekW69KE9OE3O.jpg",
+        "genre": [],
+        "release_date": "2020-10-03"
+    },
+    {
+        "title": "Archons",
+        "id": 553357,
+        "length": "",
+        "overview": "",
+        "poster": "https:\/\/image.tmdb.org\/t\/p\/original\/i0qdO371R0awkVLYqIfLrPn4pXc.jpg",
+        "genre": [
+            {
+                "id": 27,
+                "name": "Horror"
+            },
+            {
+                "id": 878,
+                "name": "Science Fiction"
+            },
+            {
+                "id": 53,
+                "name": "Thriller"
+            }
+        ],
+        "release_date": "2020-10-06"
+    },
+    {
+        "title": "On the Rocks",
+        "id": 575417,
+        "length": "",
+        "overview": "Ante las recientes dudas sobre su matrimonio, una joven neoyorquina le pide ayuda a su extravagante padre para seguir a su marido.",
+        "poster": "https:\/\/image.tmdb.org\/t\/p\/original\/zA9a8tiKEeyBI6XGIWdhDH6Khsu.jpg",
+        "genre": [
+            {
+                "id": 35,
+                "name": "Comedy"
+            },
+            {
+                "id": 18,
+                "name": "Drama"
+            }
+        ],
+        "release_date": "2020-10-02"
+    },
+    {
+        "title": "Pray: The Story of Patrick Peyton",
+        "id": 747981,
+        "length": "",
+        "overview": "",
+        "poster": "https:\/\/image.tmdb.org\/t\/p\/original\/s33sWe2FK1fZEAIA3NNl2xC5lzn.jpg",
+        "genre": [
+            {
+                "id": 99,
+                "name": "Documentary"
+            }
+        ],
+        "release_date": "2020-10-09"
+    },
+    {
+        "title": "The Call",
+        "id": 746817,
+        "length": "",
+        "overview": "",
+        "poster": "https:\/\/image.tmdb.org\/t\/p\/original\/bHkGdJtpInd08ruSUrxMnBjjmbr.jpg",
+        "genre": [],
+        "release_date": "2020-10-02"
+    },
+    {
+        "title": "The Personal History of David Copperfield",
+        "id": 520900,
+        "length": "",
+        "overview": "Una versi\u00f3n fresca y distintiva de la obra maestra semiautobiogr\u00e1fica de Charles Dickens, La historia personal de David Copperfield, ambientada en la d\u00e9cada de 1840, narra la vida de su personaje ic\u00f3nico mientras navega por un mundo ca\u00f3tico para encontrar su lugar evasivo dentro de \u00e9l. Desde su infeliz infancia hasta el descubrimiento de su don como narrador y escritor, el viaje de David es, a su vez, hilarante y tr\u00e1gico, pero siempre lleno de vida, color y humanidad.",
+        "poster": "https:\/\/image.tmdb.org\/t\/p\/original\/2epgo9k2Jrs7qrTL1Rork1mDSKT.jpg",
+        "genre": [
+            {
+                "id": 35,
+                "name": "Comedy"
+            },
+            {
+                "id": 18,
+                "name": "Drama"
+            }
+        ],
+        "release_date": "2020-08-28"
+    },
+    {
+        "title": "The Wayward - A Short Film",
+        "id": 749710,
+        "length": "",
+        "overview": "",
+        "poster": "https:\/\/image.tmdb.org\/t\/p\/original\/cDnYJrs8h7NMbVuraeziLaYib3J.jpg",
+        "genre": [
+            {
+                "id": 27,
+                "name": "Horror"
+            },
+            {
+                "id": 9648,
+                "name": "Mystery"
+            },
+            {
+                "id": 878,
+                "name": "Science Fiction"
+            }
+        ],
+        "release_date": "2020-10-10"
+    },
+    {
+        "title": "The Dead Ones",
+        "id": 592786,
+        "length": "",
+        "overview": "Narra c\u00f3mo para cuatro adolescentes marginados, la llegada del verano implica que se les asigne limpiar su escuela despu\u00e9s de un horrible incidente. Pero no est\u00e1n solos; una macabra pandilla disfrazada de \"los cuatro jinetes del apocalipsis\" (hambre, peste, guerra y muerte) los ha encerrado y los est\u00e1 cazando por los pasillos devastados de la escuela...",
+        "poster": "https:\/\/image.tmdb.org\/t\/p\/original\/mLpxIkjIFTrCQFLItNdGMqOKauR.jpg",
+        "genre": [
+            {
+                "id": 27,
+                "name": "Horror"
+            }
+        ],
+        "release_date": "2020-09-18"
+    },
+    {
+        "title": "Feels Good Man",
+        "id": 653578,
+        "length": "",
+        "overview": "",
+        "poster": "https:\/\/image.tmdb.org\/t\/p\/original\/2KYGa23KJ5laLCtj6TwXwexDCKo.jpg",
+        "genre": [
+            {
+                "id": 99,
+                "name": "Documentary"
+            }
+        ],
+        "release_date": "2020-09-04"
+    },
+    {
+        "title": "In Other Words",
+        "id": 734246,
+        "length": "",
+        "overview": "",
+        "poster": "https:\/\/image.tmdb.org\/t\/p\/original\/qKVoNtmA9dGfFuJbhaJNTh5W5pB.jpg",
+        "genre": [
+            {
+                "id": 35,
+                "name": "Comedy"
+            },
+            {
+                "id": 10749,
+                "name": "Romance"
+            }
+        ],
+        "release_date": "2020-09-14"
+    },
+    {
+        "title": "Android Uprising",
+        "id": 749139,
+        "length": "",
+        "overview": "",
+        "poster": "https:\/\/image.tmdb.org\/t\/p\/original\/lCAlqIsVL1abQWoFJaDvdeXfIOx.jpg",
+        "genre": [
+            {
+                "id": 878,
+                "name": "Science Fiction"
+            }
+        ],
+        "release_date": "2020-10-01"
+    },
+    {
+        "title": "The Nest",
+        "id": 545237,
+        "length": "",
+        "overview": "Rory es un emprendedor ambicioso que trae a su esposa e hijos estadounidenses a su pa\u00eds natal, Inglaterra, para explorar nuevas oportunidades comerciales. Despu\u00e9s de abandonar el santuario de su entorno suburbano estadounidense seguro, la familia se sumerge en la desesperaci\u00f3n de una Gran Breta\u00f1a arcaica de los 80 y su nueva vida inasequible en una casa solariega inglesa amenaza con destruir a la familia.",
+        "poster": "https:\/\/image.tmdb.org\/t\/p\/original\/mSTrRgXGzu2t1jVhTexIqwSHlk7.jpg",
+        "genre": [
+            {
+                "id": 18,
+                "name": "Drama"
+            }
+        ],
+        "release_date": "2020-09-18"
+    },
+    {
+        "title": "Copper Bill",
+        "id": 685571,
+        "length": "",
+        "overview": "Dos ladrones intentan robar 80 millones de d\u00f3lares de dinero oculto de la droga de Texas del famoso rancho que pertenece a un miembro muerto de la mafia de los vaqueros.",
+        "poster": "https:\/\/image.tmdb.org\/t\/p\/original\/mSZnvJ0olvAss77b01Vf68or8xr.jpg",
+        "genre": [
+            {
+                "id": 80,
+                "name": "Crime"
+            },
+            {
+                "id": 28,
+                "name": "Action"
+            },
+            {
+                "id": 53,
+                "name": "Thriller"
+            }
+        ],
+        "release_date": "2020-09-30"
+    },
+    {
+        "title": "Still Here",
+        "id": 528402,
+        "length": "",
+        "overview": "",
+        "poster": "https:\/\/image.tmdb.org\/t\/p\/original\/9WwHJqMRfnvgg7z4D3Qhq8rJOBL.jpg",
+        "genre": [
+            {
+                "id": 18,
+                "name": "Drama"
+            }
+        ],
+        "release_date": "2020-08-28"
     },
     {
         "title": "Jiang Ziya: Legend of Deification",
@@ -524,255 +961,90 @@
         "release_date": "2020-10-01"
     },
     {
-        "title": "El juicio de los 7 de Chicago",
-        "id": 556984,
-        "length": "",
-        "overview": "En 1969 se celebr\u00f3 uno de los juicios m\u00e1s populares de la Historia de Estados Unidos, en el que siete individuos fueron juzgados tras ser acusados de conspirar en contra de la seguridad nacional. Este hecho traer\u00eda una serie de conflictos sociales (manifestaciones, movimientos ciudadanos) que pasar\u00edan a la posteridad en una \u00e9poca de grandes cambios en todos los niveles del pueblo norteamericano.",
-        "poster": "https:\/\/image.tmdb.org\/t\/p\/original\/3pbPyNkwl8DOGUgO9OqHdHiIrAi.jpg",
-        "genre": [
-            {
-                "id": 18,
-                "name": "Drama"
-            },
-            {
-                "id": 36,
-                "name": "History"
-            },
-            {
-                "id": 53,
-                "name": "Thriller"
-            }
-        ],
-        "release_date": "2020-09-25"
-    },
-    {
-        "title": "On the Rocks",
-        "id": 575417,
-        "length": "",
-        "overview": "Ante las recientes dudas sobre su matrimonio, una joven neoyorquina le pide ayuda a su extravagante padre para seguir a su marido.",
-        "poster": "https:\/\/image.tmdb.org\/t\/p\/original\/zA9a8tiKEeyBI6XGIWdhDH6Khsu.jpg",
-        "genre": [
-            {
-                "id": 35,
-                "name": "Comedy"
-            },
-            {
-                "id": 18,
-                "name": "Drama"
-            }
-        ],
-        "release_date": "2020-10-02"
-    },
-    {
-        "title": "The Devil to Pay",
-        "id": 637620,
-        "length": "",
-        "overview": "Despu\u00e9s de la desaparici\u00f3n de su esposo, un granjero en apuros en una comunidad aislada de los Apalaches lucha por salvar a su hijo cuando la matriarca de coraz\u00f3n fr\u00edo de la familia m\u00e1s vieja de la monta\u00f1a exige el pago de una deuda que podr\u00eda destruir una tregua de una d\u00e9cada.",
-        "poster": "https:\/\/image.tmdb.org\/t\/p\/original\/6tO1xcrm7646GGyszLs2cUb6HZa.jpg",
-        "genre": [
-            {
-                "id": 18,
-                "name": "Drama"
-            },
-            {
-                "id": 53,
-                "name": "Thriller"
-            }
-        ],
-        "release_date": "2020-10-02"
-    },
-    {
-        "title": "Break The Silence: The Movie",
-        "id": 730647,
+        "title": "Worth The Wait",
+        "id": 744127,
         "length": "",
         "overview": "",
-        "poster": "https:\/\/image.tmdb.org\/t\/p\/original\/kucz66uCOc5vqRXd0xA7YtSUtg4.jpg",
+        "poster": "https:\/\/image.tmdb.org\/t\/p\/original",
+        "genre": [
+            {
+                "id": 99,
+                "name": "Documentary"
+            }
+        ],
+        "release_date": "2020-10-08"
+    },
+    {
+        "title": "Darkness in Tenement 45",
+        "id": 595601,
+        "length": "",
+        "overview": "",
+        "poster": "https:\/\/image.tmdb.org\/t\/p\/original\/6vykCckhFDxRtXVvFOyD9GWM1MI.jpg",
+        "genre": [
+            {
+                "id": 18,
+                "name": "Drama"
+            },
+            {
+                "id": 27,
+                "name": "Horror"
+            },
+            {
+                "id": 53,
+                "name": "Thriller"
+            }
+        ],
+        "release_date": "2020-10-08"
+    },
+    {
+        "title": "Reaptown",
+        "id": 748224,
+        "length": "",
+        "overview": "",
+        "poster": "https:\/\/image.tmdb.org\/t\/p\/original\/wyN1R51euy3c2YHsyiSnc5ovF5t.jpg",
+        "genre": [
+            {
+                "id": 27,
+                "name": "Horror"
+            }
+        ],
+        "release_date": "2020-09-28"
+    },
+    {
+        "title": "La Gran Madre",
+        "id": 559135,
+        "length": "",
+        "overview": "Este documental de v\u00e9rit\u00e9 sigue a Nora Sandigo, tutora legal de m\u00e1s de 2000 hijos ciudadanos estadounidenses de inmigrantes indocumentados, mientras ella sacrifica todo para mantener a los ni\u00f1os nacidos en Estados Unidos con sus padres indocumentados.",
+        "poster": "https:\/\/image.tmdb.org\/t\/p\/original\/y75QkRdQv00Z1aJrmJXptpYPe8g.jpg",
         "genre": [
             {
                 "id": 99,
                 "name": "Documentary"
             },
             {
-                "id": 10402,
-                "name": "Music"
-            }
-        ],
-        "release_date": "2020-09-24"
-    },
-    {
-        "title": "F\u00e1tima, la pel\u00edcula",
-        "id": 520318,
-        "length": "",
-        "overview": "Portugal, 1917. Tres ni\u00f1os afirman haber visto a la Virgen Mar\u00eda en F\u00e1tima. Sus revelaciones enfurecen al Gobierno y a la Iglesia que intentan obligarles a retractarse de su historia. Pero a medida que se extiende la noticia de su profec\u00eda, miles de peregrinos acuden a F\u00e1tima con la esperanza de presenciar un milagro. Lo que all\u00ed experimentar\u00e1n cambiar\u00e1 sus vidas para siempre.",
-        "poster": "https:\/\/image.tmdb.org\/t\/p\/original\/eRAToGJITHaK6QvfImPaE2ofBwF.jpg",
-        "genre": [
-            {
-                "id": 18,
-                "name": "Drama"
-            },
-            {
-                "id": 10751,
-                "name": "Family"
-            }
-        ],
-        "release_date": "2020-08-28"
-    },
-    {
-        "title": "Alive",
-        "id": 492414,
-        "length": "",
-        "overview": "Un hombre y una mujer gravemente heridos despiertan en un sanatorio abandonado solo para descubrir que un cuidador s\u00e1dico posee las llaves de su libertad y las respuestas horribles sobre su verdadera identidad.",
-        "poster": "https:\/\/image.tmdb.org\/t\/p\/original\/3KqM6l45QQVDYQgYWnQnK1jDDHa.jpg",
-        "genre": [
-            {
-                "id": 27,
-                "name": "Horror"
-            },
-            {
-                "id": 53,
-                "name": "Thriller"
-            }
-        ],
-        "release_date": "2020-09-18"
-    },
-    {
-        "title": "Spontaneous",
-        "id": 604578,
-        "length": "",
-        "overview": "",
-        "poster": "https:\/\/image.tmdb.org\/t\/p\/original\/22jwKxZf4rcrmh2NS07SZAQYYNY.jpg",
-        "genre": [
-            {
-                "id": 27,
-                "name": "Horror"
-            },
-            {
-                "id": 35,
-                "name": "Comedy"
-            },
-            {
-                "id": 10749,
-                "name": "Romance"
-            },
-            {
-                "id": 878,
-                "name": "Science Fiction"
-            }
-        ],
-        "release_date": "2020-10-02"
-    },
-    {
-        "title": "Rogue Warfare: Death of a Nation",
-        "id": 635780,
-        "length": "",
-        "overview": "Un grupo de \u00e9lite militar de EE. UU., Rusia, Reino Unido, China y Francia unen fuerzas para luchar contra una red terrorista de \u00e9lite.",
-        "poster": "https:\/\/image.tmdb.org\/t\/p\/original\/w1ZxQAHPDW2roZF1fcKGHfRpUYi.jpg",
-        "genre": [
-            {
-                "id": 28,
-                "name": "Action"
-            },
-            {
-                "id": 10752,
-                "name": "War"
-            }
-        ],
-        "release_date": "2020-09-25"
-    },
-    {
-        "title": "Coffin Decollet\u00e9",
-        "id": 702871,
-        "length": "",
-        "overview": "",
-        "poster": "https:\/\/image.tmdb.org\/t\/p\/original",
-        "genre": [
-            {
                 "id": 18,
                 "name": "Drama"
             }
         ],
-        "release_date": "2020-10-05"
+        "release_date": "2020-10-08"
     },
     {
-        "title": "Wolfwalkers",
-        "id": 441130,
+        "title": "The Donut Dollies",
+        "id": 680594,
         "length": "",
-        "overview": "La joven Robyn viaja a Irlanda con su padre para participar en una cacer\u00eda de lobos. Todo se complica cuando conoce a Mebh, una ni\u00f1a misteriosa que vive en el bosque y de la que dicen que por las noches, junto a su tribu n\u00f3mada, se transforma en lobo.",
-        "poster": "https:\/\/image.tmdb.org\/t\/p\/original\/4qIcr6KYMkLVViMaD2ruPrXzp5Y.jpg",
+        "overview": "En 1968, dos mejores amigos se unieron a un equipo de \u00e9lite y volaron a una zona de guerra con vestidos azul claro. Eran Donut Dollies de la Cruz Roja. Estas j\u00f3venes idealistas abrazaron su misi\u00f3n, animar a los soldados en Vietnam, con energ\u00eda, creatividad, compasi\u00f3n y determinaci\u00f3n, pero no ten\u00edan idea de en qu\u00e9 se estaban metiendo. 47 a\u00f1os despu\u00e9s, se re\u00fanen en Vietnam para volver sobre sus pasos; pregunte por qu\u00e9 fueron; pregunte si marcaron la diferencia; desbloquea recuerdos enterrados y comparte sus historias por primera vez.",
+        "poster": "https:\/\/image.tmdb.org\/t\/p\/original\/mrAqIhG6DF9pSooTPXBKDIfvSwn.jpg",
         "genre": [
             {
-                "id": 12,
-                "name": "Adventure"
-            },
-            {
-                "id": 16,
-                "name": "Animation"
+                "id": 99,
+                "name": "Documentary"
             },
             {
                 "id": 18,
                 "name": "Drama"
             }
         ],
-        "release_date": "2020-10-01"
-    },
-    {
-        "title": "The Dead Ones",
-        "id": 592786,
-        "length": "",
-        "overview": "",
-        "poster": "https:\/\/image.tmdb.org\/t\/p\/original\/mLpxIkjIFTrCQFLItNdGMqOKauR.jpg",
-        "genre": [
-            {
-                "id": 27,
-                "name": "Horror"
-            }
-        ],
-        "release_date": "2020-09-18"
-    },
-    {
-        "title": "The Personal History of David Copperfield",
-        "id": 520900,
-        "length": "",
-        "overview": "Una versi\u00f3n fresca y distintiva de la obra maestra semiautobiogr\u00e1fica de Charles Dickens, La historia personal de David Copperfield, ambientada en la d\u00e9cada de 1840, narra la vida de su personaje ic\u00f3nico mientras navega por un mundo ca\u00f3tico para encontrar su lugar evasivo dentro de \u00e9l. Desde su infeliz infancia hasta el descubrimiento de su don como narrador y escritor, el viaje de David es, a su vez, hilarante y tr\u00e1gico, pero siempre lleno de vida, color y humanidad.",
-        "poster": "https:\/\/image.tmdb.org\/t\/p\/original\/2epgo9k2Jrs7qrTL1Rork1mDSKT.jpg",
-        "genre": [
-            {
-                "id": 35,
-                "name": "Comedy"
-            },
-            {
-                "id": 18,
-                "name": "Drama"
-            }
-        ],
-        "release_date": "2020-08-28"
-    },
-    {
-        "title": "I Am Woman",
-        "id": 531033,
-        "length": "",
-        "overview": "",
-        "poster": "https:\/\/image.tmdb.org\/t\/p\/original\/gpAkNeMzrSTJX2YIYcuwfqBrEqS.jpg",
-        "genre": [
-            {
-                "id": 18,
-                "name": "Drama"
-            },
-            {
-                "id": 10402,
-                "name": "Music"
-            }
-        ],
-        "release_date": "2020-09-11"
-    },
-    {
-        "title": "The Call",
-        "id": 746817,
-        "length": "",
-        "overview": "",
-        "poster": "https:\/\/image.tmdb.org\/t\/p\/original\/bHkGdJtpInd08ruSUrxMnBjjmbr.jpg",
-        "genre": [],
-        "release_date": "2020-10-02"
+        "release_date": "2020-10-08"
     },
     {
         "title": "The Last Laugh",
@@ -793,73 +1065,22 @@
         "release_date": "2020-09-15"
     },
     {
-        "title": "Feels Good Man",
-        "id": 653578,
+        "title": "Music",
+        "id": 586101,
         "length": "",
-        "overview": "",
-        "poster": "https:\/\/image.tmdb.org\/t\/p\/original\/2KYGa23KJ5laLCtj6TwXwexDCKo.jpg",
-        "genre": [
-            {
-                "id": 99,
-                "name": "Documentary"
-            }
-        ],
-        "release_date": "2020-09-04"
-    },
-    {
-        "title": "The Nest",
-        "id": 545237,
-        "length": "",
-        "overview": "Rory es un emprendedor ambicioso que trae a su esposa e hijos estadounidenses a su pa\u00eds natal, Inglaterra, para explorar nuevas oportunidades comerciales. Despu\u00e9s de abandonar el santuario de su entorno suburbano estadounidense seguro, la familia se sumerge en la desesperaci\u00f3n de una Gran Breta\u00f1a arcaica de los 80 y su nueva vida inasequible en una casa solariega inglesa amenaza con destruir a la familia.",
-        "poster": "https:\/\/image.tmdb.org\/t\/p\/original\/mSTrRgXGzu2t1jVhTexIqwSHlk7.jpg",
+        "overview": "Music es una pel\u00edcula de drama musical estadounidense de 2020 dirigida por la cantante y compositora Sia . El gui\u00f3n de la pel\u00edcula fue coescrito por Sia y el autor de libros para ni\u00f1os Dallas Clayton  y las estrellas Kate Hudson , Maddie Ziegler y Leslie Odom Jr. .",
+        "poster": "https:\/\/image.tmdb.org\/t\/p\/original\/tbNuHJhXuC5tbW0UCqufbA7BlCr.jpg",
         "genre": [
             {
                 "id": 18,
                 "name": "Drama"
-            }
-        ],
-        "release_date": "2020-09-18"
-    },
-    {
-        "title": "The Secrets We Keep",
-        "id": 615115,
-        "length": "",
-        "overview": "En la Am\u00e9rica posterior a la Segunda Guerra Mundial, una mujer, reconstruyendo su vida en los suburbios con su esposo, secuestra a su vecino y busca venganza por los atroces cr\u00edmenes de guerra que cree que \u00e9l cometi\u00f3 contra ella.",
-        "poster": "https:\/\/image.tmdb.org\/t\/p\/original\/sZ2zmWy8YK7ca3go1L124S8xjIM.jpg",
-        "genre": [
-            {
-                "id": 53,
-                "name": "Thriller"
-            }
-        ],
-        "release_date": "2020-09-16"
-    },
-    {
-        "title": "In Other Words",
-        "id": 734246,
-        "length": "",
-        "overview": "",
-        "poster": "https:\/\/image.tmdb.org\/t\/p\/original\/qKVoNtmA9dGfFuJbhaJNTh5W5pB.jpg",
-        "genre": [
-            {
-                "id": 35,
-                "name": "Comedy"
             },
             {
-                "id": 10749,
-                "name": "Romance"
+                "id": 10402,
+                "name": "Music"
             }
         ],
-        "release_date": "2020-09-14"
-    },
-    {
-        "title": "UFC on ESPN 16: Holm vs. Aldana",
-        "id": 748403,
-        "length": "",
-        "overview": "",
-        "poster": "https:\/\/image.tmdb.org\/t\/p\/original\/lK2LouNUzXvixhpekW69KE9OE3O.jpg",
-        "genre": [],
-        "release_date": "2020-10-03"
+        "release_date": "2020-09-25"
     },
     {
         "title": "Neon Days",
@@ -880,193 +1101,133 @@
         "release_date": "2020-09-29"
     },
     {
-        "title": "Words on Bathroom Walls",
-        "id": 523781,
-        "length": "",
-        "overview": "Despu\u00e9s de ser expulsado en su anterior escuela secundaria, Adam, un adolescente diagnosticado con esquizofrenia que sue\u00f1a con convertirse en un chef, se conecta con Maya, que lo inspira a no ser definido por su condici\u00f3n. Con el apoyo de su familia y su nuevo romance, Adam se vuelve optimista de que puede ser honesto acerca de lo que lucha y triunfar sobre los desaf\u00edos que se avecinan.",
-        "poster": "https:\/\/image.tmdb.org\/t\/p\/original\/mMICdcRBxiEUUpdAFCYRezE3Dy5.jpg",
-        "genre": [
-            {
-                "id": 18,
-                "name": "Drama"
-            }
-        ],
-        "release_date": "2020-08-21"
-    },
-    {
-        "title": "Reaptown",
-        "id": 748224,
+        "title": "Deadly Double Cross",
+        "id": 749458,
         "length": "",
         "overview": "",
-        "poster": "https:\/\/image.tmdb.org\/t\/p\/original\/wyN1R51euy3c2YHsyiSnc5ovF5t.jpg",
-        "genre": [
-            {
-                "id": 27,
-                "name": "Horror"
-            }
-        ],
-        "release_date": "2020-09-28"
-    },
-    {
-        "title": "How to Fake a War",
-        "id": 605798,
-        "length": "",
-        "overview": "",
-        "poster": "https:\/\/image.tmdb.org\/t\/p\/original\/8siHWeEQB5vwGVYIafxbsbeyyJo.jpg",
+        "poster": "https:\/\/image.tmdb.org\/t\/p\/original\/t8lcvROwLTsAp7v6zZPcaRU9f4y.jpg",
         "genre": [],
-        "release_date": "2020-08-21"
-    },
-    {
-        "title": "Still Here",
-        "id": 528402,
-        "length": "",
-        "overview": "",
-        "poster": "https:\/\/image.tmdb.org\/t\/p\/original\/9WwHJqMRfnvgg7z4D3Qhq8rJOBL.jpg",
-        "genre": [
-            {
-                "id": 18,
-                "name": "Drama"
-            }
-        ],
-        "release_date": "2020-08-28"
-    },
-    {
-        "title": "Music",
-        "id": 586101,
-        "length": "",
-        "overview": "Music es una pel\u00edcula de drama musical estadounidense de 2020 dirigida por la cantante y compositora Sia . El gui\u00f3n de la pel\u00edcula fue coescrito por Sia y el autor de libros para ni\u00f1os Dallas Clayton  y las estrellas Kate Hudson , Maddie Ziegler y Leslie Odom Jr. .",
-        "poster": "https:\/\/image.tmdb.org\/t\/p\/original\/tbNuHJhXuC5tbW0UCqufbA7BlCr.jpg",
-        "genre": [
-            {
-                "id": 18,
-                "name": "Drama"
-            },
-            {
-                "id": 10402,
-                "name": "Music"
-            }
-        ],
-        "release_date": "2020-09-25"
-    },
-    {
-        "title": "Come Follow Me",
-        "id": 703199,
-        "length": "",
-        "overview": "Ven y s\u00edgueme dramatiza la relaci\u00f3n entre Jes\u00fas y el ap\u00f3stol Pedro. Desde el d\u00eda en que Pedro escuch\u00f3 a Jes\u00fas llamar su nombre hasta la conversaci\u00f3n posterior a la resurrecci\u00f3n en la que Jes\u00fas le encarga a Pedro que \"apacienta mis ovejas\", este cortometraje ilustra bellamente la transformaci\u00f3n de Pedro de un negacionista temeroso a un l\u00edder valiente de la iglesia primitiva.",
-        "poster": "https:\/\/image.tmdb.org\/t\/p\/original\/bfLfTYJtVnzCqAKRlNtDK78U0cL.jpg",
-        "genre": [
-            {
-                "id": 18,
-                "name": "Drama"
-            }
-        ],
-        "release_date": "2020-10-01"
-    },
-    {
-        "title": "The Burnt Orange Heresy",
-        "id": 566872,
-        "length": "",
-        "overview": "Contratado para robar una pintura poco com\u00fan de uno de los pintores m\u00e1s enigm\u00e1ticos de todos los tiempos, un ambicioso marchante de arte se ve consumido por su propia codicia e inseguridad mientras la operaci\u00f3n se sale de control.",
-        "poster": "https:\/\/image.tmdb.org\/t\/p\/original\/pMLPA8rOSQwkCQGLvz6L3jasAIT.jpg",
-        "genre": [
-            {
-                "id": 18,
-                "name": "Drama"
-            },
-            {
-                "id": 9648,
-                "name": "Mystery"
-            },
-            {
-                "id": 53,
-                "name": "Thriller"
-            }
-        ],
-        "release_date": "2020-03-06"
-    },
-    {
-        "title": "All In: The Fight for Democracy",
-        "id": 727705,
-        "length": "",
-        "overview": "",
-        "poster": "https:\/\/image.tmdb.org\/t\/p\/original\/17nj0QAJy3xqVZawSj0sxpCUDVN.jpg",
-        "genre": [
-            {
-                "id": 99,
-                "name": "Documentary"
-            }
-        ],
-        "release_date": "2020-09-09"
-    },
-    {
-        "title": "The Killing of Two Lovers",
-        "id": 653712,
-        "length": "",
-        "overview": "",
-        "poster": "https:\/\/image.tmdb.org\/t\/p\/original\/dncKHvIK2MNXgcpahvfKa9BsJsA.jpg",
-        "genre": [
-            {
-                "id": 18,
-                "name": "Drama"
-            }
-        ],
-        "release_date": "2020-09-08"
-    },
-    {
-        "title": "Tar",
-        "id": 515466,
-        "length": "",
-        "overview": "",
-        "poster": "https:\/\/image.tmdb.org\/t\/p\/original\/gmfT9dZRhcZ4RpzhCQ1IXNKvGJt.jpg",
-        "genre": [
-            {
-                "id": 27,
-                "name": "Horror"
-            }
-        ],
         "release_date": "2020-10-02"
     },
     {
-        "title": "Residue",
-        "id": 666271,
+        "title": "Medicine Man: The Stan Brock Story",
+        "id": 744107,
         "length": "",
         "overview": "",
-        "poster": "https:\/\/image.tmdb.org\/t\/p\/original\/2UNSTNshwvGJWryqapiLfCkgGhR.jpg",
+        "poster": "https:\/\/image.tmdb.org\/t\/p\/original",
+        "genre": [
+            {
+                "id": 99,
+                "name": "Documentary"
+            }
+        ],
+        "release_date": "2020-10-08"
+    },
+    {
+        "title": "Freeland",
+        "id": 665883,
+        "length": "",
+        "overview": "",
+        "poster": "https:\/\/image.tmdb.org\/t\/p\/original\/v2M0SnWAg33ToPuVdaB9ZNi0wtS.jpg",
         "genre": [
             {
                 "id": 18,
                 "name": "Drama"
             }
         ],
-        "release_date": "2020-09-17"
+        "release_date": "2020-10-08"
     },
     {
-        "title": "The Way I See It",
-        "id": 729779,
+        "title": "Opeka",
+        "id": 669773,
         "length": "",
         "overview": "",
-        "poster": "https:\/\/image.tmdb.org\/t\/p\/original\/jxbjC3Pzs9WTD7yz7aMMzm6fBIE.jpg",
+        "poster": "https:\/\/image.tmdb.org\/t\/p\/original\/xolyqaw5NYLdSfa68tYmWtFKPic.jpg",
         "genre": [
             {
                 "id": 99,
                 "name": "Documentary"
             }
         ],
-        "release_date": "2020-09-18"
+        "release_date": "2020-10-08"
     },
     {
-        "title": "You Cannot Kill David Arquette",
-        "id": 672035,
+        "title": "In Case of Emergency",
+        "id": 742239,
         "length": "",
         "overview": "",
-        "poster": "https:\/\/image.tmdb.org\/t\/p\/original\/rBrwaANEz4uSqxUjBKKGh8eS0rt.jpg",
+        "poster": "https:\/\/image.tmdb.org\/t\/p\/original\/5UH6StrC0VUVBqkNs0Ip03P3zSH.jpg",
+        "genre": [
+            {
+                "id": 99,
+                "name": "Documentary"
+            },
+            {
+                "id": 18,
+                "name": "Drama"
+            }
+        ],
+        "release_date": "2020-10-08"
+    },
+    {
+        "title": "The Test",
+        "id": 737885,
+        "length": "",
+        "overview": "",
+        "poster": "https:\/\/image.tmdb.org\/t\/p\/original\/6z61XlAL1NW7gzalbr7CaTyzihv.jpg",
+        "genre": [
+            {
+                "id": 27,
+                "name": "Horror"
+            }
+        ],
+        "release_date": "2020-10-07"
+    },
+    {
+        "title": "Head to Head",
+        "id": 744097,
+        "length": "",
+        "overview": "",
+        "poster": "https:\/\/image.tmdb.org\/t\/p\/original",
         "genre": [
             {
                 "id": 99,
                 "name": "Documentary"
             }
         ],
-        "release_date": "2020-08-21"
+        "release_date": "2020-10-08"
+    },
+    {
+        "title": "Monuments",
+        "id": 697930,
+        "length": "",
+        "overview": "",
+        "poster": "https:\/\/image.tmdb.org\/t\/p\/original\/fHqZpIuoLCo6GG7eev6tH3UYv0F.jpg",
+        "genre": [
+            {
+                "id": 35,
+                "name": "Comedy"
+            },
+            {
+                "id": 18,
+                "name": "Drama"
+            }
+        ],
+        "release_date": "2020-10-08"
+    },
+    {
+        "title": "Here We Are",
+        "id": 712117,
+        "length": "",
+        "overview": "",
+        "poster": "https:\/\/image.tmdb.org\/t\/p\/original",
+        "genre": [
+            {
+                "id": 18,
+                "name": "Drama"
+            }
+        ],
+        "release_date": "2020-10-08"
     },
     {
         "title": "Ravers",
@@ -1085,78 +1246,6 @@
             }
         ],
         "release_date": "2020-09-18"
-    },
-    {
-        "title": "The King's Daughter",
-        "id": 245842,
-        "length": "",
-        "overview": "",
-        "poster": "https:\/\/image.tmdb.org\/t\/p\/original\/oXnOmjUR7pVZcZDGEF7JpSdtulA.jpg",
-        "genre": [
-            {
-                "id": 28,
-                "name": "Action"
-            },
-            {
-                "id": 12,
-                "name": "Adventure"
-            },
-            {
-                "id": 14,
-                "name": "Fantasy"
-            }
-        ],
-        "release_date": "2020-09-05"
-    },
-    {
-        "title": "Herb Alpert Is...",
-        "id": 734457,
-        "length": "",
-        "overview": "",
-        "poster": "https:\/\/image.tmdb.org\/t\/p\/original\/hiUBti0pGFM1JixnoF5QDwjcfvv.jpg",
-        "genre": [
-            {
-                "id": 99,
-                "name": "Documentary"
-            }
-        ],
-        "release_date": "2020-10-02"
-    },
-    {
-        "title": "Ultimate World",
-        "id": 688884,
-        "length": "",
-        "overview": "Teddy y Phoebe son una pareja joven, recientemente separada, que intenta sobrevivir las \u00faltimas semanas de su contrato de arrendamiento juntos. Cuando Phoebe recibe un consejo para llamar a un n\u00famero misterioso escrito en un ba\u00f1o de juegos electr\u00f3nicos, la env\u00eda a un viaje extenso, a menudo surrealista, por una serie de agujeros de conejo. Mientras tanto, Teddy navega por un nuevo amor (con la ayuda del amable anciano que vive en su armario). Con sus antiguas vidas llegando a su fin, tanto Phoebe como Teddy deben hacer todo lo posible para encontrar otras nuevas.",
-        "poster": "https:\/\/image.tmdb.org\/t\/p\/original\/tgajS2AQY31dSv2IyDB8UEEdLjx.jpg",
-        "genre": [
-            {
-                "id": 35,
-                "name": "Comedy"
-            },
-            {
-                "id": 14,
-                "name": "Fantasy"
-            }
-        ],
-        "release_date": "2020-10-01"
-    },
-    {
-        "title": "\u516b\u4f70",
-        "id": 508935,
-        "length": "",
-        "overview": "",
-        "poster": "https:\/\/image.tmdb.org\/t\/p\/original\/m6UYOYu5hUPxcyqkAiMQQ0PgnsU.jpg",
-        "genre": [
-            {
-                "id": 36,
-                "name": "History"
-            },
-            {
-                "id": 10752,
-                "name": "War"
-            }
-        ],
-        "release_date": "2020-08-28"
     },
     {
         "title": "Occurrence at Mills Creek",
@@ -1181,86 +1270,88 @@
         "release_date": "2020-09-12"
     },
     {
-        "title": "Minyan",
-        "id": 665761,
+        "title": "Aggie",
+        "id": 653745,
         "length": "",
         "overview": "",
-        "poster": "https:\/\/image.tmdb.org\/t\/p\/original\/kbihQtYEe7V6u5WZ1H9WfMk3ln1.jpg",
+        "poster": "https:\/\/image.tmdb.org\/t\/p\/original\/A7Rut5YObmgY42F1zmr6LX8n85J.jpg",
+        "genre": [
+            {
+                "id": 99,
+                "name": "Documentary"
+            }
+        ],
+        "release_date": "2020-10-07"
+    },
+    {
+        "title": "All In: The Fight for Democracy",
+        "id": 727705,
+        "length": "",
+        "overview": "",
+        "poster": "https:\/\/image.tmdb.org\/t\/p\/original\/17nj0QAJy3xqVZawSj0sxpCUDVN.jpg",
+        "genre": [
+            {
+                "id": 99,
+                "name": "Documentary"
+            }
+        ],
+        "release_date": "2020-09-09"
+    },
+    {
+        "title": "Lingua Franca",
+        "id": 583143,
+        "length": "",
+        "overview": "",
+        "poster": "https:\/\/image.tmdb.org\/t\/p\/original\/20HKDrU2QccbEqzHmPJZRzMPoJM.jpg",
         "genre": [
             {
                 "id": 18,
                 "name": "Drama"
             }
         ],
-        "release_date": "2020-08-28"
+        "release_date": "2020-08-26"
     },
     {
-        "title": "The Legend of Tomiris",
-        "id": 644613,
+        "title": "DTF",
+        "id": 583760,
         "length": "",
         "overview": "",
-        "poster": "https:\/\/image.tmdb.org\/t\/p\/original\/lu9kpN9NEDnpMinYgse30l1kV2k.jpg",
+        "poster": "https:\/\/image.tmdb.org\/t\/p\/original\/okLuUKEgRHfqKOVYalUrMtstfjL.jpg",
         "genre": [
             {
-                "id": 18,
-                "name": "Drama"
-            },
-            {
-                "id": 36,
-                "name": "History"
+                "id": 99,
+                "name": "Documentary"
             }
         ],
-        "release_date": "2020-09-29"
+        "release_date": "2020-09-15"
     },
     {
-        "title": "Heaven",
-        "id": 749159,
+        "title": "The Way I See It",
+        "id": 729779,
         "length": "",
         "overview": "",
-        "poster": "https:\/\/image.tmdb.org\/t\/p\/original\/6ObRNkec9eykJjGFDp5xKrNNEOr.jpg",
+        "poster": "https:\/\/image.tmdb.org\/t\/p\/original\/jxbjC3Pzs9WTD7yz7aMMzm6fBIE.jpg",
         "genre": [
             {
-                "id": 18,
-                "name": "Drama"
+                "id": 99,
+                "name": "Documentary"
             }
         ],
-        "release_date": "2020-10-02"
+        "release_date": "2020-09-18"
     },
     {
-        "title": "Android Uprising",
-        "id": 749139,
+        "title": "The Invincible Dragon",
+        "id": 449998,
         "length": "",
-        "overview": "",
-        "poster": "https:\/\/image.tmdb.org\/t\/p\/original\/lCAlqIsVL1abQWoFJaDvdeXfIOx.jpg",
-        "genre": [
-            {
-                "id": 878,
-                "name": "Science Fiction"
-            }
-        ],
-        "release_date": "2020-10-01"
-    },
-    {
-        "title": "Copper Bill",
-        "id": 685571,
-        "length": "",
-        "overview": "",
-        "poster": "https:\/\/image.tmdb.org\/t\/p\/original\/mSZnvJ0olvAss77b01Vf68or8xr.jpg",
+        "overview": "Un polic\u00eda de Hong Kong es apartado del servicio tras fallar en una misi\u00f3n para atrapar a un asesino en serie de polic\u00edas. Tiempo despu\u00e9s, el asesino reaparece en Macao e intenta de nuevo seguir su pista.",
+        "poster": "https:\/\/image.tmdb.org\/t\/p\/original\/yhctVDcFyhsGtbLMMvujrBAES3d.jpg",
         "genre": [
             {
                 "id": 28,
                 "name": "Action"
-            },
-            {
-                "id": 80,
-                "name": "Crime"
-            },
-            {
-                "id": 53,
-                "name": "Thriller"
             }
         ],
-        "release_date": "2020-09-30"
+        "release_date": "2020-10-06"
     },
     {
         "title": "Dream Horse",
@@ -1279,6 +1370,277 @@
             }
         ],
         "release_date": "2020-09-04"
+    },
+    {
+        "title": "Residue",
+        "id": 666271,
+        "length": "",
+        "overview": "",
+        "poster": "https:\/\/image.tmdb.org\/t\/p\/original\/2UNSTNshwvGJWryqapiLfCkgGhR.jpg",
+        "genre": [
+            {
+                "id": 18,
+                "name": "Drama"
+            }
+        ],
+        "release_date": "2020-09-17"
+    },
+    {
+        "title": "The Killing of Two Lovers",
+        "id": 653712,
+        "length": "",
+        "overview": "",
+        "poster": "https:\/\/image.tmdb.org\/t\/p\/original\/dncKHvIK2MNXgcpahvfKa9BsJsA.jpg",
+        "genre": [
+            {
+                "id": 18,
+                "name": "Drama"
+            }
+        ],
+        "release_date": "2020-09-08"
+    },
+    {
+        "title": "\u516b\u4f70",
+        "id": 508935,
+        "length": "",
+        "overview": "",
+        "poster": "https:\/\/image.tmdb.org\/t\/p\/original\/m6UYOYu5hUPxcyqkAiMQQ0PgnsU.jpg",
+        "genre": [
+            {
+                "id": 36,
+                "name": "History"
+            },
+            {
+                "id": 10752,
+                "name": "War"
+            }
+        ],
+        "release_date": "2020-08-28"
+    },
+    {
+        "title": "Come Follow Me",
+        "id": 703199,
+        "length": "",
+        "overview": "Ven y s\u00edgueme dramatiza la relaci\u00f3n entre Jes\u00fas y el ap\u00f3stol Pedro. Desde el d\u00eda en que Pedro escuch\u00f3 a Jes\u00fas llamar su nombre hasta la conversaci\u00f3n posterior a la resurrecci\u00f3n en la que Jes\u00fas le encarga a Pedro que \"apacienta mis ovejas\", este cortometraje ilustra bellamente la transformaci\u00f3n de Pedro de un negacionista temeroso a un l\u00edder valiente de la iglesia primitiva.",
+        "poster": "https:\/\/image.tmdb.org\/t\/p\/original\/bfLfTYJtVnzCqAKRlNtDK78U0cL.jpg",
+        "genre": [
+            {
+                "id": 18,
+                "name": "Drama"
+            }
+        ],
+        "release_date": "2020-10-01"
+    },
+    {
+        "title": "Tales From Parts Unknown",
+        "id": 751073,
+        "length": "",
+        "overview": "",
+        "poster": "https:\/\/image.tmdb.org\/t\/p\/original\/1ml2Hrvlyhp2qwhldSPAYiNjMzf.jpg",
+        "genre": [
+            {
+                "id": 27,
+                "name": "Horror"
+            }
+        ],
+        "release_date": "2020-10-03"
+    },
+    {
+        "title": "OK",
+        "id": 750800,
+        "length": "",
+        "overview": "",
+        "poster": "https:\/\/image.tmdb.org\/t\/p\/original\/aThLCvJeTe7zrm8CDP53cBsLSWo.jpg",
+        "genre": [],
+        "release_date": "2020-10-07"
+    },
+    {
+        "title": "Coffin Decollet\u00e9",
+        "id": 702871,
+        "length": "",
+        "overview": "",
+        "poster": "https:\/\/image.tmdb.org\/t\/p\/original",
+        "genre": [
+            {
+                "id": 18,
+                "name": "Drama"
+            }
+        ],
+        "release_date": "2020-10-05"
+    },
+    {
+        "title": "The Climb",
+        "id": 595931,
+        "length": "",
+        "overview": "",
+        "poster": "https:\/\/image.tmdb.org\/t\/p\/original\/cCaWNkqZIfaKMSPmudOfCF721BN.jpg",
+        "genre": [
+            {
+                "id": 35,
+                "name": "Comedy"
+            },
+            {
+                "id": 18,
+                "name": "Drama"
+            }
+        ],
+        "release_date": "2020-10-09"
+    },
+    {
+        "title": "Minyan",
+        "id": 665761,
+        "length": "",
+        "overview": "",
+        "poster": "https:\/\/image.tmdb.org\/t\/p\/original\/kbihQtYEe7V6u5WZ1H9WfMk3ln1.jpg",
+        "genre": [
+            {
+                "id": 18,
+                "name": "Drama"
+            }
+        ],
+        "release_date": "2020-08-28"
+    },
+    {
+        "title": "The King's Daughter",
+        "id": 245842,
+        "length": "",
+        "overview": "",
+        "poster": "https:\/\/image.tmdb.org\/t\/p\/original\/oXnOmjUR7pVZcZDGEF7JpSdtulA.jpg",
+        "genre": [
+            {
+                "id": 28,
+                "name": "Action"
+            },
+            {
+                "id": 12,
+                "name": "Adventure"
+            },
+            {
+                "id": 14,
+                "name": "Fantasy"
+            }
+        ],
+        "release_date": "2020-09-05"
+    },
+    {
+        "title": "Tar",
+        "id": 515466,
+        "length": "",
+        "overview": "",
+        "poster": "https:\/\/image.tmdb.org\/t\/p\/original\/gmfT9dZRhcZ4RpzhCQ1IXNKvGJt.jpg",
+        "genre": [
+            {
+                "id": 27,
+                "name": "Horror"
+            }
+        ],
+        "release_date": "2020-10-02"
+    },
+    {
+        "title": "Los archivos secretos de Osama Bin Laden",
+        "id": 746807,
+        "length": "",
+        "overview": "Analiza la psicolog\u00eda del fundador de al-Qa'ida, su relaci\u00f3n con la familia, su perspectiva sobre la fe y la religi\u00f3n, as\u00ed como su nihilista legado de violencia y destrucci\u00f3n. Repasa cada evidencia hallada en los documentos encontrados en el lugar de su muerte.",
+        "poster": "https:\/\/image.tmdb.org\/t\/p\/original\/qCf5RD2MIMnSdCyoVJx5blJnSnf.jpg",
+        "genre": [],
+        "release_date": "2020-09-10"
+    },
+    {
+        "title": "Ultimate World",
+        "id": 688884,
+        "length": "",
+        "overview": "Teddy y Phoebe son una pareja joven, recientemente separada, que intenta sobrevivir las \u00faltimas semanas de su contrato de arrendamiento juntos. Cuando Phoebe recibe un consejo para llamar a un n\u00famero misterioso escrito en un ba\u00f1o de juegos electr\u00f3nicos, la env\u00eda a un viaje extenso, a menudo surrealista, por una serie de agujeros de conejo. Mientras tanto, Teddy navega por un nuevo amor (con la ayuda del amable anciano que vive en su armario). Con sus antiguas vidas llegando a su fin, tanto Phoebe como Teddy deben hacer todo lo posible para encontrar otras nuevas.",
+        "poster": "https:\/\/image.tmdb.org\/t\/p\/original\/tgajS2AQY31dSv2IyDB8UEEdLjx.jpg",
+        "genre": [
+            {
+                "id": 35,
+                "name": "Comedy"
+            },
+            {
+                "id": 14,
+                "name": "Fantasy"
+            }
+        ],
+        "release_date": "2020-10-01"
+    },
+    {
+        "title": "Just For The Record: Conversations With And About \"Blue\" Gene Tyranny",
+        "id": 751651,
+        "length": "",
+        "overview": "",
+        "poster": "https:\/\/image.tmdb.org\/t\/p\/original",
+        "genre": [],
+        "release_date": "2020-10-09"
+    },
+    {
+        "title": "Curtain Up!",
+        "id": 738967,
+        "length": "",
+        "overview": "",
+        "poster": "https:\/\/image.tmdb.org\/t\/p\/original\/mqUM4flVu3FmHjtVDrE08sZ0SHk.jpg",
+        "genre": [
+            {
+                "id": 99,
+                "name": "Documentary"
+            }
+        ],
+        "release_date": "2020-09-30"
+    },
+    {
+        "title": "Herb Alpert Is...",
+        "id": 734457,
+        "length": "",
+        "overview": "",
+        "poster": "https:\/\/image.tmdb.org\/t\/p\/original\/hiUBti0pGFM1JixnoF5QDwjcfvv.jpg",
+        "genre": [
+            {
+                "id": 99,
+                "name": "Documentary"
+            }
+        ],
+        "release_date": "2020-10-02"
+    },
+    {
+        "title": "Heaven",
+        "id": 749159,
+        "length": "",
+        "overview": "",
+        "poster": "https:\/\/image.tmdb.org\/t\/p\/original\/6ObRNkec9eykJjGFDp5xKrNNEOr.jpg",
+        "genre": [
+            {
+                "id": 18,
+                "name": "Drama"
+            }
+        ],
+        "release_date": "2020-10-02"
+    },
+    {
+        "title": "Through the Glass Darkly",
+        "id": 737666,
+        "length": "",
+        "overview": "Un a\u00f1o despu\u00e9s de la desaparici\u00f3n de la hija de Charlie, otra ni\u00f1a de Elrod, Georgia desaparece. Convencida de que hay una conexi\u00f3n, Charlie genera sospechas y desprecio por parte de la polic\u00eda local y la gente del pueblo, ya que no se detiene ante nada para exponer su secreto m\u00e1s devastador y oscuro.",
+        "poster": "https:\/\/image.tmdb.org\/t\/p\/original\/fXFs2eQFtDr2np3YTL7Z3O54alO.jpg",
+        "genre": [
+            {
+                "id": 53,
+                "name": "Thriller"
+            }
+        ],
+        "release_date": "2020-09-17"
+    },
+    {
+        "title": "Dreaming Grand Avenue",
+        "id": 742030,
+        "length": "",
+        "overview": "",
+        "poster": "https:\/\/image.tmdb.org\/t\/p\/original\/kUKNUKQ6bP5Em5rn6jcVi8n0gAl.jpg",
+        "genre": [
+            {
+                "id": 18,
+                "name": "Drama"
+            }
+        ],
+        "release_date": "2020-09-25"
     },
     {
         "title": "Inimicus",
@@ -1308,107 +1670,6 @@
         "release_date": "2020-10-02"
     },
     {
-        "title": "DTF",
-        "id": 583760,
-        "length": "",
-        "overview": "",
-        "poster": "https:\/\/image.tmdb.org\/t\/p\/original\/okLuUKEgRHfqKOVYalUrMtstfjL.jpg",
-        "genre": [
-            {
-                "id": 99,
-                "name": "Documentary"
-            }
-        ],
-        "release_date": "2020-09-15"
-    },
-    {
-        "title": "Ottolenghi and the Cakes of Versailles",
-        "id": 698305,
-        "length": "",
-        "overview": "Sigue al chef Yotam en su b\u00fasqueda para dar vida al suntuoso arte y la decadencia de Versalles en forma de pastel en el Museo Metropolitano de Arte de Nueva York.",
-        "poster": "https:\/\/image.tmdb.org\/t\/p\/original\/kX1QyOVP201QSFzxs8EvEI7LMYp.jpg",
-        "genre": [
-            {
-                "id": 99,
-                "name": "Documentary"
-            }
-        ],
-        "release_date": "2020-09-25"
-    },
-    {
-        "title": "Lingua Franca",
-        "id": 583143,
-        "length": "",
-        "overview": "",
-        "poster": "https:\/\/image.tmdb.org\/t\/p\/original\/20HKDrU2QccbEqzHmPJZRzMPoJM.jpg",
-        "genre": [
-            {
-                "id": 18,
-                "name": "Drama"
-            }
-        ],
-        "release_date": "2020-08-26"
-    },
-    {
-        "title": "Tulsa",
-        "id": 717676,
-        "length": "",
-        "overview": "",
-        "poster": "https:\/\/image.tmdb.org\/t\/p\/original\/m7B8kVDlbiNI2XTnRhw6Fbc53dX.jpg",
-        "genre": [
-            {
-                "id": 35,
-                "name": "Comedy"
-            },
-            {
-                "id": 18,
-                "name": "Drama"
-            }
-        ],
-        "release_date": "2020-08-21"
-    },
-    {
-        "title": "Deadly Double Cross",
-        "id": 749458,
-        "length": "",
-        "overview": "",
-        "poster": "https:\/\/image.tmdb.org\/t\/p\/original\/t8lcvROwLTsAp7v6zZPcaRU9f4y.jpg",
-        "genre": [],
-        "release_date": "2020-10-02"
-    },
-    {
-        "title": "Dinner with Leatherface",
-        "id": 637312,
-        "length": "",
-        "overview": "",
-        "poster": "https:\/\/image.tmdb.org\/t\/p\/original\/okgrTxL6TLsC5rpzRD7S5MQCGgx.jpg",
-        "genre": [
-            {
-                "id": 99,
-                "name": "Documentary"
-            },
-            {
-                "id": 27,
-                "name": "Horror"
-            }
-        ],
-        "release_date": "2020-09-01"
-    },
-    {
-        "title": "My Brothers' Crossing",
-        "id": 701354,
-        "length": "",
-        "overview": "",
-        "poster": "https:\/\/image.tmdb.org\/t\/p\/original\/s9gg2ldAcdMtND6tCiPhnba3GhH.jpg",
-        "genre": [
-            {
-                "id": 18,
-                "name": "Drama"
-            }
-        ],
-        "release_date": "2020-09-03"
-    },
-    {
         "title": "Food Time",
         "id": 748816,
         "length": "",
@@ -1427,68 +1688,18 @@
         "release_date": "2020-09-26"
     },
     {
-        "title": "Jimmy Carter Rock & Roll President",
-        "id": 692982,
+        "title": "The Surrogate",
+        "id": 745960,
         "length": "",
         "overview": "",
-        "poster": "https:\/\/image.tmdb.org\/t\/p\/original\/wCkzxTkBb8eBVGQDkh3m0AH3Uy6.jpg",
-        "genre": [
-            {
-                "id": 99,
-                "name": "Documentary"
-            }
-        ],
-        "release_date": "2020-09-09"
-    },
-    {
-        "title": "Dreaming Grand Avenue",
-        "id": 742030,
-        "length": "",
-        "overview": "",
-        "poster": "https:\/\/image.tmdb.org\/t\/p\/original\/kUKNUKQ6bP5Em5rn6jcVi8n0gAl.jpg",
-        "genre": [],
-        "release_date": "2020-09-25"
-    },
-    {
-        "title": "Cicada",
-        "id": 672816,
-        "length": "",
-        "overview": "",
-        "poster": "https:\/\/image.tmdb.org\/t\/p\/original\/9YSWa186JY7FSPJAEoKC6PMxXBi.jpg",
-        "genre": [
-            {
-                "id": 18,
-                "name": "Drama"
-            },
-            {
-                "id": 10749,
-                "name": "Romance"
-            }
-        ],
-        "release_date": "2020-08-20"
-    },
-    {
-        "title": "Glimpses from a Visit to Orkney in Summer 1995",
-        "id": 741880,
-        "length": "",
-        "overview": "",
-        "poster": "https:\/\/image.tmdb.org\/t\/p\/original\/3uwlIq6ye6fvzs6TQFxDjPEyFaF.jpg",
-        "genre": [],
-        "release_date": "2020-09-25"
-    },
-    {
-        "title": "Through the Glass Darkly",
-        "id": 737666,
-        "length": "",
-        "overview": "Un a\u00f1o despu\u00e9s de la desaparici\u00f3n de la hija de Charlie, otra ni\u00f1a de Elrod, Georgia desaparece. Convencida de que hay una conexi\u00f3n, Charlie genera sospechas y desprecio por parte de la polic\u00eda local y la gente del pueblo, ya que no se detiene ante nada para exponer su secreto m\u00e1s devastador y oscuro.",
-        "poster": "https:\/\/image.tmdb.org\/t\/p\/original\/fXFs2eQFtDr2np3YTL7Z3O54alO.jpg",
+        "poster": "https:\/\/image.tmdb.org\/t\/p\/original\/4EELR3bXOHC0mdrIlV2dgJVYc9x.jpg",
         "genre": [
             {
                 "id": 53,
                 "name": "Thriller"
             }
         ],
-        "release_date": "2020-09-17"
+        "release_date": "2020-09-19"
     },
     {
         "title": "The Bad Dad",
@@ -1509,6 +1720,38 @@
         "release_date": "2020-09-18"
     },
     {
+        "title": "D\u00eda de lluvia en Nueva York",
+        "id": 475303,
+        "length": "",
+        "overview": "Dos j\u00f3venes llegan a Nueva York durante un fin de semana donde se topan con el mal tiempo y una serie de aventuras.",
+        "poster": "https:\/\/image.tmdb.org\/t\/p\/original\/ya9ojfuWylP4P6iiaIaxz67Chu0.jpg",
+        "genre": [
+            {
+                "id": 35,
+                "name": "Comedy"
+            },
+            {
+                "id": 10749,
+                "name": "Romance"
+            }
+        ],
+        "release_date": "2020-10-09"
+    },
+    {
+        "title": "Ottolenghi and the Cakes of Versailles",
+        "id": 698305,
+        "length": "",
+        "overview": "Sigue al chef Yotam en su b\u00fasqueda para dar vida al suntuoso arte y la decadencia de Versalles en forma de pastel en el Museo Metropolitano de Arte de Nueva York.",
+        "poster": "https:\/\/image.tmdb.org\/t\/p\/original\/kX1QyOVP201QSFzxs8EvEI7LMYp.jpg",
+        "genre": [
+            {
+                "id": 99,
+                "name": "Documentary"
+            }
+        ],
+        "release_date": "2020-09-25"
+    },
+    {
         "title": "Imagine For 1 Minute",
         "id": 746068,
         "length": "",
@@ -1518,18 +1761,63 @@
         "release_date": "2020-09-22"
     },
     {
-        "title": "The Surrogate",
-        "id": 745960,
+        "title": "The Haunting at Death Valley Junction",
+        "id": 752100,
         "length": "",
         "overview": "",
-        "poster": "https:\/\/image.tmdb.org\/t\/p\/original\/4EELR3bXOHC0mdrIlV2dgJVYc9x.jpg",
+        "poster": "https:\/\/image.tmdb.org\/t\/p\/original\/eSPAZnCvg9byB50l31pSbaUxCGS.jpg",
         "genre": [
+            {
+                "id": 27,
+                "name": "Horror"
+            },
             {
                 "id": 53,
                 "name": "Thriller"
             }
         ],
-        "release_date": "2020-09-19"
+        "release_date": "2020-10-06"
+    },
+    {
+        "title": "Nobody Dies",
+        "id": 752036,
+        "length": "",
+        "overview": "",
+        "poster": "https:\/\/image.tmdb.org\/t\/p\/original",
+        "genre": [],
+        "release_date": "2020-10-07"
+    },
+    {
+        "title": "E14",
+        "id": 751851,
+        "length": "",
+        "overview": "",
+        "poster": "https:\/\/image.tmdb.org\/t\/p\/original",
+        "genre": [
+            {
+                "id": 99,
+                "name": "Documentary"
+            }
+        ],
+        "release_date": "2020-10-09"
+    },
+    {
+        "title": "Dinner with Leatherface",
+        "id": 637312,
+        "length": "",
+        "overview": "",
+        "poster": "https:\/\/image.tmdb.org\/t\/p\/original\/okgrTxL6TLsC5rpzRD7S5MQCGgx.jpg",
+        "genre": [
+            {
+                "id": 99,
+                "name": "Documentary"
+            },
+            {
+                "id": 27,
+                "name": "Horror"
+            }
+        ],
+        "release_date": "2020-09-01"
     },
     {
         "title": "Myth of a Colorblind France",
@@ -1544,312 +1832,6 @@
             }
         ],
         "release_date": "2020-09-25"
-    },
-    {
-        "title": "Filthy Animals",
-        "id": 713239,
-        "length": "",
-        "overview": "",
-        "poster": "https:\/\/image.tmdb.org\/t\/p\/original\/9D7m5t8X6hoAbcRBNsM0iKIiQ4K.jpg",
-        "genre": [
-            {
-                "id": 80,
-                "name": "Crime"
-            },
-            {
-                "id": 18,
-                "name": "Drama"
-            }
-        ],
-        "release_date": "2020-09-05"
-    },
-    {
-        "title": "Liebestraum",
-        "id": 588008,
-        "length": "",
-        "overview": "En 2018, el director Milos Twilight cambi\u00f3 de rumbo y dedic\u00f3 su tiempo a desarrollar una serie de proyectos basados en la vida de Frederic Chopin.  Un libro, un documental y un largometraje est\u00e1n siendo producidos",
-        "poster": "https:\/\/image.tmdb.org\/t\/p\/original\/yfJ5ff5iCEABowDeQfBETGTJ6M.jpg",
-        "genre": [
-            {
-                "id": 99,
-                "name": "Documentary"
-            }
-        ],
-        "release_date": "2020-09-25"
-    },
-    {
-        "title": "Night Shifts",
-        "id": 716676,
-        "length": "",
-        "overview": "",
-        "poster": "https:\/\/image.tmdb.org\/t\/p\/original\/2C0M8pa50z6SH3pbzOCSr9qsOYp.jpg",
-        "genre": [
-            {
-                "id": 35,
-                "name": "Comedy"
-            },
-            {
-                "id": 80,
-                "name": "Crime"
-            }
-        ],
-        "release_date": "2020-08-28"
-    },
-    {
-        "title": "sad day",
-        "id": 737548,
-        "length": "",
-        "overview": "",
-        "poster": "https:\/\/image.tmdb.org\/t\/p\/original\/6Scaomr98hGpeRm5JnW18wIpyhT.jpg",
-        "genre": [],
-        "release_date": "2020-08-27"
-    },
-    {
-        "title": "Meeting the Beatles in India",
-        "id": 741204,
-        "length": "",
-        "overview": "",
-        "poster": "https:\/\/image.tmdb.org\/t\/p\/original\/ptrF8FC04hVmm2bzCEjuG8jLYyp.jpg",
-        "genre": [
-            {
-                "id": 99,
-                "name": "Documentary"
-            },
-            {
-                "id": 10402,
-                "name": "Music"
-            }
-        ],
-        "release_date": "2020-09-09"
-    },
-    {
-        "title": "Trust Study #1",
-        "id": 743782,
-        "length": "",
-        "overview": "",
-        "poster": "https:\/\/image.tmdb.org\/t\/p\/original\/ehwBTGWIyPLAcsK1RteivrTzxs5.jpg",
-        "genre": [],
-        "release_date": "2020-09-23"
-    },
-    {
-        "title": "\u91d1\u90fd",
-        "id": 639445,
-        "length": "",
-        "overview": "",
-        "poster": "https:\/\/image.tmdb.org\/t\/p\/original\/jfK7EfGrJXEyZ40pyX8nEC0CO2H.jpg",
-        "genre": [
-            {
-                "id": 18,
-                "name": "Drama"
-            },
-            {
-                "id": 10749,
-                "name": "Romance"
-            }
-        ],
-        "release_date": "2020-09-10"
-    },
-    {
-        "title": "O Barco e O Rio",
-        "id": 739483,
-        "length": "",
-        "overview": "Vera es una religiosa que se ocupa de un buque en el puerto de Manaus. Necesita lidiar con la hermana Josi, con quien no est\u00e1 de acuerdo sobre c\u00f3mo manejar el bote y c\u00f3mo vivir la vida.",
-        "poster": "https:\/\/image.tmdb.org\/t\/p\/original\/p8jk08XBw8y4ilaH9HdRsmjOuXG.jpg",
-        "genre": [],
-        "release_date": "2020-09-19"
-    },
-    {
-        "title": "Doesn't Fall Far",
-        "id": 745897,
-        "length": "",
-        "overview": "",
-        "poster": "https:\/\/image.tmdb.org\/t\/p\/original\/mIVOWpQPiIUQtS8Na2pl2pVZxjt.jpg",
-        "genre": [
-            {
-                "id": 18,
-                "name": "Drama"
-            }
-        ],
-        "release_date": "2020-09-22"
-    },
-    {
-        "title": "Los archivos secretos de Osama Bin Laden",
-        "id": 746807,
-        "length": "",
-        "overview": "Analiza la psicolog\u00eda del fundador de al-Qa'ida, su relaci\u00f3n con la familia, su perspectiva sobre la fe y la religi\u00f3n, as\u00ed como su nihilista legado de violencia y destrucci\u00f3n. Repasa cada evidencia hallada en los documentos encontrados en el lugar de su muerte.",
-        "poster": "https:\/\/image.tmdb.org\/t\/p\/original\/qCf5RD2MIMnSdCyoVJx5blJnSnf.jpg",
-        "genre": [],
-        "release_date": "2020-09-10"
-    },
-    {
-        "title": "The Speed of Time",
-        "id": 744085,
-        "length": "",
-        "overview": "Johnny Killfire debe retroceder en el tiempo y unirse a su antiguo yo para evitar que los TimeBorgs pongan sus manos en una aplicaci\u00f3n que rompe el continuo espacio-tiempo al entregar pizzas al pasado ... incluso antes de que fueran ordenadas.",
-        "poster": "https:\/\/image.tmdb.org\/t\/p\/original\/rznJslutbuXLjoiJ2w5fHZGHpLS.jpg",
-        "genre": [],
-        "release_date": "2020-09-17"
-    },
-    {
-        "title": "Me Chama que Eu Vou",
-        "id": 739472,
-        "length": "",
-        "overview": "El documental cuenta la historia de los 50 a\u00f1os de carrera de Sidney Magal. Los momentos m\u00e1s significativos en la vida del cantante, bailar\u00edn, actor y locutor que se ha convertido en un \u00edcono de la m\u00fasica popular brasile\u00f1a. El hombre detr\u00e1s del \u00eddolo, desde el punto de vista de los participantes de la historia.",
-        "poster": "https:\/\/image.tmdb.org\/t\/p\/original\/vdIVReKH5ZUbI4RdQqzwCeypchD.jpg",
-        "genre": [
-            {
-                "id": 99,
-                "name": "Documentary"
-            }
-        ],
-        "release_date": "2020-09-18"
-    },
-    {
-        "title": "Milk Teeth",
-        "id": 735740,
-        "length": "",
-        "overview": "",
-        "poster": "https:\/\/image.tmdb.org\/t\/p\/original\/cNHmUfwJlcCmQ7Sgr3PO4Ji6Dqm.jpg",
-        "genre": [
-            {
-                "id": 14,
-                "name": "Fantasy"
-            },
-            {
-                "id": 27,
-                "name": "Horror"
-            }
-        ],
-        "release_date": "2020-08-26"
-    },
-    {
-        "title": "Subsolo",
-        "id": 739486,
-        "length": "",
-        "overview": "Tres amigas acuden al mismo gimnasio todos los d\u00edas en busca de sus ideales de cuerpos. Pese a su asiduidad, viven con los frustrantes deslizamientos que suceden alej\u00e1ndose de las v\u00edas, haciendo girar los engranajes de un ciclo sin fin.",
-        "poster": "https:\/\/image.tmdb.org\/t\/p\/original\/hAIZh7lKZDehD0qv6sSSbXFKz0S.jpg",
-        "genre": [
-            {
-                "id": 16,
-                "name": "Animation"
-            }
-        ],
-        "release_date": "2020-09-19"
-    },
-    {
-        "title": "Half White",
-        "id": 736335,
-        "length": "",
-        "overview": "",
-        "poster": "https:\/\/image.tmdb.org\/t\/p\/original\/rqsiTHWM84zTlMmeS9UHI287GZl.jpg",
-        "genre": [],
-        "release_date": "2020-08-20"
-    },
-    {
-        "title": "The Last Thing Mary Saw",
-        "id": 681986,
-        "length": "",
-        "overview": "",
-        "poster": "https:\/\/image.tmdb.org\/t\/p\/original\/mjbg50CHIZYet1wvkcutGlp0x0A.jpg",
-        "genre": [],
-        "release_date": "2020-08-28"
-    },
-    {
-        "title": "Wander Vi",
-        "id": 739487,
-        "length": "",
-        "overview": "Wanderson Vieira es un m\u00fasico de la ciudad de Samambaia y en este corto documental nos cuenta un poco c\u00f3mo concilia su trabajo nocturno y los ensayos de danza, con la creaci\u00f3n de su carrera, lanzando su seud\u00f3nimo Wander Vi, para lograr su sue\u00f1o.",
-        "poster": "https:\/\/image.tmdb.org\/t\/p\/original\/l7OW6c3BmRwnLWbmHMI2yJBpHan.jpg",
-        "genre": [
-            {
-                "id": 99,
-                "name": "Documentary"
-            }
-        ],
-        "release_date": "2020-09-19"
-    },
-    {
-        "title": "SAI_________________________LOR\/2020",
-        "id": 746592,
-        "length": "",
-        "overview": "",
-        "poster": "https:\/\/image.tmdb.org\/t\/p\/original\/sgTllm4v60vPNuACHKzITgs22ms.jpg",
-        "genre": [],
-        "release_date": "2020-09-18"
-    },
-    {
-        "title": "Voc\u00ea tem Olhos Tristes",
-        "id": 739488,
-        "length": "",
-        "overview": "",
-        "poster": "https:\/\/image.tmdb.org\/t\/p\/original\/lXu3Ix2IGPxxk17wYL7KDAcwo1.jpg",
-        "genre": [],
-        "release_date": "2020-09-18"
-    },
-    {
-        "title": "Wild Daze",
-        "id": 744406,
-        "length": "",
-        "overview": "",
-        "poster": "https:\/\/image.tmdb.org\/t\/p\/original\/eFUepwdrCPiwn4CxrI6iopAYILC.jpg",
-        "genre": [
-            {
-                "id": 99,
-                "name": "Documentary"
-            }
-        ],
-        "release_date": "2020-09-18"
-    },
-    {
-        "title": "Suburban Versions",
-        "id": 748042,
-        "length": "",
-        "overview": "",
-        "poster": "https:\/\/image.tmdb.org\/t\/p\/original\/szIa81VgxFXGAYIFj3lyrBtSblA.jpg",
-        "genre": [
-            {
-                "id": 35,
-                "name": "Comedy"
-            }
-        ],
-        "release_date": "2020-09-11"
-    },
-    {
-        "title": "Driven to Abstraction",
-        "id": 725567,
-        "length": "",
-        "overview": "",
-        "poster": "https:\/\/image.tmdb.org\/t\/p\/original\/pUuM7ScjERYpoR9qPvsJgXq998p.jpg",
-        "genre": [],
-        "release_date": "2020-08-28"
-    },
-    {
-        "title": "O Samba \u00e9 Primo do Jazz",
-        "id": 739476,
-        "length": "",
-        "overview": "El documental O Samba \u00e9 Primo do Jazz mostrar\u00e1 la trayectoria musical de Alcione Dias Nazareth, nuestro gran int\u00e9rprete brasile\u00f1o, desde sus referentes musicales, su inserci\u00f3n en el mundo de la m\u00fasica y su relaci\u00f3n con familiares y amigos. La cinematograf\u00eda nos acerca a una Alcione relajada, divertida y matriarcal con vida y obra art\u00edstica.",
-        "poster": "https:\/\/image.tmdb.org\/t\/p\/original\/rHwLLPCTNag5edtfxhG1rmSV5o4.jpg",
-        "genre": [
-            {
-                "id": 99,
-                "name": "Documentary"
-            }
-        ],
-        "release_date": "2020-09-18"
-    },
-    {
-        "title": "My Name Is Pedro",
-        "id": 606591,
-        "length": "",
-        "overview": "",
-        "poster": "https:\/\/image.tmdb.org\/t\/p\/original\/ptnvYKzvm91WxL7BR0e8k8YE2ya.jpg",
-        "genre": [
-            {
-                "id": 99,
-                "name": "Documentary"
-            }
-        ],
-        "release_date": "2020-09-17"
     },
     {
         "title": "Benevolence",
@@ -1874,6 +1856,212 @@
         "release_date": "2020-09-10"
     },
     {
+        "title": "Subsolo",
+        "id": 739486,
+        "length": "",
+        "overview": "Tres amigas acuden al mismo gimnasio todos los d\u00edas en busca de sus ideales de cuerpos. Pese a su asiduidad, viven con los frustrantes deslizamientos que suceden alej\u00e1ndose de las v\u00edas, haciendo girar los engranajes de un ciclo sin fin.",
+        "poster": "https:\/\/image.tmdb.org\/t\/p\/original\/hAIZh7lKZDehD0qv6sSSbXFKz0S.jpg",
+        "genre": [
+            {
+                "id": 16,
+                "name": "Animation"
+            }
+        ],
+        "release_date": "2020-09-19"
+    },
+    {
+        "title": "Substance Without Science",
+        "id": 744792,
+        "length": "",
+        "overview": "",
+        "poster": "https:\/\/image.tmdb.org\/t\/p\/original\/6MvzMdfm3CR7UALsB9prL9rvoLV.jpg",
+        "genre": [],
+        "release_date": "2020-09-04"
+    },
+    {
+        "title": "Teething",
+        "id": 726521,
+        "length": "",
+        "overview": "",
+        "poster": "https:\/\/image.tmdb.org\/t\/p\/original\/yOgLkCHnpXoNpcIu9Prm8Jd4Unc.jpg",
+        "genre": [
+            {
+                "id": 27,
+                "name": "Horror"
+            }
+        ],
+        "release_date": "2020-10-06"
+    },
+    {
+        "title": "Filthy Animals",
+        "id": 713239,
+        "length": "",
+        "overview": "",
+        "poster": "https:\/\/image.tmdb.org\/t\/p\/original\/9D7m5t8X6hoAbcRBNsM0iKIiQ4K.jpg",
+        "genre": [
+            {
+                "id": 80,
+                "name": "Crime"
+            },
+            {
+                "id": 18,
+                "name": "Drama"
+            }
+        ],
+        "release_date": "2020-09-05"
+    },
+    {
+        "title": "\u91d1\u90fd",
+        "id": 639445,
+        "length": "",
+        "overview": "",
+        "poster": "https:\/\/image.tmdb.org\/t\/p\/original\/jfK7EfGrJXEyZ40pyX8nEC0CO2H.jpg",
+        "genre": [
+            {
+                "id": 18,
+                "name": "Drama"
+            },
+            {
+                "id": 10749,
+                "name": "Romance"
+            }
+        ],
+        "release_date": "2020-09-10"
+    },
+    {
+        "title": "Glimpses from a Visit to Orkney in Summer 1995",
+        "id": 741880,
+        "length": "",
+        "overview": "",
+        "poster": "https:\/\/image.tmdb.org\/t\/p\/original\/3uwlIq6ye6fvzs6TQFxDjPEyFaF.jpg",
+        "genre": [],
+        "release_date": "2020-09-25"
+    },
+    {
+        "title": "Jimmy Carter Rock & Roll President",
+        "id": 692982,
+        "length": "",
+        "overview": "",
+        "poster": "https:\/\/image.tmdb.org\/t\/p\/original\/wCkzxTkBb8eBVGQDkh3m0AH3Uy6.jpg",
+        "genre": [
+            {
+                "id": 99,
+                "name": "Documentary"
+            }
+        ],
+        "release_date": "2020-09-09"
+    },
+    {
+        "title": "Wander Vi",
+        "id": 739487,
+        "length": "",
+        "overview": "Wanderson Vieira es un m\u00fasico de la ciudad de Samambaia y en este corto documental nos cuenta un poco c\u00f3mo concilia su trabajo nocturno y los ensayos de danza, con la creaci\u00f3n de su carrera, lanzando su seud\u00f3nimo Wander Vi, para lograr su sue\u00f1o.",
+        "poster": "https:\/\/image.tmdb.org\/t\/p\/original\/l7OW6c3BmRwnLWbmHMI2yJBpHan.jpg",
+        "genre": [
+            {
+                "id": 99,
+                "name": "Documentary"
+            }
+        ],
+        "release_date": "2020-09-19"
+    },
+    {
+        "title": "My Brothers' Crossing",
+        "id": 701354,
+        "length": "",
+        "overview": "",
+        "poster": "https:\/\/image.tmdb.org\/t\/p\/original\/s9gg2ldAcdMtND6tCiPhnba3GhH.jpg",
+        "genre": [
+            {
+                "id": 18,
+                "name": "Drama"
+            }
+        ],
+        "release_date": "2020-09-03"
+    },
+    {
+        "title": "Suburban Versions",
+        "id": 748042,
+        "length": "",
+        "overview": "",
+        "poster": "https:\/\/image.tmdb.org\/t\/p\/original\/szIa81VgxFXGAYIFj3lyrBtSblA.jpg",
+        "genre": [
+            {
+                "id": 35,
+                "name": "Comedy"
+            }
+        ],
+        "release_date": "2020-09-11"
+    },
+    {
+        "title": "Untitled Project About Love etc.",
+        "id": 704976,
+        "length": "",
+        "overview": "",
+        "poster": "https:\/\/image.tmdb.org\/t\/p\/original\/AerrYqZXdZicIRsmIVH7liQe57S.jpg",
+        "genre": [],
+        "release_date": "2020-08-31"
+    },
+    {
+        "title": "The Speed of Time",
+        "id": 744085,
+        "length": "",
+        "overview": "Johnny Killfire debe retroceder en el tiempo y unirse a su antiguo yo para evitar que los TimeBorgs pongan sus manos en una aplicaci\u00f3n que rompe el continuo espacio-tiempo al entregar pizzas al pasado ... incluso antes de que fueran ordenadas.",
+        "poster": "https:\/\/image.tmdb.org\/t\/p\/original\/rznJslutbuXLjoiJ2w5fHZGHpLS.jpg",
+        "genre": [],
+        "release_date": "2020-09-17"
+    },
+    {
+        "title": "My Name Is Pedro",
+        "id": 606591,
+        "length": "",
+        "overview": "",
+        "poster": "https:\/\/image.tmdb.org\/t\/p\/original\/ptnvYKzvm91WxL7BR0e8k8YE2ya.jpg",
+        "genre": [
+            {
+                "id": 99,
+                "name": "Documentary"
+            }
+        ],
+        "release_date": "2020-09-17"
+    },
+    {
+        "title": "Trust Study #1",
+        "id": 743782,
+        "length": "",
+        "overview": "",
+        "poster": "https:\/\/image.tmdb.org\/t\/p\/original\/ehwBTGWIyPLAcsK1RteivrTzxs5.jpg",
+        "genre": [],
+        "release_date": "2020-09-23"
+    },
+    {
+        "title": "SAI_________________________LOR\/2020",
+        "id": 746592,
+        "length": "",
+        "overview": "",
+        "poster": "https:\/\/image.tmdb.org\/t\/p\/original\/sgTllm4v60vPNuACHKzITgs22ms.jpg",
+        "genre": [],
+        "release_date": "2020-09-18"
+    },
+    {
+        "title": "Village of the Plagued",
+        "id": 752177,
+        "length": "",
+        "overview": "",
+        "poster": "https:\/\/image.tmdb.org\/t\/p\/original",
+        "genre": [
+            {
+                "id": 35,
+                "name": "Comedy"
+            },
+            {
+                "id": 27,
+                "name": "Horror"
+            }
+        ],
+        "release_date": "2020-10-09"
+    },
+    {
         "title": "Katy Perry: Special MTV World Stage",
         "id": 749997,
         "length": "",
@@ -1883,22 +2071,238 @@
         "release_date": "2020-09-06"
     },
     {
-        "title": "Ringolevio",
-        "id": 738106,
+        "title": "Open World",
+        "id": 745872,
         "length": "",
         "overview": "",
         "poster": "https:\/\/image.tmdb.org\/t\/p\/original",
-        "genre": [],
+        "genre": [
+            {
+                "id": 16,
+                "name": "Animation"
+            }
+        ],
         "release_date": "2020-08-31"
     },
     {
-        "title": "Locus Suspectus",
-        "id": 732446,
+        "title": "Night Shifts",
+        "id": 716676,
         "length": "",
         "overview": "",
-        "poster": "https:\/\/image.tmdb.org\/t\/p\/original\/yC1bNisYFgREyCIPmph0cbr03PG.jpg",
+        "poster": "https:\/\/image.tmdb.org\/t\/p\/original\/2C0M8pa50z6SH3pbzOCSr9qsOYp.jpg",
+        "genre": [
+            {
+                "id": 35,
+                "name": "Comedy"
+            },
+            {
+                "id": 80,
+                "name": "Crime"
+            }
+        ],
+        "release_date": "2020-08-28"
+    },
+    {
+        "title": "Doesn't Fall Far",
+        "id": 745897,
+        "length": "",
+        "overview": "",
+        "poster": "https:\/\/image.tmdb.org\/t\/p\/original\/mIVOWpQPiIUQtS8Na2pl2pVZxjt.jpg",
+        "genre": [
+            {
+                "id": 18,
+                "name": "Drama"
+            }
+        ],
+        "release_date": "2020-09-22"
+    },
+    {
+        "title": "The Last Thing Mary Saw",
+        "id": 681986,
+        "length": "",
+        "overview": "",
+        "poster": "https:\/\/image.tmdb.org\/t\/p\/original\/mjbg50CHIZYet1wvkcutGlp0x0A.jpg",
         "genre": [],
-        "release_date": "2020-08-22"
+        "release_date": "2020-08-28"
+    },
+    {
+        "title": "Liebestraum",
+        "id": 588008,
+        "length": "",
+        "overview": "En 2018, el director Milos Twilight cambi\u00f3 de rumbo y dedic\u00f3 su tiempo a desarrollar una serie de proyectos basados en la vida de Frederic Chopin.  Un libro, un documental y un largometraje est\u00e1n siendo producidos",
+        "poster": "https:\/\/image.tmdb.org\/t\/p\/original\/yfJ5ff5iCEABowDeQfBETGTJ6M.jpg",
+        "genre": [
+            {
+                "id": 99,
+                "name": "Documentary"
+            }
+        ],
+        "release_date": "2020-09-25"
+    },
+    {
+        "title": "Meeting the Beatles in India",
+        "id": 741204,
+        "length": "",
+        "overview": "",
+        "poster": "https:\/\/image.tmdb.org\/t\/p\/original\/ptrF8FC04hVmm2bzCEjuG8jLYyp.jpg",
+        "genre": [
+            {
+                "id": 99,
+                "name": "Documentary"
+            },
+            {
+                "id": 10402,
+                "name": "Music"
+            }
+        ],
+        "release_date": "2020-09-09"
+    },
+    {
+        "title": "sad day",
+        "id": 737548,
+        "length": "",
+        "overview": "",
+        "poster": "https:\/\/image.tmdb.org\/t\/p\/original\/6Scaomr98hGpeRm5JnW18wIpyhT.jpg",
+        "genre": [],
+        "release_date": "2020-08-27"
+    },
+    {
+        "title": "Joy Run",
+        "id": 743383,
+        "length": "",
+        "overview": "",
+        "poster": "https:\/\/image.tmdb.org\/t\/p\/original\/3PP2ncbIu1WrVoEc7p41dp308BE.jpg",
+        "genre": [],
+        "release_date": "2020-09-15"
+    },
+    {
+        "title": "Migrations: The Big Swim",
+        "id": 743015,
+        "length": "",
+        "overview": "",
+        "poster": "https:\/\/image.tmdb.org\/t\/p\/original\/tj3IBpVZW5QZvGQtoLKnvVmXJrv.jpg",
+        "genre": [
+            {
+                "id": 99,
+                "name": "Documentary"
+            }
+        ],
+        "release_date": "2020-09-20"
+    },
+    {
+        "title": "Vinyl Nation",
+        "id": 692962,
+        "length": "",
+        "overview": "",
+        "poster": "https:\/\/image.tmdb.org\/t\/p\/original\/dtH5DLqjvOt0tsmUs9ADiA1W42M.jpg",
+        "genre": [
+            {
+                "id": 99,
+                "name": "Documentary"
+            }
+        ],
+        "release_date": "2020-08-28"
+    },
+    {
+        "title": "O Barco e O Rio",
+        "id": 739483,
+        "length": "",
+        "overview": "Vera es una religiosa que se ocupa de un buque en el puerto de Manaus. Necesita lidiar con la hermana Josi, con quien no est\u00e1 de acuerdo sobre c\u00f3mo manejar el bote y c\u00f3mo vivir la vida.",
+        "poster": "https:\/\/image.tmdb.org\/t\/p\/original\/p8jk08XBw8y4ilaH9HdRsmjOuXG.jpg",
+        "genre": [],
+        "release_date": "2020-09-19"
+    },
+    {
+        "title": "Me Chama que Eu Vou",
+        "id": 739472,
+        "length": "",
+        "overview": "El documental cuenta la historia de los 50 a\u00f1os de carrera de Sidney Magal. Los momentos m\u00e1s significativos en la vida del cantante, bailar\u00edn, actor y locutor que se ha convertido en un \u00edcono de la m\u00fasica popular brasile\u00f1a. El hombre detr\u00e1s del \u00eddolo, desde el punto de vista de los participantes de la historia.",
+        "poster": "https:\/\/image.tmdb.org\/t\/p\/original\/vdIVReKH5ZUbI4RdQqzwCeypchD.jpg",
+        "genre": [
+            {
+                "id": 99,
+                "name": "Documentary"
+            }
+        ],
+        "release_date": "2020-09-18"
+    },
+    {
+        "title": "Wild Daze",
+        "id": 744406,
+        "length": "",
+        "overview": "",
+        "poster": "https:\/\/image.tmdb.org\/t\/p\/original\/eFUepwdrCPiwn4CxrI6iopAYILC.jpg",
+        "genre": [
+            {
+                "id": 99,
+                "name": "Documentary"
+            }
+        ],
+        "release_date": "2020-09-18"
+    },
+    {
+        "title": "O Samba \u00e9 Primo do Jazz",
+        "id": 739476,
+        "length": "",
+        "overview": "El documental O Samba \u00e9 Primo do Jazz mostrar\u00e1 la trayectoria musical de Alcione Dias Nazareth, nuestro gran int\u00e9rprete brasile\u00f1o, desde sus referentes musicales, su inserci\u00f3n en el mundo de la m\u00fasica y su relaci\u00f3n con familiares y amigos. La cinematograf\u00eda nos acerca a una Alcione relajada, divertida y matriarcal con vida y obra art\u00edstica.",
+        "poster": "https:\/\/image.tmdb.org\/t\/p\/original\/rHwLLPCTNag5edtfxhG1rmSV5o4.jpg",
+        "genre": [
+            {
+                "id": 99,
+                "name": "Documentary"
+            }
+        ],
+        "release_date": "2020-09-18"
+    },
+    {
+        "title": "Voc\u00ea tem Olhos Tristes",
+        "id": 739488,
+        "length": "",
+        "overview": "",
+        "poster": "https:\/\/image.tmdb.org\/t\/p\/original\/lXu3Ix2IGPxxk17wYL7KDAcwo1.jpg",
+        "genre": [],
+        "release_date": "2020-09-18"
+    },
+    {
+        "title": "Stealing Pulp Fiction",
+        "id": 738735,
+        "length": "",
+        "overview": "",
+        "poster": "https:\/\/image.tmdb.org\/t\/p\/original\/5OHH3y2v8uwluOZLC2Kt8ENcjxn.jpg",
+        "genre": [
+            {
+                "id": 35,
+                "name": "Comedy"
+            }
+        ],
+        "release_date": "2020-09-01"
+    },
+    {
+        "title": "Body Swap",
+        "id": 528612,
+        "length": "",
+        "overview": "",
+        "poster": "https:\/\/image.tmdb.org\/t\/p\/original\/fUk2IsL6bH6dmtE4icrwT3UbDsE.jpg",
+        "genre": [
+            {
+                "id": 35,
+                "name": "Comedy"
+            },
+            {
+                "id": 10749,
+                "name": "Romance"
+            }
+        ],
+        "release_date": "2020-10-02"
+    },
+    {
+        "title": "Fantasy of Being in Exile",
+        "id": 733462,
+        "length": "",
+        "overview": "",
+        "poster": "https:\/\/image.tmdb.org\/t\/p\/original\/trFabGW9JLbZJpGuTDpAMpN39AF.jpg",
+        "genre": [],
+        "release_date": "2020-08-26"
     },
     {
         "title": "You Can't Do That",
@@ -1915,18 +2319,149 @@
         "release_date": "2020-09-05"
     },
     {
-        "title": "Open World",
-        "id": 745872,
+        "title": "Inner-Critic",
+        "id": 740632,
+        "length": "",
+        "overview": "",
+        "poster": "https:\/\/image.tmdb.org\/t\/p\/original",
+        "genre": [],
+        "release_date": "2020-09-07"
+    },
+    {
+        "title": "Terroir",
+        "id": 740633,
+        "length": "",
+        "overview": "",
+        "poster": "https:\/\/image.tmdb.org\/t\/p\/original",
+        "genre": [],
+        "release_date": "2020-09-07"
+    },
+    {
+        "title": "Wrightwood",
+        "id": 740626,
+        "length": "",
+        "overview": "",
+        "poster": "https:\/\/image.tmdb.org\/t\/p\/original",
+        "genre": [],
+        "release_date": "2020-09-07"
+    },
+    {
+        "title": "Ringolevio",
+        "id": 738106,
+        "length": "",
+        "overview": "",
+        "poster": "https:\/\/image.tmdb.org\/t\/p\/original",
+        "genre": [],
+        "release_date": "2020-08-31"
+    },
+    {
+        "title": "Figure Minus Fact",
+        "id": 739829,
+        "length": "",
+        "overview": "",
+        "poster": "https:\/\/image.tmdb.org\/t\/p\/original\/ynWwWwhYeXypqMbOuX39OK0lR1z.jpg",
+        "genre": [],
+        "release_date": "2020-09-01"
+    },
+    {
+        "title": "Milk Teeth",
+        "id": 735740,
+        "length": "",
+        "overview": "",
+        "poster": "https:\/\/image.tmdb.org\/t\/p\/original\/cNHmUfwJlcCmQ7Sgr3PO4Ji6Dqm.jpg",
+        "genre": [
+            {
+                "id": 14,
+                "name": "Fantasy"
+            },
+            {
+                "id": 27,
+                "name": "Horror"
+            }
+        ],
+        "release_date": "2020-08-26"
+    },
+    {
+        "title": "Shahmaran",
+        "id": 742280,
+        "length": "",
+        "overview": "",
+        "poster": "https:\/\/image.tmdb.org\/t\/p\/original",
+        "genre": [],
+        "release_date": "2020-09-02"
+    },
+    {
+        "title": "Rancho do V\u00f4",
+        "id": 750270,
         "length": "",
         "overview": "",
         "poster": "https:\/\/image.tmdb.org\/t\/p\/original",
         "genre": [
             {
-                "id": 16,
-                "name": "Animation"
+                "id": 99,
+                "name": "Documentary"
             }
         ],
-        "release_date": "2020-08-31"
+        "release_date": "2020-07-15"
+    },
+    {
+        "title": "dream less",
+        "id": 733463,
+        "length": "",
+        "overview": "",
+        "poster": "https:\/\/image.tmdb.org\/t\/p\/original\/4p78VcWs4TE0mmU4kpjnO8ECNXX.jpg",
+        "genre": [],
+        "release_date": "2020-08-26"
+    },
+    {
+        "title": "- force -",
+        "id": 739824,
+        "length": "",
+        "overview": "",
+        "poster": "https:\/\/image.tmdb.org\/t\/p\/original\/rIa6zuqAU3abpaSipgpXoT2VSyR.jpg",
+        "genre": [],
+        "release_date": "2020-09-01"
+    },
+    {
+        "title": "Westinghouse One",
+        "id": 732819,
+        "length": "",
+        "overview": "",
+        "poster": "https:\/\/image.tmdb.org\/t\/p\/original\/vkJ8bd6fyNLDNZmXEMi63AhLT66.jpg",
+        "genre": [],
+        "release_date": "2020-08-25"
+    },
+    {
+        "title": "Flipping Sides",
+        "id": 750490,
+        "length": "",
+        "overview": "",
+        "poster": "https:\/\/image.tmdb.org\/t\/p\/original\/5B53ADXM3Jv0RNS0i5CKcIds6ZI.jpg",
+        "genre": [],
+        "release_date": "2020-08-28"
+    },
+    {
+        "title": "Driven to Abstraction",
+        "id": 725567,
+        "length": "",
+        "overview": "",
+        "poster": "https:\/\/image.tmdb.org\/t\/p\/original\/pUuM7ScjERYpoR9qPvsJgXq998p.jpg",
+        "genre": [],
+        "release_date": "2020-08-28"
+    },
+    {
+        "title": "Diosa De La Noche: En VIvo Desde La Arena Ciudad de M\u00e9xico",
+        "id": 737415,
+        "length": "",
+        "overview": "La artista femenina Mexicana m\u00e1s taquillera del XXI, Gloria Trevi presenta \u201cDiosa de la Noche: En Vivo desde la Arena Ciudad Mexico\u201d.",
+        "poster": "https:\/\/image.tmdb.org\/t\/p\/original\/65H6tTSMMHZjNQfUXL3y40J8faV.jpg",
+        "genre": [
+            {
+                "id": 10402,
+                "name": "Music"
+            }
+        ],
+        "release_date": "2020-08-28"
     },
     {
         "title": "TAIYOU NO IE",
@@ -1947,235 +2482,12 @@
         "release_date": "2020-08-28"
     },
     {
-        "title": "Landfall",
-        "id": 696449,
+        "title": "Orgun",
+        "id": 752612,
         "length": "",
         "overview": "",
-        "poster": "https:\/\/image.tmdb.org\/t\/p\/original\/6IKJlFOUulZACDv0tMC5HyBCl2P.jpg",
-        "genre": [
-            {
-                "id": 99,
-                "name": "Documentary"
-            }
-        ],
-        "release_date": "2020-04-15"
-    },
-    {
-        "title": "Joy Run",
-        "id": 743383,
-        "length": "",
-        "overview": "",
-        "poster": "https:\/\/image.tmdb.org\/t\/p\/original\/3PP2ncbIu1WrVoEc7p41dp308BE.jpg",
+        "poster": "https:\/\/image.tmdb.org\/t\/p\/original\/qWX7J5wH1wOxDQqGWj0xciOnA4H.jpg",
         "genre": [],
-        "release_date": "2020-09-15"
-    },
-    {
-        "title": "Stealing Pulp Fiction",
-        "id": 738735,
-        "length": "",
-        "overview": "",
-        "poster": "https:\/\/image.tmdb.org\/t\/p\/original\/5OHH3y2v8uwluOZLC2Kt8ENcjxn.jpg",
-        "genre": [
-            {
-                "id": 35,
-                "name": "Comedy"
-            }
-        ],
-        "release_date": "2020-09-01"
-    },
-    {
-        "title": "Substance Without Science",
-        "id": 744792,
-        "length": "",
-        "overview": "",
-        "poster": "https:\/\/image.tmdb.org\/t\/p\/original\/6MvzMdfm3CR7UALsB9prL9rvoLV.jpg",
-        "genre": [],
-        "release_date": "2020-09-04"
-    },
-    {
-        "title": "Untitled Project About Love etc.",
-        "id": 704976,
-        "length": "",
-        "overview": "",
-        "poster": "https:\/\/image.tmdb.org\/t\/p\/original\/AerrYqZXdZicIRsmIVH7liQe57S.jpg",
-        "genre": [],
-        "release_date": "2020-08-31"
-    },
-    {
-        "title": "\/E\/E\/E\/E\/",
-        "id": 746591,
-        "length": "",
-        "overview": "",
-        "poster": "https:\/\/image.tmdb.org\/t\/p\/original\/g6JdctPhon5FMa9TJa6oVfs5kqX.jpg",
-        "genre": [],
-        "release_date": "2020-08-21"
-    },
-    {
-        "title": "Flipping Sides",
-        "id": 750490,
-        "length": "",
-        "overview": "",
-        "poster": "https:\/\/image.tmdb.org\/t\/p\/original\/5B53ADXM3Jv0RNS0i5CKcIds6ZI.jpg",
-        "genre": [],
-        "release_date": "2020-08-28"
-    },
-    {
-        "title": "Figure Minus Fact",
-        "id": 739829,
-        "length": "",
-        "overview": "",
-        "poster": "https:\/\/image.tmdb.org\/t\/p\/original\/ynWwWwhYeXypqMbOuX39OK0lR1z.jpg",
-        "genre": [],
-        "release_date": "2020-09-01"
-    },
-    {
-        "title": "- force -",
-        "id": 739824,
-        "length": "",
-        "overview": "",
-        "poster": "https:\/\/image.tmdb.org\/t\/p\/original\/rIa6zuqAU3abpaSipgpXoT2VSyR.jpg",
-        "genre": [],
-        "release_date": "2020-09-01"
-    },
-    {
-        "title": "Fantasy of Being in Exile",
-        "id": 733462,
-        "length": "",
-        "overview": "",
-        "poster": "https:\/\/image.tmdb.org\/t\/p\/original\/trFabGW9JLbZJpGuTDpAMpN39AF.jpg",
-        "genre": [],
-        "release_date": "2020-08-26"
-    },
-    {
-        "title": "dream less",
-        "id": 733463,
-        "length": "",
-        "overview": "",
-        "poster": "https:\/\/image.tmdb.org\/t\/p\/original\/4p78VcWs4TE0mmU4kpjnO8ECNXX.jpg",
-        "genre": [],
-        "release_date": "2020-08-26"
-    },
-    {
-        "title": "Terroir",
-        "id": 740633,
-        "length": "",
-        "overview": "",
-        "poster": "https:\/\/image.tmdb.org\/t\/p\/original",
-        "genre": [],
-        "release_date": "2020-09-07"
-    },
-    {
-        "title": "Inner-Critic",
-        "id": 740632,
-        "length": "",
-        "overview": "",
-        "poster": "https:\/\/image.tmdb.org\/t\/p\/original",
-        "genre": [],
-        "release_date": "2020-09-07"
-    },
-    {
-        "title": "Wrightwood",
-        "id": 740626,
-        "length": "",
-        "overview": "",
-        "poster": "https:\/\/image.tmdb.org\/t\/p\/original",
-        "genre": [],
-        "release_date": "2020-09-07"
-    },
-    {
-        "title": "Westinghouse One",
-        "id": 732819,
-        "length": "",
-        "overview": "",
-        "poster": "https:\/\/image.tmdb.org\/t\/p\/original\/vkJ8bd6fyNLDNZmXEMi63AhLT66.jpg",
-        "genre": [],
-        "release_date": "2020-08-25"
-    },
-    {
-        "title": "O Presente",
-        "id": 697809,
-        "length": "",
-        "overview": "",
-        "poster": "https:\/\/image.tmdb.org\/t\/p\/original\/o5jbc5746cXZhj5lATSiwFznySD.jpg",
-        "genre": [
-            {
-                "id": 18,
-                "name": "Drama"
-            }
-        ],
-        "release_date": "2020-08-21"
-    },
-    {
-        "title": "Der Test",
-        "id": 735416,
-        "length": "",
-        "overview": "",
-        "poster": "https:\/\/image.tmdb.org\/t\/p\/original",
-        "genre": [],
-        "release_date": "2020-08-21"
-    },
-    {
-        "title": "Shahmaran",
-        "id": 742280,
-        "length": "",
-        "overview": "",
-        "poster": "https:\/\/image.tmdb.org\/t\/p\/original",
-        "genre": [],
-        "release_date": "2020-09-02"
-    },
-    {
-        "title": "Diosa De La Noche: En VIvo Desde La Arena Ciudad de M\u00e9xico",
-        "id": 737415,
-        "length": "",
-        "overview": "La artista femenina Mexicana m\u00e1s taquillera del XXI, Gloria Trevi presenta \u201cDiosa de la Noche: En Vivo desde la Arena Ciudad Mexico\u201d.",
-        "poster": "https:\/\/image.tmdb.org\/t\/p\/original\/65H6tTSMMHZjNQfUXL3y40J8faV.jpg",
-        "genre": [
-            {
-                "id": 10402,
-                "name": "Music"
-            }
-        ],
-        "release_date": "2020-08-28"
-    },
-    {
-        "title": "Ritual Visceral Memory",
-        "id": 736131,
-        "length": "",
-        "overview": "",
-        "poster": "https:\/\/image.tmdb.org\/t\/p\/original\/lvcXkXpXo9G2rIwMRUp6cJJu4Zv.jpg",
-        "genre": [],
-        "release_date": "2020-08-20"
-    },
-    {
-        "title": "Migrations: The Big Swim",
-        "id": 743015,
-        "length": "",
-        "overview": "",
-        "poster": "https:\/\/image.tmdb.org\/t\/p\/original\/tj3IBpVZW5QZvGQtoLKnvVmXJrv.jpg",
-        "genre": [
-            {
-                "id": 99,
-                "name": "Documentary"
-            }
-        ],
-        "release_date": "2020-09-20"
-    },
-    {
-        "title": "Body Swap",
-        "id": 528612,
-        "length": "",
-        "overview": "",
-        "poster": "https:\/\/image.tmdb.org\/t\/p\/original\/fUk2IsL6bH6dmtE4icrwT3UbDsE.jpg",
-        "genre": [
-            {
-                "id": 35,
-                "name": "Comedy"
-            },
-            {
-                "id": 10749,
-                "name": "Romance"
-            }
-        ],
-        "release_date": "2020-10-02"
+        "release_date": "2020-09-19"
     }
 ]
