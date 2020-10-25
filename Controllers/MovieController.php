@@ -1,10 +1,9 @@
 <?php
-
     namespace Controllers;
+    
     use Models\Movie;
     use DAO\MovieDAO;
     use Controllers\GenreController;
-
 
     class MovieController{
         private $movieDao;

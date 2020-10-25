@@ -17,6 +17,17 @@
             $movieController = new MovieController();
             $movieController->showMoviesList();
         }
+
+        public function logIn(){
+            $userController = new userController();
+            $userController->logIn();
+        }
+
+        public function signIn(){
+            $userController = new userController();
+            $userController->signIn();
+        }
+
         public function showHome()
         {
             $movieController = new MovieController();
