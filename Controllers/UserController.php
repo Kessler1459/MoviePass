@@ -24,41 +24,42 @@
         private function createClient($email,$password,$firstName,$lastName,$birthdate,$userType){
             $id=(string)time();
             $client = new User($id,$email,$password,$firstName,$lastName,$birthdate,$userType,null);
-            $this->userDao->add($client);
+            //$this->userDao->add($client);
+
+            return $client;
         }
 
         private function createCinemaOwner($email,$password,$firstName,$lastName,$birthdate,$cinemaId,$userType){
             $id=(string)time();
             $cinemaOwner = new User($id,$email,$password,$firstName,$lastName,$birthdate,$userType,$cinemaId);
             $this->userDao->add($cinemaOwner);
+
+            return $cinemaOwner;
         }
 
-        public function verifySignIn(){
-            try{
-                $this->userDao->findEmail($email);
+        public function verifySignIn($email,$password,$firstName,$lastName,$birthdate,$cinemaId = " ",$userType = 1){
+            $user = null;
+            //try{
+                //$this->userDao->findEmail($email);
 
-                if(){
-                    createCinemaOwner($email,$password,$firstName,$lastName,$birthdate,$cinemaId,$userType) 
-                }else{
-                    createClient($email,$password,$firstName,$lastName,$birthdate,$userType)
-                }
-                startSession($user);
-                include VIEWS_PATH."logIn.php";
-            }
-            catch (\Throwable $th) {
-                //throw $th;
-            }
+                if($userType == 2)
+                    $user = $this->createCinemaOwner($email,$password,$firstName,$lastName,$birthdate,$cinemaId,$userType);
+                else
+                    $user = $this->createClient($email,$password,$firstName,$lastName,$birthdate,$userType);
+
+                $this->startSession($user);
+                include VIEWS_PATH."home_page.php";
+            //}
+            //catch () { }
         }
 
-        public function verifyLodIn(){
-            try{
+        public function verifyLogIn($email,$password){
+            //try{
                 $user = $this->userDao->findUser($email,$password);
-                startSession($user);
+                $this->startSession($user);
                 
-            }
-            catch (\Throwable $th) {
-                //throw $th;
-            }
+            //}
+            //catch () { }
         }
 
         private function startSession($user){
