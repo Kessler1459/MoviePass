@@ -47,7 +47,14 @@ require_once(VIEWS_PATH."nav.php");
 
             <?php } ?>
 
-            <div class="modal fade movie" id="" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+            
+
+
+
+        </div>
+    </div>
+</main>
+<div class="modal fade movie" id="" tabindex="0" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
                 <div class="modal-dialog modal-lg">
                     <div class="modal-content">
                         <div class="media">
@@ -63,12 +70,6 @@ require_once(VIEWS_PATH."nav.php");
                     </div>
                 </div>
             </div>
-
-
-
-        </div>
-    </div>
-</main>
 
 <script>
     function dataChange(imageIncome, titleIncome, SynIncome) {
