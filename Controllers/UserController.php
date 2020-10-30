@@ -1,8 +1,10 @@
 <?php
     namespace Controllers;
 
-    use Models\User;
-    use DAO\UserDAO;
+    use Models\User as User;
+    use Models\UserProfile as UserProfile;
+    use Models\UserRole as UserRole;
+    use DAO\UserDAO as UserDAO;
     
     class UserController{
         private $userDao;
@@ -21,31 +23,35 @@
             include VIEWS_PATH."signIn.php";
         }
 
-        private function createClient($email,$password,$firstName,$lastName,$birthdate,$userType){
+        private function createClient($email,$password,$firstName,$lastName,$dni,$userType){
             $id=(string)time();
-            $client = new User($id,$email,$password,$firstName,$lastName,$birthdate,$userType,null);
+            $userProfile = new UserProfile($firstName,$lastName,$dni);
+            $userRole = new UserRole($userType,"Client");
+            $client = new User($id,$email,$password,$userProfile,$userRole,null);
             //$this->userDao->add($client);
 
             return $client;
         }
 
-        private function createCinemaOwner($email,$password,$firstName,$lastName,$birthdate,$cinemaId,$userType){
+        private function createCinemaOwner($email,$password,$firstName,$lastName,$dni,$cinemaId,$userType){
             $id=(string)time();
-            $cinemaOwner = new User($id,$email,$password,$firstName,$lastName,$birthdate,$userType,$cinemaId);
+            $userProfile = new UserProfile($firstName,$lastName,$dni);
+            $userRole = new UserRole($userType,"Cinema Owner");
+            $cinemaOwner = new User($id,$email,$password,$firstName,$lastName,$dni,$userType,$cinemaId);
             $this->userDao->add($cinemaOwner);
 
             return $cinemaOwner;
         }
 
-        public function verifySignIn($email,$password,$firstName,$lastName,$birthdate,$cinemaId = " ",$userType = 1){
+        public function verifySignIn($email,$password,$firstName,$lastName,$dni,$cinemaId = " ",$userType = 1){
             $user = null;
             //try{
                 //$this->userDao->findEmail($email);
 
                 if($userType == 2)
-                    $user = $this->createCinemaOwner($email,$password,$firstName,$lastName,$birthdate,$cinemaId,$userType);
+                    $user = $this->createCinemaOwner($email,$password,$firstName,$lastName,$dni,$cinemaId,$userType);
                 else
-                    $user = $this->createClient($email,$password,$firstName,$lastName,$birthdate,$userType);
+                    $user = $this->createClient($email,$password,$firstName,$lastName,$dni,$userType);
 
                 $this->startSession($user);
                 include VIEWS_PATH."home_page.php";
@@ -65,8 +71,8 @@
         private function startSession($user){
             session_start();
             $_SESSION['Id'] = $user->getId();
-            $_SESSION['name'] = $user->getName();
-            $_SESSION['userType'] = $user->getUserType();
+            $_SESSION['name'] = $user->userProfile->usergetName();
+            $_SESSION['userType'] = $user->userRole->getUserType();
             
         }
 

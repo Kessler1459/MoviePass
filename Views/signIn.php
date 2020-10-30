@@ -25,8 +25,8 @@
             <input type="text" class="form-control" id="lastName" name="lastName" required>
         </div>
         <div>
-            <label for="birthdate">Birthdate</label>
-            <input type="date" class="form-control" id="birthdate" name="birthdate" required>
+            <label for="dni">DNI</label>
+            <input type="number" class="form-control" id="dni" name="dni" required>
         </div>
 
         <br>
