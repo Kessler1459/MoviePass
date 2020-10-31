@@ -4,44 +4,77 @@ namespace DAO;
 
 use Models\Movie;
 use DAO\MoviedbDAO;
-use Models\Genre;
+use DAO\GenreXMovieDAO;
+use Exception;
 
 class MovieDAO{
-    private $movies=array();
-    private $filename;
+    private $connection;
+    private $genreXMDao;
+    private $roomDao;
+    private $movieDB;
+    private $tableName = "movies";
 
     public function __construct() {
-        $this->filename = ROOT."/data/movies.json";
+        $this->genreXMDao =new GenreXMovieDAO();
+        $this->movieDB=new MoviedbDAO();
     }
 
-    public function add($movie)
+    public function add($movieId)
     {
-        $this->retrieveData();
-        $this->movies[]=$movie;
-        $this->saveData();
-    }
-
-    public function remove($id){
-        $this->retrieveData();
-        $flag=false;
-        $i=0;
-        while($flag == false && $i<count($this->movies)){
-            if ($id == $this->movies[$i]->getId()) {
-                unset($this->movies[$i]);
-                $this->saveData();
-                $flag=true;
-            }
-            $i++;
+        $movie=$this->movieDB->getDetailsById($movieId);
+        try
+        {
+            $query = "INSERT INTO $this->tableName (id_movie,title,length,synopsis,poster_url,video_url,release_date) 
+                        VALUES (:id_movie,:title,:length,:synopsis,:poster_url,:video_url,:release_date)";
+            $parameters["id_movie"] = $movie->getId();
+            $parameters["title"] = $movie->getTitle();
+            $parameters["length"] = $movie->getLength();
+            $parameters["synopsis"]=$movie->getSynopsis();
+            $parameters["poster_url"]= $movie->getPoster();
+            $parameters["video_url"]= $movie->getVideo();
+            $parameters["release_date"]= $movie->getReleaseDate();
+            $this->connection = Connection::getInstance();
+            $this->connection->executeNonQuery($query, $parameters);
+            $this->genreXMDao->addGenresArray($movie->getGenres(),$movieId);
         }
-        return $flag;
+        catch(Exception $ex)
+        {
+            throw $ex;
+        }
     }
 
-    public function getAll()
-    {
-        $this->retrieveData();
-        return $this->movies;
+    public function getAll(){
+        $moviesList=array();
+        try {
+            $query = "SELECT * from $this->tableName";
+            $this->connection = Connection::getInstance();
+            $results=$this->connection->execute($query);
+            foreach ($results as $row) {
+               $newMovie=new Movie($row["title"],$row["id_movie"],$row["synopsis"],$row["poster_url"],$row["video_url"],$row["length"],[],$row["release_date"]);
+               $newMovie->setGenres($this->genreXMDao->getByMovieId($row["id_movie"]));
+               $moviesList[]=$newMovie;
+            }
+           return $moviesList;
+        } catch (Exception $ex) {
+            throw $ex;
+       }
     }
 
+    public function getById($idMovie){
+        try{
+            $query="SELECT * from movies where id_movie=$idMovie";
+            $this->connection=Connection::getInstance();
+            $results=$this->connection->execute($query);
+            $row=$results[0];
+            $movie=new Movie($row["title"],$row["id_movie"],$row["synopsis"],$row["poster_url"],$row["video_url"],$row["length"],$row["release_date"]);
+            $movie->setGenres($this->genreXMDao->getByMovieId($idMovie));
+            return $movie;
+        }catch(Exception $ex){
+            throw $ex;
+        }
+    }
+
+/*
     public function updateNowPlaying(){
         $this->retrieveData();
         $movieDB=new MoviedbDAO();
@@ -66,7 +99,10 @@ class MovieDAO{
         }
         $this->saveData();
     }
-
+*/
+    
+    /*
+                                            ESTAS VAN EN PROJECTIONS
     public function getByGenre($genresArray){ 
      $this->retrieveData();
         $newArray=array();
@@ -100,37 +136,9 @@ class MovieDAO{
         return $arrayFinded;
         
     }
-    private function saveData(){
-        $toEncode=array();
-        foreach ($this->movies as $value) {
-            $valueArr["title"]=$value->getTitle();
-            $valueArr["id"]=$value->getId();
-            $valueArr["length"]=$value->getLength();
-            $valueArr["overview"]=$value->getSynopsis();
-            $valueArr["poster"]=$value->getPoster();
-            $valueArr["genre"]=$value->getGenres();
-            $valueArr["release_date"]=$value->getReleaseDate();
-            $toEncode[]=$valueArr;
-        }
-        $jsonContent=json_encode($toEncode,JSON_PRETTY_PRINT);
-        file_put_contents($this->filename,$jsonContent);
-    }
+*/
 
-
-    private function retrieveData()
-    {
-        $this->movies=array();
-        if (file_exists($this->filename)) {
-            $jsonContent=file_get_contents($this->filename);
-            $array=($jsonContent)?json_decode($jsonContent,true):array();
-            foreach ($array as $movie) {
-                $generos = $this->genreGenerator($movie["genre"]);
-                $newMovie=new Movie($movie["title"],$movie["id"],$movie["overview"],$movie["poster"],$movie["length"],$generos,$movie["release_date"]);
-                $this->movies[]=$newMovie;
-            }
-        }
-    }
-
+/*
     private function genreGenerator($arrayGenre)
     {
         $robertoPetinato = array();
@@ -138,7 +146,7 @@ class MovieDAO{
             array_push($robertoPetinato,new Genre($value["id"],$value["name"]));
         }
         return $robertoPetinato;
-    }
+    }*/
 }
 
 ?>

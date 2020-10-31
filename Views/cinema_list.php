@@ -1,5 +1,6 @@
 <?php 
-    require_once("header.php");
+require_once(VIEWS_PATH."header.php");
+require_once(VIEWS_PATH."nav.php");
 ?>
 <main class="container">
     <h1>Cinemas</h1>
@@ -9,20 +10,21 @@
             <thead>
                 <tr class="th-pointer">
                     <th class="th-pointer">Name</th>
+                    <th>Province</th>
+                    <th>City</th>
                     <th>Address</th>
-                    <th>Maximum capacity</th>
-                    <th>Ticket price</th>
                     <th></th>
                     <th></th>
                 </tr>
             </thead>
             <tbody>
-                <?php foreach ($cinemas as $cine) {?>
+                <?php foreach ($cinemas as $cine) {
+                    ?>
                     <tr>
                         <td><?php echo $cine->getName()?></td>
+                        <td><?php echo $cine->getProvince()->getName()?></td>
+                        <td><?php echo $cine->getCity()->getName()?></td>
                         <td><?php echo $cine->getAddress()?></td>
-                        <td><?php echo $cine->getMaxCapacity()?></td>
-                        <td><?php echo $cine->getTicketPrice()?></td>
                         <td><form action="<?php echo FRONT_ROOT ?>Cinema/showModifyCinema" method="post">
                             <input type="hidden" name="id" value=<?php echo $cine->getId()?>>
                             <button type="submit" class="btn" >
@@ -47,3 +49,4 @@
 <script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
 <script src="<?php echo JS_PATH ?>cinema.table.js"></script>
 <script src="<?php echo JS_PATH ?>bootstrap.js"></script>
+<?php require_once(VIEWS_PATH."footer.php")?>

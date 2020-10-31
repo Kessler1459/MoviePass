@@ -2,72 +2,58 @@
 
 namespace DAO;
 
+
 use Models\Genre;
+use Exception;
 
-class GenreDAO{
-    private $genres=array();
-    private $filename;
-
-    public function __construct() {
-        $this->filename = ROOT."/data/genres.json";
-    }
-
+class GenreDAO {
+    private $connection;
+    private $tableName = "genres";
+    
     public function add($genre)
     {
-        $this->retrieveData();
-        $this->genres[]=$genre;
-        $this->saveData();
+        try
+        {
+            $query = "INSERT INTO $this->tableName (id_genre,genre_name) VALUES (:id_genre,:genre_name)";
+            $parameters["id_genre"] = $genre->getId();
+            $parameters["genre_name"] =$genre->getName();
+            $this->connection = Connection::getInstance();
+            $this->connection->executeNonQuery($query, $parameters);
+        }
+        catch(Exception $ex)
+        {
+            throw $ex;
+        }
     }
 
-    public function getById($id){
-        $this->retrieveData();
-        $flag=false;
-        $i=0;
-        while($flag == false && $i<count($this->genres)){
-            if ($this->genres[$i]->getId() == $id) {
-                $flag=true;
-                $genreName=$this->genres[$i]->getName();
-            }
-            $i++;
-        }
-        if ($flag == false) {
-            return false;
-        }
-        else{
-            $newGenre=new Genre($id,$genreName);
-            return $newGenre;
-        }
-    }
 
     public function getAll()
     {
-        $this->retrieveData();
-        return $this->genres;
-    }
-
-    private function saveData(){
-        $toEncode=array();
-        foreach ($this->genres as $value) {
-            $valueArr["name"]=$value->getName();
-            $valueArr["id"]=$value->getId();
-            $toEncode[]=$valueArr;
-        }
-        $jsonContent=json_encode($toEncode,JSON_PRETTY_PRINT);
-        file_put_contents($this->filename,$jsonContent);
-    }
-
-
-    private function retrieveData()
-    {
-        $this->genres=array();
-        if (file_exists($this->filename)) {
-            $jsonContent=file_get_contents($this->filename);
-            $array=($jsonContent)?json_decode($jsonContent,true):array();  
-            foreach ($array as $genre) {
-                $newGenre=new Genre($genre["id"],$genre["name"]);
-                $this->genres[]=$newGenre;
+        try {
+            $genresList=array();
+            $query = "SELECT * from $this->tableName";
+            $this->connection = Connection::getInstance();
+            $results=$this->connection->execute($query);
+            foreach ($results as $row) {
+               $newGenre=new Genre($row["id_genre"],$row["genre_name"]);
+               $genresList[]=$newGenre;
             }
-            
+           return $genresList;
+        } catch (Exception $ex) {
+            throw $ex;
+       }
+    }
+
+    public function getById($id){
+        try{
+            $query="SELECT * from genres where id_genre=$id";
+            $this->connection=Connection::getInstance();
+            $results=$this->connection->execute($query);
+            $row=$results[0];
+            $genre=new Genre($row["id_genre"],$row["genre_name"]);
+            return $genre;
+        }catch(Exception $ex){
+            throw $ex;
         }
     }
 }

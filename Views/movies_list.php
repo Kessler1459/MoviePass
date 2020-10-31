@@ -1,25 +1,31 @@
-<main class="container">
+<?php 
+require_once(VIEWS_PATH."header.php");
+require_once(VIEWS_PATH."nav.php");
+?>
+<main class="container_movies">
     <h1>Movies</h1>
     <section>
-        <div class="dropdown">
-            <form action="<?php echo FRONT_ROOT ?>Movie/showMoviesByGenre" method="GET">
-                <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    Genres
-                </button>
-                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                    <?php
-                    foreach ($genres as $gen) {
-                        $g = $gen->getName() ?>
-                        <label for="<?php echo $g ?>"><?php echo $g ?>
-                            <input type='checkbox' name="genres[]" id="<?php echo $g ?>" value="<?php echo $g ?>">
-                        </label>
-                    <?php } ?>
-                </div>
+        <div>
+            <div class="dropdown">
+                <form action="<?php echo FRONT_ROOT ?>Movie/showMoviesByGenre" method="GET">
+                    <button class="button-a dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Genres
+                    </button>
+                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                        <?php
+                        foreach ($genres as $gen) {
+                            $g = $gen->getName() ?>
+                            <label for="<?php echo $g ?>"><?php echo $g ?>
+                                <input type='checkbox' name="genres[]" id="<?php echo $g ?>" value="<?php echo $g ?>">
+                            </label>
+                        <?php } ?>
+                    </div>
+            </div>
+            <button type="submit" class="button-a">Filter</button>
+            </form>
         </div>
-        <button type="submit" class="btn btn-primary">Submit</button>
-        </form>
-        <form class="form-inline d-flex justify-content-center md-form form-sm mt-0" method="GET" action="<?php echo FRONT_ROOT ?>Movie/showMoviesSearch">
-            <i class="fas fa-search" aria-hidden="true"></i>
+
+        <form class="form-inline " method="GET" action="<?php echo FRONT_ROOT ?>Movie/showMoviesSearch">
             <input class="form-control form-control-sm" type="text" placeholder="Search" aria-label="Search" name="search">
         </form>
     </section>
@@ -31,7 +37,7 @@
                     <button type="button" class="btn" onClick="dataChange(<?php echo "'" . $value->getPoster() . "','" . $value->getTitle() . "','" . $value->getSynopsis() . "'" ?>)" data-id="<?php echo $value->getId() ?>" data-toggle="modal" data-target=".movie">
 
                         <figure class="figure">
-                            <img class="figure-img img-fluid rounded" src="<?php echo $value->getPoster() ?>" width="60%">
+                            <img class="figure-img img-fluid rounded" src="<?php echo "https://image.tmdb.org/t/p/w500".$value->getPoster() ?>" width="60%">
                             <figcaption class="figure-caption"><?php echo $value->getTitle() ?></figcaption>
                         </figure>
 
@@ -41,7 +47,14 @@
 
             <?php } ?>
 
-            <div class="modal fade movie" id="" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+            
+
+
+
+        </div>
+    </div>
+</main>
+<div class="modal fade movie" id="" tabindex="0" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
                 <div class="modal-dialog modal-lg">
                     <div class="modal-content">
                         <div class="media">
@@ -58,12 +71,6 @@
                 </div>
             </div>
 
-
-
-        </div>
-    </div>
-</main>
-
 <script>
     function dataChange(imageIncome, titleIncome, SynIncome) {
 
@@ -76,3 +83,4 @@
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
 <script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
 <script src="<?php echo JS_PATH ?>bootstrap.js"></script>
+<?php require_once(VIEWS_PATH."footer.php")?>

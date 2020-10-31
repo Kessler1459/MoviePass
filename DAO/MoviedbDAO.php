@@ -41,8 +41,9 @@ class MoviedbDAO{
             $newMovie=new Movie($movie["title"],
                                 $movie["id"],
                                 $movie["overview"],
-                                "https://image.tmdb.org/t/p/original".$movie["poster_path"],
-                                "", //esta busqueda no trae duracion 
+                                $movie["poster_path"],
+                                "", //esta busqueda no trae duracion
+                                "", 
                                 $genreContr->idArrayToObjects($movie["genre_ids"]),//arreglo de objetos genero
                                 $movie["release_date"]);
             $this->movies[]=$newMovie;
@@ -55,17 +56,23 @@ class MoviedbDAO{
         $this->movies=array();
         $jsonResults=file_get_contents($filename);
         $array=($jsonResults)?json_decode($jsonResults,true):array();
-        $genreContr=new GenreController();
         $newMovie= new Movie($array["title"],
                             $id,
                             $array["overview"],
-                            "https://image.tmdb.org/t/p/original".$array["poster_path"],
+                            $array["poster_path"],
+                            $this->getVideo($id),
                             $array["runtime"],
                             $array["genres"], // arreglo de objetos genero
                             $array["release_date"]);
         return $newMovie;
     }
 
+    public function getVideo($idMovie,$language="es-AR"){
+        $filename="https://api.themoviedb.org/3/movie/$idMovie/videos?api_key=7aa6621ccfa43667fe6bb6917d72e075&language=$language";
+        $jsonResults=file_get_contents($filename);
+        $array=($jsonResults)?json_decode($jsonResults,true):array();
+        return "https://www.youtube.com/watch?v=".$array["results"]["key"];
+    }
 
     /**
      * Get the value of pages
