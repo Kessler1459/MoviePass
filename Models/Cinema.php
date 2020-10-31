@@ -5,18 +5,16 @@ namespace Models;
 class Cinema{
     private $name;
     private $id;
-    private $province;
-    private $city;
     private $address;
-    private $rooms;
+    private $maxCapacity;
+    private $ticketPrice;
 
-    public function __construct($name,$id,$province,$city,$address,$rooms=[]) {
-        $this->name=$name;
-        $this->id=$id;
-        $this->province=$province;
-        $this->city=$city;
-        $this->address=$address;
-        $this->rooms=$rooms;
+    public function __construct($name,$id,$address,$maxCapacity,$ticketPrice) {
+        $this->name=($name);
+        $this->id=($id);
+        $this->address=($address);
+        $this->maxCapacity=($maxCapacity);
+        $this->ticketPrice=($ticketPrice);
     }
 
     public static function compare($a, $b) {
@@ -63,6 +61,45 @@ class Cinema{
         return $this;
     }
 
+    /**
+     * Get the value of maxCapacity
+     */ 
+    public function getMaxCapacity()
+    {
+        return $this->maxCapacity;
+    }
+
+    /**
+     * Set the value of maxCapacity
+     *
+     * @return  self
+     */ 
+    public function setMaxCapacity($maxCapacity)
+    {
+        $this->maxCapacity = $maxCapacity;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of ticketPrice
+     */ 
+    public function getTicketPrice()
+    {
+        return $this->ticketPrice;
+    }
+
+    /**
+     * Set the value of ticketPrice
+     *
+     * @return  self
+     */ 
+    public function setTicketPrice($ticketPrice)
+    {
+        $this->ticketPrice = $ticketPrice;
+
+        return $this;
+    }
 
     /**
      * Get the value of id
@@ -80,66 +117,6 @@ class Cinema{
     public function setId($id)
     {
         $this->id = $id;
-
-        return $this;
-    }
-
-    /**
-     * Get the value of city
-     */ 
-    public function getCity()
-    {
-        return $this->city;
-    }
-
-    /**
-     * Set the value of city
-     *
-     * @return  self
-     */ 
-    public function setCity($city)
-    {
-        $this->city = $city;
-
-        return $this;
-    }
-
-    /**
-     * Get the value of province
-     */ 
-    public function getProvince()
-    {
-        return $this->province;
-    }
-
-    /**
-     * Set the value of province
-     *
-     * @return  self
-     */ 
-    public function setProvince($province)
-    {
-        $this->province = $province;
-
-        return $this;
-    }
-
-    /**
-     * Get the value of rooms
-     */ 
-    public function getRooms()
-    {
-        return $this->rooms;
-    }
-
-    /**
-     * Set the value of rooms
-     *
-     * @return  self
-     */ 
-    public function setRooms($rooms)
-    {
-        $this->rooms = $rooms;
 
         return $this;
     }

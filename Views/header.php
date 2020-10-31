@@ -9,9 +9,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="<?php echo CSS_PATH?>css/all.css">
     <title>MoviePass</title>
-
     <link rel="icon" type="image/png" href="<?php echo IMG_PATH?>MoviePass-Icon.png"/>
-
 </head>
 <body>
     
