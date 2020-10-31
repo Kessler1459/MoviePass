@@ -26,7 +26,7 @@
         </div>
         <div>
             <label for="dni">DNI</label>
-            <input type="number" class="form-control" id="dni" name="dni" required>
+            <input type="text" class="form-control" id="dni" name="dni" required>
         </div>
 
         <br>

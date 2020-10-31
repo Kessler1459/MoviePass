@@ -28,7 +28,7 @@
             $userProfile = new UserProfile($firstName,$lastName,$dni);
             $userRole = new UserRole($userType,"Client");
             $client = new User($id,$email,$password,$userProfile,$userRole,null);
-            $this->userDao->add($client);
+            //$this->userDao->add($client);
 
             return $client;
         }
@@ -46,7 +46,7 @@
         public function verifySignIn($email,$password,$firstName,$lastName,$dni,$cinemaId = " ",$userType = 1){
             $user = null;
             //try{
-                $this->userDao->findEmail($email);
+                //$this->userDao->findEmail($email);
 
                 if($userType == 2)
                     $user = $this->createCinemaOwner($email,$password,$firstName,$lastName,$dni,$cinemaId,$userType);
@@ -71,8 +71,8 @@
         private function startSession($user){
             session_start();
             $_SESSION['Id'] = $user->getId();
-            $_SESSION['name'] = $user->userProfile->usergetName();
-            $_SESSION['userType'] = $user->userRole->getUserType();
+            $_SESSION['name'] = $user->getUserProfile()->getName();
+            $_SESSION['userType'] = $user->getUserRole()->getUserType();
             
         }
 

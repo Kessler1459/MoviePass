@@ -15,7 +15,7 @@
             $this->id = $id;
             $this->email = $email;
             $this->password = $password;
-            $this->userProfile $userProfile; 
+            $this->userProfile = $userProfile; 
             $this->userRole = $userRole; 
             $this->cinemaId = $cinemaId;
         }
