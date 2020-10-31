@@ -53,3 +53,16 @@ CREATE TABLE projections(
 	CONSTRAINT PRIMARY KEY (id_proj),
 	CONSTRAINT fk_id_room FOREIGN KEY (id_room) REFERENCES rooms(id_room),
 	CONSTRAINT fk_id_movie FOREIGN KEY (id_movie) REFERENCES movies(id_movie));
+
+CREATE TABLE users(
+	id_user INT NOT NULL,
+	email VARCHAR(30) NOT NULL UNIQUE,
+	pass VARCHAR(12) NOT NULL,
+	first_name VARCHAR(20),
+	last_name VARCHAR(20),
+	dni INT NOT NULL UNIQUE,
+	user_type INT,
+	role_description VARCHAR(50),
+	id_cinema INT,
+	CONSTRAINT PRIMARY KEY (id_user)
+);
