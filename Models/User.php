@@ -35,6 +35,14 @@
             return $this->password;
         }
 
+        public function getUserProfile(){
+            return $this->userProfile;
+        }
+
+        public function getUserRole(){
+            return $this->userRole;
+        }
+
         public function getCinemaId(){
             return $this->cinemaId;
         }
@@ -53,8 +61,12 @@
             return $this->password = $password;
         }
 
-        public function setUserType($userType){
-            return $this->userType = $userType;
+        public function setUserProfile($userProfile){
+            return $this->userProfile = $userProfile;
+        }
+
+        public function setUserRole($userRole){
+            return $this->userRole = $userRole;
         }
 
         public function setCinemaId($cinemaId){
