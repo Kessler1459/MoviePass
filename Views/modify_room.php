@@ -8,11 +8,11 @@ require_once(VIEWS_PATH . "nav.php");
         <div class="form-group text-center">
             
             <label for="capacity"><span>Capacity</span></label>
-            <input type="number" name=capacity class= "input-cinema" value =<?php echo $room->getCapacity()?>required>
+            <input type="number" name="capacity" class= "input-cinema" value ="<?php echo $room->getCapacity()?>"required>
             <label for="ticketPrice"><span>Ticket Price</span></label>  
-            <input type="number" name ="ticketPrice" value=<?php echo $room->getTicketPrice()?>>
+            <input type="number" name ="ticketPrice" value="<?php echo $room->getTicketPrice()?>"required>
             <label for="description">Description</label>
-            <input type="text" name="description"  value=<?php echo $room->getDescription()?>>
+            <input type="text" name="description"  value="<?php echo $room->getDescription()?>"required>
       
             <input type="hidden" name="id" value=<?php echo $room->getId()?>>
             <input type="hidden" name="cinemaId" value=<?php echo $cinemaId?>>               
