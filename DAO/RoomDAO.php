@@ -35,6 +35,38 @@ class RoomDAO {
         }
     }
 
+    public function remove ($id)
+    {
+        try
+        {
+            $query = "DELETE FROM rooms 
+            WHERE id_room=$id";  
+             $this->connection=Connection::getInstance();
+             return $this->connection->executeNonQuery($query);
+        }
+        catch(Exception $ex){
+        throw $ex;
+    }
+    }
+    public function modify($modifiedRoom){
+    $id=$modifiedRoom->getId();
+        try {
+            $query="UPDATE rooms set capacity=:capacity,ticket_price=:ticket_price,descript=:descript WHERE id_room=$id";
+            $this->connection=Connection::getInstance();
+            
+            $params["capacity"]=$modifiedRoom->getCapacity();
+            $params["ticket_price"]=$modifiedRoom->getTicketPrice();
+            $params["descript"]=$modifiedRoom->getDescription();
+         
+            return $this->connection->executeNonQuery($query, $params);
+        } 
+        catch (Exception $ex) {
+            throw $ex;
+        }
+    }
+
+    
+
     public function getArrayByCinemaId($cinemaId){
         $roomList=array();
         try{
@@ -56,7 +88,7 @@ class RoomDAO {
 
     public function getById($id){
         try{
-            $query="SELECT * from $this->tablename where id_room=$id";
+            $query="SELECT * from $this->tableName where id_room=$id";
             $this->connection=Connection::getInstance();
             $results=$this->connection->execute($query);
             $row=$results[0];

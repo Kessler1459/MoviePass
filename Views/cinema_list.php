@@ -1,6 +1,10 @@
 <?php 
 require_once(VIEWS_PATH."header.php");
 require_once(VIEWS_PATH."nav.php");
+
+
+
+
 ?>
 <main class="container">
     <h1>Cinemas</h1>
@@ -21,22 +25,38 @@ require_once(VIEWS_PATH."nav.php");
                 <?php foreach ($cinemas as $cine) {
                     ?>
                     <tr>
+                        <td><?php echo $cine->getId()?></td>
                         <td><?php echo $cine->getName()?></td>
                         <td><?php echo $cine->getProvince()->getName()?></td>
                         <td><?php echo $cine->getCity()->getName()?></td>
                         <td><?php echo $cine->getAddress()?></td>
-                        <td><form action="<?php echo FRONT_ROOT ?>Cinema/showModifyCinema" method="post">
+                        <td>
+                            <form action="<?php echo FRONT_ROOT?>Room/showRoom" method="POST">
+                            <button name ="id" class="btn" type="submit" value=<?php echo $cine->getId()?> >Room Admin
+                            
+                            </button>
+                            </form>   
+                        </td>
+                        <td>
+                            <form action="<?php echo FRONT_ROOT ?>Cinema/showModifyCinema" method="post">
                             <input type="hidden" name="id" value=<?php echo $cine->getId()?>>
                             <button type="submit" class="btn" >
                                 <img src="/MoviePass/Views/img/wrench-4x.png" alt="trash_icon">     
                             </button>
-                        </form></td>
-                        <td><form action="<?php echo FRONT_ROOT ?>Cinema/remove" method="post">
+                            </form>
+                        </td>
+                        <td>
+                          
+                        </td>
+                        <td>
+                            <form action="<?php echo FRONT_ROOT ?>Cinema/remove" method="post">
                             <input type="hidden" name="id" value=<?php echo $cine->getId() //revisar si esto esta bien ?>>
                             <button type="submit" class="btn">
                                 <img src="/MoviePass/Views/img/trash-4x.png" alt="trash_icon">
                             </button>
-                        </form></td>
+                            
+                            </form>
+                        </td>
                     </tr>
                 <?php } ?>
             </tbody>
