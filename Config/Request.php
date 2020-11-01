@@ -21,7 +21,7 @@
                 $this->controller = ucwords(array_shift($urlArray));
 
             if(empty($urlArray))
-                $this->method = "showCinemasList";                     //metodo que arranca
+                $this->method = "showMoviesList";                     //metodo que arranca
             else
                 $this->method = array_shift($urlArray);
 

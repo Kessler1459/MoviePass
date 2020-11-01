@@ -74,26 +74,4 @@ class ProjectionController
     {
         return $this->projDao->getArrayByRoomId($id);
     }
-
-    public function remove($id,$roomId)
-    {
-        if ($this->projDao->remove($id)>0) {
-            $this->showProjections($roomId);
-        }
-
-    }
-
-    public function showProjections($roomId)
-    {
-        $projectionsList = $this->getArrayByRoomId($roomId);
-        include_once VIEWS_PATH."projection_admin.php";
-
-    }
-
- 
-    public function modify($id,$movie,$date,$hour,$roomId){
-        
-        $this->projDao->modify(new Projection($id,$movie,$date,$hour));
-        //$this->showRoom($cinemaId);
-    }
 }

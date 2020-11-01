@@ -82,20 +82,6 @@ class ProjectionDAO {
         }
     }
 
-    public function remove ($id)
-    {
-        try
-        {
-            $query = "DELETE FROM projections 
-            WHERE id_proj=$id";  
-             $this->connection=Connection::getInstance();
-             return $this->connection->executeNonQuery($query);
-        }
-        catch(Exception $ex){
-        throw $ex;
-    }
-    }
-
     /**
      * retorna todas las peliculas que tengan una funcion activa en el futuro sin repetirse
      */

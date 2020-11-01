@@ -20,7 +20,7 @@ class RoomController{
     public function addRoom ($capacity,$ticketPrice,$description,$cinemaId)
     {
         $id = time();
-        $room = new Room($id,$capacity,$ticketPrice,$description,[]);
+        $room = new Room($id,$capacity,$ticketPrice,$description);
         $this->roomDao->add($room,$cinemaId);
         $this->showRoom($cinemaId);
     }
