@@ -64,7 +64,7 @@ require_once(VIEWS_PATH."nav.php");
 
                                 <p id="modalSyn"></p>
                                 <br><br>
-                                <form action="<?php echo FRONT_ROOT ?>User/verifySignIn" method="post">
+                                <form action="<?php echo FRONT_ROOT ?>Projection/add" method="post">
                                     <select name="selected_room" id="select_room">
                                         <?php 
                                             foreach ($actualCinema->getRooms() as $key => $room) {
@@ -74,7 +74,7 @@ require_once(VIEWS_PATH."nav.php");
                                         ?>
                                     </select>
                                     <input type="date" name="projection_date" id="projection_date">
-                                    <input type="time" name="projection_date" id="projection_time">
+                                    <input type="time" name="projection_time" id="projection_time">
                                     <input type="hidden" name="movie_id" id="projection_movie" value="">
                                     <button type="submit" class="btn btn-success">Save Projection</button>
                                 </form>

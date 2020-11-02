@@ -49,18 +49,17 @@ class ProjectionController
     }
     public function showAddProjection($actualCinema = 0)
     {
+        $actualCinema = $this->cinemaDao->getById(1604015782);
         $genres = $this->genreDao->getAll();
         $movieList = $this->movieDao->getAll();
         include VIEWS_PATH."add_projection.php";
     }
 
-    public function add($newProj)
+    public function add($date, $time, $id_movie)
     {
-        $this->movieDao->getById($newProj['movie_id']);
+        $movie = $this->movieDao->getById($id_movie);
         $id=time(); //number of seconds since January 1 1970
-        $time = $newProj['projection_time'];
-        $date = $newProj['projection_date'];
-        $proj=new Projection($id,$movie,$date,$hour);
+        $proj=new Projection($id,$movie,$date,$time);
         $this->projDao->add($proj);
     }
 
