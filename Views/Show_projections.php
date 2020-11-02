@@ -66,8 +66,6 @@ require_once(VIEWS_PATH."nav.php");
                                 <br><br>
                                 <form action="<?php echo FRONT_ROOT ?>Projection/" method="post">
                                     <!-- Acá tiene que haber una función JS que averigue cuales son las funciones activas de esta película. Más tarde lo hago -->
-                                    <input type="date" name="projection_date" id="projection_date">
-                                    <input type="time" name="projection_date" id="projection_time">
                                     <input type="hidden" name="movie_id" id="projection_movie" value="">
                                     <button type="submit" class="btn btn-success">Buy</button>
                                 </form>
