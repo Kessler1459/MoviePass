@@ -5,53 +5,36 @@ require_once(VIEWS_PATH."nav.php");
 <main class="container">
     <h1>Projections</h1>
     <div class="custom-scrollbar table-wrapper-scroll-y">
-        <input type="text" id="input" onkeyup="myFunction()" class="form-control" placeholder="Search for names..">
+        <input type="text" id="input" onkeyup="myFunction()" class="form-control" placeholder="Search for title..">
         <table id="table" class="table text-center table-hover table-striped table-cinemas" >
             <thead>
                 <tr class="th-pointer">
-                    <th class="th-pointer">Id</th>
-                    <th>Movie</th>
+                    <th class="th-pointer">Movie</th>
+                    <th>Length</th>
                     <th>Date</th>
-                    <th>Hour</th>
+                    <th>Time</th>
                     <th></th>
                     <th></th>
                 </tr>
             </thead>
             <tbody>
-                <?php foreach ($projectionsList as $projection) {
+                <?php foreach ($projs as $projection) {
+                    $movie=$projection->getMovie();   
                     ?>
-                    <tr>
-                   
-                        <td><?php echo $projection->getId()?></td>
-                        <td><?php echo $projection->getMovie()->getTitle()?></td>
+                    <tr>         
+                        <td><?php echo $movie->getTitle()?></td>
+                        <td><?php echo $movie->getLength()?></td>
                         <td><?php echo $projection->getDate()?></td>
                         <td><?php echo $projection->getHour()?></td>
-                        <td>
-                            
+                        <td>                 
                         </td>
-                        <td>
-                            <form action="<?php echo FRONT_ROOT ?>Projection/showModifyProjection" method="post">
-                                <input type="hidden" name="id" value =<?php echo $projection->getId()?>>
-                                <input type="hidden" name="roomId" value=<?php echo $roomId?>>
-                               
-                                <button type="submit" class="btn" >
-                                <img src="/MoviePass/Views/img/wrench-4x.png" alt="trash_icon">     
-                            </button>
-                            </form>
-                        </td>
-                        <td>
-                        </td>
-                        <td>
+                        <td>                       
                             <form action="<?php echo FRONT_ROOT ?>Projection/remove" method="post">
-                            
                                 <input type="hidden" name="id" value=<?php echo $projection->getId() ?>>
-                            
-                                <input type="hidden" name="roomId" value=<?php echo $roomId?>>
-                               
+                                <input type="hidden" name="rooId" value=<?php echo $roomId?>>                               
                                 <button type="submit" class="btn">
                                 <img src="/MoviePass/Views/img/trash-4x.png" alt="trash_icon">
-                                </button>
-                            
+                                </button>                          
                             </form>
                         </td>
                     </tr>
@@ -60,7 +43,7 @@ require_once(VIEWS_PATH."nav.php");
         </table>
     </div>
     <div>
-                  <form action="<?php echo FRONT_ROOT?>" method="post">
+    <form action="<?php echo FRONT_ROOT ?>Projection/addFromList" method="POST" >
                     <input type="hidden" name = "roomId" value=<?php echo $roomId ?>> 
                     <button type="submit" class="submit button-a" >Add Projection</button>
                  </form>

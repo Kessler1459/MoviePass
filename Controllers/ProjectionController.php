@@ -33,7 +33,7 @@ class ProjectionController
 
     public function showProjections($roomId){
         $projs=$this->projDao->getArrayByRoomId($roomId);
-        include(VIEWS_PATH."projections_list.php");
+        include(VIEWS_PATH."projection_admin.php");
     }
 
     public function add($proj)
@@ -45,10 +45,6 @@ class ProjectionController
         
     }
 
-    public function remove($idProj,$roomId){
-        $this->projDao->remove($idProj);
-        $this->showProjections($roomId);
-    }
 
     /**
      * retorna todas las peliculas que tengan una funcion activa en el futuro sin repetirse.(cartelera hehe)
@@ -90,19 +86,5 @@ class ProjectionController
             $this->showProjections($roomId);
         }
 
-    }
-
-    public function showProjections($roomId)
-    {
-        $projectionsList = $this->getArrayByRoomId($roomId);
-        include_once VIEWS_PATH."projection_admin.php";
-
-    }
-
- 
-    public function modify($id,$movie,$date,$hour,$roomId){
-        
-        $this->projDao->modify(new Projection($id,$movie,$date,$hour));
-        //$this->showRoom($cinemaId);
     }
 }
