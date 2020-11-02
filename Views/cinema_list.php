@@ -25,14 +25,13 @@ require_once(VIEWS_PATH."nav.php");
                 <?php foreach ($cinemas as $cine) {
                     ?>
                     <tr>
-                        <td><?php echo $cine->getId()?></td>
                         <td><?php echo $cine->getName()?></td>
                         <td><?php echo $cine->getProvince()->getName()?></td>
                         <td><?php echo $cine->getCity()->getName()?></td>
                         <td><?php echo $cine->getAddress()?></td>
                         <td>
                             <form action="<?php echo FRONT_ROOT?>Room/showRoom" method="POST">
-                            <button name ="id" class="btn" type="submit" value=<?php echo $cine->getId()?> >Room Admin
+                            <button name ="id" class="btn vinculito" type="submit" value=<?php echo $cine->getId()?> ><strong>Room Admin</strong> 
                             
                             </button>
                             </form>   

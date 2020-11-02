@@ -13,9 +13,41 @@ class ProjectionController
         $this->projDao = new ProjectionDAO();
     }
 
+    /**
+     * este es cartelera jeje
+     */
+    public function showProjectionsList(){
+        $movies=$this->projDao->getAllMovies();
+        include(VIEWS_PATH."");//aca jeje
+    }
+
+    public function showProjectionsByGenre($genresArray){
+        $movies=$this->projDao->getByGenre($genresArray);
+        include(VIEWS_PATH."");//aca jeje
+    }
+
+    public function showProjectionsSearch($search){
+        $movies=$this->projDao->searchByName($search);
+        include(VIEWS_PATH."");//aca jeje
+    }
+
+    public function showProjections($roomId){
+        $projs=$this->projDao->getArrayByRoomId($roomId);
+        include(VIEWS_PATH."projections_list.php");
+    }
+
     public function add($proj)
     {
         $this->projDao->add($proj);
+    }
+
+    public function addFromList($roomId){
+        
+    }
+
+    public function remove($idProj,$roomId){
+        $this->projDao->remove($idProj);
+        $this->showProjections($roomId);
     }
 
     /**
@@ -31,29 +63,6 @@ class ProjectionController
         return $this->projDao->getById($id);
     }
 
-    /**
-     * filtro de generos para cartelera
-     */
-    public function getByGenre($genresArray)
-    {
-        $moviesList = $this->getAllMovies();
-        $newArray = array();
-        foreach ($moviesList as $movie) {
-            $jaja = 0;
-            $genresMovie = $movie->getGenres();
-            foreach ($genresMovie as $genM) {
-                foreach ($genresArray as $strGen) {
-                    if ($strGen == $genM->getName()) {
-                        $jaja++;
-                    }
-                }
-            }
-            if ($jaja == count($genresArray)) {
-                $newArray[] = $movie;
-            }
-        }
-        return $newArray;
-    }
 
     public function searchByName($name){
         $movies=$this->getAllMovies();

@@ -38,5 +38,12 @@
             include VIEWS_PATH."movies_list.php";
         }
 
+        public function showMoviesByGenre($genArr){
+            $movies=$this->movieDao->getByGenre($genArr);
+            $gencontr=new GenreController();
+            $genres=$gencontr->getAll();
+            include VIEWS_PATH."movies_list.php";
+        }
+
     }
 ?>

@@ -1,26 +1,5 @@
 [
     {
-        "name": "jeje",
-        "id": "3453634",
-        "address": "direccion",
-        "maxCapacity": 345,
-        "ticketPrice": 34.3
-    },
-    {
-        "name": "jeje",
-        "id": "3453634",
-        "address": "direccion",
-        "maxCapacity": 345,
-        "ticketPrice": 34.3
-    },
-    {
-        "name": "jeje",
-        "id": "3453634",
-        "address": "direccion",
-        "maxCapacity": 345,
-        "ticketPrice": 34.3
-    },
-    {
         "name": "hhhhhhhhh",
         "id": 1601607866,
         "address": "fg",
@@ -29,16 +8,23 @@
     },
     {
         "name": "Cinemacenter",
-        "id": 1601999347,
+        "id": 1601999626,
         "address": "mar 15",
         "maxCapacity": 100,
         "ticketPrice": 20
     },
     {
-        "name": "Cinemacenter",
-        "id": 1601999626,
-        "address": "mar 15",
-        "maxCapacity": 100,
-        "ticketPrice": 20
+        "name": "asd",
+        "id": "1602600386",
+        "address": "dsad",
+        "maxCapacity": 33,
+        "ticketPrice": 44
+    },
+    {
+        "name": " jeje",
+        "id": "3453634",
+        "address": " direccion",
+        "maxCapacity": 345,
+        "ticketPrice": 111111
     }
 ]

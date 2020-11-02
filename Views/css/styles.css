@@ -31,6 +31,12 @@ body{
   	align-items: center;
 }
 
+.vinculito{
+	color: #3e77cd;
+	text-decoration: underline;
+
+}
+
 .container_movies{
     background-color: rgba(240, 248, 255, 0.692);
 	border-radius: 0.5em;

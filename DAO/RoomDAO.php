@@ -46,7 +46,7 @@ class RoomDAO {
         }
         catch(Exception $ex){
         throw $ex;
-    }
+        }
     }
     public function modify($modifiedRoom){
     $id=$modifiedRoom->getId();

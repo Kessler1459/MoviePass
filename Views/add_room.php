@@ -7,7 +7,7 @@ require_once(VIEWS_PATH."nav.php");
 
 <main class="container">
     <h1>New Room</h1>
-    <form action="<?php echo FRONT_ROOT ?>Room/addRoom" method="post" class="form-center">
+    <form action="<?php echo FRONT_ROOT ?>Room/add" method="post" class="form-center">
         <div class="form-group text-center">
             
             
