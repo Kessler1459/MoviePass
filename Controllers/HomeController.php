@@ -28,6 +28,11 @@
             $userController->signIn();
         }
 
+        public function logOut(){
+            $userController = new userController();
+            $userController->finishSession();
+        }
+
         public function showHome()
         {
             $movieController = new MovieController();
