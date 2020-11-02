@@ -3,18 +3,34 @@
 namespace Controllers;
 
 use DAO\ProjectionDAO;
+use DAO\MovieDAO;
+use DAO\GenreDAO;
+use DAO\CinemaDAO;
+use Models\Projection;
 
 class ProjectionController
 {
     private $projDao;
+    private $movieDao;
+    private $genreDao;
+    private $cinemaDao;
 
     public function __construct()
     {
         $this->projDao = new ProjectionDAO();
+        $this->movieDao = new MovieDao();
+        $this->genreDao = new GenreDAO();
+        $this->cinemaDao = new CinemaDAO();
+        
     }
 
-    public function add($proj)
+    public function add($newProj)
     {
+        $this->movieDao->getById($newProj['movie_id']);
+        $id=time(); //number of seconds since January 1 1970
+        $time = $newProj['projection_time'];
+        $date = $newProj['projection_date'];
+        $proj=new Projection($id,$movie,$date,$hour);
         $this->projDao->add($proj);
     }
 
@@ -73,5 +89,13 @@ class ProjectionController
     public function getArrayByRoomId($id)
     {
         return $this->projDao->getArrayByRoomId($id);
+    }
+
+    public function showAddProjection($actualCinema = 0)
+    {
+        $actualCinema = $this->cinemaDao->getById(1604015782);
+        $genres = $this->genreDao->getAll();
+        $movieList = $this->movieDao->getAll();
+        include VIEWS_PATH."add_projection.php";
     }
 }

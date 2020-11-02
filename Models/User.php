@@ -65,7 +65,7 @@
             return $this->lastName = $lastName;
         }
 
-        public function getBirthdate($birthdate){
+        public function setBirthdate($birthdate){
             return $this->birthdate = $birthdate;
         }
 
