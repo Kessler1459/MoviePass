@@ -17,16 +17,15 @@ class ProjectionDAO {
         $this->genrexM=new GenreXMovieDAO();
     }
 
-    public function add($projection)
+    public function add($projection,$roomId)
     {
         try
         {
             $query = "INSERT INTO $this->tableName (id_proj,id_room,id_movie,proj_date,proj_time) 
                         VALUES (:id_proj,:id_room,:id_movie,:proj_date,:proj_time);";
-            $room=$projection->getRoom();
             $movie=$projection->getMovie();
             $parameters["id_proj"] = $projection->getId();
-            $parameters["id_room"] =$room->getId();
+            $parameters["id_room"] =$roomId;
             $parameters["id_movie"] =$movie->getId();
             $parameters["proj_date"]=$projection->getDate();
             $parameters["proj_time"]=$projection->getHour();

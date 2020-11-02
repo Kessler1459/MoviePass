@@ -3,71 +3,84 @@
 namespace Controllers;
 
 use DAO\ProjectionDAO;
-use DAO\MovieDAO;
-use DAO\GenreDAO;
-use DAO\CinemaDAO;
+use Controllers\MovieController;
+use Controllers\GenreController;
 use Models\Projection;
 
 class ProjectionController
 {
     private $projDao;
-    private $movieDao;
-    private $genreDao;
-    private $cinemaDao;
+    private $movieContr;
 
     public function __construct()
     {
         $this->projDao = new ProjectionDAO();
-        $this->movieDao = new MovieDao();
-        $this->genreDao = new GenreDAO();
-        $this->cinemaDao = new CinemaDAO();
-        
+        $this->movieContr = new MovieController();
     }
-
 
     /**
      * este es cartelera jeje
      */
     public function showProjectionsList(){
-        $movies=$this->projDao->getAllMovies();
-        include(VIEWS_PATH."");//aca jeje
+        $movieList=$this->projDao->getAllMovies();
+        $gencontr=new GenreController();
+        $genres=$gencontr->getAll();
+        include(VIEWS_PATH."movies_list.php");
     }
 
     public function showProjectionsByGenre($genresArray){
-        $movies=$this->projDao->getByGenre($genresArray);
-        include(VIEWS_PATH."");//aca jeje
+        $movieList=$this->projDao->getByGenre($genresArray);
+        $gencontr=new GenreController();
+        $genres=$gencontr->getAll();
+        include(VIEWS_PATH."movies_list.php");
     }
 
-    public function showProjectionsSearch($search){
-        $movies=$this->projDao->searchByName($search);
-        include(VIEWS_PATH."");//aca jeje
+    public function showProjectionSearch($search){
+        $movieList=$this->projDao->searchByName($search);
+        $gencontr=new GenreController();
+        $genres=$gencontr->getAll();
+        include(VIEWS_PATH."movies_list.php");
     }
+    /*---------------------------------*/
 
     public function showProjections($roomId){
         $projs=$this->projDao->getArrayByRoomId($roomId);
         include(VIEWS_PATH."projection_admin.php");
     }
-    public function showAddProjection($actualCinema = 0)
-    {
-        $genres = $this->genreDao->getAll();
-        $movieList = $this->movieDao->getAll();
-        include VIEWS_PATH."add_projection.php";
-    }
 
-    public function add($newProj)
+    public function add($roomId,$movieId,$date,$time)
     {
-        $this->movieDao->getById($newProj['movie_id']);
-        $id=time(); //number of seconds since January 1 1970
-        $time = $newProj['projection_time'];
-        $date = $newProj['projection_date'];
-        $proj=new Projection($id,$movie,$date,$hour);
-        $this->projDao->add($proj);
+        $movie=$this->movieContr->getById($movieId);
+        $proj=new Projection(time(),$movie,$date,$time);
+        $this->projDao->add($proj,$roomId);
+        $this->showProjections($roomId);
     }
 
     public function addFromList($roomId){
-        
+        $movieList=$this->movieContr->getAll();
+        $gencontr=new GenreController();
+        $genres=$gencontr->getAll();
+        include(VIEWS_PATH."add_projection.php");
     }
 
+    public function addFromListByGenre($genresArray,$roomId){
+        $movieList=$this->movieContr->getByGenre($genresArray);
+        $gencontr=new GenreController();
+        $genres=$gencontr->getAll();
+        include(VIEWS_PATH."add_projection.php");
+    }
+
+    public function addFromListSearch($search,$roomId){
+        $movieList=$this->movieContr->searchByName($search);
+        $gencontr=new GenreController();
+        $genres=$gencontr->getAll();
+        include(VIEWS_PATH."add_projection.php");
+    }
+
+    public function updateMoviesList($roomId){
+        $this->movieContr->updateNowPlaying();
+        $this->addFromList($roomId);
+    }
 
     /**
      * retorna todas las peliculas que tengan una funcion activa en el futuro sin repetirse.(cartelera hehe)
@@ -108,7 +121,6 @@ class ProjectionController
         if ($this->projDao->remove($id)>0) {
             $this->showProjections($roomId);
         }
-    }
 
-    
+    }
 }
