@@ -6,15 +6,18 @@ use Models\Projection;
 use Models\Movie;
 use DAO\GenreXMovieDAO;
 use DAO\Connection;
+use DAO\MovieDAO;
 use Exception;
 
 class ProjectionDAO {
     private $connection;
     private $genrexM;
     private $tableName = "projections";
+    private $movieDao;
 
     public function __construct() {
         $this->genrexM=new GenreXMovieDAO();
+        $this->movieDao = new MovieDAO();
     }
 
     public function add($projection)
@@ -69,6 +72,23 @@ class ProjectionDAO {
     /**
      * devuelve todo el array de funciones futuras de una sala
      */
+    public function getAll()
+    {
+        $projectionList=array();
+        try {
+            $query = "SELECT * from $this->tableName";
+            $this->connection = Connection::getInstance();
+            $results=$this->connection->execute($query);
+            foreach ($results as $row) {
+               $newProjection=new Movie($row["id_proj"],[],$row["date"],$row["hour"]);
+               $newProjection->setMovie($this->movieDao->getById($row['id_movie']));
+               $projectionList[]=$newProjection;
+            }
+           return $projectionList;
+        } catch (Exception $ex) {
+            throw $ex;
+       }
+    }
     public function getArrayByRoomId($roomId){
         $projectionList=array();
         try{

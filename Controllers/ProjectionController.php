@@ -28,10 +28,6 @@ class ProjectionController
     /**
      * este es cartelera jeje
      */
-    public function showProjectionsList(){
-        $movies=$this->projDao->getAllMovies();
-        include(VIEWS_PATH."");//aca jeje
-    }
 
     public function showProjectionsByGenre($genresArray){
         $movies=$this->projDao->getByGenre($genresArray);
@@ -43,7 +39,7 @@ class ProjectionController
         include(VIEWS_PATH."");//aca jeje
     }
 
-    public function showProjections($roomId){
+    public function showProjectionsByRoom($roomId){
         $projs=$this->projDao->getArrayByRoomId($roomId);
         include(VIEWS_PATH."projection_admin.php");
     }
@@ -53,6 +49,13 @@ class ProjectionController
         $genres = $this->genreDao->getAll();
         $movieList = $this->movieDao->getAll();
         include VIEWS_PATH."add_projection.php";
+    }
+    public function showProjectionsList()
+    {
+        $movieList = $this->projDao->getAllMovies();
+        $genres = $this->genreDao->getAll();
+        $projections = $this->projDao->getAll();
+        include VIEWS_PATH."show_projections.php";
     }
 
     public function add($date, $time, $id_movie)
