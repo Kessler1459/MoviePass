@@ -41,6 +41,14 @@ class ProjectionController
         $genres=$gencontr->getAll();
         include(VIEWS_PATH."movies_list.php");
     }
+
+    public function showProjectionDate($date){
+        $movieList=$this->projDao->getAllMoviesByDate($date);
+        $gencontr=new GenreController();
+        $genres=$gencontr->getAll();
+        include(VIEWS_PATH."movies_list.php");
+    }
+
     /*---------------------------------*/
 
     public function showProjections($roomId){

@@ -163,12 +163,12 @@ class ProjectionDAO {
         return $newArray;
     }
 
-    public function getAllMoviesByLapse($date){
+    public function getAllMoviesByDate($date){
         $moviesList=array();
         try{
             $query="SELECT m.* from projections p
                     inner join movies m on p.id_movie=m.id_movie
-                    where p.proj_date = $date and concat(p.proj_date,' ',p.proj_time) > now()
+                    where p.proj_date = \"$date\" and concat(p.proj_date,' ',p.proj_time) > now()
                     group by m.id_movie";
             $this->connection=Connection::getInstance();
             $results=$this->connection->execute($query);

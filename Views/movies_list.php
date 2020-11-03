@@ -25,6 +25,13 @@ require_once(VIEWS_PATH . "nav.php");
             </form>
         </div>
 
+        <div>
+            <form action="<?php echo FRONT_ROOT ?>Projection/showProjectionDate" method="get">
+                <input type="date" name="projection_date" id="projection_date" min=<?php echo date("yy-m-d") ?> value="" required>
+                <button type="submit" class="button-a">GATOOOO</button>
+            </form>
+        </div>
+
         <form class="form-inline " method="GET" action="<?php echo FRONT_ROOT ?>Projection/showProjectionSearch">
             <input class="form-control form-control-sm" type="text" placeholder="Search" aria-label="Search" name="search">
         </form>
@@ -81,4 +88,5 @@ require_once(VIEWS_PATH . "nav.php");
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
 <script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
 <script src="<?php echo JS_PATH ?>bootstrap.js"></script>
+<script src="<?php echo JS_PATH ?>dateFilter.js"></script>
 <?php require_once(VIEWS_PATH . "footer.php") ?>
