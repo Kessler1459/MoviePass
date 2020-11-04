@@ -13,11 +13,7 @@ class RoomController{
     /**
      * agrega la habitacion, necesita la id del cine al que lo va a agregar
      */
-    public function add($room,$cinemaId){
-        $this->roomDao->add($room,$cinemaId);
-    }
-
-    public function addRoom ($capacity,$ticketPrice,$description,$cinemaId)
+    public function add ($capacity,$ticketPrice,$description,$cinemaId)
     {
         $id = time();
         $room = new Room($id,$capacity,$ticketPrice,$description,[]);

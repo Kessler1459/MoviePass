@@ -13,7 +13,7 @@ require_once(VIEWS_PATH . "nav.php");
             <input type="hidden" class="input-cinema" value=<?php echo $cinema->getId() ?> name="id">
 
             <label for="province"><span>Province</span></label>
-            <select name="province" class="form-control" id="province"  required>
+            <select name="province" class="form-control input-cinema" id="province"  required>
                 <?php foreach ($provinces as $value) {
                     echo "<option data-id=" . $value->getId() . " value=" . $value->getId() . ">" . $value->getName() . "</option>";
                 } ?>
@@ -21,7 +21,7 @@ require_once(VIEWS_PATH . "nav.php");
 
             <label for="City"><span>City</span></label>
 
-            <select name="city" class="form-control" id="response" required>
+            <select name="city" class="form-control input-cinema" id="response" required>
                 <?php foreach ($initCities as $c) {
                     $id = $c->getId();
                     $name = $c->getName();

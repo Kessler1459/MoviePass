@@ -5,15 +5,13 @@ require_once(VIEWS_PATH."nav.php");
 <main class="container">
     <h1>Rooms</h1>
     <div class="custom-scrollbar table-wrapper-scroll-y">
-        <input type="text" id="input" onkeyup="myFunction()" class="form-control" placeholder="Search for names..">
+        <input type="text" id="input" onkeyup="myFunction()" class="form-control" placeholder="Search for description..">
         <table id="table" class="table text-center table-hover table-striped table-cinemas" >
             <thead>
-                <tr class="th-pointer">
-                    <th class="th-pointer">Id</th>
-                  
+                <tr class="th-pointer">              
+                    <th>Description</th>
                     <th>Capacity</th>
                     <th>Ticket Price</th>
-                    <th>Description</th>
                     <th></th>
                     <th></th>
                 </tr>
@@ -22,16 +20,14 @@ require_once(VIEWS_PATH."nav.php");
                 <?php foreach ($rooms as $room) {
                     ?>
                     <tr>
-                   
-                        <td><?php echo $room->getId()?></td>
+                        <td><?php echo $room->getDescription()?></td>
                         <td><?php echo $room->getCapacity()?></td>
                         <td><?php echo "$". $room->getTicketPrice()?></td>
-                        <td><?php echo $room->getDescription()?></td>
                         <td>
                             <form action="<?php echo FRONT_ROOT?>Projection/showProjections" method="POST">
-                            <button name ="id" class="btn" type="submit" value="<?php echo $room->getId()?>" >Show Projections  
+                                <button name ="id" class="btn vinculito" type="submit" value="<?php echo $room->getId()?>" ><strong>Projections</strong>   
+                                </button>
                             </form> 
-                            </button>
                         </td>
                         <td>
                             <form action="<?php echo FRONT_ROOT ?>Room/showModifyRoom" method="post">

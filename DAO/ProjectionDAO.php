@@ -17,16 +17,15 @@ class ProjectionDAO {
         $this->genrexM=new GenreXMovieDAO();
     }
 
-    public function add($projection)
+    public function add($projection,$roomId)
     {
         try
         {
             $query = "INSERT INTO $this->tableName (id_proj,id_room,id_movie,proj_date,proj_time) 
                         VALUES (:id_proj,:id_room,:id_movie,:proj_date,:proj_time);";
-            $room=$projection->getRoom();
             $movie=$projection->getMovie();
             $parameters["id_proj"] = $projection->getId();
-            $parameters["id_room"] =$room->getId();
+            $parameters["id_room"] =$roomId;
             $parameters["id_movie"] =$movie->getId();
             $parameters["proj_date"]=$projection->getDate();
             $parameters["proj_time"]=$projection->getHour();
@@ -37,6 +36,32 @@ class ProjectionDAO {
         {
             throw $ex;
         }
+    }
+
+    public function remove ($id)
+    {
+        try
+        {
+            $query = "DELETE FROM projections 
+            WHERE id_proj=$id";  
+             $this->connection=Connection::getInstance();
+             return $this->connection->executeNonQuery($query);
+        }
+        catch(Exception $ex){
+            throw $ex;
+        }
+    }
+
+    public function searchByName($name){
+        $movies=$this->getAllMovies();
+        $arrayFinded = array();
+        foreach ($movies as $value) {
+            if (stripos($value->getTitle(),$name)!==false)
+            {
+                array_push($arrayFinded,$value);
+            }
+        }
+        return $arrayFinded; 
     }
  
 
@@ -49,7 +74,8 @@ class ProjectionDAO {
             $query="SELECT p.id_proj,p.id_room,p.proj_date,p.proj_time,m.id_movie,m.title,m.length,m.synopsis,m.poster_url,m.video_url,m.release_date 
                     from projections p
                     inner join movies m on m.id_movie=p.id_movie
-                    where p.id_room=$roomId and concat(p.proj_date,' ',p.proj_time) > now()";
+                    where p.id_room=$roomId and concat(p.proj_date,' ',p.proj_time) > now()
+                    order by(concat(p.proj_date,' ',p.proj_time));";
             $this->connection=Connection::getInstance();
             $results=$this->connection->execute($query);
             foreach ($results as $row) {
@@ -82,19 +108,6 @@ class ProjectionDAO {
         }
     }
 
-    public function remove ($id)
-    {
-        try
-        {
-            $query = "DELETE FROM projections 
-            WHERE id_proj=$id";  
-             $this->connection=Connection::getInstance();
-             return $this->connection->executeNonQuery($query);
-        }
-        catch(Exception $ex){
-        throw $ex;
-    }
-    }
 
     /**
      * retorna todas las peliculas que tengan una funcion activa en el futuro sin repetirse
@@ -125,6 +138,57 @@ class ProjectionDAO {
             throw $ex;
         }
     }
+
+    /**
+     * filtro de generos para cartelera
+     */
+    public function getByGenre($genresArray)
+    {
+        $moviesList = $this->getAllMovies();
+        $newArray = array();
+        foreach ($moviesList as $movie) {
+            $jaja = 0;
+            $genresMovie = $movie->getGenres();
+            foreach ($genresMovie as $genM) {
+                foreach ($genresArray as $strGen) {
+                    if ($strGen == $genM->getName()) {
+                        $jaja++;
+                    }
+                }
+            }
+            if ($jaja == count($genresArray)) {
+                $newArray[] = $movie;
+            }
+        }
+        return $newArray;
+    }
+
+    public function getAllMoviesByDate($date){
+        $moviesList=array();
+        try{
+            $query="SELECT m.* from projections p
+                    inner join movies m on p.id_movie=m.id_movie
+                    where p.proj_date = \"$date\" and concat(p.proj_date,' ',p.proj_time) > now()
+                    group by m.id_movie";
+            $this->connection=Connection::getInstance();
+            $results=$this->connection->execute($query);
+            foreach ($results as $row) {
+                $movie=new Movie($row["title"],
+                    $row["id_movie"],
+                    $row["synopsis"],
+                    $row["poster_url"],
+                    $row["video_url"],
+                    $row["length"],
+                    [],
+                    $row["release_date"]);
+                $movie->setGenres($this->genrexM->getByMovieId($row["id_movie"]));
+                $moviesList[]=$movie;
+            }
+            return $moviesList;          
+        }catch(Exception $ex){
+            throw $ex;
+        }
+    }    
 
 
 

@@ -3,19 +3,91 @@
 namespace Controllers;
 
 use DAO\ProjectionDAO;
+use Controllers\MovieController;
+use Controllers\GenreController;
+use Models\Projection;
 
 class ProjectionController
 {
     private $projDao;
+    private $movieContr;
 
     public function __construct()
     {
         $this->projDao = new ProjectionDAO();
+        $this->movieContr = new MovieController();
     }
 
-    public function add($proj)
+    /**
+     * este es cartelera jeje
+     */
+    public function showProjectionsList(){
+        $movieList=$this->projDao->getAllMovies();
+        $gencontr=new GenreController();
+        $genres=$gencontr->getAll();
+        include(VIEWS_PATH."movies_list.php");
+    }
+
+    public function showProjectionsByGenre($genresArray){
+        $movieList=$this->projDao->getByGenre($genresArray);
+        $gencontr=new GenreController();
+        $genres=$gencontr->getAll();
+        include(VIEWS_PATH."movies_list.php");
+    }
+
+    public function showProjectionSearch($search){
+        $movieList=$this->projDao->searchByName($search);
+        $gencontr=new GenreController();
+        $genres=$gencontr->getAll();
+        include(VIEWS_PATH."movies_list.php");
+    }
+
+    public function showProjectionDate($date){
+        $movieList=$this->projDao->getAllMoviesByDate($date);
+        $gencontr=new GenreController();
+        $genres=$gencontr->getAll();
+        include(VIEWS_PATH."movies_list.php");
+    }
+
+    /*---------------------------------*/
+
+    public function showProjections($roomId){
+        $projs=$this->projDao->getArrayByRoomId($roomId);
+        include(VIEWS_PATH."projection_admin.php");
+    }
+
+    public function add($roomId,$movieId,$date,$time)
     {
-        $this->projDao->add($proj);
+        $movie=$this->movieContr->getById($movieId);
+        $proj=new Projection(time(),$movie,$date,$time);
+        $this->projDao->add($proj,$roomId);
+        $this->showProjections($roomId);
+    }
+
+    public function addFromList($roomId){
+        $movieList=$this->movieContr->getAll();
+        $gencontr=new GenreController();
+        $genres=$gencontr->getAll();
+        include(VIEWS_PATH."add_projection.php");
+    }
+
+    public function addFromListByGenre($genresArray,$roomId){
+        $movieList=$this->movieContr->getByGenre($genresArray);
+        $gencontr=new GenreController();
+        $genres=$gencontr->getAll();
+        include(VIEWS_PATH."add_projection.php");
+    }
+
+    public function addFromListSearch($search,$roomId){
+        $movieList=$this->movieContr->searchByName($search);
+        $gencontr=new GenreController();
+        $genres=$gencontr->getAll();
+        include(VIEWS_PATH."add_projection.php");
+    }
+
+    public function updateMoviesList($roomId){
+        $this->movieContr->updateNowPlaying();
+        $this->addFromList($roomId);
     }
 
     /**
@@ -31,29 +103,6 @@ class ProjectionController
         return $this->projDao->getById($id);
     }
 
-    /**
-     * filtro de generos para cartelera
-     */
-    public function getByGenre($genresArray)
-    {
-        $moviesList = $this->getAllMovies();
-        $newArray = array();
-        foreach ($moviesList as $movie) {
-            $jaja = 0;
-            $genresMovie = $movie->getGenres();
-            foreach ($genresMovie as $genM) {
-                foreach ($genresArray as $strGen) {
-                    if ($strGen == $genM->getName()) {
-                        $jaja++;
-                    }
-                }
-            }
-            if ($jaja == count($genresArray)) {
-                $newArray[] = $movie;
-            }
-        }
-        return $newArray;
-    }
 
     public function searchByName($name){
         $movies=$this->getAllMovies();
@@ -81,19 +130,5 @@ class ProjectionController
             $this->showProjections($roomId);
         }
 
-    }
-
-    public function showProjections($roomId)
-    {
-        $projectionsList = $this->getArrayByRoomId($roomId);
-        include_once VIEWS_PATH."projection_admin.php";
-
-    }
-
- 
-    public function modify($id,$movie,$date,$hour,$roomId){
-        
-        $this->projDao->modify(new Projection($id,$movie,$date,$hour));
-        //$this->showRoom($cinemaId);
     }
 }
