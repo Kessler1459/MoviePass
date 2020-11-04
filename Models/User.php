@@ -8,16 +8,14 @@
         private $password;
         private $userProfile; 
         private $userRole;
-        private $cinemaId;
 
 
-        public function __construct($id,$email,$password,$userProfile,$userRole,$cinemaId){
+        public function __construct($id,$email,$password,$userProfile,$userRole){
             $this->id = $id;
             $this->email = $email;
             $this->password = $password;
             $this->userProfile = $userProfile; 
             $this->userRole = $userRole; 
-            $this->cinemaId = $cinemaId;
         }
 
 
@@ -43,10 +41,6 @@
             return $this->userRole;
         }
 
-        public function getCinemaId(){
-            return $this->cinemaId;
-        }
-
         //-----------------Setters-----------------
         
         public function setId($id){
@@ -67,10 +61,6 @@
 
         public function setUserRole($userRole){
             return $this->userRole = $userRole;
-        }
-
-        public function setCinemaId($cinemaId){
-            return $this->cinemaId = $cinemaId;
         }
     
     }
