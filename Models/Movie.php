@@ -9,17 +9,19 @@ class Movie{
     private $length; //en minutos
     private $synopsis;
     private $poster;
+    private $video;
     private $genres;
     private $releaseDate;
 
-    public function __construct($title,$id,$synopsis,$poster,$length="",$genres,$releaseDate) {
-        $this->title=($title);
-        $this->id=($id);
-        $this->length=($length);
-        $this->synopsis=($synopsis);
-        $this->poster=($poster);
-        $this->genres=($genres);
-        $this->releaseDate=($releaseDate);
+    public function __construct($title,$id,$synopsis,$poster,$video="",$length="",$genres,$releaseDate) {
+        $this->title=$title;
+        $this->id=$id;
+        $this->length=$length;
+        $this->synopsis=$synopsis;
+        $this->poster=$poster;
+        $this->video=$video;
+        $this->genres=$genres;
+        $this->releaseDate=$releaseDate;
     }
 
     /**
@@ -158,6 +160,26 @@ class Movie{
     public function setReleaseDate($releaseDate)
     {
         $this->releaseDate = $releaseDate;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of video
+     */ 
+    public function getVideo()
+    {
+        return $this->video;
+    }
+
+    /**
+     * Set the value of video
+     *
+     * @return  self
+     */ 
+    public function setVideo($video)
+    {
+        $this->video = $video;
 
         return $this;
     }

@@ -78,6 +78,38 @@ class MovieDAO{
         }
     }
 
+    public function getByGenre($genresArray){ 
+        $movies=$this->getAll();
+            $newArray=array();
+            foreach ($movies as $movie) {
+                $jaja=0;
+                $genresMovie=$movie->getGenres();
+                foreach ($genresMovie as $genM) {
+                    foreach ($genresArray as $strGen) {
+                        if ($strGen ==$genM->getName()){
+                            $jaja++;
+                        }
+                    }
+                }     
+                if ($jaja==count($genresArray)) {
+                    $newArray[]=$movie;
+                }
+            }
+            return $newArray;
+    }
+
+
+    public function searchByName($name){
+        $movies=$this->getAll();
+        $arrayFinded = array();
+        foreach ($movies as $value) {
+            if (stripos($value->getTitle(),$name)!==false)
+            {
+                array_push($arrayFinded,$value);
+            }
+        }
+        return $arrayFinded; 
+    }
 
     /**
      * guarda en la db las peliculas del now_playing de la api pero solo hasta la quinta pagina D:
