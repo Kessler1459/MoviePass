@@ -3,6 +3,7 @@
 namespace Controllers;
 use DAO\RoomDAO;
 use Models\Room as Room;
+
 class RoomController{
     private $roomDao;
 
@@ -16,7 +17,7 @@ class RoomController{
     public function add ($capacity,$ticketPrice,$description,$cinemaId)
     {
         $id = time();
-        $room = new Room($id,$capacity,$ticketPrice,$description,[]);
+        $room = new Room($id,$capacity,$ticketPrice,$description);
         $this->roomDao->add($room,$cinemaId);
         $this->showRoom($cinemaId);
     }
@@ -38,7 +39,7 @@ class RoomController{
  
     public function modify($capacity,$ticketPrice,$description,$roomId,$cinemaId){
         
-        $this->roomDao->modify(new Room($roomId,$capacity,$ticketPrice,$description,[]));
+        $this->roomDao->modify(new Room($roomId,$capacity,$ticketPrice,$description));
         $this->showRoom($cinemaId);
     }
 

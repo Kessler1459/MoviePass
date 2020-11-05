@@ -19,15 +19,37 @@
         public function getById($id){
             return $this->movieDao->getById($id);
         }
-        public function getByGenre($genresArray){
-            return $this->movieDao->getByGenre($genresArray);
+        
+        public function getByGenre($genresArray){ 
+            $movies=$this->getAll();
+                $newArray=array();
+                foreach ($movies as $movie) {
+                    $jaja=0;
+                    $genresMovie=$movie->getGenres();
+                    foreach ($genresMovie as $genM) {
+                        foreach ($genresArray as $strGen) {
+                            if ($strGen ==$genM->getName()){
+                                $jaja++;
+                            }
+                        }
+                    }     
+                    if ($jaja==count($genresArray)) {
+                        $newArray[]=$movie;
+                    }
+                }
+                return $newArray;
         }
 
-        //todo adaptar estos 3 metodos
-        public function searchByName($name)
-        {
-            $moviesFinded=$this->movieDao->searchByName($name);
-            return $moviesFinded;
+        public function searchByName($name){
+            $movies=$this->getAll();
+            $arrayFinded = array();
+            foreach ($movies as $value) {
+                if (stripos($value->getTitle(),$name)!==false)
+                {
+                    array_push($arrayFinded,$value);
+                }
+            }
+            return $arrayFinded; 
         }
 
         public function updateNowPlaying(){
@@ -49,7 +71,7 @@
         }
 
         public function showMoviesByGenre($genArr){
-            $movieList=$this->movieDao->getByGenre($genArr);
+            $movieList=$this->getByGenre($genArr);
             $gencontr=new GenreController();
             $genres=$gencontr->getAll();
             include VIEWS_PATH."movies_list.php";

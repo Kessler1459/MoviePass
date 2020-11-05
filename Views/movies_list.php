@@ -28,7 +28,7 @@ require_once(VIEWS_PATH . "nav.php");
         <div>
             <form action="<?php echo FRONT_ROOT ?>Projection/showProjectionDate" method="get">
                 <input type="date" name="projection_date" id="projection_date" min=<?php echo date("yy-m-d") ?> value="" required>
-                <button type="submit" class="button-a">GATOOOO</button>
+                <button type="submit" class="button-a">--</button>
             </form>
         </div>
 
@@ -39,13 +39,14 @@ require_once(VIEWS_PATH . "nav.php");
     <div class="custom-scrollbar table-wrapper-scroll-y">
         <div class="row">
             <?php
-            foreach ($movieList as $key => $value) { ?>
+            foreach ($projectionList as  $proj) { 
+                $movie=$proj->getMovie();?>
                 <div class="col-md-3">
-                    <button type="button" class="btn" onClick="dataChange(<?php echo "'" . $value->getPoster() . "','" . $value->getTitle() . "','" . $value->getSynopsis() . "'" ?>)" data-id="<?php echo $value->getId() ?>" data-toggle="modal" data-target=".movie">
+                    <button type="button" class="btn" onClick="dataChange(<?php echo "'" . $movie->getPoster() . "','" . $movie->getTitle() . "','" . $movie->getSynopsis() . "'" ?>)" data-id="<?php echo $movie->getId() ?>" data-toggle="modal" data-target=".movie">
 
                         <figure class="figure">
-                            <img class="figure-img img-fluid rounded" src="<?php echo "https://image.tmdb.org/t/p/w500" . $value->getPoster() ?>" width="60%">
-                            <figcaption class="figure-caption"><?php echo $value->getTitle() ?></figcaption>
+                            <img class="figure-img img-fluid rounded" src="<?php echo "https://image.tmdb.org/t/p/w500" . $movie->getPoster() ?>" width="60%">
+                            <figcaption class="figure-caption"><?php echo $movie->getTitle() ?></figcaption>
                         </figure>
 
                     </button>

@@ -3,6 +3,7 @@
 namespace Controllers;
 
 use DAO\ProjectionDAO;
+use Controllers\RoomController;
 use Controllers\MovieController;
 use Controllers\GenreController;
 use Models\Projection;
@@ -11,39 +12,41 @@ class ProjectionController
 {
     private $projDao;
     private $movieContr;
+    private $roomContr;
 
     public function __construct()
     {
         $this->projDao = new ProjectionDAO();
         $this->movieContr = new MovieController();
+        $this->roomContr=new RoomController();
     }
 
     /**
      * este es cartelera jeje
      */
     public function showProjectionsList(){
-        $movieList=$this->projDao->getAllMovies();
+        $projectionList=$this->projDao->getAllProjections();
         $gencontr=new GenreController();
         $genres=$gencontr->getAll();
         include(VIEWS_PATH."movies_list.php");
     }
 
     public function showProjectionsByGenre($genresArray){
-        $movieList=$this->projDao->getByGenre($genresArray);
+        $projectionList=$this->getByGenre($genresArray);
         $gencontr=new GenreController();
         $genres=$gencontr->getAll();
         include(VIEWS_PATH."movies_list.php");
     }
 
     public function showProjectionSearch($search){
-        $movieList=$this->projDao->searchByName($search);
+        $projectionList=$this->searchByName($search);
         $gencontr=new GenreController();
         $genres=$gencontr->getAll();
         include(VIEWS_PATH."movies_list.php");
     }
 
     public function showProjectionDate($date){
-        $movieList=$this->projDao->getAllMoviesByDate($date);
+        $projectionList=$this->projDao->getAllProjectionsByDate($date);
         $gencontr=new GenreController();
         $genres=$gencontr->getAll();
         include(VIEWS_PATH."movies_list.php");
@@ -59,7 +62,8 @@ class ProjectionController
     public function add($roomId,$movieId,$date,$time)
     {
         $movie=$this->movieContr->getById($movieId);
-        $proj=new Projection(time(),$movie,$date,$time);
+        $room=$this->roomContr->getById($roomId);
+        $proj=new Projection(time(),$movie,$date,$time,$room);
         $this->projDao->add($proj,$roomId);
         $this->showProjections($roomId);
     }
@@ -93,9 +97,9 @@ class ProjectionController
     /**
      * retorna todas las peliculas que tengan una funcion activa en el futuro sin repetirse.(cartelera hehe)
      */
-    public function getAllMovies()
+    public function getAllProjections()
     {
-        return $this->projDao->getAllMovies();
+        return $this->projDao->getAllProjections();
     }
 
     public function getById($id)
@@ -104,16 +108,46 @@ class ProjectionController
     }
 
 
+    /**
+     * busca y devuelve array de proyecciones
+     */
     public function searchByName($name){
-        $movies=$this->getAllMovies();
+        $projections=$this->getAllProjections();
         $arrayFinded = array();
-        foreach ($movies as $value) {
-            if (stripos($value->getTitle(),$name)!==false)
+        foreach ($projections as $value) {
+            $movie=$value->getMovie();
+            if (stripos($movie->getTitle(),$name)!==false)
             {
                 array_push($arrayFinded,$value);
             }
         }
         return $arrayFinded; 
+    }
+
+    /**
+     * todo
+     * filtro de generos para cartelera 
+     */
+    public function getByGenre($genresArray)
+    {
+        $projectionList = $this->getAllProjections();
+        $newArray = array();
+        foreach ($projectionList as $proj) {
+            $jaja = 0;
+            $movie=$proj->getMovie();
+            $genresMovie = $movie->getGenres();
+            foreach ($genresMovie as $genM) {
+                foreach ($genresArray as $strGen) {
+                    if ($strGen == $genM->getName()) {
+                        $jaja++;
+                    }
+                }
+            }
+            if ($jaja == count($genresArray)) {
+                $newArray[] = $proj;
+            }
+        }
+        return $newArray;
     }
 
     /**
