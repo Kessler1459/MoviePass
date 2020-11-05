@@ -27,29 +27,29 @@
             $id=(string)time();
             $userProfile = new UserProfile($firstName,$lastName,$dni);
             $userRole = new UserRole($userType,"Client");
-            $client = new User($id,$email,$password,$userProfile,$userRole,null);
+            $client = new User($id,$email,$password,$userProfile,$userRole);
             //$this->userDao->add($client);
 
             return $client;
         }
 
-        private function createCinemaOwner($email,$password,$firstName,$lastName,$dni,$cinemaId,$userType){
+        private function createCinemaOwner($email,$password,$firstName,$lastName,$dni,$userType){
             $id=(string)time();
             $userProfile = new UserProfile($firstName,$lastName,$dni);
             $userRole = new UserRole($userType,"Cinema Owner");
-            $cinemaOwner = new User($id,$email,$password,$firstName,$lastName,$dni,$userType,$cinemaId);
+            $cinemaOwner = new User($id,$email,$password,$firstName,$lastName,$dni,$userType);
             $this->userDao->add($cinemaOwner);
 
             return $cinemaOwner;
         }
 
-        public function verifySignIn($email,$password,$firstName,$lastName,$dni,$cinemaId = " ",$userType = 1){
+        public function verifySignIn($email,$password,$firstName,$lastName,$dni,$userType = 1){
             $user = null;
             //try{
                 //$this->userDao->findEmail($email);
 
                 if($userType == 2)
-                    $user = $this->createCinemaOwner($email,$password,$firstName,$lastName,$dni,$cinemaId,$userType);
+                    $user = $this->createCinemaOwner($email,$password,$firstName,$lastName,$dni,$userType);
                 else
                     $user = $this->createClient($email,$password,$firstName,$lastName,$dni,$userType);
 
