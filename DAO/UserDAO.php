@@ -17,8 +17,8 @@
         public function add($user){
             try
             {
-                $query = "INSERT INTO $this->tableName (id_user,email,pass,first_name,last_name,dni,user_type,role_description,id_cinema) 
-                            VALUES (:id_user,:email,:pass,:first_name,:last_name,:dni,:user_type,:role_description,:id_cinema)";
+                $query = "INSERT INTO $this->tableName (id_user,email,pass,first_name,last_name,dni,user_type,role_description) 
+                            VALUES (:id_user,:email,:pass,:first_name,:last_name,:dni,:user_type,:role_description)";
                 $parameters["id_user"] = $user->getId();
                 $parameters["email"] = $user->getEmail();
                 $parameters["pass"] = $user->getPassword();
@@ -27,7 +27,6 @@
                 $parameters["dni"] = $user->userProfile->getDni();
                 $parameters["user_type"] = $user->userRole->getUserType();
                 $parameters["role_description"] = $user->userRole->getDescription();
-                $parameters["id_cinema"] = $user->getCinemaId();
                 $this->connection = Connection::getInstance();
                 $this->connection->executeNonQuery($query, $parameters);
             }
@@ -48,7 +47,7 @@
 
                     $userRole = new UserRole($row["user_type"],$row["role_description"]);
                     $userProfile = new UserProfile($row["first_name"],$row["last_name"],$row["dni"]);
-                    $user = new User($row["id_user"],$row["email"],$row["pass"],$userProfile,$userRole,$row["id_cinema"]);
+                    $user = new User($row["id_user"],$row["email"],$row["pass"],$userProfile,$userRole);
                     
                     return $user;
                 }
@@ -72,7 +71,7 @@
 
                     $userRole = new UserRole($row["user_type"],$row["role_description"]);
                     $userProfile = new UserProfile($row["first_name"],$row["last_name"],$row["dni"]);
-                    $user = new User($row["id_user"],$row["email"],$row["pass"],$userProfile,$userRole,$row["id_cinema"]);
+                    $user = new User($row["id_user"],$row["email"],$row["pass"],$userProfile,$userRole);
                     
                     return $user;
                 }
