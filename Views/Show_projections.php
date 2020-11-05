@@ -84,7 +84,7 @@ require_once(VIEWS_PATH."nav.php");
         document.getElementById("projection_movie").value = movieId;
         for (var i = 0; i < <?php echo count($projections) ?> i++)
         {
-            
+            iajgawogjawpofjawpchqifuhf;
         }
     }
 </script>
