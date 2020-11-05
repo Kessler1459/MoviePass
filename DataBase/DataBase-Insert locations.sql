@@ -1,8 +1,36 @@
 USE movie_pass;
 
--- ----------------------------
--- Records of ciudad
--- ----------------------------
+
+# Records of provincia
+
+INSERT INTO `provincia` VALUES ('1', 'Buenos Aires');
+INSERT INTO `provincia` VALUES ('2', 'Capital Federal');
+INSERT INTO `provincia` VALUES ('3', 'Catamarca');
+INSERT INTO `provincia` VALUES ('4', 'Chaco');
+INSERT INTO `provincia` VALUES ('5', 'Chubut');
+INSERT INTO `provincia` VALUES ('6', 'Córdoba');
+INSERT INTO `provincia` VALUES ('7', 'Corrientes');
+INSERT INTO `provincia` VALUES ('8', 'Entre Ríos');
+INSERT INTO `provincia` VALUES ('9', 'Formosa');
+INSERT INTO `provincia` VALUES ('10', 'Jujuy');
+INSERT INTO `provincia` VALUES ('11', 'La Pampa');
+INSERT INTO `provincia` VALUES ('12', 'La Rioja');
+INSERT INTO `provincia` VALUES ('13', 'Mendoza');
+INSERT INTO `provincia` VALUES ('14', 'Misiones');
+INSERT INTO `provincia` VALUES ('15', 'Neuquén');
+INSERT INTO `provincia` VALUES ('16', 'Río Negro');
+INSERT INTO `provincia` VALUES ('17', 'Salta');
+INSERT INTO `provincia` VALUES ('18', 'San Juan');
+INSERT INTO `provincia` VALUES ('19', 'San Luis');
+INSERT INTO `provincia` VALUES ('20', 'Santa Cruz');
+INSERT INTO `provincia` VALUES ('21', 'Santa Fé');
+INSERT INTO `provincia` VALUES ('22', 'Santiago del Estero');
+INSERT INTO `provincia` VALUES ('23', 'Tierra del Fuego');
+INSERT INTO `provincia` VALUES ('24', 'Tucumán');
+
+
+# Records of ciudad
+
 INSERT INTO `ciudad` VALUES ('1111', 'CABEZA DE CHANCHO', '3061', '21');
 INSERT INTO `ciudad` VALUES ('1112', 'CAMPO GARAY', '3066', '21');
 INSERT INTO `ciudad` VALUES ('1113', 'CAMPO SAN JOSE', '3060', '21');
@@ -22967,31 +22995,3 @@ INSERT INTO `ciudad` VALUES ('27855', 'COSTA DEL TOBA', '3553', '21');
 INSERT INTO `ciudad` VALUES ('27856', 'CANDELARIA', '4231', '3');
 INSERT INTO `ciudad` VALUES ('27857', 'LAS VEGAS', '5549', '13');
 
--- ----------------------------
--- Records of provincia
--- ----------------------------
-
-INSERT INTO `provincia` VALUES ('1', 'Buenos Aires');
-INSERT INTO `provincia` VALUES ('2', 'Capital Federal');
-INSERT INTO `provincia` VALUES ('3', 'Catamarca');
-INSERT INTO `provincia` VALUES ('4', 'Chaco');
-INSERT INTO `provincia` VALUES ('5', 'Chubut');
-INSERT INTO `provincia` VALUES ('6', 'Córdoba');
-INSERT INTO `provincia` VALUES ('7', 'Corrientes');
-INSERT INTO `provincia` VALUES ('8', 'Entre Ríos');
-INSERT INTO `provincia` VALUES ('9', 'Formosa');
-INSERT INTO `provincia` VALUES ('10', 'Jujuy');
-INSERT INTO `provincia` VALUES ('11', 'La Pampa');
-INSERT INTO `provincia` VALUES ('12', 'La Rioja');
-INSERT INTO `provincia` VALUES ('13', 'Mendoza');
-INSERT INTO `provincia` VALUES ('14', 'Misiones');
-INSERT INTO `provincia` VALUES ('15', 'Neuquén');
-INSERT INTO `provincia` VALUES ('16', 'Río Negro');
-INSERT INTO `provincia` VALUES ('17', 'Salta');
-INSERT INTO `provincia` VALUES ('18', 'San Juan');
-INSERT INTO `provincia` VALUES ('19', 'San Luis');
-INSERT INTO `provincia` VALUES ('20', 'Santa Cruz');
-INSERT INTO `provincia` VALUES ('21', 'Santa Fé');
-INSERT INTO `provincia` VALUES ('22', 'Santiago del Estero');
-INSERT INTO `provincia` VALUES ('23', 'Tierra del Fuego');
-INSERT INTO `provincia` VALUES ('24', 'Tucumán');
