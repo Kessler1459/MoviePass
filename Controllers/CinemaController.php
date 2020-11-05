@@ -3,6 +3,7 @@
 namespace Controllers;
 use Models\Cinema;
 use DAO\CinemaDAO;
+use Controllers\LocationController;
 
 class CinemaController{
     private $cinemaDao;
@@ -21,41 +22,49 @@ class CinemaController{
         return $sorted;
     }
 
-    public function add($name,$address,$maxCapacity,$ticketPrice){
-        $id=(string)time(); //number of seconds since January 1 1970
-        //talvez comprobar si se repiten para agregar
-        $newCinema=new Cinema($name,$id,$address,intval($maxCapacity),floatval($ticketPrice));
+    public function add($name,$provinceId,$cityId,$address){
+        $id=time(); //number of seconds since January 1 1970
+        $locContro=new LocationController();
+        $province=$locContro->getProvinceById($provinceId);
+        $city=$locContro->getCityById($cityId);
+        $newCinema=new Cinema($name,$id,$province,$city,$address);
         $this->cinemaDao->add($newCinema);
         $this->showCinemasList();
     }
 
-    public function modify($name,$id,$address,$maxCapacity,$ticketPrice){
-        $this->cinemaDao->modify(new Cinema($name,$id,$address,intval($maxCapacity),floatval($ticketPrice)));
+    public function modify($name,$id,$provinceId,$cityId,$address){
+        $locContro=new LocationController();
+        $province=$locContro->getProvinceById($provinceId);
+        $city=$locContro->getCityById($cityId);
+        $this->cinemaDao->modify(new Cinema($name,$id,$province,$city,$address));
         $this->showCinemasList();
     }
 
     public function remove($id){
-        if ($this->cinemaDao->remove($id)) {
+        if ($this->cinemaDao->remove($id)>0) {
             $this->showCinemasList();
-            //fue eliminado
         }
-        else{
-            echo "no se encontro";
-            // no se encontro
-        }
+        
     }
 
     public function showCinemasList(){
-        $cinemas=$this->getAllSorted();
+        $cinemas=$this->getAll();
         require_once VIEWS_PATH."cinema_list.php";
     }
 
     public function showAddCinema(){
+        
+        $locationContr=new LocationController();
+        $provinces=$locationContr->getAllProvinces();
+        $initCities=$locationContr->getCitiesByProvince(1);  
         require_once VIEWS_PATH."add_cinema.php";
     }
 
     public function showModifyCinema($id){
-        $cinema=$this->cinemaDao->getCinema($id);
+        $locContro=new LocationController();
+        $cinema=$this->cinemaDao->getById($id);
+        $provinces=$locContro->getAllProvinces();
+        $initCities=$locContro->getCitiesByProvince(1);  
         require_once VIEWS_PATH."modify_cinema.php";
     }
 
