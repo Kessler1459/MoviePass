@@ -10,7 +10,7 @@ class Projection
     private $hour;
     private $room;
 
-    public function __construct($id,$movie,$date,$hour,$room) {
+    public function __construct($id,$movie = "",$date,$hour,$room) {
         $this->id = $id;
         $this->movie = $movie;
         $this->date = $date;

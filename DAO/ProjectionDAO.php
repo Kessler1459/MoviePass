@@ -6,6 +6,7 @@ use Models\Projection;
 use Models\Movie;
 use DAO\GenreXMovieDAO;
 use DAO\Connection;
+use DAO\MovieDAO;
 use Exception;
 use Models\Room;
 
@@ -14,10 +15,11 @@ class ProjectionDAO
     private $connection;
     private $genrexM;
     private $tableName = "projections";
+    private $movieDao;
 
-    public function __construct()
-    {
-        $this->genrexM = new GenreXMovieDAO();
+    public function __construct() {
+        $this->genrexM=new GenreXMovieDAO();
+        $this->movieDao = new MovieDAO();
     }
 
     public function add($projection)
