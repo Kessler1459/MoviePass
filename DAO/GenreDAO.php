@@ -2,7 +2,6 @@
 
 namespace DAO;
 
-
 use Models\Genre;
 use Exception;
 
