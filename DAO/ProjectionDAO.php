@@ -141,6 +141,27 @@ class ProjectionDAO {
             throw $ex;
         }
     }
+    public function getAllProjectionsByMovie($movie)
+    {
+        $idMovie = $movie->getId();
+        try{
+            $query="SELECT p.id_proj,p.proj_date,p.proj_time,r.id_room,r.descript,r.capacity,r.ticket_price,m.id_movie,m.title,m.length,m.synopsis,m.poster_url,m.video_url,m.release_date 
+                    from projections p
+                    inner join movies m on m.id_movie=p.id_movie
+                    where p.id_movie=$idMovie";
+            $this->connection=Connection::getInstance();
+            $results=$this->connection->execute($query);
+            foreach($results as $row)
+            {
+                $movie=new Movie($row["title"],$row["id_movie"],$row["synopsis"],$row["poster_url"],$row["video_url"],$row["length"],[],$row["release_date"]);
+                $movie->setGenres($this->genrexM->getByMovieId($row["id_movie"]));
+                $projection=new Projection($row["id_proj"],$movie,$row["proj_date"],$row["proj_time"]);
+            }
+            return $projection;
+        }catch(Exception $ex){
+            throw $ex;
+        }
+    }
 
     /**
      * filtro de generos para cartelera

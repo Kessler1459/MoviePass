@@ -6,16 +6,22 @@
     use Controllers\MovieController;
     use Controllers\GenreController;
     use Models\Projection;
+    use controllers\CinemaController;
+    use Controllers\LocationController;
 
     class ProjectionController
     {
         private $projDao;
         private $movieContr;
+        private $cinemaContr;
+        private $locationContr;
 
         public function __construct()
         {
             $this->projDao = new ProjectionDAO();
             $this->movieContr = new MovieController();
+            $this->cinemaContr = new CinemaController();
+            $this->locationContr = new LocationController();
         }
 
         /**
@@ -49,10 +55,32 @@
             include(VIEWS_PATH."movies_list.php");
         }
 
+        public function showProjectionFromMovie($movieId)
+        {
+            $movie = $this->movieContr->getById($movieId);
+            $cinemas=$this->cinemaContr->getAll();
+            $cinemas = $this->divideByMovie($movie);
+            $cinemas = $this->divideByCity($cinemas);
+            include(VIEWS_PATH."select_city.php");   
+        }
+        public function showProjectionByCity($cityId,$movieId,$date)
+        {
+            if($date == "")
+            {
+                $date = date('Y-m-d');
+            }
+            $movie = $this->movieContr->getById($movieId);
+            $cinemas=$this->cinemaContr->getAll();
+            $cinemas = $this->divideByMovie($movie);
+            $cinemas = $this->divideByCity($cinemas);
+            $cinemasXrooms = $this->divideRoomByCinema($cinemas, $movie, $date);
+            include(VIEWS_PATH."select_projection.php");
+        }
         /*---------------------------------*/
 
         public function showProjections($roomId){
             $projs=$this->projDao->getArrayByRoomId($roomId);
+            
             include(VIEWS_PATH."projection_admin.php");
         }
 
@@ -130,6 +158,81 @@
                 $this->showProjections($roomId);
             }
 
+        }
+        private function divideByCity($cinemas)
+        {
+            $cinesxciudad = array();
+            foreach ($cinemas as $key => $value) {
+                    if(!in_array($value->getCity()))
+                    {
+                        $cinesxciudad += [$value->getCity => array($value)];
+                    }
+                    else
+                    {
+                        array_push($cinesxciudad[$value->getCity()]);
+                    }
+            }
+            return $cinesxciudad;
+        }
+        private function divideByMovie($movie)
+        {
+            $cinesXmovie = array();
+            $flag = false;
+            foreach($cinemas as $key => $cine)
+            {
+                $flag = false;
+                foreach($cine->getRooms() as $key => $room)
+                {
+                    foreach($room->getProjections() as $key => $projection)
+                    {
+                        if(!$flag == false && $projection->getMovie() == $movie)
+                        {
+                            $flag = true;
+                            array_push($cinesXmovie,$cine);
+                            break;
+                        }
+                    }
+                    if ($flag)
+                    {
+                    break;
+                    }
+                }
+            }
+        }
+        private function divideRoomByCinema($cinemas, $movie, $date)
+        {
+            $roomsXcinema += [$cinemas => array()];
+            $projections;
+            $rooms;          
+            $flag = false;
+            $roomsXcinema = array();
+            foreach ($cinemas as $key => $cinema) {
+                foreach ($rooms as $key => $room) {
+                    $projections = $room->getProjections();
+                    foreach($projections as $key => $projection)
+                    {
+                        if(($projection->getMovie()->getId() == $movie->getId()) && ($projection->getDate() == $date))
+                        {
+                            if(!in_array(($cinema),$roomsXcinema))
+                            {
+                                $roomsXcinema += [$cinema => array($room => array($projection))];
+                            }
+                            else {
+                                if (!in_array(($room),$roomsXcinema[$cinema]))
+                                {
+                                    $roomsXcinema[$cinema] += [$room => $projection];
+                                }
+                                else
+                                {
+                                    array_push($roomsXcinema[$cinema][$room],$projection);
+                                }
+                            }
+                            
+                        }
+                    }
+                }
+            }
+            return $roomsXcinema;
         }
     }
 
