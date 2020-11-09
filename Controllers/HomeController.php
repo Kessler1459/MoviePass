@@ -5,7 +5,7 @@
     use Controllers\CinemaController;
     use Controllers\MovieController as MovieController;
     use DAO\MoviedbDAO as MoviedbDAO;
-
+    use Controllers\ProjectionController as ProjectionController ;
     class HomeController{
 
         public function showCinemasList(){
@@ -35,10 +35,13 @@
 
         public function showHome()
         {
-            $movieController = new MovieController();
-            $movieController->showHomeList();
+            $projectionController = new ProjectionController (); 
+            $projs = $projectionController->getAllMovies();
+            include VIEWS_PATH."home_page.php";
         }
 
     }
+
+
 
 ?>
