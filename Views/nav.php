@@ -5,8 +5,8 @@
 
      <ul class="nav justify-content-center">
           <span class="navbar-text">
-               <h4>Welcome <strong> <?php 
-               if (isset($_SESSION['name'])) { echo $_SESSION['name'];} ?> </strong> </h4>
+          <?php 
+               if (isset($_SESSION['name'])) { echo "<h4>Welcome <strong>".$_SESSION['name']."</strong> </h4>";} ?> 
           </span>
      </ul>
 
@@ -22,6 +22,9 @@
           </li>
           <li class="nav-item">
                <a class="nav-link" href=" <?php echo FRONT_ROOT ?>User/signIn">SignIn</a>
+          </li>
+          <li class="nav-item">
+               <a class="nav-link" href=" <?php echo FRONT_ROOT ?>Home/showHome">Home</a>
           </li>
      </ul>
 </nav>

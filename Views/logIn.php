@@ -1,3 +1,8 @@
+<?php 
+    require_once(VIEWS_PATH."header.php");
+    require_once(VIEWS_PATH."nav.php");
+?>
+
 <main class="containerMovies">
 
     <h1>Log In</h1>

@@ -1,9 +1,18 @@
+<?php 
+    require_once(VIEWS_PATH."header.php");
+    require_once(VIEWS_PATH."nav.php");
+?>
 <main class="containerMovies">
     
     <h1>Sign In</h1>
 
     <form action="<?php echo FRONT_ROOT ?>User/verifySignIn" method="POST">
-    
+        <?php if(isset($message)){ ?>
+            <div class="alert alert-danger" role="alert">
+                <?php echo $message ?>
+            </div>
+        <?php } ?>
+        
         <div>
             <label for="email">Email</label>
             <input type="text" class="form-control" id="email" name="email" required>
