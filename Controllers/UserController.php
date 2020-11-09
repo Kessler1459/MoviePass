@@ -10,7 +10,7 @@
         private $userDao;
 
         public function __construct() {
-            $this->userDao;
+            $this->userDao = new UserDao();
         }
    
     
@@ -26,9 +26,14 @@
         private function createClient($email,$password,$firstName,$lastName,$dni,$userType){
             $id=(string)time();
             $userProfile = new UserProfile($firstName,$lastName,$dni);
-            $userRole = new UserRole($userType,"Client");
+            $userRole = new UserRole($userType,'Client');
             $client = new User($id,$email,$password,$userProfile,$userRole);
-            //$this->userDao->add($client);
+            try{
+                $this->userDao->add($client);
+            }
+            catch (Exception $ex) {
+                throw $ex;
+            }
 
             return $client;
         }
@@ -36,36 +41,55 @@
         private function createCinemaOwner($email,$password,$firstName,$lastName,$dni,$userType){
             $id=(string)time();
             $userProfile = new UserProfile($firstName,$lastName,$dni);
-            $userRole = new UserRole($userType,"Cinema Owner");
+            $userRole = new UserRole($userType,'Cinema Owner');
             $cinemaOwner = new User($id,$email,$password,$firstName,$lastName,$dni,$userType);
-            $this->userDao->add($cinemaOwner);
+            try{
+                $this->userDao->add($cinemaOwner);
+            }
+            catch (Exception $ex) {
+                throw $ex;
+            }
+            
 
             return $cinemaOwner;
         }
 
         public function verifySignIn($email,$password,$firstName,$lastName,$dni,$userType = 1){
             $user = null;
-            //try{
-                //$this->userDao->findEmail($email);
+            $exist = false;
+            try{
+                //$exist = $this->userDao->findEmail($email);
+                if ($exist == false) {
 
-                if($userType == 2)
-                    $user = $this->createCinemaOwner($email,$password,$firstName,$lastName,$dni,$userType);
-                else
-                    $user = $this->createClient($email,$password,$firstName,$lastName,$dni,$userType);
+                    if($userType == 2)
+                        $user = $this->createCinemaOwner($email,$password,$firstName,$lastName,$dni,$userType);
+                    else
+                        $user = $this->createClient($email,$password,$firstName,$lastName,$dni,$userType);
 
-                $this->startSession($user);
-                include VIEWS_PATH."home_page.php";
-            //}
-            //catch () { }
+                    $this->startSession($user);
+                    include VIEWS_PATH."home_page.php"; 
+
+                } else {
+                    $message = "This email is already used";
+                    $this->signIn();
+                }
+                
+                    
+            }
+            catch (Exception $ex) { 
+                $message = "This email is already used";
+                $this->signIn();
+            }
         }
 
         public function verifyLogIn($email,$password){
-            //try{
+            $user = null;
+            try{
                 $user = $this->userDao->findUser($email,$password);
                 $this->startSession($user);
                 
-            //}
-            //catch () { }
+            }
+            catch (Exception $ex) { }
         }
 
         private function startSession($user){
