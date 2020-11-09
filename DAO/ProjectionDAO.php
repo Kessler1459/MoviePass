@@ -127,7 +127,7 @@ class ProjectionDAO {
                     $row["synopsis"],
                     $row["poster_url"],
                     $row["video_url"],
-                    $row["length"],
+                    $row["LENGTH"],
                     [],
                     $row["release_date"]);
                 $movie->setGenres($this->genrexM->getByMovieId($row["id_movie"]));
@@ -178,7 +178,7 @@ class ProjectionDAO {
                     $row["synopsis"],
                     $row["poster_url"],
                     $row["video_url"],
-                    $row["length"],
+                    $row["LENGTH"],
                     [],
                     $row["release_date"]);
                 $movie->setGenres($this->genrexM->getByMovieId($row["id_movie"]));
