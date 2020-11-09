@@ -57,12 +57,13 @@ class MoviedbDAO{
         $this->movies=array();
         $jsonResults=file_get_contents($filename);
         $array=($jsonResults)?json_decode($jsonResults,true):array();
+        $length=($array["runtime"]!=0)? $array["runtime"]: 120;
         $newMovie= new Movie($array["title"],
                             $id,
                             $array["overview"],
                             $array["poster_path"],
                             $this->getVideo($id),
-                            $array["runtime"],
+                            $length,
                             $genreContr->genresArrayToObject($array["genres"]), // arreglo de objetos genero
                             $array["release_date"]);
         return $newMovie;
