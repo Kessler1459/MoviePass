@@ -26,7 +26,7 @@ class MovieDAO{
                         VALUES (:id_movie,:title,:length,:synopsis,:poster_url,:video_url,:release_date)";
             $parameters["id_movie"] = $movie->getId();
             $parameters["title"] = $movie->getTitle();
-            $parameters["length"] = $movie->getLength();
+            $parameters["LENGTH"] = $movie->getLength();
             $parameters["synopsis"]=$movie->getSynopsis();
             $parameters["poster_url"]= $movie->getPoster();
             $parameters["video_url"]= $movie->getVideo();
@@ -48,7 +48,7 @@ class MovieDAO{
             $this->connection = Connection::getInstance();
             $results=$this->connection->execute($query);
             foreach ($results as $row) {
-               $newMovie=new Movie($row["title"],$row["id_movie"],$row["synopsis"],$row["poster_url"],$row["video_url"],$row["length"],[],$row["release_date"]);
+               $newMovie=new Movie($row["title"],$row["id_movie"],$row["synopsis"],$row["poster_url"],$row["video_url"],$row["LENGTH"],[],$row["release_date"]);
                $newMovie->setGenres($this->genreXMDao->getByMovieId($row["id_movie"]));
                $moviesList[]=$newMovie;
             }
@@ -65,7 +65,7 @@ class MovieDAO{
             $results=$this->connection->execute($query);
             if(!empty($results)){
                 $row=$results[0];
-                $movie=new Movie($row["title"],$row["id_movie"],$row["synopsis"],$row["poster_url"],$row["video_url"],$row["length"],[],$row["release_date"]);
+                $movie=new Movie($row["title"],$row["id_movie"],$row["synopsis"],$row["poster_url"],$row["video_url"],$row["LENGTH"],[],$row["release_date"]);
                 $movie->setGenres($this->genreXMDao->getByMovieId($idMovie));
                 return $movie;
             }
@@ -78,38 +78,6 @@ class MovieDAO{
         }
     }
 
-    public function getByGenre($genresArray){ 
-        $movies=$this->getAll();
-            $newArray=array();
-            foreach ($movies as $movie) {
-                $jaja=0;
-                $genresMovie=$movie->getGenres();
-                foreach ($genresMovie as $genM) {
-                    foreach ($genresArray as $strGen) {
-                        if ($strGen ==$genM->getName()){
-                            $jaja++;
-                        }
-                    }
-                }     
-                if ($jaja==count($genresArray)) {
-                    $newArray[]=$movie;
-                }
-            }
-            return $newArray;
-    }
-
-
-    public function searchByName($name){
-        $movies=$this->getAll();
-        $arrayFinded = array();
-        foreach ($movies as $value) {
-            if (stripos($value->getTitle(),$name)!==false)
-            {
-                array_push($arrayFinded,$value);
-            }
-        }
-        return $arrayFinded; 
-    }
 
     /**
      * guarda en la db las peliculas del now_playing de la api pero solo hasta la quinta pagina D:

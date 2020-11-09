@@ -19,7 +19,7 @@
         }
 
         public function getDescription(){
-            return $this->userType;
+            return $this->description;
         }
 
         //-----------------Setters-----------------
