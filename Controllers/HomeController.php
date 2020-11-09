@@ -3,8 +3,7 @@
     namespace Controllers;
 
     use Controllers\CinemaController;
-    use Controllers\MovieController as MovieController;
-    use DAO\MoviedbDAO as MoviedbDAO;
+    use Controllers\ProjectionController;
 
     class HomeController{
 
@@ -14,8 +13,8 @@
         }
 
         public function showMoviesList(){
-            $movieController = new MovieController();
-            $movieController->showMoviesList();
+            $projController = new ProjectionController();
+            $projController->showProjectionsList();
         }
         public function showHome()
         {

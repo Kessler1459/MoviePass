@@ -1,8 +1,10 @@
 <?php
 
 namespace Models;
- 
-class Movie{
+
+use JsonSerializable;
+
+class Movie implements JsonSerializable{
     //vamos viendo que mas agregar
     private $title;
     private $id;
@@ -182,6 +184,12 @@ class Movie{
         $this->video = $video;
 
         return $this;
+    }
+
+    public function jsonSerialize()
+    {
+        $vars=get_object_vars($this);
+        return $vars;
     }
 }
 

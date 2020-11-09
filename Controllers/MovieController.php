@@ -1,7 +1,6 @@
 <?php
 
     namespace Controllers;
-    use Models\Movie;
     use DAO\MovieDAO;
     use Controllers\GenreController;
 
@@ -21,8 +20,7 @@
             return $this->movieDao->getById($id);
         }
         
-        public function getByGenre($genresArray){ 
-            $movies=$this->getAll();
+        public function filterByGenre($genresArray,$movies){ 
                 $newArray=array();
                 foreach ($movies as $movie) {
                     $jaja=0;
@@ -57,22 +55,8 @@
             $this->movieDao->updateNowPlaying();
         }
 
-        public function showMoviesList(){
-            $movieList=$this->movieDao->getAll();
-            $gencontr=new GenreController();
-            $genres=$gencontr->getAll();
-            include VIEWS_PATH."movies_list.php";
-        }
-
         public function showMoviesSearch($search){
             $movieList=$this->searchByName($search);
-            $gencontr=new GenreController();
-            $genres=$gencontr->getAll();
-            include VIEWS_PATH."movies_list.php";
-        }
-
-        public function showMoviesByGenre($genArr){
-            $movieList=$this->getByGenre($genArr);
             $gencontr=new GenreController();
             $genres=$gencontr->getAll();
             include VIEWS_PATH."movies_list.php";

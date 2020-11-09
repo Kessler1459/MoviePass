@@ -26,30 +26,25 @@ class ProjectionController
      */
     public function showProjectionsList(){
         $projectionList=$this->projDao->getAllProjections();
+        $locContro=new LocationController();
         $gencontr=new GenreController();
         $genres=$gencontr->getAll();
+        $provinces=$locContro->getAllProvinces();
+        $initCities=$locContro->getCitiesByProvince(1);
         include(VIEWS_PATH."movies_list.php");
     }
 
-    public function showProjectionsByGenre($genresArray){
-        $projectionList=$this->getByGenre($genresArray);
-        $gencontr=new GenreController();
-        $genres=$gencontr->getAll();
-        include(VIEWS_PATH."movies_list.php");
+    public function projectionFilters($cityId,$date,$genresJsonArray){
+        $params["id_city"]=$cityId;
+        $params["proj_date"]=$date;
+        $projectionList=$this->projDao->projectionFilters($params);
+        $projectionList=$this->filterByGenre(json_decode($genresJsonArray),$projectionList);
+        echo json_encode($projectionList,1);
     }
 
     public function showProjectionSearch($search){
         $projectionList=$this->searchByName($search);
-        $gencontr=new GenreController();
-        $genres=$gencontr->getAll();
-        include(VIEWS_PATH."movies_list.php");
-    }
-
-    public function showProjectionDate($date){
-        $projectionList=$this->projDao->getAllProjectionsByDate($date);
-        $gencontr=new GenreController();
-        $genres=$gencontr->getAll();
-        include(VIEWS_PATH."movies_list.php");
+        echo json_encode($projectionList,1);
     }
 
     /*---------------------------------*/
@@ -75,18 +70,15 @@ class ProjectionController
         include(VIEWS_PATH."add_projection.php");
     }
 
-    public function addFromListByGenre($genresArray,$roomId){
-        $movieList=$this->movieContr->getByGenre($genresArray);
-        $gencontr=new GenreController();
-        $genres=$gencontr->getAll();
-        include(VIEWS_PATH."add_projection.php");
+    public function addFromListFiltered($genresJsonArray){
+        $movies=$this->movieContr->getAll();
+        $movies=$this->movieContr->filterByGenre(json_decode($genresJsonArray),$movies);
+        echo json_encode($movies,1);
     }
 
-    public function addFromListSearch($search,$roomId){
+    public function addFromListSearch($search){
         $movieList=$this->movieContr->searchByName($search);
-        $gencontr=new GenreController();
-        $genres=$gencontr->getAll();
-        include(VIEWS_PATH."add_projection.php");
+        echo json_encode($movieList,1);
     }
 
     public function updateMoviesList($roomId){
@@ -128,9 +120,8 @@ class ProjectionController
      * todo
      * filtro de generos para cartelera 
      */
-    public function getByGenre($genresArray)
+    public function filterByGenre($genresArray,$projectionList)
     {
-        $projectionList = $this->getAllProjections();
         $newArray = array();
         foreach ($projectionList as $proj) {
             $jaja = 0;

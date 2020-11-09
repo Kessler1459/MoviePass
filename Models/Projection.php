@@ -1,8 +1,9 @@
 <?php
 namespace Models;
 
+use JsonSerializable;
 
-class Projection 
+class Projection implements JsonSerializable
 {
     private $id;
     private $movie;
@@ -31,6 +32,11 @@ class Projection
     public function setHour($hour){$this->hour = $hour;}
     public function setRoom($room){$this->room = $room;}
     
+    public function jsonSerialize()
+    {
+        $vars=get_object_vars($this);
+        return $vars;
+    }
     
 
 }

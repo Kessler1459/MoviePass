@@ -2,7 +2,9 @@
 
 namespace Models;
 
-class Genre{
+use JsonSerializable;
+
+class Genre implements JsonSerializable{
     //dejo los atributos publicos porque sino no encodea a json dentro de la pelicula D:
     public $id;
     public $name;
@@ -50,6 +52,12 @@ class Genre{
         $this->name = $name;
 
         return $this;
+    }
+
+    public function jsonSerialize()
+    {
+        $vars=get_object_vars($this);
+        return $vars;
     }
 }
 

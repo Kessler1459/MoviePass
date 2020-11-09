@@ -2,7 +2,9 @@
 
 namespace Models;
 
-class Room
+use JsonSerializable;
+
+class Room implements JsonSerializable
 {
     private $id;
     private $capacity;
@@ -26,6 +28,10 @@ class Room
     public function setTicketPrice ($ticketPrice) {$this->ticketPrice = $ticketPrice;}
     public function setDescription ($description) {$this->description = $description;}
     
-    
+    public function jsonSerialize()
+    {
+        $vars=get_object_vars($this);
+        return $vars;
+    }
     
 }
