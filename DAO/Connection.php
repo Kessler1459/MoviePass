@@ -18,7 +18,7 @@
                 $this->pdo = new PDO("mysql:host=".DB_HOST."; dbname=".DB_NAME, DB_USER, DB_PASS);
                 $this->pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
             }
-            catch(Exception $ex)
+            catch(\Exception $ex)
             {
                 throw $ex;
             }
@@ -44,7 +44,7 @@
 
                 return $this->pdoStatement->fetchAll();
             }
-            catch(Exception $ex)
+            catch(\Exception $ex)
             {
                 throw $ex;
             }
@@ -60,12 +60,13 @@
 
                 $this->pdoStatement->execute();
 
-                return $this->pdoStatement->rowCount();
             }
-            catch(Exception $ex)
+            catch(\Exception $ex)
             {
                 throw $ex;
-            }        	    	
+            }
+            
+            return $this->pdoStatement->rowCount();        	    	
         }
         
         private function prepare($query)
@@ -74,7 +75,7 @@
             {
                 $this->pdoStatement = $this->pdo->prepare($query);
             }
-            catch(Exception $ex)
+            catch(\Exception $ex)
             {
                 throw $ex;
             }
