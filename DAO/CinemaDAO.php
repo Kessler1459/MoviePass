@@ -7,7 +7,7 @@ use Models\Cinema;
 use Models\Province;
 use Models\City;
 use DAO\Connection;
-use Exception;
+use \Exception as Exception;
 
 class CinemaDAO
 {

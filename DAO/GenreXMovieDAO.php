@@ -3,7 +3,7 @@
 namespace DAO;
 
 use DAO\GenreDAO;
-use Exception;
+use \Exception as Exception;
 
 class GenreXMovieDAO
 {

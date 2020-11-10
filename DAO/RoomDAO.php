@@ -3,7 +3,7 @@
 namespace DAO;
 
 use Models\Room;
-use Exception;
+use \Exception as Exception;
 
 class RoomDAO
 {

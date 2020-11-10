@@ -5,7 +5,7 @@ namespace DAO;
 use Models\Movie;
 use DAO\MoviedbDAO;
 use DAO\GenreXMovieDAO;
-use Exception;
+use \Exception as Exception;
 
 class MovieDAO
 {

@@ -4,7 +4,7 @@ namespace DAO;
 
 
 use Models\Genre;
-use Exception;
+use \Exception as Exception;
 
 class GenreDAO
 {

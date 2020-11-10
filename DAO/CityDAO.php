@@ -3,7 +3,7 @@ namespace DAO;
 
 use DAO\Connection;
 use Models\City;
-use Exception;
+use \Exception as Exception;
 
 class CityDAO{
     private $connection;

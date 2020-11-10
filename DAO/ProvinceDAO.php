@@ -4,7 +4,7 @@ namespace DAO;
 
 use DAO\Connection;
 use Models\Province;
-use Exception;
+use \Exception as Exception;
 
 class ProvinceDAO
 {
