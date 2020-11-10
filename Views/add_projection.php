@@ -68,11 +68,11 @@ require_once(VIEWS_PATH . "nav.php");
                     <p id="modalSyn"></p>
                     <br><br>
                     <form action="<?php echo FRONT_ROOT ?>Projection/add" method="post">
-                        <input type="hidden" name="roomId" value="<?php echo $roomId ?>">
-                        <input type="hidden" name="movie_id" id="projection_movie" value="">
-                        <input type="date" name="projection_date" id="projection_date" min=<?php echo date("yy-m-d") ?> value=<?php echo date("yy-m-d") ?> required>
-                        <input type="time" name="projection_time" id="projection_time" required>
-                        <button type="submit" class="button-a">Save Projection</button>
+                        <input id="RoomIdInput" type="hidden" name="roomId" value="<?php echo $roomId ?>">
+                        <input id="movieIdInput" type="hidden" name="movie_id" id="projection_movie" value="">
+                        <input id="projDateInput" type="date" name="projection_date" id="projection_date" min=<?php echo date("yy-m-d") ?> value=<?php echo date("yy-m-d") ?> required>
+                        <input id="projTimeInput" type="time" name="projection_time" id="projection_time" required>
+                        <button id="submitProj" type="submit" class="button-a">Save Projection</button>
                     </form>
                 </div>
             </div>
@@ -84,7 +84,8 @@ require_once(VIEWS_PATH . "nav.php");
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
 <script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
 <script src="<?php echo JS_PATH ?>bootstrap.js"></script>
+<script src="<?php echo JS_PATH ?>dataChange.js"></script>
 <script src="<?php echo JS_PATH ?>moviesFilter.js"></script>
 <script src="<?php echo JS_PATH ?>moviesSearch.js"></script>
-<script src="<?php echo JS_PATH ?>dataChange.js"></script>
+
 <?php require_once(VIEWS_PATH . "footer.php") ?>
