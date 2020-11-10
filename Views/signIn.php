@@ -7,9 +7,10 @@
     <h1>Sign In</h1>
 
     <form action="<?php echo FRONT_ROOT ?>User/verifySignIn" method="POST">
-        <?php if(isset($message)){ ?>
+        
+        <?php if($message != ""){ ?>
             <div class="alert alert-danger" role="alert">
-                <?php echo $message ?>
+               <strong><?php echo $message ?></strong> 
             </div>
         <?php } ?>
         
@@ -39,7 +40,8 @@
         </div>
 
         <br>
-        <button type="submit" id="login" class="btn btn-primary btn-lg">Sign In</button>
+        <input type="hidden" name="userType" value="2">  
+        <button type="submit" id="signIn"  class="btn btn-primary btn-lg">Sign In</button>
 
     </form>
         

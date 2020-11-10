@@ -8,7 +8,13 @@
     <h1>Log In</h1>
 
     <form action="<?php echo FRONT_ROOT ?>User/verifyLogIn" method="POST">
-
+        
+        <?php if($message != ""){ ?>
+            <div class="alert alert-danger" role="alert">
+               <strong><?php echo $message ?></strong> 
+            </div>
+        <?php } ?>
+        
         <div>
             <label for="email">Email</label>
             <input type="text" class="form-control" id="email" name="email" required>
