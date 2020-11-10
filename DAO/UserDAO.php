@@ -31,7 +31,7 @@
                 $this->connection = Connection::getInstance();
                 $this->connection->executeNonQuery($query, $parameters);
             }
-            catch(Exception $ex)
+            catch(\Exception $ex)
             {
                 throw $ex;
             }
@@ -47,7 +47,7 @@
                 $this->connection=Connection::getInstance();
                 $results=$this->connection->execute($query);
 
-            }catch(Exception $ex){
+            }catch(\Exception $ex){
                 throw $ex;
             }
             
@@ -69,14 +69,14 @@
 
         public function findUser($email,$password){
             
-            $query="SELECT * from $this->tableName where email=$email AND pass=$password";
+            $query="SELECT * from $this->tableName where email=\"$email\" AND pass=\"$password\"";
             
             try
             {
                 $this->connection=Connection::getInstance();
                 $results=$this->connection->execute($query);
 
-            }catch(Exception $ex){
+            }catch(\Exception $ex){
                 throw $ex;
             }
 
@@ -104,7 +104,7 @@
                 $this->connection=Connection::getInstance();
                 $results=$this->connection->execute($query);
             
-            }catch(Exception $ex){
+            }catch(\Exception $ex){
                 throw $ex;
             }   
                 if(!empty($results)){

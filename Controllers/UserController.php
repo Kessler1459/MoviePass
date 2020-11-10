@@ -5,33 +5,37 @@
     use Models\UserProfile as UserProfile;
     use Models\UserRole as UserRole;
     use DAO\UserDAO as UserDAO;
+    use Controllers\HomeController as HomeController ;
     
     class UserController{
         private $userDao;
+        private $homeController;
 
         public function __construct() {
             $this->userDao = new UserDao();
+            $this->homeController = new HomeController();
         }
    
     
 
-        public function logIn(){
+        public function logIn($message = ""){
             include VIEWS_PATH."logIn.php";
         }
         
-        public function signIn(){
+        public function signIn($message = ""){
             include VIEWS_PATH."signIn.php";
         }
+
 
         private function createClient($email,$password,$firstName,$lastName,$dni,$userType){
             $id=(string)time();
             $userProfile = new UserProfile($firstName,$lastName,$dni);
-            $userRole = new UserRole($userType,'Client');
+            $userRole = new UserRole($userType,"Client");
             $client = new User($id,$email,$password,$userProfile,$userRole);
             try{
                 $this->userDao->add($client);
             }
-            catch (Exception $ex) {
+            catch (\Exception $ex) {
                 throw $ex;
             }
 
@@ -41,12 +45,13 @@
         private function createCinemaOwner($email,$password,$firstName,$lastName,$dni,$userType){
             $id=(string)time();
             $userProfile = new UserProfile($firstName,$lastName,$dni);
-            $userRole = new UserRole($userType,'Cinema Owner');
-            $cinemaOwner = new User($id,$email,$password,$firstName,$lastName,$dni,$userType);
+            $userRole = new UserRole($userType,"Cinema Owner");
+            $cinemaOwner = new User($id,$email,$password,$userProfile,$userRole);
+            
             try{
                 $this->userDao->add($cinemaOwner);
             }
-            catch (Exception $ex) {
+            catch (\Exception $ex) {
                 throw $ex;
             }
             
@@ -54,31 +59,29 @@
             return $cinemaOwner;
         }
 
-        public function verifySignIn($email,$password,$firstName,$lastName,$dni,$userType = 1){
+        public function verifySignIn($email,$password,$firstName,$lastName,$dni,$userType = 9){            
             $user = null;
-            $exist = false;
             try{
-                //$exist = $this->userDao->findEmail($email);
-                if ($exist == false) {
-
-                    if($userType == 2)
-                        $user = $this->createCinemaOwner($email,$password,$firstName,$lastName,$dni,$userType);
-                    else
-                        $user = $this->createClient($email,$password,$firstName,$lastName,$dni,$userType);
-
-                    $this->startSession($user);
-                    include VIEWS_PATH."home_page.php"; 
-
-                } else {
-                    $message = "This email is already used";
-                    $this->signIn();
-                }
                 
+                if($userType == 2){
+                    $user = $this->createCinemaOwner($email,$password,$firstName,$lastName,$dni,$userType);
+                    $this->startSession($user);
+                    
+                    include VIEWS_PATH."add_cinema.php"
+                }else{
+                    $user = $this->createClient($email,$password,$firstName,$lastName,$dni,$userType);
+                    $this->startSession($user);
+                }
+                    
+                
+                
+
+                $this->homeController->showHome();
                     
             }
-            catch (Exception $ex) { 
+            catch (\Exception $ex) { 
                 $message = "This email is already used";
-                $this->signIn();
+                $this->signIn($message);
             }
         }
 
@@ -86,13 +89,22 @@
             $user = null;
             try{
                 $user = $this->userDao->findUser($email,$password);
-                $this->startSession($user);
-                
+                if ($user == null) {
+                    $message = "The username or password is incorrectly.Try again";
+                    $this->logIn($message);
+                } else {
+                    $this->startSession($user);
+                    $this->homeController->showHome(); 
+                }   
             }
-            catch (Exception $ex) { }
+            catch (\Exception $ex) {
+                $message = "An unknown error has occurred";
+                $this->logIn($message);
+            }
         }
 
         private function startSession($user){
+            $this->finishSession();
             session_start();
             $_SESSION['Id'] = $user->getId();
             $_SESSION['name'] = $user->getUserProfile()->getName();
@@ -101,6 +113,9 @@
         }
 
         private function finishSession(){
+            if(session_status () != 2){
+                session_start();  
+              }
             session_destroy();
         }
 
