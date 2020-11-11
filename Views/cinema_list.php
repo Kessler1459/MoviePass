@@ -1,19 +1,18 @@
-<?php 
+<?php
+
+use Models\Cinema;
+
 require_once(VIEWS_PATH."header.php");
 require_once(VIEWS_PATH."nav.php");
-
-
-
-
 ?>
-<main class="container">
-    <h1>Cinemas</h1>
+<main class="container-table">
+    <h1 class="table-title">Cinemas</h1>
     <div class="custom-scrollbar table-wrapper-scroll-y">
         <input type="text" id="input" onkeyup="myFunction()" class="form-control" placeholder="Search for names..">
-        <table id="table" class="table text-center table-hover table-striped table-cinemas" >
+        <table id="table" class="table text-center table-hover  table-striped table-cinemas" >
             <thead>
-                <tr class="th-pointer">
-                    <th class="th-pointer">Name</th>
+                <tr class="th-pointer table-font">
+                    <th>Name</th>
                     <th>Province</th>
                     <th>City</th>
                     <th>Address</th>
@@ -24,10 +23,10 @@ require_once(VIEWS_PATH."nav.php");
             <tbody>
                 <?php foreach ($cinemas as $cine) {
                     ?>
-                    <tr>
-                        <td><?php echo $cine->getName()?></td>
-                        <td><?php echo $cine->getProvince()->getName()?></td>
-                        <td><?php echo $cine->getCity()->getName()?></td>
+                    <tr class="table-font-alt"> 
+                        <td ><?php echo $cine->getName()?></td>
+                        <td ><?php echo $cine->getProvince()->getName()?></td>
+                        <td ><?php echo $cine->getCity()->getName()?></td>
                         <td><?php echo $cine->getAddress()?></td>
                         <td>
                             <form action="<?php echo FRONT_ROOT?>Room/showRoom" method="POST">
@@ -37,16 +36,17 @@ require_once(VIEWS_PATH."nav.php");
                             </form>   
                         </td>
                         <td>
-                            <form action="<?php echo FRONT_ROOT ?>Cinema/showModifyCinema" method="post">
-                            <input type="hidden" name="id" value=<?php echo $cine->getId()?>>
-                            <button type="submit" class="btn" >
-                                <img src="/MoviePass/Views/img/wrench-4x.png" alt="trash_icon">     
+                           
+                            
+
+                            <button type="button" class="btn"  onClick="modifyCinema(<?php echo "'".$cine->getId() . "','" .$cine->getName() . "','" .$cine->getProvince()->getName() ."','" . $cine->getCity()->getName() ."','"  . $cine->getAddress()."'"  ?>)" data-id="" data-toggle="modal" data-target="#modify_cinema" >
+                                
+                            <img src="/MoviePass/Views/img/wrench-4x.png" alt="trash_icon">   
+                                
                             </button>
-                            </form>
+                         
                         </td>
-                        <td>
-                          
-                        </td>
+                        
                         <td>
                             <form action="<?php echo FRONT_ROOT ?>Cinema/remove" method="post">
                             <input type="hidden" name="id" value=<?php echo $cine->getId() //revisar si esto esta bien ?>>
@@ -61,11 +61,126 @@ require_once(VIEWS_PATH."nav.php");
             </tbody>
         </table>
     </div>
-    <a href="<?php echo FRONT_ROOT ?>Cinema/showAddCinema">
-        <button class="submit button-a" type="button">Add new cinema</button>
-    </a>
+   
+        <button class="table-button" data-toggle="modal" data-target="#add_cinema">Add new cinema</button>
+   
 </main>
+
+ <!--ADDING NEW CINEMA MODAL  -->
+
+<form action="<?php echo FRONT_ROOT?>Cinema/add" method="post">
+
+    <div class="modal fade" tabindex="-1" role="dialog" id="add_cinema">
+        <div class="modal-dialog modal-md" role="document">
+            <div class="modal-content">
+                <div class="modal-header-adding">
+                   
+                    <button class="close" data-dismiss="modal">
+                        <span class="close" aria-hidden="true">&times;</span>
+                    </button>
+
+                    <h2 class="modal-title-adding">New Cinema</h2>
+               
+                </div>
+                    
+                <div class="modal-body-body">
+                    
+                     <label class="form-label" for="name"><span >Name</span></label>
+                     <input type="text" name="name" id="name" class="cinema-form-control" required>
+                     <label  class="form-label" for="province"><span>Province</span></label>
+
+                     <select name="province" class="cinema-form-control" id="province" required>
+                        <?php foreach ($provinces as $value) {
+                            echo "<option class='select-form'data-id=".$value->getId()." value=".$value->getId().">".$value->getName()."</option>";
+                        }?>
+                     </select>
+         
+                     <label class="form-label" for="City"><span>City</span></label>
+               
+                     <select  name="city" class="cinema-form-control" id="response" required>
+                        <?php foreach ($initCities as $c) {
+                            $id=$c->getId();
+                            $name=$c->getName();
+                            echo "<option class='select-form' data-id=$id value='$id'>$name</option>";
+                        }?>
+                     </select>
+            
+                     <label class="form-label" for="address"><span>Address</span></label>
+                    <input type="address" name="address" id="address" class="cinema-form-control" required>
+                    <button class="form-button" type="submit">Register</button> 
+
+                </div>    
+            </div>
+
+                <div class="modal-footer">
+
+                </div>
+        </div>
+    </div>
+</form>
+
+<!-- MODAL MODIFY CINEMA  -->
+
+<form action="<?php echo FRONT_ROOT?>Cinema/modify" method="post">
+<div class="modal fade" role="document" id="modify_cinema">
+
+    <div class="modal-dialog modal-md" >
+        <div class="modal-content">
+            <div class="modal-header-adding">
+                        <button class="close" data-dismiss="modal">
+                        <span class="close" aria-hidden="true">&times;</span>
+                        </button>
+                        <h2 class="modal-title-adding">Modify Cinema</h2>
+            </div>
+                <div class="modal-body-body">
+
+               
+                <label class="form-label" for="name"><span>Name</span> </label>
+                <input class="cinema-form-control" name="modalName" type="text" id="modalName"  required>
+                <input type="hidden" name="modalCineId"  id="modalCineId" required>
+                <label  class="form-label" for="province"><span>Province</span></label>
+
+                <select name="modalProvince" class="cinema-form-control" id="modalProvince" required>
+                <?php foreach ($provinces as $value) {
+                    echo "<option class='select-form' data-id=" . $value->getId() . " value=" . $value->getId() . ">" . $value->getName() . "</option>";
+                } ?>
+                </select>
+
+                <label class="form-label" for="City"><span>City</span></label>
+
+                <select  name="modalCity" class="cinema-form-control" id="modalCity" value="" required>
+                 <?php foreach ($initCities as $c) {
+                $id=$c->getId();
+                $name=$c->getName();
+                echo "<option class='select-form' data-id=$id value='$id'>$name</option>";
+                 }?>
+                </select>
+
+                <label class="form-label" for="Address"><span>Address</span></label>
+                <input type="text" value ="" name="modalAddress" id="modalAddress"  class="cinema-form-control" required>
+                
+           
+                <button class="form-button" type="submit">Modify</button> 
+
+                </div>
+        </div>
+                
+                <div class="modal-footer">
+        
+     
+                </div>
+        
+    </div>
+
+</div>  
+</form>
+
+
+
+
+
 <script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
 <script src="<?php echo JS_PATH ?>cinema.table.js"></script>
+<script src="<?php echo JS_PATH?>modifyRegister.js"></script>
 <script src="<?php echo JS_PATH ?>bootstrap.js"></script>
 <?php require_once(VIEWS_PATH."footer.php")?>
