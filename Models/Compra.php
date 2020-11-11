@@ -8,8 +8,9 @@
         private $tickets;
         private $datosTarjeta;
         private $total;
-        public function __construct($idUser, $tickets, $datosTarjeta, $total)
+        public function __construct($id, $idUser, $tickets, $datosTarjeta, $total)
         {
+            $this->id = $id;
             $this->idUser = $idUser;
             $this->tickets = $tickets;
             $this->datosTarjeta = $datosTarjeta;

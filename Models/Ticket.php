@@ -1,6 +1,6 @@
 <?php
     namespace Models;
-    class Tickets
+    class Ticket
     {
         private $id;
         private $nroEntrada;
