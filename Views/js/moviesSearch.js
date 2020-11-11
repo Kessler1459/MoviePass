@@ -9,7 +9,6 @@ $(document).ready(function () {
                     "search": search
                 },
                 success: function (data) {
-                    console.log(data);
                     $("#moviesResponse").html("");
                     var parse = JSON.parse(data, null, 2);
                     $.each(parse, function (key, value) {

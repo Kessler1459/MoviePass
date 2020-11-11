@@ -74,6 +74,7 @@ require_once(VIEWS_PATH . "nav.php");
 
                     <p id="modalSyn"></p>
                     <br><br>
+                    <input type="hidden" id="movieIdInput">
                     <button type="submit" class="button-a">Buy</button>
                 </div>
             </div>

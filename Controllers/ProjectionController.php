@@ -6,6 +6,7 @@ use DAO\ProjectionDAO;
 use Controllers\RoomController;
 use Controllers\MovieController;
 use Controllers\GenreController;
+use DateTime;
 use Models\Projection;
 
 class ProjectionController
@@ -154,6 +155,34 @@ class ProjectionController
         if ($this->projDao->remove($id)>0) {
             $this->showProjections($roomId);
         }
+    }
 
+    /**
+     * valida si se respetan los 15min antes de cada funcion y no existe otra funcion de la pelicula en otro sala u cine el mismo dia
+     */
+    public function validateProjection($roomId,$movieId,$date,$time){
+        if($this->projDao->existByDate($date,$movieId,$roomId)==0){         //si la pelicula no esta registrada en una funcion en ninguna otra sala de ningun otro cine el mismo dia
+            $newMovie=$this->movieContr->getById($movieId);
+            $projList=$this->projDao->getByDateRoom($date,$roomId);
+            $initTime=new DateTime($date." ".$time);         //hora de inicio de funcion a crear
+            $endTime=new DateTime($date." ".$time); 
+            $endTime=$endTime->modify("+".$newMovie->getLength()." minutes");  //hora de finalizacion
+            foreach ($projList as $value) {
+                $datetime=$value->getDate()." ".$value->getHour();
+                $initTime2=new DateTime($datetime);  
+                $endTime2=new DateTime($datetime);               //hora de inicio de las funciones existentes
+                $endTime2=$initTime->modify("+".$value->getMovie()->getLength()." minutes");       //hora de fin
+                if(($initTime<=$endTime2->modify("+15 minutes")) && ($endTime>=$initTime2->modify("-15 minutes"))){
+                    $msg["msg"]="This time is not available";
+                } 
+            }
+            if (!isset($msg["msg"])) {
+                $msg["msg"]="Ok"; //si se puede insertar la nueva
+            }
+        }
+        else {
+            $msg["msg"]="This movie is already in another room or cinema";
+        }
+        echo json_encode($msg,1);
     }
 }
