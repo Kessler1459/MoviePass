@@ -6,7 +6,7 @@ use Models\Projection;
 use Models\Movie;
 use DAO\GenreXMovieDAO;
 use DAO\Connection;
-use Exception;
+use \Exception as Exception;
 use Models\Room;
 
 class ProjectionDAO
@@ -220,8 +220,7 @@ class ProjectionDAO
                     from projections p
                     inner join movies m on p.id_movie=m.id_movie
                     inner join rooms r on r.id_room=p.id_room
-                    where p.proj_date = \"$date\" and concat(p.proj_date,' ',p.proj_time) > now()
-                    group by m.id_movie";
+                    where p.proj_date = \"$date\" and concat(p.proj_date,' ',p.proj_time) > now()";
         try {
             $this->connection = Connection::getInstance();
             $results = $this->connection->execute($query);
@@ -246,5 +245,54 @@ class ProjectionDAO
             $projectionList[] = $proj;
         }
         return $projectionList;
+    }
+
+    public function getByDateRoom($date,$roomId){
+        $query="SELECT p.id_proj,p.proj_date,p.proj_time,r.descript,r.id_room,r.capacity,r.ticket_price,m.id_movie,m.title,m.length,m.synopsis,m.poster_url,m.video_url,m.release_date 
+                from projections p
+                inner join movies m on p.id_movie=m.id_movie
+                inner join rooms r on r.id_room=p.id_room
+                where p.proj_date = \"$date\" and r.id_room=$roomId";
+        try {
+            $this->connection = Connection::getInstance();
+            $results = $this->connection->execute($query);
+        } catch (Exception $ex) {
+            throw $ex;
+        }
+        $projectionList = array();
+        foreach ($results as $row) {
+            $movie = new Movie(
+                $row["title"],
+                $row["id_movie"],
+                $row["synopsis"],
+                $row["poster_url"],
+                $row["video_url"],
+                $row["length"],
+                [],
+                $row["release_date"]
+            );
+            $movie->setGenres($this->genrexM->getByMovieId($row["id_movie"]));
+            $room = new Room($row["id_room"], $row["capacity"], $row["ticket_price"], $row["descript"]);
+            $proj = new Projection($row["id_proj"], $movie, $row["proj_date"], $row["proj_time"], $room);
+            $projectionList[] = $proj;
+        }
+        return $projectionList;
+    }
+
+    /**
+     * retorna la cantidad de funciones de una pelicula existen en una fecha determinada
+     */
+    public function existByDate($date,$movieId,$roomId){
+        $query="SELECT COUNT(*) as count  from projections p 
+            inner join movies m on m.id_movie=p.id_movie
+            inner join rooms r on r.id_room=p.id_room
+            where p.proj_date=\"$date\" and m.id_movie=$movieId and r.id_room<>$roomId";
+        try{
+            $this->connection = Connection::getInstance();
+            $results = $this->connection->execute($query);
+        }catch (Exception $ex) {
+            throw $ex;
+        }
+        return $results[0]["count"];
     }
 }
