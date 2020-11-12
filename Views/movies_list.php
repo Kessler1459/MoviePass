@@ -51,8 +51,8 @@ require_once(VIEWS_PATH . "nav.php");
                     <button type="button" class="btn" onClick="dataChange(<?php echo "'" . $movie->getPoster() . "','" . addslashes($movie->getTitle()) . "','" . addslashes($movie->getSynopsis()) . "','" . $movie->getId() . "'" ?>)" data-id="<?php echo $movie->getId() ?>" data-toggle="modal" data-target=".movie">
 
                         <figure class="figure">
-                            <img class="figure-img img-fluid rounded" src="<?php echo "https://image.tmdb.org/t/p/w500" . $movie->getPoster() ?>" width="60%">
-                            <figcaption class="figure-caption"><?php echo $movie->getTitle() ?></figcaption>
+                            <img class="figure-img img-fluid rounded" src="<?php echo "https://image.tmdb.org/t/p/w500" . $value->getPoster() ?>" width="60%">
+                            <figcaption class="figure-caption"><?php echo $value->getTitle() ?></figcaption>
                         </figure>
 
                     </button>

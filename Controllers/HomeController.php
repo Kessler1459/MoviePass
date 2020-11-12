@@ -16,6 +16,22 @@
             $projController = new ProjectionController();
             $projController->showProjectionsList();
         }
+
+        public function logIn(){
+            $userController = new userController();
+            $userController->logIn();
+        }
+
+        public function signIn(){
+            $userController = new userController();
+            $userController->signIn();
+        }
+
+        public function logOut(){
+            $userController = new userController();
+            $userController->finishSession();
+        }
+
         public function showHome()
         {
             $movieController = new MovieController();

@@ -17,7 +17,6 @@ class Projection implements JsonSerializable
         $this->movie = $movie;
         $this->date = $date;
         $this->hour = $hour;
-        $this->room = $room;
     }
 
 
@@ -42,4 +41,7 @@ class Projection implements JsonSerializable
     }
     
 
+
 }
+
+?>

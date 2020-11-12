@@ -1,6 +1,7 @@
 <?php
-
     namespace Controllers;
+    
+    use Models\Movie;
     use DAO\MovieDAO;
     use Controllers\GenreController;
 
@@ -39,16 +40,11 @@
                 return $newArray;
         }
 
-        public function searchByName($name){
-            $movies=$this->getAll();
-            $arrayFinded = array();
-            foreach ($movies as $value) {
-                if (stripos($value->getTitle(),$name)!==false)
-                {
-                    array_push($arrayFinded,$value);
-                }
-            }
-            return $arrayFinded; 
+        //todo adaptar estos 3 metodos
+        public function searchByName($name)
+        {
+            $moviesFinded=$this->movieDao->searchByName($name);
+            return $moviesFinded;
         }
 
         public function updateNowPlaying(){
@@ -64,3 +60,4 @@
 
     }
 ?>
+

@@ -31,13 +31,7 @@ body{
   	align-items: center;
 }
 
-.vinculito{
-	color: #3e77cd;
-	text-decoration: underline;
-
-}
-
-.container_movies{
+.containerMovies{
     background-color: rgba(240, 248, 255, 0.692);
 	border-radius: 0.5em;
 	box-shadow: 0 0 1em 0 rgba(51,51,51,0.25);
@@ -46,8 +40,7 @@ body{
 	margin: 10% auto;
 	margin-top: 5%;
 	margin-bottom: 5%;
-	width: 90%;
-	backdrop-filter: blur(5px);
+	width: 80%;
 	align-items: center;
 }
 
@@ -69,8 +62,6 @@ body{
     transition: all 0.25s;
 	cursor: pointer;
 }
-
-
 
 .table-cinemas{
 	margin-top: none;

@@ -1,26 +1,30 @@
 <?php
 
-namespace Controllers;
+    namespace Controllers;
 
-use DAO\ProjectionDAO;
-use Controllers\RoomController;
-use Controllers\MovieController;
-use Controllers\GenreController;
-use DateTime;
-use Models\Projection;
+    use DAO\ProjectionDAO;
+    use Controllers\RoomController;
+    use Controllers\MovieController;
+    use Controllers\GenreController;
+    use DateTime;
+    use Models\Projection;
+    use controllers\CinemaController;
+    use Controllers\LocationController;
 
-class ProjectionController
-{
-    private $projDao;
-    private $movieContr;
-    private $roomContr;
-
-    public function __construct()
+    class ProjectionController
     {
-        $this->projDao = new ProjectionDAO();
-        $this->movieContr = new MovieController();
-        $this->roomContr=new RoomController();
-    }
+        private $projDao;
+        private $movieContr;
+        private $cinemaContr;
+        private $locationContr;
+
+        public function __construct()
+        {
+            $this->projDao = new ProjectionDAO();
+            $this->movieContr = new MovieController();
+            $this->cinemaContr = new CinemaController();
+            $this->locationContr = new LocationController();
+        }
 
     /**
      * este es cartelera jeje
@@ -48,28 +52,49 @@ class ProjectionController
         echo json_encode($projectionList,1);
     }
 
-    /*---------------------------------*/
+        public function showProjectionFromMovie($movieId)
+        {
+            $movie = $this->movieContr->getById($movieId);
+            $cinemas=$this->cinemaContr->getAll();
+            $cinemas = $this->divideByMovie($movie);
+            $cinemas = $this->divideByCity($cinemas);
+            include(VIEWS_PATH."select_city.php");   
+        }
+        public function showProjectionByCity($cityId,$movieId,$date)
+        {
+            if($date == "")
+            {
+                $date = date('Y-m-d');
+            }
+            $movie = $this->movieContr->getById($movieId);
+            $cinemas=$this->cinemaContr->getAll();
+            $cinemas = $this->divideByMovie($movie);
+            $cinemas = $this->divideByCity($cinemas);
+            $cinemasXrooms = $this->divideRoomByCinema($cinemas, $movie, $date);
+            include(VIEWS_PATH."select_projection.php");
+        }
+        /*---------------------------------*/
 
-    public function showProjections($roomId){
-        $projs=$this->projDao->getArrayByRoomId($roomId);
-        include(VIEWS_PATH."projection_admin.php");
-    }
+        public function showProjections($roomId){
+            $projs=$this->projDao->getArrayByRoomId($roomId);
+            
+            include(VIEWS_PATH."projection_admin.php");
+        }
 
-    public function add($roomId,$movieId,$date,$time)
-    {
-        $movie=$this->movieContr->getById($movieId);
-        $room=$this->roomContr->getById($roomId);
-        $proj=new Projection(time(),$movie,$date,$time,$room);
-        $this->projDao->add($proj,$roomId);
-        $this->showProjections($roomId);
-    }
+        public function add($roomId,$movieId,$date,$time)
+        {
+            $movie=$this->movieContr->getById($movieId);
+            $proj=new Projection(time(),$movie,$date,$time);
+            $this->projDao->add($proj,$roomId);
+            $this->showProjections($roomId);
+        }
 
-    public function addFromList($roomId){
-        $movieList=$this->movieContr->getAll();
-        $gencontr=new GenreController();
-        $genres=$gencontr->getAll();
-        include(VIEWS_PATH."add_projection.php");
-    }
+        public function addFromList($roomId){
+            $movieList=$this->movieContr->getAll();
+            $gencontr=new GenreController();
+            $genres=$gencontr->getAll();
+            include(VIEWS_PATH."add_projection.php");
+        }
 
     public function addFromListFiltered($genresJsonArray){
         $movies=$this->movieContr->getAll();
@@ -82,40 +107,36 @@ class ProjectionController
         echo json_encode($movieList,1);
     }
 
-    public function updateMoviesList($roomId){
-        $this->movieContr->updateNowPlaying();
-        $this->addFromList($roomId);
-    }
-
-    /**
-     * retorna todas las peliculas que tengan una funcion activa en el futuro sin repetirse.(cartelera hehe)
-     */
-    public function getAllProjections()
-    {
-        return $this->projDao->getAllProjections();
-    }
-
-    public function getById($id)
-    {
-        return $this->projDao->getById($id);
-    }
-
-
-    /**
-     * busca y devuelve array de proyecciones
-     */
-    public function searchByName($name){
-        $projections=$this->getAllProjections();
-        $arrayFinded = array();
-        foreach ($projections as $value) {
-            $movie=$value->getMovie();
-            if (stripos($movie->getTitle(),$name)!==false)
-            {
-                array_push($arrayFinded,$value);
-            }
+        public function updateMoviesList($roomId){
+            $this->movieContr->updateNowPlaying();
+            $this->addFromList($roomId);
         }
-        return $arrayFinded; 
-    }
+
+        /**
+         * retorna todas las peliculas que tengan una funcion activa en el futuro sin repetirse.(cartelera hehe)
+         */
+        public function getAllMovies()
+        {
+            return $this->projDao->getAllMovies();
+        }
+
+        public function getById($id)
+        {
+            return $this->projDao->getById($id);
+        }
+
+
+        public function searchByName($name){
+            $movies=$this->getAllMovies();
+            $arrayFinded = array();
+            foreach ($movies as $value) {
+                if (stripos($value->getTitle(),$name)!==false)
+                {
+                    array_push($arrayFinded,$value);
+                }
+            }
+            return $arrayFinded; 
+        }
 
     /**
      * todo
@@ -132,30 +153,106 @@ class ProjectionController
                 foreach ($genresArray as $strGen) {
                     if ($strGen == $genM->getName()) {
                         $jaja++;
+                        }
+                }
+            }
+        }
+    }
+        /**
+         * devuelve todo el array de funciones futuras de una sala
+         */
+        public function getArrayByRoomId($id)
+        {
+            return $this->projDao->getArrayByRoomId($id);
+        }
+
+        public function remove($id,$roomId)
+        {
+            if ($this->projDao->remove($id)>0) {
+                $this->showProjections($roomId);
+            }
+
+        }
+        private function divideByCity($cinemas)
+        {
+            $cinesxciudad = array();
+            foreach ($cinemas as $key => $value) {
+                    if(!in_array($value->getCity()))
+                    {
+                        $cinesxciudad += [$value->getCity => array($value)];
+                    }
+                    else
+                    {
+                        array_push($cinesxciudad[$value->getCity()]);
+                    }
+            }
+            return $cinesxciudad;
+        }
+        private function divideByMovie($movie)
+        {
+            $cinesXmovie = array();
+            $flag = false;
+            foreach($cinemas as $key => $cine)
+            {
+                $flag = false;
+                foreach($cine->getRooms() as $key => $room)
+                {
+                    foreach($room->getProjections() as $key => $projection)
+                    {
+                        if(!$flag == false && $projection->getMovie() == $movie)
+                        {
+                            $flag = true;
+                            array_push($cinesXmovie,$cine);
+                            break;
+                        }
+                    }
+                    if ($flag)
+                    {
+                    break;
                     }
                 }
             }
-            if ($jaja == count($genresArray)) {
-                $newArray[] = $proj;
-            }
         }
-        return $newArray;
-    }
+        private function divideRoomByCinema($cinemas, $movie, $date)
+        {
+            $roomsXcinema += [$cinemas => array()];
+            $projections;
+            $rooms;          
+            $flag = false;
+            $roomsXcinema = array();
+            foreach ($cinemas as $key => $cinema) {
+                foreach ($rooms as $key => $room) {
+                    $projections = $room->getProjections();
+                    foreach($projections as $key => $projection)
+                    {
+                        if(($projection->getMovie()->getId() == $movie->getId()) && ($projection->getDate() == $date))
+                        {
+                            if(!in_array(($cinema),$roomsXcinema))
+                            {
+                                $roomsXcinema += [$cinema => array($room => array($projection))];
+                            }
+                            else {
+                                if (!in_array(($room),$roomsXcinema[$cinema]))
+                                {
+                                    $roomsXcinema[$cinema] += [$room => $projection];
+                                }
+                                else
+                                {
+                                    array_push($roomsXcinema[$cinema][$room],$projection);
+                                }
+                            }
+                            
+                        }
+                    }
+                }
+            }
+            return $roomsXcinema;
+        }
+    
 
     /**
      * devuelve todo el array de funciones futuras de una sala
      */
-    public function getArrayByRoomId($id)
-    {
-        return $this->projDao->getArrayByRoomId($id);
-    }
-
-    public function remove($id,$roomId)
-    {
-        if ($this->projDao->remove($id)>0) {
-            $this->showProjections($roomId);
-        }
-    }
 
     /**
      * valida si se respetan los 15min antes de cada funcion y no existe otra funcion de la pelicula en otro sala u cine el mismo dia

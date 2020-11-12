@@ -61,3 +61,5 @@ class CityDAO{
         return $cities;
     }
 }
+
+?>
