@@ -40,8 +40,10 @@
         </div>
 
         <br>
-        <input type="hidden" name="userType" value="2">  
+        <input type="hidden" name="userType" value="1">  
         <button type="submit" id="signIn"  class="btn btn-primary btn-lg">Sign In</button>
+
+        <a href="<?php echo FRONT_ROOT ?>User/signInCinemaOwner">Trabaja con nosotros</a>
 
     </form>
         
