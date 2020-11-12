@@ -5,15 +5,14 @@
     use Models\UserProfile as UserProfile;
     use Models\UserRole as UserRole;
     use DAO\UserDAO as UserDAO;
-    use Controllers\HomeController as HomeController ;
+    use Controllers\HomeController as HomeController;
+    use Controllers\CinemaController as CinemaController;
     
     class UserController{
         private $userDao;
-        private $homeController;
 
         public function __construct() {
             $this->userDao = new UserDao();
-            $this->homeController = new HomeController();
         }
    
     
@@ -24,6 +23,10 @@
         
         public function signIn($message = ""){
             include VIEWS_PATH."signIn.php";
+        }
+
+        public function signInCinemaOwner($message = ""){
+            include VIEWS_PATH."signIn_cinemaOwner.php";
         }
 
 
@@ -66,22 +69,31 @@
                 if($userType == 2){
                     $user = $this->createCinemaOwner($email,$password,$firstName,$lastName,$dni,$userType);
                     $this->startSession($user);
+
+                    $cinemaController = new CinemaController();
+                    $cinemaController->showAddCinema();
                     
-                    include VIEWS_PATH."add_cinema.php"
                 }else{
                     $user = $this->createClient($email,$password,$firstName,$lastName,$dni,$userType);
                     $this->startSession($user);
+                    $homeController = new HomeController();
+                    $homeController->showHome();
                 }
                     
-                
-                
 
-                $this->homeController->showHome();
+                
                     
             }
-            catch (\Exception $ex) { 
+            catch (\Exception $ex) {
                 $message = "This email is already used";
-                $this->signIn($message);
+                
+                if ($userType == 1) {
+                    $this->signIn($message);
+                } else {
+                    $this->signInCinemaOwner($message);
+                }
+                
+                
             }
         }
 
