@@ -54,9 +54,7 @@
                 if(!empty($results)){
                     $row=$results[0];
 
-                    $userRole = new UserRole($row["user_type"],$row["role_description"]);
-                    $userProfile = new UserProfile($row["first_name"],$row["last_name"],$row["dni"]);
-                    $user = new User($row["id_user"],$row["email"],$row["pass"],$userProfile,$userRole);
+                    $user = new User($row["id_user"],$row["email"],$row["pass"],$row["first_name"],$row["last_name"],$row["dni"],$row["user_type"],$row["role_description"]);
                     
                     return $user;
                 }
@@ -83,9 +81,7 @@
                 if(!empty($results)){
                     $row=$results[0];
 
-                    $userRole = new UserRole($row["user_type"],$row["role_description"]);
-                    $userProfile = new UserProfile($row["first_name"],$row["last_name"],$row["dni"]);
-                    $user = new User($row["id_user"],$row["email"],$row["pass"],$userProfile,$userRole);
+                    $user = new User($row["id_user"],$row["email"],$row["pass"],$row["first_name"],$row["last_name"],$row["dni"],$row["user_type"],$row["role_description"]);
                     
                     return $user;
                 }

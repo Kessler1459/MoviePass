@@ -32,9 +32,8 @@
 
         private function createClient($email,$password,$firstName,$lastName,$dni,$userType){
             $id=(string)time();
-            $userProfile = new UserProfile($firstName,$lastName,$dni);
-            $userRole = new UserRole($userType,"Client");
-            $client = new User($id,$email,$password,$userProfile,$userRole);
+            $client = new User($id,$email,$password,$firstName,$lastName,$dni,$userType,"Client");
+            
             try{
                 $this->userDao->add($client);
             }
@@ -47,9 +46,7 @@
 
         private function createCinemaOwner($email,$password,$firstName,$lastName,$dni,$userType){
             $id=(string)time();
-            $userProfile = new UserProfile($firstName,$lastName,$dni);
-            $userRole = new UserRole($userType,"Cinema Owner");
-            $cinemaOwner = new User($id,$email,$password,$userProfile,$userRole);
+            $cinemaOwner = new User($id,$email,$password,$firstName,$lastName,$dni,$userType,"Cinema Owner");
             
             try{
                 $this->userDao->add($cinemaOwner);
@@ -62,39 +59,37 @@
             return $cinemaOwner;
         }
 
-        public function verifySignIn($email,$password,$firstName,$lastName,$dni,$userType = 9){            
+        public function verifySignIn($email,$password,$firstName,$lastName,$dni,$userType){            
             $user = null;
-            try{
+            
                 
-                if($userType == 2){
+            if($userType == 2){
+                try{
                     $user = $this->createCinemaOwner($email,$password,$firstName,$lastName,$dni,$userType);
-                    $this->startSession($user);
-
-                    $cinemaController = new CinemaController();
-                    $cinemaController->showAddCinema();
+                }catch (\Exception $ex) {
+                    $message = "This email is already used";
+                    $this->signInCinemaOwner($message);    
+                }
                     
-                }else{
+                $this->startSession($user);
+
+                $cinemaController = new CinemaController();
+                $cinemaController->showAddCinema();
+                    
+            }else{
+                try{
                     $user = $this->createClient($email,$password,$firstName,$lastName,$dni,$userType);
-                    $this->startSession($user);
-                    $homeController = new HomeController();
-                    $homeController->showHome();
-                }
-                    
-
-                
-                    
-            }
-            catch (\Exception $ex) {
-                $message = "This email is already used";
-                
-                if ($userType == 1) {
+                }catch (\Exception $ex) {
+                    $message = "This email is already used";
                     $this->signIn($message);
-                } else {
-                    $this->signInCinemaOwner($message);
                 }
+
+                $this->startSession($user);
                 
-                
+                $homeController = new HomeController();
+                $homeController->showHome();
             }
+
         }
 
         public function verifyLogIn($email,$password){

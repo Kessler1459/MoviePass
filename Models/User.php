@@ -1,6 +1,9 @@
 <?php
     namespace Models;
 
+    use Models\UserProfile as UserProfile;
+    use Models\UserRole as UserRole;
+
     class User 
     {
         private $id;
@@ -10,12 +13,13 @@
         private $userRole;
 
 
-        public function __construct($id,$email,$password,$userProfile,$userRole){
+        public function __construct($id,$email,$password,$firstName,$lastName,$dni,$userType,$description){
             $this->id = $id;
             $this->email = $email;
             $this->password = $password;
-            $this->userProfile = $userProfile; 
-            $this->userRole = $userRole; 
+            $this->userProfile = new UserProfile($firstName,$lastName,$dni); 
+            $this->userRole = new UserRole($userType,$description); 
+            
         }
 
 
