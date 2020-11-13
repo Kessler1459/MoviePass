@@ -3,7 +3,7 @@
     require_once(VIEWS_PATH."nav.php");
 ?>
 
-<main class="containerMovies">
+<main class="container">
 
     <h1>Log In</h1>
 

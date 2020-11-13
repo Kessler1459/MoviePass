@@ -2,7 +2,7 @@
     require_once(VIEWS_PATH."header.php");
     require_once(VIEWS_PATH."nav.php");
 ?>
-<main class="containerMovies">
+<main class="container">
     
     <h1>Sign In</h1>
 

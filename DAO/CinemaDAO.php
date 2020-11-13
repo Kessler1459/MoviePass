@@ -20,14 +20,16 @@ class CinemaDAO
         $this->roomDao = new RoomDAO;
     }
 
-    public function add($cinema)
+    public function add($name,$provinceId,$cityId,$address,$userId)
     {
-        $query = "INSERT INTO $this->tableName (id_cinema,name_cinema,id_province,id_city,address) VALUES (:id_cinema,:name_cinema,:id_province,:id_city,:address);";
-        $parameters["id_cinema"] = $cinema->getId();
-        $parameters["name_cinema"] = $cinema->getName();
-        $parameters["id_province"] = $cinema->getProvince()->getId();
-        $parameters["id_city"] = $cinema->getCity()->getId();
-        $parameters["address"] = $cinema->getAddress();
+        $id=time(); //number of seconds since January 1 1970
+        $query = "INSERT INTO $this->tableName (id_cinema,name_cinema,id_province,id_city,address,id_user) VALUES (:id_cinema,:name_cinema,:id_province,:id_city,:address,:id_user)";
+        $parameters["id_cinema"] = $id;
+        $parameters["name_cinema"] = $name;
+        $parameters["id_province"] = $provinceId;
+        $parameters["id_city"] = $cityId;
+        $parameters["address"] = $address;
+        $parameters["id_user"] = $userId;
         try {
             $this->connection = Connection::getInstance();
             $this->connection->executeNonQuery($query, $parameters);
@@ -103,6 +105,31 @@ class CinemaDAO
         $cinema->setRooms($this->roomDao->getArrayByCinemaId($id));
         return $cinema;
     }
+
+    public function getAllByUserId($userId)
+    {
+        $query = "SELECT c.id_cinema,c.name_cinema,c.id_province,p.provincia_nombre,ciu.id as id_city,ciu.ciudad_nombre,c.address from cinemas c
+            join  provincia p on p.id=c.id_province
+            join ciudad ciu on ciu.id=c.id_city
+            where id_user=$userId";
+        try {
+            $this->connection = Connection::getInstance();
+            $results = $this->connection->execute($query);
+            
+        } catch (Exception $ex) {
+            throw $ex;
+        }
+        $newArray=array();
+        foreach ($results as $value) {
+            $prov = new Province($value["id_province"], $value["provincia_nombre"]);
+            $ciu = new City($value["id_city"], $value["ciudad_nombre"]);
+            $cinema = new Cinema($value["name_cinema"], $value["id_cinema"], $prov, $ciu, $value["address"]);
+            $cinema->setRooms($this->roomDao->getArrayByCinemaId($value["id_cinema"]));
+            $newArray[]=$cinema;
+        } 
+        return $newArray;
+    }
+
 
     public function remove($id)
     {

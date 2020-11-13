@@ -15,30 +15,37 @@ class CinemaController{
         $this->initCities=$locationContr->getCitiesByProvince(1);  
     }
 
+    /**
+     * muestra todos si sos admin, sino muestra solo los cines del usuario dueño
+     */
     public function getAll(){
-        return $this->cinemaDao->getAll();
+        if ($_SESSION["userType"]==3) {
+            return $this->cinemaDao->getAll();
+        }
+        else{
+            return $this->getAllByUserId($_SESSION["Id"]);
+        }
+    }
+
+    public function getAllByUserId($userId){
+        return $this->cinemaDao->getAllByUserId($userId);
     }
 
     public function getAllSorted(){
-        $sorted=$this->cinemaDao->getAll();
+        $sorted=$this->getAll();
         usort($sorted,array("Models\Cinema","compare"));
         return $sorted;
     }
 
     public function add($name,$provinceId,$cityId,$address){
-        $id=time(); //number of seconds since January 1 1970
-        $locContro=new LocationController();
-        $province=$locContro->getProvinceById($provinceId);
-        $city=$locContro->getCityById($cityId);
-        $newCinema=new Cinema($name,$id,$province,$city,$address);
-        $this->cinemaDao->add($newCinema);
+        $userId=$_SESSION["Id"];
+        $this->cinemaDao->add($name,$provinceId,$cityId,$address,$userId);
         $this->showCinemasList();
     }
 
     public function modify($name,$id,$provinceId,$cityId,$address){
-        $locContro=new LocationController();
-        $province=$locContro->getProvinceById($provinceId);
-        $city=$locContro->getCityById($cityId);
+        $province=$this->locContro->getProvinceById($provinceId);
+        $city=$this->locContro->getCityById($cityId);
         $this->cinemaDao->modify(new Cinema($name,$id,$province,$city,$address));
         $this->showCinemasList();
     }
@@ -56,20 +63,9 @@ class CinemaController{
     }
 
     public function showAddCinema(){
-        
-        $locationContr=new LocationController();
-        $provinces=$locationContr->getAllProvinces();
-        $initCities=$locationContr->getCitiesByProvince(1);  
         require_once VIEWS_PATH."add_cinema.php";
     }
 
-    public function showModifyCinema($id){
-        $locContro=new LocationController();
-        $cinema=$this->cinemaDao->getById($id);
-        $provinces=$locContro->getAllProvinces();
-        $initCities=$locContro->getCitiesByProvince(1);  
-        require_once VIEWS_PATH."modify_cinema.php";
-    }
 
 }
 

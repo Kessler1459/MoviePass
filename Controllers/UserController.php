@@ -61,8 +61,7 @@
 
         public function verifySignIn($email,$password,$firstName,$lastName,$dni,$userType){            
             $user = null;
-            
-                
+                  
             if($userType == 2){
                 try{
                     $user = $this->createCinemaOwner($email,$password,$firstName,$lastName,$dni,$userType);
@@ -70,12 +69,8 @@
                     $message = "This email is already used";
                     $this->signInCinemaOwner($message);    
                 }
-                    
                 $this->startSession($user);
-
-                $cinemaController = new CinemaController();
-                $cinemaController->showAddCinema();
-                    
+        
             }else{
                 try{
                     $user = $this->createClient($email,$password,$firstName,$lastName,$dni,$userType);
@@ -86,9 +81,9 @@
 
                 $this->startSession($user);
                 
-                $homeController = new HomeController();
-                $homeController->showHome();
             }
+            $homeController = new HomeController();
+            $homeController->showHome();
 
         }
 
@@ -119,7 +114,7 @@
             
         }
 
-        private function finishSession(){
+        public function finishSession(){
             if(session_status () != 2){
                 session_start();  
               }

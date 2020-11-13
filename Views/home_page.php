@@ -11,13 +11,13 @@ require_once(VIEWS_PATH."nav.php");
 
         <div class="carousel-item active d-flex justify-content-center">
             <iframe width="853" height="480"
-                src="<?php echo 'https://www.youtube.com/embed/'.$projs[0]->getVideo()?>" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen >
+                src="<?php echo 'https://www.youtube.com/embed/'.$projs[0]->getMovie()->getVideo()?>" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen >
             </iframe>
         </div>
         <?php for ($i=1; $i < count($projs); $i++) { ?>
         <div class="carousel-item d-flex justify-content-center">
             <iframe width="853" height="480"
-                src="<?php echo 'https://www.youtube.com/embed/'.$projs[$i]->getVideo()?>" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen >
+                src="<?php echo 'https://www.youtube.com/embed/'.$projs[$i]->getMovie()->getVideo()?>" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen >
             </iframe>
         </div>
         <?php } ?>     
