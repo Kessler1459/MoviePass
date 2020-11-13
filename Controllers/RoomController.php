@@ -21,12 +21,6 @@ class RoomController{
         $this->showRoom($cinemaId);
     }
 
-    public function showAddRoom($cinemaId)
-    {
-       
-        include VIEWS_PATH ."add_room.php";
-    }
-
     public function remove($id,$cinemaId)
     {
         if ($this->roomDao->remove($id)>0) {

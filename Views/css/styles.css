@@ -158,6 +158,10 @@ tbody{
 	margin-bottom: 5px;
 }
 
+.carousel{
+	text-align-last: center;
+}
+
 
 table.dataTable thead .sorting:after,
 table.dataTable thead .sorting:before,

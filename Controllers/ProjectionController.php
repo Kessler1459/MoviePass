@@ -171,7 +171,7 @@ class ProjectionController
                 $datetime=$value->getDate()." ".$value->getHour();
                 $initTime2=new DateTime($datetime);  
                 $endTime2=new DateTime($datetime);               //hora de inicio de las funciones existentes
-                $endTime2=$initTime->modify("+".$value->getMovie()->getLength()." minutes");       //hora de fin
+                $endTime2=$initTime2->modify("+".$value->getMovie()->getLength()." minutes");       //hora de fin
                 if(($initTime<=$endTime2->modify("+15 minutes")) && ($endTime>=$initTime2->modify("-15 minutes"))){
                     $msg["msg"]="This time is not available";
                 } 

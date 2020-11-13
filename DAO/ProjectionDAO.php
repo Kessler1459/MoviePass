@@ -110,7 +110,8 @@ class ProjectionDAO
                 from projections p
                 inner join movies m on m.id_movie=p.id_movie
                 inner join rooms r on r.id_room=p.id_room
-                where concat(p.proj_date,' ',p.proj_time) > now()";
+                where concat(p.proj_date,' ',p.proj_time) > now()
+                group by(m.id_movie)";
         try {
             $this->connection = Connection::getInstance();
             $results = $this->connection->execute($query);
