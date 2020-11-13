@@ -44,10 +44,12 @@ CREATE TABLE cinemas(
 	name_cinema VARCHAR(40),
 	id_province SMALLINT,
 	id_city INT,
+	id_user INT,
 	address VARCHAR(40),
 	CONSTRAINT pk_cinemas PRIMARY KEY(id_cinema),
 	CONSTRAINT pk_cinemas_province FOREIGN KEY(id_province) REFERENCES provincia(id),
-	CONSTRAINT pk_cinemas_city FOREIGN KEY(id_city) REFERENCES ciudad(id));
+	CONSTRAINT pk_cinemas_city FOREIGN KEY(id_city) REFERENCES ciudad(id))CONSTRAINT pk_cinemas_city FOREIGN KEY(id_city) REFERENCES ciudad(id),
+	CONSTRAINT fk_id_user foreign key(id_user) references users(id_user) on delete cascade on update cascade);
 
 CREATE TABLE rooms(
 	id_room INT NOT NULL,
@@ -86,7 +88,3 @@ INSERT INTO genres(id_genre,genre_name) VALUES (28,"Action"),(12,"Adventure"),(1
 
 INSERT INTO users (id_user,email,pass,first_name,last_name,dni,user_type,role_description) VALUES (1,"nahuelflores@gmail.com","1999","Nahuel","Flores","123456",3,"Admin");
 		
-		select * from users											
-drop Table genres_x_movies;
-drop table projections;
-drop table movies;
