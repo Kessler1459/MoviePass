@@ -96,7 +96,8 @@
                     $this->logIn($message);
                 } else {
                     $this->startSession($user);
-                    $this->homeController->showHome(); 
+                    $homeController = new HomeController();
+                    $homeController->showHome();
                 }   
             }
             catch (\Exception $ex) {

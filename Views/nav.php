@@ -10,19 +10,33 @@
      <ul class="navbar-nav ml-auto justify-content-center"> 
           <li>
           <?php 
-               if (isset($_SESSION['name'])) { echo "<a class='nav-link'>Welcome <strong>".$_SESSION['name']."</strong> </a>";} ?> 
+               if (isset($_SESSION['name'])) { echo "<a class='nav-link'>Welcome <strong>".$_SESSION['name']."</strong> </a>";}
+               else {?> 
+
+               <li class="nav-item">
+                    <a class="nav-link" href=" <?php echo FRONT_ROOT ?>Home/logIn">LogIn</a>
+               </li>
+               <li class="nav-item">
+                    <a class="nav-link" href=" <?php echo FRONT_ROOT ?>Home/signIn">SignIn</a>
+               </li>
+               <?php } ?> 
           </li>
-          <li class="nav-item">
-               <a class="nav-link" href=" <?php echo FRONT_ROOT ?>Cinema/showCinemasList">Cinemas</a>
-          </li>
+          <?php 
+               if (isset($_SESSION['userType']) && $_SESSION['userType'] != 1 ) {?> 
+               <li class="nav-item">
+                    <a class="nav-link" href=" <?php echo FRONT_ROOT ?>Cinema/showCinemasList">Cinemas</a>
+               </li>     
+          <?php } ?> 
+
           <li class="nav-item">
                <a class="nav-link" href=" <?php echo FRONT_ROOT ?>Projection/showProjectionsList">Projections list</a>
           </li>
-          <li class="nav-item">
-               <a class="nav-link" href=" <?php echo FRONT_ROOT ?>Home/logIn">LogIn</a>
-          </li>
-          <li class="nav-item">
-               <a class="nav-link" href=" <?php echo FRONT_ROOT ?>Home/signIn">SignIn</a>
-          </li>
+          <?php 
+          if (isset($_SESSION['name'])) {  ?>
+               <li class="nav-item">
+                    <a class="nav-link" href=" <?php echo FRONT_ROOT ?>Home/logOut">Logout</a>
+               </li>
+          <?php } ?> 
+          
      </ul>
 </nav>

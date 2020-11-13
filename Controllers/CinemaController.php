@@ -19,6 +19,10 @@ class CinemaController{
      * muestra todos si sos admin, sino muestra solo los cines del usuario dueño
      */
     public function getAll(){
+        if(session_status () != 2){
+            session_start();  
+        }
+        
         if ($_SESSION["userType"]==3) {
             return $this->cinemaDao->getAll();
         }
@@ -38,6 +42,7 @@ class CinemaController{
     }
 
     public function add($name,$provinceId,$cityId,$address){
+        session_start();
         $userId=$_SESSION["Id"];
         $this->cinemaDao->add($name,$provinceId,$cityId,$address,$userId);
         $this->showCinemasList();

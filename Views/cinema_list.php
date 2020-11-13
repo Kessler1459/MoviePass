@@ -54,8 +54,11 @@ require_once(VIEWS_PATH . "nav.php");
             </tbody>
         </table>
     </div>
-
-    <button class="button-a" data-toggle="modal" data-target="#add_cinema">New cinema</button>
+    <?php 
+        if ($_SESSION['userType'] != 3 ) {?> 
+              <button class="button-a" data-toggle="modal" data-target="#add_cinema">New cinema</button>  
+    <?php } ?> 
+    
 
 </main>
 

@@ -31,6 +31,7 @@
         public function logOut(){
             $userController = new userController();
             $userController->finishSession();
+            $this->showHome();
         }
 
         public function showHome()

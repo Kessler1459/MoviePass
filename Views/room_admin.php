@@ -56,10 +56,13 @@ require_once(VIEWS_PATH . "nav.php");
         </table>
     </div>
     <div>
-
-        <input type="hidden" name="cinemaId" value=<?php echo $cinemaId ?>>
-        <button class="button-a" data-toggle="modal" data-target="#add_room">Add Room</button>
-        </form>
+    <?php 
+        if ($_SESSION['userType'] != 3 ) {?> 
+            <input type="hidden" name="cinemaId" value=<?php echo $cinemaId ?>>
+            <button class="button-a" data-toggle="modal" data-target="#add_room">Add Room</button>  
+    <?php } ?> 
+        
+        
     </div>
 </main>
 

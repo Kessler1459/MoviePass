@@ -17,7 +17,7 @@
         
         <div>
             <label for="email">Email</label>
-            <input type="text" class="form-control" id="email" name="email" required>
+            <input type="email" class="form-control" id="email" name="email" required>
         </div>
         <div>
             <label for="pass">Password</label>

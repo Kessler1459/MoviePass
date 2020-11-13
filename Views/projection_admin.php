@@ -39,12 +39,19 @@ require_once(VIEWS_PATH."nav.php");
             </tbody>
         </table>
     </div>
-    <div>
-    <form action="<?php echo FRONT_ROOT ?>Projection/addFromList" method="POST" >
+    
+
+    <?php 
+        if ($_SESSION['userType'] != 3 ) {?> 
+            <div>
+                <form action="<?php echo FRONT_ROOT ?>Projection/addFromList" method="POST" >
                     <input type="hidden" name = "roomId" value=<?php echo $roomId ?>> 
                     <button type="submit" class="submit button-a" >Add Projection</button>
-                 </form>
-    </div>
+                </form>
+            </div>
+    <?php } ?>
+    
+    
 </main>
 <script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
 <script src="<?php echo JS_PATH ?>cinema.table.js"></script>
