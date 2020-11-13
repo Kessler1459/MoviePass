@@ -2,44 +2,53 @@
 require_once(VIEWS_PATH . "header.php");
 require_once(VIEWS_PATH . "nav.php");
 ?>
-<main class="container_movies">
-    <h1>Movies</h1>
+<main class="container">
+    <h2 class="title_">Movies</h2>
 
-    <section>
-        <div>
-            <div class="dropdown">
-                    <button class="button-a dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        Genres
-                    </button>
-                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+
+    <form action="<?php echo FRONT_ROOT ?>Projection/updateMoviesList" method="post">
+        <input type="hidden" value="<?php echo $roomId ?>" name="hehe">
+        <button class="button-a" type="submit">Update movies database</button>
+    </form>
+    <section class="movie_filter">
+        <dl class="dropdown">
+            <dt>
+                <a>
+                    <span class="hida">Genres</span>
+                    <div class="multiselct"></div>
+                    <div class="fas fa-chevron-down"></div>
+                </a>
+            </dt>
+            <dd>
+                <div class="mutliSelect">
+                    <ul>
                         <?php
                         foreach ($genres as $gen) {
                             $g = $gen->getName() ?>
                             <label for="<?php echo $gen->getId() ?>"><?php echo $g ?>
-                            <input class="GenreChk" type='checkbox' name="genres[]" id="<?php echo $gen->getId() ?>" value="<?php echo $g ?>">
-                        </label>
+                                <li><input class="GenreChk" type='checkbox' name="genres[]" id="<?php echo $gen->getId() ?>" value="<?php echo $g ?>"></li>
+                            </label>
                         <?php } ?>
-                        <input type="hidden" name="roomId" value="<?php echo $roomId ?>">
-                    </div>
-            </div> 
-        </div>
-
+                    </ul>
+                </div>
+            </dd>
+        </dl>
         <button id="filerButton" type="button" class="button-a">Filter</button>
         <button type="button" id="resetBtn" class="button-a">Clear</button>
 
-        <input id="searchInput" class="form-control form-control-sm" type="text" placeholder="Search" aria-label="Search" name="search">
-        
-    </section>
 
-    <div class="custom-scrollbar table-wrapper-scroll-y">
+    </section>
+    <input id="searchInput" class="form-control form-control-sm" type="text" placeholder="Search" aria-label="Search" name="search">
+
+    <div class="container_movies">
         <div class="row" id="moviesResponse">
             <?php
-            foreach ($movieList as  $value) {?>
-                <div class="col-md-3">
-                    <button type="button" class="btn"  onClick="dataChange(<?php echo "'" . $value->getPoster() . "','" . addslashes($value->getTitle()) . "','" . addslashes($value->getSynopsis()). "','" . $value->getId() . "'" ?>);" data-id="<?php echo $value->getId() ?>" data-toggle="modal" data-target=".movie">
+            foreach ($movieList as  $value) { ?>
+                <div class="col-md-2">
+                    <button type="button" class="btn" onClick="dataChange(<?php echo "'" . $value->getPoster() . "','" . addslashes($value->getTitle()) . "','" . addslashes($value->getSynopsis()) . "','" . $value->getId() . "'" ?>);" data-id="<?php echo $value->getId() ?>" data-toggle="modal" data-target=".movie">
 
                         <figure class="figure">
-                            <img class="figure-img img-fluid rounded" src="<?php echo "https://image.tmdb.org/t/p/w500" . $value->getPoster() ?>" width="60%">
+                            <img class="figure-img img-fluid rounded" src="<?php echo "https://image.tmdb.org/t/p/w154" . $value->getPoster() ?>" width=150>
                             <figcaption class="figure-caption"><?php echo $value->getTitle() ?></figcaption>
                         </figure>
 
@@ -50,10 +59,6 @@ require_once(VIEWS_PATH . "nav.php");
             <?php } ?>
         </div>
     </div>
-    <form action="<?php echo FRONT_ROOT ?>Projection/updateMoviesList" method="post">
-        <input type="hidden" value="<?php echo $roomId ?>" name="hehe">
-        <button class="button-a" type="submit">Update movies database</button>
-    </form>
 </main>
 
 
@@ -70,8 +75,8 @@ require_once(VIEWS_PATH . "nav.php");
                     <form id="addProjForm" action="<?php echo FRONT_ROOT ?>Projection/add" method="post">
                         <input id="RoomIdInput" type="hidden" name="roomId" value="<?php echo $roomId ?>">
                         <input id="movieIdInput" type="hidden" name="movie_id" id="projection_movie" value="">
-                        <input id="projDateInput" type="date" name="projection_date" id="projection_date" min=<?php echo date("yy-m-d") ?> value=<?php echo date("yy-m-d") ?> required>
-                        <input id="projTimeInput" type="time" name="projection_time" id="projection_time" required>
+                        <input class="form-control" id="projDateInput" type="date" name="projection_date" id="projection_date" min=<?php echo date("yy-m-d") ?> value=<?php echo date("yy-m-d") ?> required>
+                        <input class="form-control" id="projTimeInput" type="time" name="projection_time" id="projection_time" required>
                         <button id="submitProj" type="submit" class="button-a">Save Projection</button>
                     </form>
                 </div>
@@ -79,22 +84,22 @@ require_once(VIEWS_PATH . "nav.php");
         </div>
     </div>
 
-    <div class="modal fade" id="staticBackdrop" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-      <div class="modal-dialog modal-dialog-centered">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h5 class="modal-title" id="staticBackdropLabel">Error</h5>
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-              <span aria-hidden="true">&times;</span>
-            </button>
-          </div>
-          <div id="modal-msg" class="modal-body">
-          </div>
-          <div class="modal-footer">
-            <button type="button" class="button-a" data-dismiss="modal">Close</button>
-          </div>
+    <div class="modal fade " id="staticBackdrop" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="staticBackdropLabel">Error</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div id="modal-msg" class="modal-body">
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="button-a" data-dismiss="modal">Close</button>
+                </div>
+            </div>
         </div>
-      </div>
     </div>
 
 </div>
@@ -108,4 +113,5 @@ require_once(VIEWS_PATH . "nav.php");
 <script src="<?php echo JS_PATH ?>moviesFilter.js"></script>
 <script src="<?php echo JS_PATH ?>moviesSearch.js"></script>
 <script src="<?php echo JS_PATH ?>projValidate.js"></script>
+<script src="<?php echo JS_PATH ?>genres_dropdown.js"></script>
 <?php require_once(VIEWS_PATH . "footer.php") ?>

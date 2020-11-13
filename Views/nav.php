@@ -1,7 +1,9 @@
-<nav class="navbar navbar-expand-lg  navbar-dark bg-dark fixed-top" >
-     
-     <ul class="navbar-nav ml-auto">
-          <li class="nav-item">
+<nav class="navbar navbar-expand-sm  fixed-top">
+     <a class="navbar-brand" href="<?php echo FRONT_ROOT."Home/showHome";?>">
+          <img src="<?php echo IMG_PATH."MoviePass-Icon.png";?>" width="25" height="25" alt="">
+          <strong>Movie Pass</strong>
+     </a>
+     <ul class="navbar-nav">
           <li class="nav-item">
                <a class="nav-link" href=" <?php echo FRONT_ROOT ?>Cinema/showCinemasList">Cinemas</a>
           </li>
@@ -10,4 +12,3 @@
           </li>
      </ul>
 </nav>
-

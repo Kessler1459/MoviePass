@@ -2,27 +2,19 @@
 require_once(VIEWS_PATH . "header.php");
 require_once(VIEWS_PATH . "nav.php");
 ?>
-<main class="container_movies">
-    <h1>Movies</h1>
-    <section>
-        <div>
-            <select name="province" class="form-control" id="province" required>
-                <option value="" disabled selected>Province</option>
-                <?php foreach ($provinces as $value) {
-                    echo "<option data-id=" . $value->getId() . " value=" . $value->getId() . ">" . $value->getName() . "</option>";
-                } ?>
-            </select>
-            <select name="city" class="form-control" id="response" required>
-                <option value="" disabled selected>City</option>
-            </select>
-        </div>
-
-        <div>
-            <div class="dropdown">
-                <button class="button-a dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    Genres
-                </button>
-                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+<main class="container">
+    <h1 class="title_">Movies</h1>
+    
+    <dl class="dropdown">
+        <dt>
+            <a href="#">
+                <span class="hida">Genres</span>
+                <p class="multiselct"></p>
+            </a>
+        </dt>
+        <dd>
+            <div class="mutliSelect">
+                <ul>
                     <?php
                     foreach ($genres as $gen) {
                         $g = $gen->getName() ?>
@@ -30,28 +22,42 @@ require_once(VIEWS_PATH . "nav.php");
                             <input class="GenreChk" type='checkbox' name="genres[]" id="<?php echo $gen->getId() ?>" value="<?php echo $g ?>">
                         </label>
                     <?php } ?>
-                </div>
+                </ul>
             </div>
-            
-        </div>
-        <input type="date" name="projection_date" id="projection_date" min=<?php echo date("yy-m-d") ?> value="" required>
-        
+        </dd>
+    </dl>
+    <section class="movie_filter">
+
+
+
+        <select name="province" class="form-control" id="province" required>
+            <option value="" disabled selected>Province</option>
+            <?php foreach ($provinces as $value) {
+                echo "<option data-id=" . $value->getId() . " value=" . $value->getId() . ">" . $value->getName() . "</option>";
+            } ?>
+        </select>
+        <select name="city" class="form-control" id="response" required>
+            <option value="" disabled selected>City</option>
+        </select>
+        <input class="form-control" type="date" name="projection_date" id="projection_date" min=<?php echo date("yy-m-d") ?> value="" required>
+    
         <button id="filerButton" type="button" class="button-a">Filter</button>
         <button type="button" id="resetBtn" class="button-a">Clear</button>
 
-        <input id="searchInput" class="form-control form-control-sm" type="text" placeholder="Search" aria-label="Search" name="search">
-        
+
     </section>
-    <div class="custom-scrollbar table-wrapper-scroll-y">
+    
+    <input id="searchInput" class="form-control form-control-sm" type="text" placeholder="Search" aria-label="Search" name="search">
+    <div class="container_movies">
         <div class="row" id="moviesResponse">
             <?php
             foreach ($projectionList as  $proj) {
                 $movie = $proj->getMovie(); ?>
-                <div  class="col-md-3">
+                <div class="col-md-2">
                     <button type="button" class="btn" onClick="dataChange(<?php echo "'" . $movie->getPoster() . "','" . addslashes($movie->getTitle()) . "','" . addslashes($movie->getSynopsis()) . "','" . $movie->getId() . "'" ?>)" data-id="<?php echo $movie->getId() ?>" data-toggle="modal" data-target=".movie">
 
                         <figure class="figure">
-                            <img class="figure-img img-fluid rounded" src="<?php echo "https://image.tmdb.org/t/p/w500" . $movie->getPoster() ?>" width="60%">
+                            <img class="figure-img img-fluid rounded" src="<?php echo "https://image.tmdb.org/t/p/w154" . $movie->getPoster() ?>" width=150>
                             <figcaption class="figure-caption"><?php echo $movie->getTitle() ?></figcaption>
                         </figure>
 
@@ -92,4 +98,5 @@ require_once(VIEWS_PATH . "nav.php");
 <script src="<?php echo JS_PATH ?>projFilter.js"></script>
 <script src="<?php echo JS_PATH ?>dataChange.js"></script>
 <script src="<?php echo JS_PATH ?>projSearch.js"></script>
+<script src="<?php echo JS_PATH ?>genres_dropdown.js"></script>
 <?php require_once(VIEWS_PATH . "footer.php") ?>

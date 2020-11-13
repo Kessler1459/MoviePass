@@ -33,6 +33,8 @@ $(document).ready(function(){
         $("#response")[0].selectedIndex = 0;
         $("#projection_date").val("");
         $(".GenreChk").prop("checked",false);
+        $('.multiselct').html("");
+        $(".hida").show();
     });
     
 });

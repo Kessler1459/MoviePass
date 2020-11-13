@@ -6,10 +6,13 @@ use DAO\CinemaDAO;
 use Controllers\LocationController;
 
 class CinemaController{
-    private $cinemaDao;
+    private $cinemaDao,$provinces,$initCities;
 
     public function __construct() {
         $this->cinemaDao=new CinemaDAO();
+        $locationContr=new LocationController();
+        $this->provinces=$locationContr->getAllProvinces();
+        $this->initCities=$locationContr->getCitiesByProvince(1);  
     }
 
     public function getAll(){

@@ -3,7 +3,7 @@ require_once(VIEWS_PATH."header.php");
 require_once(VIEWS_PATH."nav.php");
 ?>
 <main class="container">
-    <h1>Projections</h1>
+    <h3 class="title_">Projections</h3>
     <div class="custom-scrollbar table-wrapper-scroll-y">
         <input type="text" id="input" onkeyup="myFunction()" class="form-control" placeholder="Search for title..">
         <table id="table" class="table text-center table-hover table-striped table-cinemas" >
@@ -13,7 +13,6 @@ require_once(VIEWS_PATH."nav.php");
                     <th>Length</th>
                     <th>Date</th>
                     <th>Time</th>
-                    <th></th>
                     <th></th>
                 </tr>
             </thead>
@@ -26,8 +25,6 @@ require_once(VIEWS_PATH."nav.php");
                         <td><?php echo $movie->getLength()?></td>
                         <td><?php echo $projection->getDate()?></td>
                         <td><?php echo $projection->getHour()?></td>
-                        <td>                 
-                        </td>
                         <td>                       
                             <form action="<?php echo FRONT_ROOT ?>Projection/remove" method="post">
                                 <input type="hidden" name="id" value=<?php echo $projection->getId() ?>>

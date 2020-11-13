@@ -26,6 +26,8 @@ $(document).ready(function(){
     
     $("#resetBtn").on("click", function () {
         $(".GenreChk").prop("checked",false);
+        $('.multiselct').html("");
+        $(".hida").show();
     });
     
 });
