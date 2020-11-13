@@ -12,11 +12,12 @@ class Projection implements JsonSerializable
     private $room;
     private $tickets;
 
-    public function __construct($id,$movie,$date,$hour,$room,$tickets) {
+    public function __construct($id,$movie,$date,$hour,$room,$tickets="") {
         $this->id = $id;
         $this->movie = $movie;
         $this->date = $date;
         $this->hour = $hour;
+        $this->tickets = $tickets;
     }
 
 

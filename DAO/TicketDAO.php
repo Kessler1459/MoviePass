@@ -17,14 +17,29 @@ class TicketDAO
 
     public function add($ticket)
     {
-        $query = "INSERT INTO $this->tableName (id_entrada,nro_entrada) VALUES (:id_entrada,:nro_entrada);";
+        $query = "INSERT INTO $this->tableName (id_entrada,nro_entrada) VALUES (:id_entrada,:nro_entrada);
+        INSERT INTO entrada_x_funcion (id_entrada,id_funcion) VALUES (:id_entrada,:id_funcion);";
         $parameters["id_entrada"] = $ticket->getId();
-        $parameters["nro_entrada"] = $ricket->getNroEntrada();
+        $parameters["nro_entrada"] = $ticket->getNroEntrada();
+        $parameters["id_funcion"] = $ticket->getIdProjection();
         try {
             $this->connection = Connection::getInstance();
             $this->connection->executeNonQuery($query, $parameters);
         } catch (Exception $ex) {
             throw $ex;
+        }
+    }
+    public function sellTickets($tickets)
+    {
+        foreach($tickets as $key => $value)
+        {
+            $query = "DELETE FROM entrada_x_compra WHERE id_entrada=$id";
+        try {
+            $this->connection = Connection::getInstance();
+            return $this->connection->executeNonQuery($query);
+        } catch (Exception $ex) {
+            throw $ex;
+        }    
         }
     }
 
