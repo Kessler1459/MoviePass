@@ -1,27 +1,33 @@
 <?php
     namespace Models;
 
+    use Models\UserProfile as UserProfile;
+    use Models\UserRole as UserRole;
+
     class User 
     {
+        private $id;
         private $email;
         private $password;
-        private $firstName;
-        private $lastName;
-        private $birthdate;
-        private $userType;
+        private $userProfile; 
+        private $userRole;
 
 
-        public function __construct($email,$password,$firstName,$lastName,$birthdate,$userType){
+        public function __construct($id,$email,$password,$firstName,$lastName,$dni,$userType,$description){
+            $this->id = $id;
             $this->email = $email;
             $this->password = $password;
-            $this->firstName = $firstName;
-            $this->lastName = $lastName;
-            $this->birthdate = $birthdate;
-            $this->userType = $userType;
+            $this->userProfile = new UserProfile($firstName,$lastName,$dni); 
+            $this->userRole = new UserRole($userType,$description); 
+            
         }
 
 
         //-----------------Getters-----------------
+
+        public function getId(){
+            return $this->id;
+        }
 
         public function getEmail(){
             return $this->email;
@@ -31,23 +37,19 @@
             return $this->password;
         }
 
-        public function getFirstName(){
-            return $this->firstName;
+        public function getUserProfile(){
+            return $this->userProfile;
         }
 
-        public function getLastName(){
-            return $this->lastName;
-        }
-
-        public function getBirthdate(){
-            return $this->birthdate;
-        }
-
-        public function getUserType(){
-            return $this->userType;
+        public function getUserRole(){
+            return $this->userRole;
         }
 
         //-----------------Setters-----------------
+        
+        public function setId($id){
+            return $this->id = $id;
+        }
         
         public function setEmail($email){
             return $this->email = $email;
@@ -57,20 +59,12 @@
             return $this->password = $password;
         }
 
-        public function setFirstName($firstName){
-            return $this->firstName = $firstName;
+        public function setUserProfile($userProfile){
+            return $this->userProfile = $userProfile;
         }
 
-        public function setLastName($lastName){
-            return $this->lastName = $lastName;
-        }
-
-        public function setBirthdate($birthdate){
-            return $this->birthdate = $birthdate;
-        }
-
-        public function setUserType($userType){
-            return $this->userType = $userType;
+        public function setUserRole($userRole){
+            return $this->userRole = $userRole;
         }
     
     }

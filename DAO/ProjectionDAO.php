@@ -296,3 +296,4 @@ class ProjectionDAO
         return $results[0]["count"];
     }
 }
+?>

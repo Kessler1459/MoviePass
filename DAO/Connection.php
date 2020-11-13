@@ -60,12 +60,13 @@
 
                 $this->pdoStatement->execute();
 
-                return $this->pdoStatement->rowCount();
             }
             catch(Exception $ex)
             {
                 throw $ex;
-            }        	    	
+            }
+            
+            return $this->pdoStatement->rowCount();        	    	
         }
         
         private function prepare($query)

@@ -2,7 +2,6 @@
 
     namespace Controllers;
     use DAO\MovieDAO;
-    use Controllers\GenreController;
 
 
     class MovieController{
@@ -53,13 +52,6 @@
 
         public function updateNowPlaying(){
             $this->movieDao->updateNowPlaying();
-        }
-
-        public function showMoviesSearch($search){
-            $movieList=$this->searchByName($search);
-            $gencontr=new GenreController();
-            $genres=$gencontr->getAll();
-            include VIEWS_PATH."movies_list.php";
         }
 
     }
