@@ -7,7 +7,8 @@
     use DAO\UserDAO as UserDAO;
     use Controllers\HomeController as HomeController;
     use Controllers\CinemaController as CinemaController;
-    
+    use \Exception as Exception;
+
     class UserController{
         private $userDao;
 
@@ -37,7 +38,7 @@
             try{
                 $this->userDao->add($client);
             }
-            catch (\Exception $ex) {
+            catch (Exception $ex) {
                 throw $ex;
             }
 
@@ -51,7 +52,7 @@
             try{
                 $this->userDao->add($cinemaOwner);
             }
-            catch (\Exception $ex) {
+            catch (Exception $ex) {
                 throw $ex;
             }
             
@@ -65,7 +66,7 @@
             if($userType == 2){
                 try{
                     $user = $this->createCinemaOwner($email,$password,$firstName,$lastName,$dni,$userType);
-                }catch (\Exception $ex) {
+                }catch (Exception $ex) {
                     $message = "This email is already used";
                     $this->signInCinemaOwner($message);    
                 }
@@ -74,7 +75,7 @@
             }else{
                 try{
                     $user = $this->createClient($email,$password,$firstName,$lastName,$dni,$userType);
-                }catch (\Exception $ex) {
+                }catch (Exception $ex) {
                     $message = "This email is already used";
                     $this->signIn($message);
                 }
@@ -100,7 +101,7 @@
                     $homeController->showHome();
                 }   
             }
-            catch (\Exception $ex) {
+            catch (Exception $ex) {
                 $message = "An unknown error has occurred";
                 $this->logIn($message);
             }
@@ -120,6 +121,18 @@
                 session_start();  
               }
             session_destroy();
+        }
+
+        public function getById(){
+           $id_user = $_SESSION['Id'];
+           
+           try {
+                $user = $this->userDao->getById($id_user);
+           } catch (Exception $th) {
+                $message="Error user not found.";
+           }
+           
+           return $user;
         }
 
     }

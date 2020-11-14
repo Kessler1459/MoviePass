@@ -59,7 +59,7 @@
                     return $user;
                 }
                 else{
-                    return false;
+                    return null;
                 }
                 
         }
