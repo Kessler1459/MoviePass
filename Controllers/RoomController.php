@@ -2,7 +2,8 @@
 
 namespace Controllers;
 use DAO\RoomDAO;
-use Models\Room as Room;
+use \Exception as Exception;
+
 class RoomController{
     private $roomDao;
 
@@ -15,24 +16,37 @@ class RoomController{
      */
     public function add ($capacity,$ticketPrice,$description,$cinemaId)
     {
-        $id = time();
-        $room = new Room($id,$capacity,$ticketPrice,$description,[]);
-        $this->roomDao->add($room,$cinemaId);
+        if($capacity>0 && $ticketPrice >=0){
+            try{
+                $this->roomDao->add($capacity,$ticketPrice,$description,$cinemaId);
+            }catch(Exception $e){
+                $message="Error adding the room.";
+            }
+        }
         $this->showRoom($cinemaId);
     }
 
     public function remove($id,$cinemaId)
     {
-        if ($this->roomDao->remove($id)>0) {
-            $this->showRoom($cinemaId);
+        try{
+            $this->roomDao->remove($id);
         }
-
+        catch(Exception $e){
+            $message="Error removing the room.";
+        }
+        $this->showRoom($cinemaId);
     }
 
  
     public function modify($capacity,$ticketPrice,$description,$roomId,$cinemaId){
-        
-        $this->roomDao->modify(new Room($roomId,$capacity,$ticketPrice,$description,[]));
+        if($capacity>0 && $ticketPrice >=0){
+            try{
+                $this->roomDao->modify($roomId,$capacity,$ticketPrice,$description);
+            }
+            catch(Exception $e){
+                $message="Error modifying the room.";
+            }
+        }
         $this->showRoom($cinemaId);
     }
 
@@ -40,12 +54,16 @@ class RoomController{
      * una sala en especifico
      */
     public function getById($id){
-        return $this->roomDao->getById($id);
+        try{
+            return $this->roomDao->getById($id);
+        }
+        catch(Exception $e){
+            $message="Error getting the room.";
+        }
     }
 
     public function showRoom($cinemaId)
     {
-       
         $rooms=$this->getArrayByCinemaId($cinemaId);
         include VIEWS_PATH."room_admin.php";
     }
@@ -54,13 +72,16 @@ class RoomController{
      * todas las salas de un cine
      */
     public function getArrayByCinemaId($cinemaId){
-        return $this->roomDao->getArrayByCinemaId($cinemaId);
+        try{
+            return $this->roomDao->getArrayByCinemaId($cinemaId);
+        }
+        catch(Exception $e){
+            $message="Error getting the rooms.";
+        }
     }
 
     public function showModifyRoom($id,$cinemaId){
-      
         $room=$this->roomDao->getById($id);
-        
         require_once VIEWS_PATH."modify_room.php";
     }
 

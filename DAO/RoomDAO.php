@@ -15,17 +15,18 @@ class RoomDAO {
         $this->projDao = new ProjectionDAO();
     }
 
-    public function add($room,$cinemaId)
+    public function add($capacity,$ticketPrice,$description,$cinemaId)
     {
+        $id = time();
+        $query = "INSERT INTO $this->tableName (id_room,id_cinema,capacity,ticket_price,descript) 
+                    VALUES (:id_room,:id_cinema,:capacity,:ticket_price,:descript)";           
+        $parameters["id_room"] =$id;
+        $parameters["id_cinema"] =$cinemaId;
+        $parameters["capacity"] =$capacity;
+        $parameters["ticket_price"] =$ticketPrice;
+        $parameters["descript"] =$description;
         try
         {
-            $query = "INSERT INTO $this->tableName (id_room,id_cinema,capacity,ticket_price,descript) 
-                        VALUES (:id_room,:id_cinema,:capacity,:ticket_price,:descript)";           
-            $parameters["id_room"] =$room->getId();
-            $parameters["id_cinema"] =$cinemaId;
-            $parameters["capacity"] =$room->getCapacity();
-            $parameters["ticket_price"] =$room->getTicketPrice();
-            $parameters["descript"] =$room->getDescription();
             $this->connection = Connection::getInstance();
             $this->connection->executeNonQuery($query, $parameters);
         }
@@ -37,27 +38,24 @@ class RoomDAO {
 
     public function remove ($id)
     {
+        $query = "DELETE FROM rooms WHERE id_room=$id";  
         try
         {
-            $query = "DELETE FROM rooms 
-            WHERE id_room=$id";  
-             $this->connection=Connection::getInstance();
-             return $this->connection->executeNonQuery($query);
+            $this->connection=Connection::getInstance();
+            return $this->connection->executeNonQuery($query);
         }
         catch(Exception $ex){
-        throw $ex;
+            throw $ex;
         }
     }
-    public function modify($modifiedRoom){
-    $id=$modifiedRoom->getId();
+
+    public function modify($roomId,$capacity,$ticketPrice,$description){
+        $query="UPDATE rooms set capacity=:capacity,ticket_price=:ticket_price,descript=:descript WHERE id_room=$roomId";
+        $params["capacity"]=$capacity;
+        $params["ticket_price"]=$ticketPrice;
+        $params["descript"]=$description;
         try {
-            $query="UPDATE rooms set capacity=:capacity,ticket_price=:ticket_price,descript=:descript WHERE id_room=$id";
             $this->connection=Connection::getInstance();
-            
-            $params["capacity"]=$modifiedRoom->getCapacity();
-            $params["ticket_price"]=$modifiedRoom->getTicketPrice();
-            $params["descript"]=$modifiedRoom->getDescription();
-         
             return $this->connection->executeNonQuery($query, $params);
         } 
         catch (Exception $ex) {
@@ -68,39 +66,39 @@ class RoomDAO {
     
 
     public function getArrayByCinemaId($cinemaId){
-        $roomList=array();
+        $query="SELECT * from $this->tableName where id_cinema=$cinemaId";
         try{
-            $query="SELECT * from $this->tableName where id_cinema=$cinemaId";
             $this->connection=Connection::getInstance();
             $results=$this->connection->execute($query);
-            foreach ($results as $room) {
-                $roomList[]=new Room($room["id_room"],
-                    $room["capacity"],
-                    $room["ticket_price"],
-                    $room["descript"],
-                    $this->projDao->getArrayByRoomId($room["id_room"]));
-            }
-            return $roomList;
         }catch(Exception $ex){
             throw $ex;
         }
+        $roomList=array();
+        foreach ($results as $room) {
+            $roomList[]=new Room($room["id_room"],
+            $room["capacity"],
+            $room["ticket_price"],
+            $room["descript"],
+            $this->projDao->getArrayByRoomId($room["id_room"]));
+        }
+        return $roomList;
     }
 
     public function getById($id){
+        $query="SELECT * from $this->tableName where id_room=$id";
         try{
-            $query="SELECT * from $this->tableName where id_room=$id";
             $this->connection=Connection::getInstance();
             $results=$this->connection->execute($query);
-            $row=$results[0];
-            $room=new Room($row["id_room"],
-                    $row["capacity"],
-                    $row["ticket_price"],
-                    $row["descript"],
-                    $this->projDao->getArrayByRoomId($row["id_room"]));
-            return $room;
         }catch(Exception $ex){
             throw $ex;
         }
+        $row=$results[0];
+        $room=new Room($row["id_room"],
+                $row["capacity"],
+                $row["ticket_price"],
+                $row["descript"],
+                $this->projDao->getArrayByRoomId($row["id_room"]));
+        return $room;
     }
 }
 

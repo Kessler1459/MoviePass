@@ -60,10 +60,11 @@ require_once(VIEWS_PATH . "nav.php");
         if ($_SESSION['userType'] != 3 ) {?> 
             <input type="hidden" name="cinemaId" value=<?php echo $cinemaId ?>>
             <button class="button-a" data-toggle="modal" data-target="#add_room">Add Room</button>  
-    <?php } ?> 
-        
-        
+    <?php } ?>  
     </div>
+    <?php if(isset($message)){
+        echo "<div class='alert alert-success'><strong>D:</strong> $message</div>";
+    }?>
 </main>
 
 <!--MODAL ADDING NEW ROOM-->
@@ -82,9 +83,9 @@ require_once(VIEWS_PATH . "nav.php");
             </div>
             <form action="<?php echo FRONT_ROOT ?>Room/add" method="post" class="form-group">
                 <label for="capacity"><span>Capacity</span></label>
-                <input type="number" name=capacity class="form-control input-cinema" required>
+                <input type="number" name=capacity class="form-control input-cinema" min="1" required>
                 <label for="ticketPrice"><span>Ticket Price</span></label>
-                <input class="form-control input-cinema" type="number" name="ticketPrice" required>
+                <input class="form-control input-cinema" type="number" name="ticketPrice" min="0" required>
                 <label for="description">Description</label>
                 <input class="form-control input-cinema" type="text" name="description" required>
                 <input type="hidden" name="cinemaId" value=<?php echo $cinemaId ?>>
@@ -111,9 +112,9 @@ require_once(VIEWS_PATH . "nav.php");
                 <form action="<?php echo FRONT_ROOT ?>Room/modify" method="post" class="form-group">
                 
                     <label for="capacity"><span>Capacity</span></label>
-                    <input class="form-control input-cinema" type="number" name="modalCapacity" id="modalCapacity" class="input-cinema" required>
+                    <input class="form-control input-cinema" type="number" name="modalCapacity" id="modalCapacity" class="input-cinema" min="1" required>
                     <label for="ticketPrice"><span>Ticket Price</span></label>
-                    <input class="form-control input-cinema" type="number" name="modalTPrice" id="modalTPrice" class="input-cinema" required>
+                    <input class="form-control input-cinema" type="number" name="modalTPrice" id="modalTPrice" class="input-cinema" min="0" required>
                     <label for="description">Description</label>
                     <input class="form-control input-cinema" type="text" name="modalDescription" id="modalDescription" class="input-cinema" required>
                     <input type="hidden" name="roomId" id="roomId">
