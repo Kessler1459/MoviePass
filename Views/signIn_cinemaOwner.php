@@ -9,11 +9,11 @@
     <form id="signIn" onsubmit="validarContraseña(); return false" action="<?php echo FRONT_ROOT ?>User/verifySignIn" method="POST">
         
     <div id="error" class="alert alert-danger ocultar" role="alert">
-            Las contraseñas no coinciden, vuelve a intentar!
+            Passwords do not match, try again! 
         </div>
 
         <div id="ok" class="alert alert-success ocultar" role="alert">
-            Las contraseñas coinciden ! Procesando formulario...
+            Passwords match! Processing form ...    
         </div>
 
         <?php if($message != ""){ ?>

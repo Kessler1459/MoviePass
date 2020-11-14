@@ -15,7 +15,7 @@ require_once(VIEWS_PATH."nav.php");
             </iframe>
         </div>
         <?php 
-        $i=0;
+        $i=1;
         while($i< count($projs)&& $i<5){ ?>
         <div class="carousel-item">
             <iframe width="1100" height="600"
