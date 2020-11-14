@@ -40,6 +40,20 @@ class ProjectionDAO {
             throw $ex;
         }
     }
+    public function update ($projection)
+    {
+        $query = "UPDATE projection set id_movie=:id_movie, proj_date=:proj_date, proj_time=:proj_time where id_proj=:id_proj;";
+        $params["id_movie"] = $projection->getMovie()->getId();
+        $params["proj_date"] = $projection->getDate();
+        $params["proj_time"] = $projection->getTime();
+        try {
+            $this->connection = Connection::getInstance();
+            return $this->connection->executeNonQuery($query, $params);
+        } catch (Exception $ex) {
+            throw $ex;
+        }
+
+    }
 
     public function remove ($id)
     {

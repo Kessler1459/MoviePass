@@ -7,7 +7,7 @@ use Models\DatosTarjeta;
 use DAO\Connection;
 use \Exception as Exception;
 
-class CinemaDAO
+class DatosTarjetaDAO
 {
     private $connection;
     private $tableName = "tarjeta";

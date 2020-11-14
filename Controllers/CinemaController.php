@@ -46,6 +46,10 @@ class CinemaController{
         }
         
     }
+    public function getCinemaById($id)
+    {
+        return $this->cinemaDao->getById();
+    }
 
     public function showCinemasList(){
         $cinemas=$this->getAll();

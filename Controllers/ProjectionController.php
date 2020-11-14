@@ -10,6 +10,7 @@
     use Models\Projection;
     use controllers\CinemaController;
     use Controllers\LocationController;
+    use DAO\TicketDAO;
 
     class ProjectionController
     {
@@ -17,6 +18,7 @@
         private $movieContr;
         private $cinemaContr;
         private $locationContr;
+        private $ticketDao;
 
         public function __construct()
         {
@@ -24,6 +26,7 @@
             $this->movieContr = new MovieController();
             $this->cinemaContr = new CinemaController();
             $this->locationContr = new LocationController();
+            $this->ticketDao = new TicketDAO();
         }
 
     /**
@@ -84,7 +87,8 @@
         public function add($roomId,$movieId,$date,$time)
         {
             $movie=$this->movieContr->getById($movieId);
-            $proj=new Projection(time(),$movie,$date,$time);
+            $proj=new Projection(time(),$movie,$date,$time,"");
+            $proj->setTickets($this->ticketProduction($this->roomContr->getById($roomId),$proj->getId()));
             $this->projDao->add($proj,$roomId);
             $this->showProjections($roomId);
         }
@@ -281,5 +285,44 @@
             $msg["msg"]="This movie is already in another room or cinema";
         }
         echo json_encode($msg,1);
+    }
+    public function addDetailsMovie($cinemaId,$movieId,$roomId,$projectionId)
+    {
+        session_start();
+        $cinema_actual = $this->cinemaContr->getCinemaById($cinemaId);
+        $movie_actual = $this->cinemaContr->getById($movieId);
+        $room_actual = $this->roomContr->getById($roomId);
+        $projection_actual = $this->projDao->getById($projectionId);
+        $_SESSION["selectedProjection"]=["cinema" => $cinema_actual,"movie"=> $movie_actual,"room" => $room_actual,"projection" => $projection_actual];
+        include_once(VIEW_PATH."ticket_buys.php");
+    }
+    private function ticketProduction($room, $idProyection)
+    {
+        $capacity = $room->getCapacity();
+        $ticketsToBuy = array();
+        for ($i = 0; $i < $capacity ;$i++)
+        {
+            array_push($ticketsToBuy,new Ticket("",$i++,$idProyection));
+        }
+        foreach($ticketsToBuy as $key => $value)
+        {
+            $this->ticketDao->add($value);
+        }
+        return $ticketsToBuy;
+    }
+    private function sellTickets($cuantity,$proj_id)
+    {
+        $projActual = $this->projDao->getById($proj_id);
+        $tickets = $projActual->getTickets();
+        $buyedTickets = array();
+        for($i = 0 ; $i < $cuantity; $i++)
+        {
+            array_push($buyedTickets,array_pop($tickets));
+        }
+        $projActual->setTickets($tickets);
+        $this->projDao->update($projActual);
+        $this->ticketDao->sellTickets($buyedTickets);
+        return $buyedTickets;
+        
     }
 }

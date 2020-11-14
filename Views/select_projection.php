@@ -7,7 +7,7 @@
     <article>
         <?php 
             foreach ($cinemasXrooms as $cinema => $rooms) {?>
-                <form action="<?php echo FRONT_ROOT?>Buy/addDetailsMovie" method="get" id="<?php $cinema->getId()?>">
+                <form action="<?php echo FRONT_ROOT?>Projection/addDetailsMovie" method="get" id="<?php $cinema->getId()?>">
                     <div>
                         <p><?php $cinema->getName()?></p>
                         <p><?php $cinema->getAddres()?></p>
@@ -15,7 +15,7 @@
                         <input type="hidden" name="cinemaId" value="<?php echo $cinema->getId()?>">
                         <input type="hidden" name="movieId" value="<?php echo $movie->getId()?>">
                     </div>
-                    <div>
+ <!--  -->                   <div>
                         <?php foreach ($rooms as $room => $projections) { ?>
                             <p> <?php $actualRoom->getDescription()?> </p>
                             <p> <?php $actualRoom->getPrice()?> </p>
