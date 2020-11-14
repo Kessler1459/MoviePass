@@ -9,9 +9,13 @@
      
      <ul class="navbar-nav ml-auto justify-content-center"> 
           <li>
-          <?php 
-               if (isset($_SESSION['name'])) { echo "<a class='nav-link'>Welcome <strong>".$_SESSION['name']."</strong> </a>";}
-               else {?> 
+          <div class="welcome">
+               <?php      
+                    if (isset($_SESSION['name'])) { echo "<a class='nav-link'>Welcome <strong>".$_SESSION['name']."</strong> </a>";}
+                    else {
+               ?> 
+          </div>
+               
 
                <li class="nav-item">
                     <a class="nav-link" href=" <?php echo FRONT_ROOT ?>Home/logIn">LogIn</a>

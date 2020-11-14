@@ -286,3 +286,9 @@ section dl{
 .dropdown dd ul li a:hover {
 	background-color: #fff;
 }
+
+.welcome{
+	position: absolute;
+    left: 50%;
+    transform: translatex(-50%);
+}
