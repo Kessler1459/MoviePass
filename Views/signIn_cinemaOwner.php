@@ -6,8 +6,16 @@
     
     <h1>Sign In <br> Cinema Owner</h1>
     
-    <form action="<?php echo FRONT_ROOT ?>User/verifySignIn" method="POST">
+    <form id="signIn" onsubmit="validarContraseña(); return false" action="<?php echo FRONT_ROOT ?>User/verifySignIn" method="POST">
         
+    <div id="error" class="alert alert-danger ocultar" role="alert">
+            Las contraseñas no coinciden, vuelve a intentar!
+        </div>
+
+        <div id="ok" class="alert alert-success ocultar" role="alert">
+            Las contraseñas coinciden ! Procesando formulario...
+        </div>
+
         <?php if($message != ""){ ?>
             <div class="alert alert-danger" role="alert">
                <strong><?php echo $message ?></strong> 
@@ -20,11 +28,11 @@
         </div>
         <div>
             <label for="pass1">Password</label>
-            <input type="password" class="form-control" id="pass1" name="password" required>
+            <input type="password" class="form-control" id="pass1" name="password" maxlength="12" required>
         </div>
         <div>
             <label for="pass2">Confirm password</label>
-            <input type="password" class="form-control" id="pass2" required>
+            <input type="password" class="form-control" id="pass2" maxlength="12" required>
         </div>
         <div>
             <label for="firstName">First Name</label>
@@ -46,3 +54,5 @@
     </form>
         
 </main>
+
+<script src="<?php echo JS_PATH ?>verifyPasswords.js"></script>

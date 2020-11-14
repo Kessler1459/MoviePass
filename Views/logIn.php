@@ -21,7 +21,7 @@
         </div>
         <div>
             <label for="pass">Password</label>
-            <input type="password" class="form-control" id="pass" name="password" required>
+            <input type="password" class="form-control" id="pass" name="password" maxlength="12" required>
         </div>
 
         <br>

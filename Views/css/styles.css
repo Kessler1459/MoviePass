@@ -18,6 +18,14 @@ body{
 	width: 100%;
 }
 
+.ocultar{
+	display: none;
+}
+
+.mostrar{
+	display: block;
+}
+
 
 .container{
 	background-color: rgba(209, 209, 209, 0.692);
