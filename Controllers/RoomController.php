@@ -16,15 +16,19 @@ class RoomController{
      */
     public function add ($capacity,$ticketPrice,$description,$cinemaId)
     {
-        if($capacity>0 && $ticketPrice >=0){
-            try{
-                $this->roomDao->add($capacity,$ticketPrice,$description,$cinemaId);
-            }catch(Exception $e){
-                $message="Error adding the room.";
+        try{
+            if($capacity>0 && $ticketPrice >=0){
+                $this->roomDao->add($capacity,$ticketPrice,$description,$cinemaId);             
             }
-            finally{
-                $this->showRoom($cinemaId);
+            else{
+                $message="Valor no permitido D:";
             }
+        }
+        catch(Exception $e){
+            $message="Error adding the room.";
+        }
+        finally{
+            $this->showRoom($cinemaId,$message);
         }
     }
 
@@ -37,7 +41,7 @@ class RoomController{
             $message="Error removing the room.";
         }
         finally{
-            $this->showRoom($cinemaId);
+            $this->showRoom($cinemaId,$message);
         }
     }
 
@@ -52,7 +56,7 @@ class RoomController{
                 $this->showRoom($cinemaId);
             }
         }
-        $this->showRoom($cinemaId);
+        $this->showRoom($cinemaId,$message);
     }
 
     /**
@@ -68,7 +72,7 @@ class RoomController{
         }
     }
 
-    public function showRoom($cinemaId)
+    public function showRoom($cinemaId,$message="")
     {
         $rooms=array();
         try{
