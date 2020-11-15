@@ -3,6 +3,7 @@ namespace Controllers;
 
 use DAO\GenreDAO;
 use Models\Genre;
+use \Exception as Exception;
 
 class GenreController{
     private $genreDao;
@@ -12,7 +13,12 @@ class GenreController{
     }
 
     public function getAll(){
-        return $this->genreDao->getAll();
+        try{
+            return $this->genreDao->getAll();
+        }
+        catch(Exception $e){
+            throw $e;
+        }
     }
     
     /**
@@ -20,13 +26,18 @@ class GenreController{
      */
     public function idArrayToObjects($idArray){
         $newArray=array();
-        if(!empty($idArray)){
-            foreach ($idArray as $value) {
-                $newGenre=$this->genreDao->getById($value);
-                $newArray[]=$newGenre;
+        try{
+            if(!empty($idArray)){
+                foreach ($idArray as $value) {
+                    $newGenre=$this->genreDao->getById($value);
+                    $newArray[]=$newGenre;
+                }
             }
+            return $newArray;
         }
-        return $newArray;
+        catch(Exception $e){
+            throw $e;
+        }
     }
 
     /**

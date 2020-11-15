@@ -3,44 +3,56 @@
 namespace Controllers;
 
 use DAO\ProjectionDAO;
-use Controllers\RoomController;
 use Controllers\MovieController;
 use Controllers\GenreController;
 use DateTime;
-use Models\Projection;
+use \Exception as Exception;
+
 
 class ProjectionController
 {
     private $projDao;
     private $movieContr;
-    private $roomContr;
 
     public function __construct()
     {
         $this->projDao = new ProjectionDAO();
         $this->movieContr = new MovieController();
-        $this->roomContr=new RoomController();
     }
 
     /**
      * este es cartelera jeje
      */
     public function showProjectionsList(){
-        $projectionList=$this->projDao->getAllProjections();
         $locContro=new LocationController();
         $gencontr=new GenreController();
-        $genres=$gencontr->getAll();
-        $provinces=$locContro->getAllProvinces();
-        $initCities=$locContro->getCitiesByProvince(1);
-        include(VIEWS_PATH."movies_list.php");
+        try{
+            $projectionList=$this->projDao->getAllProjections();
+            $genres=$gencontr->getAll();
+            $provinces=$locContro->getAllProvinces();
+            $initCities=$locContro->getCitiesByProvince(1);
+            include(VIEWS_PATH."movies_list.php");
+        }
+        catch(Exception $e){
+            $message="Projections are not currently available.";
+            include(VIEWS_PATH."message_view.php");
+        }
     }
 
     public function projectionFilters($cityId,$date,$genresJsonArray){
         $params["id_city"]=$cityId;
         $params["proj_date"]=$date;
-        $projectionList=$this->projDao->projectionFilters($params);
-        $projectionList=$this->filterByGenre(json_decode($genresJsonArray),$projectionList);
-        echo json_encode($projectionList,1);
+        $projectionList=array();
+        try{
+            $projectionList=$this->projDao->projectionFilters($params);
+            $projectionList=$this->filterByGenre(json_decode($genresJsonArray),$projectionList);
+        }
+        catch(Exception $e){
+            $message="Error applying filters.";//TODO
+        }
+        finally{
+            echo json_encode($projectionList,1);
+        }
     }
 
     public function showProjectionSearch($search){
@@ -51,34 +63,50 @@ class ProjectionController
     /*---------------------------------*/
 
     public function showProjections($roomId){
-        $projs=$this->projDao->getArrayByRoomId($roomId);
+        $projs=$this->getArrayByRoomId($roomId);
         include(VIEWS_PATH."projection_admin.php");
     }
 
     public function add($roomId,$movieId,$date,$time)
     {
-        $movie=$this->movieContr->getById($movieId);
-        $room=$this->roomContr->getById($roomId);
-        $proj=new Projection(time(),$movie,$date,$time,$room);
-        $this->projDao->add($proj,$roomId);
-        $this->showProjections($roomId);
+        try{
+            $this->projDao->add($roomId,$movieId,$date,$time);
+        }
+        catch(Exception $e){
+            $message="Error adding the projection.";
+        }
+        finally{
+            $this->showProjections($roomId);
+        }
     }
 
     public function addFromList($roomId){
-        $movieList=$this->movieContr->getAll();
-        $gencontr=new GenreController();
-        $genres=$gencontr->getAll();
+        try{
+            $movieList=$this->movieContr->getAll();
+            $gencontr=new GenreController();
+            $genres=$gencontr->getAll();
+        }
+        catch(Exception $e){
+            $message="No movies could be found.";
+            include(VIEWS_PATH."message_view.php");
+        }
         include(VIEWS_PATH."add_projection.php");
     }
 
     public function addFromListFiltered($genresJsonArray){
-        $movies=$this->movieContr->getAll();
+        $movies=$this->movieContr->getAll();    
         $movies=$this->movieContr->filterByGenre(json_decode($genresJsonArray),$movies);
         echo json_encode($movies,1);
     }
 
     public function addFromListSearch($search){
-        $movieList=$this->movieContr->searchByName($search);
+        try{
+            $movieList=$this->movieContr->searchByName($search);
+        }
+        catch(Exception $e){
+            $message="No movies could be found.";
+            include(VIEWS_PATH."message_view.php");
+        }
         echo json_encode($movieList,1);
     }
 
@@ -92,12 +120,23 @@ class ProjectionController
      */
     public function getAllProjections()
     {
-        return $this->projDao->getAllProjections();
+        try{
+            return $this->projDao->getAllProjections();
+        }
+        catch(Exception $e){
+            return array();
+        }
     }
 
     public function getById($id)
     {
-        return $this->projDao->getById($id);
+        try{
+            return $this->projDao->getById($id);
+        }
+        catch(Exception $e){
+            $message="Error getting the projection.";
+            include(VIEWS_PATH."message_view.php");
+        }
     }
 
 
@@ -147,13 +186,34 @@ class ProjectionController
      */
     public function getArrayByRoomId($id)
     {
-        return $this->projDao->getArrayByRoomId($id);
+        try{
+            return $this->projDao->getArrayByRoomId($id);
+        }
+        catch(Exception $e){
+            return array();
+        }
     }
 
     public function remove($id,$roomId)
     {
-        if ($this->projDao->remove($id)>0) {
+        try{
+            $this->projDao->remove($id);
+        }
+        catch(Exception $e){
+            $message="Error removing the projection.";
+        }
+        finally{
             $this->showProjections($roomId);
+        }
+    }
+
+    public function getByDateRoom($date,$roomId){
+        try{
+            return $this->projDao->getByDateRoom($date,$roomId);
+        }
+        catch(Exception $e){
+            $message="Error searching projection.";
+            include(VIEWS_PATH."message_view.php");
         }
     }
 
@@ -163,7 +223,7 @@ class ProjectionController
     public function validateProjection($roomId,$movieId,$date,$time){
         if($this->projDao->existByDate($date,$movieId,$roomId)==0){         //si la pelicula no esta registrada en una funcion en ninguna otra sala de ningun otro cine el mismo dia
             $newMovie=$this->movieContr->getById($movieId);
-            $projList=$this->projDao->getByDateRoom($date,$roomId);
+            $projList=$this->getByDateRoom($date,$roomId);
             $initTime=new DateTime($date." ".$time);         //hora de inicio de funcion a crear
             $endTime=new DateTime($date." ".$time); 
             $endTime=$endTime->modify("+".$newMovie->getLength()." minutes");  //hora de finalizacion

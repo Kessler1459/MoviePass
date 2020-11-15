@@ -4,7 +4,7 @@
 
     use Controllers\CinemaController;
     use Controllers\ProjectionController;
-    use Models\Movie;
+
     
     class HomeController{
 

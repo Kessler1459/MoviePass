@@ -3,8 +3,7 @@ namespace Controllers;
 
 use DAO\CityDAO;
 use DAO\ProvinceDAO;
-use Models\Province;
-use Models\City;
+use \Exception as Exception;
 
 class LocationController{
     private $provinceDao;
@@ -16,19 +15,39 @@ class LocationController{
     }
 
     public function getAllProvinces(){
-        return $this->provinceDao->GetAll();
+        try{
+            return $this->provinceDao->GetAll();
+        }
+        catch(Exception $e){
+            throw $e;
+        }
     }
 
     public function getProvinceById($id){
-        return $this->provinceDao->getById($id);
+        try{
+            return $this->provinceDao->getById($id);
+        }
+        catch(Exception $e){
+            throw $e;
+        }
     }
 
     public function getCityById($id){
-        return $this->cityDao->getById($id);
+        try{
+            return $this->cityDao->getById($id);
+        }
+        catch(Exception $e){
+            throw $e;
+        }
     }
 
     public function getCitiesByProvince($idProvince){
-        return $cities=$this->cityDao->getByProvinceId($idProvince);
+        try{
+            return $cities=$this->cityDao->getByProvinceId($idProvince);
+        }
+        catch(Exception $e){
+            throw $e;
+        }
     }
 
     public function updateCitiesSelect($provinceId){

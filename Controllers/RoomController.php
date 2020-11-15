@@ -22,8 +22,10 @@ class RoomController{
             }catch(Exception $e){
                 $message="Error adding the room.";
             }
+            finally{
+                $this->showRoom($cinemaId);
+            }
         }
-        $this->showRoom($cinemaId);
     }
 
     public function remove($id,$cinemaId)
@@ -34,7 +36,9 @@ class RoomController{
         catch(Exception $e){
             $message="Error removing the room.";
         }
-        $this->showRoom($cinemaId);
+        finally{
+            $this->showRoom($cinemaId);
+        }
     }
 
  
@@ -59,6 +63,7 @@ class RoomController{
         }
         catch(Exception $e){
             $message="Error getting the room.";
+
         }
     }
 
@@ -77,6 +82,7 @@ class RoomController{
         }
         catch(Exception $e){
             $message="Error getting the rooms.";
+            include(VIEWS_PATH."message_view.php");
         }
     }
 
