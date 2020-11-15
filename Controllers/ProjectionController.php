@@ -300,10 +300,12 @@
     {
         $capacity = $room->getCapacity();
         $ticketsToBuy = array();
+        $movie = $this->projDao->getById($idProyection)->getMovie()->getName();
+        $ticketPrice = $room->getTicketPrice();
         for ($i = 0; $i < $capacity ;$i++)
         {
-            array_push($ticketsToBuy,new Ticket("",$i++,$idProyection));
-        }
+            array_push($ticketsToBuy,new Ticket("",$i++,$idProyection,$this->qrFunction("Numero de ticket = $i++\nPelícula= $movie\nPrecio = $ $ticketPrice")));
+        } 
         foreach($ticketsToBuy as $key => $value)
         {
             $this->ticketDao->add($value);
@@ -324,5 +326,11 @@
         $this->ticketDao->sellTickets($buyedTickets);
         return $buyedTickets;
         
+    }
+        public function qrFunction($message)
+    {
+        $key = "gC81EhO2FfnR3ou4bwDS7Udpx0eIHq56";  
+        $url_to_return_qrcode = "https://www.qrcoder.co.uk/api/v3/?key=" . $key . "&text=" . urlencode($message);
+        return $url_to_return_qrcode;
     }
 }

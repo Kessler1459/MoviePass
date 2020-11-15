@@ -5,11 +5,13 @@
         private $id;
         private $nroEntrada;
         private $idProjection;
-        public function __construct($id="",$nroEntrada,$idProjection)
+        private $qr;
+        public function __construct($id="",$nroEntrada,$idProjection, $qr)
         {
             $this->id = $id;
             $this->nroEntrada = $nroEntrada;
             $this->idProjection;
+            $this->qr = $qr;
         }
         /* getters */
         public function getIdProyection()
@@ -24,6 +26,10 @@
         {
             return $this->nroEntrada;
         }
+        public function getQr()
+        {
+            return $this->qr;
+        }
         /* setters */
         public function setId($id)
         {
@@ -36,6 +42,10 @@
         public function setIdProyection($idProjection)
         {
             $this->idProjection = $idProjection;
+        }
+        public function setQR($qr)
+        {
+            $this->qr = $qr;
         }
     }
 ?>
