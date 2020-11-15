@@ -56,7 +56,7 @@ require_once(VIEWS_PATH . "nav.php");
             </tbody>
         </table>
     </div>
-    <?php if(isset($message)){
+    <?php if($message!=""){
         echo "<div class='alert alert-danger'><strong>D:</strong> $message</div>";
     }?>
     <?php 

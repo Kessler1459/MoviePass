@@ -12,13 +12,8 @@ use \Exception as Exception;
 class CinemaDAO
 {
     private $connection;
-    private $roomDao;
     private $tableName = "cinemas";
 
-    public function __construct()
-    {
-        $this->roomDao = new RoomDAO;
-    }
 
     public function add($name,$provinceId,$cityId,$address,$userId)
     {
@@ -54,15 +49,12 @@ class CinemaDAO
         foreach ($results as $row) {
             $prov = new Province($row["province_id"], $row["provincia_nombre"]);
             $ci = new City($row["ciu_id"], $row["ciudad_nombre"]);
-            $cinema = new Cinema(
+            $cinemasList[] = new Cinema(
                 $row["name_cinema"],
                 $row["id_cinema"],
                 $prov,
                 $ci,
-                $row["address"]
-            );
-            $cinema->setRooms($this->roomDao->getArrayByCinemaId($row["id_cinema"]));
-            $cinemasList[] = $cinema;
+                $row["address"]);
         }
         return $cinemasList;
     }
@@ -102,7 +94,6 @@ class CinemaDAO
         $prov = new Province($row["id_province"], $row["provincia_nombre"]);
         $ciu = new City($row["id_city"], $row["ciudad_nombre"]);
         $cinema = new Cinema($row["name_cinema"], $id, $prov, $ciu, $row["address"]);
-        $cinema->setRooms($this->roomDao->getArrayByCinemaId($id));
         return $cinema;
     }
 
@@ -124,7 +115,6 @@ class CinemaDAO
             $prov = new Province($value["id_province"], $value["provincia_nombre"]);
             $ciu = new City($value["id_city"], $value["ciudad_nombre"]);
             $cinema = new Cinema($value["name_cinema"], $value["id_cinema"], $prov, $ciu, $value["address"]);
-            $cinema->setRooms($this->roomDao->getArrayByCinemaId($value["id_cinema"]));
             $newArray[]=$cinema;
         } 
         return $newArray;

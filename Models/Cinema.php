@@ -8,15 +8,13 @@ class Cinema{
     private $province;
     private $city;
     private $address;
-    private $rooms;
 
-    public function __construct($name,$id,$province,$city,$address,$rooms=[]) {
+    public function __construct($name,$id,$province,$city,$address) {
         $this->name=$name;
         $this->id=$id;
         $this->province=$province;
         $this->city=$city;
         $this->address=$address;
-        $this->rooms=$rooms;
     }
 
     public static function compare($a, $b) {
@@ -120,26 +118,6 @@ class Cinema{
     public function setProvince($province)
     {
         $this->province = $province;
-
-        return $this;
-    }
-
-    /**
-     * Get the value of rooms
-     */ 
-    public function getRooms()
-    {
-        return $this->rooms;
-    }
-
-    /**
-     * Set the value of rooms
-     *
-     * @return  self
-     */ 
-    public function setRooms($rooms)
-    {
-        $this->rooms = $rooms;
 
         return $this;
     }

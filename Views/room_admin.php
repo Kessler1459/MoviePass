@@ -119,7 +119,7 @@ require_once(VIEWS_PATH . "nav.php");
                     <input class="form-control input-cinema" type="text" name="modalDescription" id="modalDescription" class="input-cinema" required>
                     <input type="hidden" name="roomId" id="roomId">
                     <input type="hidden" name="cinemaId" id="cinemaId">
-                    <button class="form-button" type="submit">Modify</button>
+                    <button class="button-a" type="submit">Modify</button>
                 </form>   
             </div>
         </div>

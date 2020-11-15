@@ -5,19 +5,23 @@ namespace DAO;
 use Models\Projection;
 use Models\Movie;
 use DAO\GenreXMovieDAO;
+use DAO\RoomDAO;
 use DAO\Connection;
 use \Exception as Exception;
+use Models\Cinema;
 use Models\Room;
 
 class ProjectionDAO
 {
     private $connection;
     private $genrexM;
+    private $roomDao;
     private $tableName = "projections";
 
     public function __construct()
     {
         $this->genrexM = new GenreXMovieDAO();
+        $this->roomDao=new RoomDAO();
     }
 
     public function add($roomId,$movieId,$date,$time)
@@ -39,7 +43,7 @@ class ProjectionDAO
 
     public function remove($id)
     {
-        $query = "DELETE FROM projections 
+        $query = "DELETE FROM $this->tableName 
                 WHERE id_proj=$id";
         try {
             $this->connection = Connection::getInstance();
@@ -55,10 +59,9 @@ class ProjectionDAO
      */
     public function getArrayByRoomId($roomId)
     {
-        $query = "SELECT p.id_proj,p.proj_date,p.proj_time,r.descript,r.id_room,r.capacity,r.ticket_price,m.id_movie,m.title,m.length,m.synopsis,m.poster_url,m.video_url,m.release_date 
-                from projections p
+        $query = "SELECT p.id_proj,p.proj_date,p.proj_time,p.id_room,m.id_movie,m.title,m.length,m.synopsis,m.poster_url,m.video_url,m.release_date 
+                from $this->tableName p
                 inner join movies m on m.id_movie=p.id_movie
-                inner join rooms r on r.id_room=p.id_room
                 where p.id_room=$roomId and concat(p.proj_date,' ',p.proj_time) > now()
                 order by(concat(p.proj_date,' ',p.proj_time))";
         try {
@@ -67,23 +70,16 @@ class ProjectionDAO
         } catch (Exception $ex) {
             throw $ex;
         }
-        $projectionList = array();
-        foreach ($results as $row) {
-            $movie = new Movie($row["title"], $row["id_movie"], $row["synopsis"], $row["poster_url"], $row["video_url"], $row["length"], [], $row["release_date"]);
-            $movie->setGenres($this->genrexM->getByMovieId($row["id_movie"]));
-            $room = new Room($row["id_room"], $row["capacity"], $row["ticket_price"], $row["descript"]);
-            $projectionList[] = new Projection($row["id_proj"], $movie, $row["proj_date"], $row["proj_time"], $room);
-        }
+        $projectionList = $this->resultsToProjsArray($results);
         return $projectionList;
     }
 
 
     public function getById($id)
     {
-        $query = "SELECT p.id_proj,p.proj_date,p.proj_time,r.descript,r.id_room,r.capacity,r.ticket_price,m.id_movie,m.title,m.length,m.synopsis,m.poster_url,m.video_url,m.release_date 
-                from projections p
+        $query = "SELECT p.id_proj,p.proj_date,p.proj_time,p.id_room,m.id_movie,m.title,m.length,m.synopsis,m.poster_url,m.video_url,m.release_date 
+                from $this->tableName p
                 inner join movies m on m.id_movie=p.id_movie
-                inner join rooms r on r.id_room=p.id_room
                 where p.id_proj=$id";
         try {
             $this->connection = Connection::getInstance();
@@ -91,11 +87,7 @@ class ProjectionDAO
         } catch (Exception $ex) {
             throw $ex;
         }
-        $row = $results[0];
-        $movie = new Movie($row["title"], $row["id_movie"], $row["synopsis"], $row["poster_url"], $row["video_url"], $row["length"], [], $row["release_date"]);
-        $movie->setGenres($this->genrexM->getByMovieId($row["id_movie"]));
-        $room = new Room($row["id_room"], $row["capacity"], $row["ticket_price"], $row["descript"]);
-        $projection = new Projection($row["id_proj"], $movie, $row["proj_date"], $row["proj_time"], $room);
+        $projection=$this->resultsToProjObj($results);
         return $projection;
     }
 
@@ -105,10 +97,9 @@ class ProjectionDAO
      */
     public function getAllProjections()
     {
-        $query = "SELECT p.id_proj,p.proj_date,p.proj_time,r.descript,r.id_room,r.capacity,r.ticket_price,m.id_movie,m.title,m.length,m.synopsis,m.poster_url,m.video_url,m.release_date 
-                from projections p
+        $query = "SELECT p.id_proj,p.proj_date,p.proj_time,p.id_room,m.id_movie,m.title,m.length,m.synopsis,m.poster_url,m.video_url,m.release_date 
+                from $this->tableName p
                 inner join movies m on m.id_movie=p.id_movie
-                inner join rooms r on r.id_room=p.id_room
                 where concat(p.proj_date,' ',p.proj_time) > now()
                 group by(m.id_movie)";
         try {
@@ -117,24 +108,8 @@ class ProjectionDAO
         } catch (Exception $ex) {
             throw $ex;
         }
-        $projectionsList = array();
-        foreach ($results as $row) {
-            $movie = new Movie(
-                $row["title"],
-                $row["id_movie"],
-                $row["synopsis"],
-                $row["poster_url"],
-                $row["video_url"],
-                $row["length"],
-                [],
-                $row["release_date"]
-            );
-            $movie->setGenres($this->genrexM->getByMovieId($row["id_movie"]));
-            $room = new Room($row["id_room"], $row["capacity"], $row["ticket_price"], $row["descript"]);
-            $proj = new Projection($row["id_proj"], $movie, $row["proj_date"], $row["proj_time"], $room);
-            $projectionsList[] = $proj;
-        }
-        return $projectionsList;
+        $projectionList = $this->resultsToProjsArray($results);
+        return $projectionList;
     }
 
     /**
@@ -142,7 +117,7 @@ class ProjectionDAO
      * @param array $params ["id_city"], y $params["proj_date"]
      */
     public function projectionFilters($params){
-        $query="SELECT p.id_proj,p.proj_date,p.proj_time,r.descript,r.id_room,r.capacity,r.ticket_price,m.id_movie,m.title,m.length,m.synopsis,m.poster_url,m.video_url,m.release_date,c.id_city  from projections p 
+        $query="SELECT *  from $this->tableName p 
                 inner join movies m on m.id_movie=p.id_movie
                 inner join rooms r on r.id_room=p.id_room
                 inner join cinemas c on r.id_cinema=c.id_cinema
@@ -151,6 +126,7 @@ class ProjectionDAO
         foreach($filteredParams as $key => $value){
             $query=$query." and $key=\"$value\"";
         }
+        $query=$query." group by(m.id_movie)";
         try {
             $this->connection = Connection::getInstance();
             $results = $this->connection->execute($query);
@@ -170,7 +146,8 @@ class ProjectionDAO
                 $row["release_date"]
             );
             $movie->setGenres($this->genrexM->getByMovieId($row["id_movie"]));
-            $room = new Room($row["id_room"], $row["capacity"], $row["ticket_price"], $row["descript"]);
+            $cinema=new Cinema($row["name_cinema"],$row["id_cinema"],$row["id_province"],$row["id_city"],$row["address"]);
+            $room = new Room($row["id_room"], $row["capacity"], $row["ticket_price"], $row["descript"], $cinema);
             $proj = new Projection($row["id_proj"], $movie, $row["proj_date"], $row["proj_time"], $room);
             $projectionsList[] = $proj;
         }
@@ -182,8 +159,8 @@ class ProjectionDAO
      */
     public function getAllProjectionsByCity($cityId)
     {
-        $query = "SELECT p.id_proj,p.proj_date,p.proj_time,r.descript,r.id_room,r.capacity,r.ticket_price,m.id_movie,m.title,m.length,m.synopsis,m.poster_url,m.video_url,m.release_date,c.id_city 
-                from projections p
+        $query = "SELECT * 
+                from $this->tableName p
                 inner join movies m on m.id_movie=p.id_movie
                 inner join rooms r on r.id_room=p.id_room
                 inner join cinemas c on r.id_cinema=c.id_cinema
@@ -207,7 +184,8 @@ class ProjectionDAO
                 $row["release_date"]
             );
             $movie->setGenres($this->genrexM->getByMovieId($row["id_movie"]));
-            $room = new Room($row["id_room"], $row["capacity"], $row["ticket_price"], $row["descript"]);
+            $cinema=new Cinema($row["name_cinema"],$row["id_cinema"],$row["id_province"],$row["id_city"],$row["address"]);
+            $room = new Room($row["id_room"], $row["capacity"], $row["ticket_price"], $row["descript"],$cinema);
             $proj = new Projection($row["id_proj"], $movie, $row["proj_date"], $row["proj_time"], $room);
             $projectionList[] = $proj;
         }
@@ -216,10 +194,9 @@ class ProjectionDAO
 
     public function getAllProjectionsByDate($date)
     {
-        $query = "SELECT p.id_proj,p.proj_date,p.proj_time,r.descript,r.id_room,r.capacity,r.ticket_price,m.id_movie,m.title,m.length,m.synopsis,m.poster_url,m.video_url,m.release_date 
-                    from projections p
+        $query = "SELECT p.id_proj,p.proj_date,p.proj_time,p.id_room,m.id_movie,m.title,m.length,m.synopsis,m.poster_url,m.video_url,m.release_date 
+                    from $this->tableName p
                     inner join movies m on p.id_movie=m.id_movie
-                    inner join rooms r on r.id_room=p.id_room
                     where p.proj_date = \"$date\" and concat(p.proj_date,' ',p.proj_time) > now()";
         try {
             $this->connection = Connection::getInstance();
@@ -227,55 +204,22 @@ class ProjectionDAO
         } catch (Exception $ex) {
             throw $ex;
         }
-        $projectionList = array();
-        foreach ($results as $row) {
-            $movie = new Movie(
-                $row["title"],
-                $row["id_movie"],
-                $row["synopsis"],
-                $row["poster_url"],
-                $row["video_url"],
-                $row["length"],
-                [],
-                $row["release_date"]
-            );
-            $movie->setGenres($this->genrexM->getByMovieId($row["id_movie"]));
-            $room = new Room($row["id_room"], $row["capacity"], $row["ticket_price"], $row["descript"]);
-            $proj = new Projection($row["id_proj"], $movie, $row["proj_date"], $row["proj_time"], $room);
-            $projectionList[] = $proj;
-        }
+        $projectionList = $this->resultsToProjsArray($results);
         return $projectionList;
     }
 
     public function getByDateRoom($date,$roomId){
-        $query="SELECT p.id_proj,p.proj_date,p.proj_time,r.descript,r.id_room,r.capacity,r.ticket_price,m.id_movie,m.title,m.length,m.synopsis,m.poster_url,m.video_url,m.release_date 
-                from projections p
+        $query="SELECT p.id_proj,p.proj_date,p.proj_time,p.id_room,m.id_movie,m.title,m.length,m.synopsis,m.poster_url,m.video_url,m.release_date 
+                from $this->tableName p
                 inner join movies m on p.id_movie=m.id_movie
-                inner join rooms r on r.id_room=p.id_room
-                where p.proj_date = \"$date\" and r.id_room=$roomId";
+                where p.proj_date = \"$date\" and p.id_room=$roomId";
         try {
             $this->connection = Connection::getInstance();
             $results = $this->connection->execute($query);
         } catch (Exception $ex) {
             throw $ex;
         }
-        $projectionList = array();
-        foreach ($results as $row) {
-            $movie = new Movie(
-                $row["title"],
-                $row["id_movie"],
-                $row["synopsis"],
-                $row["poster_url"],
-                $row["video_url"],
-                $row["length"],
-                [],
-                $row["release_date"]
-            );
-            $movie->setGenres($this->genrexM->getByMovieId($row["id_movie"]));
-            $room = new Room($row["id_room"], $row["capacity"], $row["ticket_price"], $row["descript"]);
-            $proj = new Projection($row["id_proj"], $movie, $row["proj_date"], $row["proj_time"], $room);
-            $projectionList[] = $proj;
-        }
+        $projectionList = $this->resultsToProjsArray($results);
         return $projectionList;
     }
 
@@ -283,10 +227,9 @@ class ProjectionDAO
      * retorna la cantidad de funciones de una pelicula existen en una fecha determinada
      */
     public function existByDate($date,$movieId,$roomId){
-        $query="SELECT COUNT(*) as count  from projections p 
+        $query="SELECT COUNT(*) as count  from $this->tableName p 
             inner join movies m on m.id_movie=p.id_movie
-            inner join rooms r on r.id_room=p.id_room
-            where p.proj_date=\"$date\" and m.id_movie=$movieId and r.id_room<>$roomId";
+            where p.proj_date=\"$date\" and m.id_movie=$movieId and p.id_room<>$roomId";
         try{
             $this->connection = Connection::getInstance();
             $results = $this->connection->execute($query);
@@ -294,6 +237,26 @@ class ProjectionDAO
             throw $ex;
         }
         return $results[0]["count"];
+    }
+
+    private function resultsToProjsArray($results){
+        $projectionList = array();
+        foreach ($results as $row) {
+            $movie = new Movie($row["title"], $row["id_movie"], $row["synopsis"], $row["poster_url"], $row["video_url"], $row["length"], [], $row["release_date"]);
+            $movie->setGenres($this->genrexM->getByMovieId($row["id_movie"]));
+            $room = $this->roomDao->getById($row["id_room"]);
+            $projectionList[] = new Projection($row["id_proj"], $movie, $row["proj_date"], $row["proj_time"], $room);
+        }
+        return $projectionList;
+    }
+
+    private function resultsToProjObj($results){
+        $row = $results[0];
+        $movie = new Movie($row["title"], $row["id_movie"], $row["synopsis"], $row["poster_url"], $row["video_url"], $row["length"], [], $row["release_date"]);
+        $movie->setGenres($this->genrexM->getByMovieId($row["id_movie"]));
+        $room = $this->roomDao->getById($row["id_room"]);
+        $projection = new Projection($row["id_proj"], $movie, $row["proj_date"], $row["proj_time"], $room);
+        return $projection;
     }
 }
 ?>

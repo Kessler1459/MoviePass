@@ -65,6 +65,7 @@ class CinemaController{
     public function add($name,$provinceId,$cityId,$address){
         session_start();
         $userId=$_SESSION["Id"];
+        $message="";
         try{
             $this->cinemaDao->add($name,$provinceId,$cityId,$address,$userId);
         }
@@ -72,7 +73,7 @@ class CinemaController{
             $message="error adding cinema.";
         }
         finally{
-            require_once VIEWS_PATH."cinema_list.php";
+            $this->showCinemasList($message);
         }
     }
 
@@ -102,7 +103,7 @@ class CinemaController{
         }
     }
 
-    public function showCinemasList(){
+    public function showCinemasList($message=""){
         $cinemas=array();
         try{
             $cinemas=$this->getAll();

@@ -5,7 +5,7 @@ require_once(VIEWS_PATH . "nav.php");
 <main class="container">
     <h1 class="title_">Movies</h1>
     
-    <dl class="dropdown">
+    <dl class="dropdown button-a">
         <dt>
             <a href="#">
                 <span class="hida">Genres</span>

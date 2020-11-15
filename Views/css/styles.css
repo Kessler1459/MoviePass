@@ -253,14 +253,15 @@ section dl{
 }
 
 
-
+/*
 .dropdown dt a span,
 .multiselct span {
 	cursor: pointer;
 	display: inline-block;
 	padding: 0 3px 2px 0;
 	font-size: 1.5vw;
-}
+}*/
+
 .dropdown dd ul {
 	background-color: rgba(255, 255, 255, 0.835);
 	border: 1px solid  #333;
@@ -277,7 +278,7 @@ section dl{
 }
 
 .dropdown dd ul label{
-	
+	font-size: 1vw;
 }
 
 .dropdown span.value {

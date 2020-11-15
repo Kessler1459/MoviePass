@@ -2,17 +2,17 @@
 
 namespace DAO;
 
-use DAO\ProjectionDAO;
+use DAO\CinemaDAO;
 use Models\Room;
 use \Exception as Exception;
 
 class RoomDAO {
     private $connection;
-    private $projDao;
+    private $cinemaDao;
     private $tableName = "rooms";
     
     public function __construct() {
-        $this->projDao = new ProjectionDAO();
+        $this->cinemaDao = new CinemaDAO();
     }
 
     public function add($capacity,$ticketPrice,$description,$cinemaId)
@@ -63,13 +63,15 @@ class RoomDAO {
         }
     }
 
-    
-
+    /**
+     * todas las salas de un cine
+     */
     public function getArrayByCinemaId($cinemaId){
         $query="SELECT * from $this->tableName where id_cinema=$cinemaId";
         try{
             $this->connection=Connection::getInstance();
             $results=$this->connection->execute($query);
+            $cinema=$this->cinemaDao->getById($cinemaId);
         }catch(Exception $ex){
             throw $ex;
         }
@@ -79,7 +81,7 @@ class RoomDAO {
             $room["capacity"],
             $room["ticket_price"],
             $room["descript"],
-            $this->projDao->getArrayByRoomId($room["id_room"]));
+            $cinema); 
         }
         return $roomList;
     }
@@ -89,15 +91,16 @@ class RoomDAO {
         try{
             $this->connection=Connection::getInstance();
             $results=$this->connection->execute($query);
+            $row=$results[0];
+            $cinema=$this->cinemaDao->getById($row["id_cinema"]);
         }catch(Exception $ex){
             throw $ex;
         }
-        $row=$results[0];
         $room=new Room($row["id_room"],
                 $row["capacity"],
                 $row["ticket_price"],
                 $row["descript"],
-                $this->projDao->getArrayByRoomId($row["id_room"]));
+                $cinema);
         return $room;
     }
 }
