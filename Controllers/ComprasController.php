@@ -175,7 +175,7 @@ class ComprasController{
     }
     public function creditCardFunction($email,$docType,$docNumber,$paymentMethodId,$transactionAmount,$description,$token)
     {
-        $this->datosTarjetaDao->add($docType,$docNumber,$transactionAmount,$token);
+        $this->datosTarjetaDao->add($docType,$docNumber,$transactionAmount,$token,$paymentMethodId);
         $this->procesarCompra();
         
        /*  require_once 'vendor/autoload.php';

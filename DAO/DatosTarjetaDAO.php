@@ -16,14 +16,16 @@ class DatosTarjetaDAO
     {
         
     }
-
-    public function add($tarjeta)
+    
+    public function add($docType,$docNumber,$transactionAmount,$token,$paymentMethodId)
     {
-        $query = "INSERT INTO $this->tableName (nro_tarjeta,tipo_tarjeta,empresa_credito) VALUES (:nro_tarjeta,:tipo_tarjeta,:empresa_credito);
+        $query = "INSERT INTO $this->tableName (doc_type,doc_number,transaction_amount,payment_method,token) VALUES (:doc_type,:doc_number,:transaction_amount,:payment_method,:token);
         ";
-        $parameters["nro_tarjeta"] = $cinema->getNroTarjeta();
-        $parameters["tipo_tarjeta"] = $cinema->getTipoTarjeta();
-        $parameters["empresa_credito"] = $cinema->getEmpresaCredito();
+        $parameters["doc_type"] = $docType;
+        $parameters["doc_number"] = $docNumber;
+        $parameters["transaction_amount"] = $transactionAmount;
+        $parameters["payment_method"] = $paymentMethodId;
+        $parameters["token"] = $token;
         try {
             $this->connection = Connection::getInstance();
             $this->connection->executeNonQuery($query, $parameters);
@@ -31,7 +33,6 @@ class DatosTarjetaDAO
             throw $ex;
         }
     }
-
     public function getAll()
     {
         $query = "SELECT * from $this->tableName;";
@@ -44,16 +45,19 @@ class DatosTarjetaDAO
         $datosTarjetaList = array();
         foreach ($results as $row) {
             $tarjeta = new DatosTarjeta(
-                $row["nro_tarjeta"],
-                $row["tipo_tarjeta"],
-                $row["empresa_credito"]
+                $row["doc_type"],
+                $row["doc_number"],
+                $row["transaction_amount"],
+                $row["token"],
+                $row["payment_method_id"]
+
             );
             $datosTarjetaList[] = $tarjeta;
         }
         return $datosTarjetaList;
     }
 
-    public function modify($modifiedTarjeta)
+    /* public function modify($modifiedTarjeta)
     {
         $query = "UPDATE tarjeta set nro_tarjeta=:nro_tarjeta, tipo_tarjeta=:tipo_tarjeta, empresa_credito=:empresa_credito;";
         $prov = $modifiedCinema->getProvince();
@@ -69,7 +73,7 @@ class DatosTarjetaDAO
         } catch (Exception $ex) {
             throw $ex;
         }
-    }
+    } */
 
     public function getById($id)
     {
@@ -82,7 +86,14 @@ class DatosTarjetaDAO
             throw $ex;
         }
         $row = $results[0];
-        $tarjeta = new DatosTarjeta($row["tarjeta_number"], $row["tipo_tarjeta"], $row["empresa_credito"]);
+        $tarjeta = new DatosTarjeta(
+                $row["doc_type"],
+                $row["doc_number"],
+                $row["transaction_amount"],
+                $row["token"],
+                $row["payment_method_id"]
+
+            );
         return $tarjeta;
     }
 
