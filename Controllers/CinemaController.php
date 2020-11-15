@@ -78,20 +78,23 @@ class CinemaController{
     }
 
     public function modify($name,$id,$provinceId,$cityId,$address){
+        $message="";
+        $locContro=new LocationController();
         try{
-            $province=$this->locContro->getProvinceById($provinceId);
-            $city=$this->locContro->getCityById($cityId);
+            $province=$locContro->getProvinceById($provinceId);
+            $city=$locContro->getCityById($cityId);
             $this->cinemaDao->modify(new Cinema($name,$id,$province,$city,$address));
         }
         catch(Exception $e){
             $message="error modifying cinema.";
         }
         finally{
-            require_once VIEWS_PATH."cinema_list.php";
+            $this->showCinemasList($message);
         }
     }
 
     public function remove($id){
+        $message="";
         try{
             $this->cinemaDao->remove($id);
         }
@@ -99,7 +102,7 @@ class CinemaController{
             $message="error removing cinema.";
         }
         finally{
-            require_once VIEWS_PATH."cinema_list.php";
+            $this->showCinemasList($message);
         }
     }
 
