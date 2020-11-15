@@ -105,6 +105,10 @@ class CinemaController{
             $this->showCinemasList($message);
         }
     }
+    public function getCinemaById($id)
+    {
+        return $this->cinemaDao->getById();
+    }
 
     public function showCinemasList($message=""){
         $cinemas=array();

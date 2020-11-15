@@ -10,13 +10,15 @@ class Projection implements JsonSerializable
     private $date;
     private $hour;
     private $room;
+    private $tickets;
 
-    public function __construct($id,$movie,$date,$hour,$room) {
+    public function __construct($id,$movie,$date,$hour,$room,$tickets="") {
         $this->id = $id;
         $this->movie = $movie;
         $this->date = $date;
         $this->hour = $hour;
         $this->room = $room;
+        $this->tickets = $tickets;
     }
 
 
@@ -25,12 +27,14 @@ class Projection implements JsonSerializable
     public function getDate(){return $this->date;}
     public function getHour(){return $this->hour;}
     public function getRoom(){return $this->room;}
+    public function getTickets(){return $this->tickets;}
 
     public function setMovie($movie){$this->movie = $movie;}
     public function SetId($id){$this->id = $id;}
     public function setDate($date){$this->date = $date;}
     public function setHour($hour){$this->hour = $hour;}
     public function setRoom($room){$this->room = $room;}
+    public function setTickets($tickets){$this->tickets = $tickets;}
     
     public function jsonSerialize()
     {

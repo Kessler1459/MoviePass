@@ -1,24 +1,33 @@
 <?php
 
-namespace Controllers;
+    namespace Controllers;
 
-use DAO\ProjectionDAO;
-use Controllers\MovieController;
-use Controllers\GenreController;
-use DateTime;
-use \Exception as Exception;
+    use DAO\ProjectionDAO;
+    use Controllers\RoomController;
+    use Controllers\MovieController;
+    use Controllers\GenreController;
+    use DateTime;
+    use Models\Projection;
+    use controllers\CinemaController;
+    use Controllers\LocationController;
+    use DAO\TicketDAO;
 
-
-class ProjectionController
-{
-    private $projDao;
-    private $movieContr;
-
-    public function __construct()
+    class ProjectionController
     {
-        $this->projDao = new ProjectionDAO();
-        $this->movieContr = new MovieController();
-    }
+        private $projDao;
+        private $movieContr;
+        private $cinemaContr;
+        private $locationContr;
+        private $ticketDao;
+
+        public function __construct()
+        {
+            $this->projDao = new ProjectionDAO();
+            $this->movieContr = new MovieController();
+            $this->cinemaContr = new CinemaController();
+            $this->locationContr = new LocationController();
+            $this->ticketDao = new TicketDAO();
+        }
 
     /**
      * este es cartelera jeje
@@ -62,6 +71,7 @@ class ProjectionController
 
     /*---------------------------------*/
 
+   
     public function showProjections($roomId){
         $projs=$this->getArrayByRoomId($roomId);
         include(VIEWS_PATH."projection_admin.php");
@@ -79,6 +89,30 @@ class ProjectionController
             $this->showProjections($roomId);
         }
     }
+        public function showProjectionFromMovie($movieId)
+        {
+            $movie = $this->movieContr->getById($movieId);
+            $cinemas=$this->cinemaContr->getAll();
+            $cinemas = $this->divideByMovie($movie);
+            $cinemas = $this->divideByCity($cinemas);
+            include(VIEWS_PATH."select_city.php");   
+        }
+        public function showProjectionByCity($cityId,$movieId,$date)
+        {
+            if($date == "")
+            {
+                $date = date('Y-m-d');
+            }
+            $movie = $this->movieContr->getById($movieId);
+            $cinemas=$this->cinemaContr->getAll();
+            $cinemas = $this->divideByMovie($movie);
+            $cinemas = $this->divideByCity($cinemas);
+            $cinemasXrooms = $this->divideRoomByCinema($cinemas, $movie, $date);
+            include(VIEWS_PATH."select_projection.php");
+        }
+        /*---------------------------------*/
+
+    
 
     public function addFromList($roomId){
         try{
@@ -216,6 +250,86 @@ class ProjectionController
             include(VIEWS_PATH."message_view.php");
         }
     }
+        private function divideByCity($cinemas)
+        {
+            $cinesxciudad = array();
+            foreach ($cinemas as $key => $value) {
+                    if(!in_array($value->getCity()))
+                    {
+                        $cinesxciudad += [$value->getCity => array($value)];
+                    }
+                    else
+                    {
+                        array_push($cinesxciudad[$value->getCity()]);
+                    }
+            }
+            return $cinesxciudad;
+        }
+        private function divideByMovie($movie)
+        {
+            $cinesXmovie = array();
+            $flag = false;
+            foreach($cinemas as $key => $cine)
+            {
+                $flag = false;
+                foreach($cine->getRooms() as $key => $room)
+                {
+                    foreach($room->getProjections() as $key => $projection)
+                    {
+                        if(!$flag == false && $projection->getMovie() == $movie)
+                        {
+                            $flag = true;
+                            array_push($cinesXmovie,$cine);
+                            break;
+                        }
+                    }
+                    if ($flag)
+                    {
+                    break;
+                    }
+                }
+            }
+        }
+        private function divideRoomByCinema($cinemas, $movie, $date)
+        {
+            $roomsXcinema += [$cinemas => array()];
+            $projections;
+            $rooms;          
+            $flag = false;
+            $roomsXcinema = array();
+            foreach ($cinemas as $key => $cinema) {
+                foreach ($rooms as $key => $room) {
+                    $projections = $room->getProjections();
+                    foreach($projections as $key => $projection)
+                    {
+                        if(($projection->getMovie()->getId() == $movie->getId()) && ($projection->getDate() == $date))
+                        {
+                            if(!in_array(($cinema),$roomsXcinema))
+                            {
+                                $roomsXcinema += [$cinema => array($room => array($projection))];
+                            }
+                            else {
+                                if (!in_array(($room),$roomsXcinema[$cinema]))
+                                {
+                                    $roomsXcinema[$cinema] += [$room => $projection];
+                                }
+                                else
+                                {
+                                    array_push($roomsXcinema[$cinema][$room],$projection);
+                                }
+                            }
+                            
+                        }
+                    }
+                }
+            }
+            return $roomsXcinema;
+        }
+    
+
+    /**
+     * devuelve todo el array de funciones futuras de una sala
+     */
 
     /**
      * valida si se respetan los 15min antes de cada funcion y no existe otra funcion de la pelicula en otro sala u cine el mismo dia
@@ -244,5 +358,53 @@ class ProjectionController
             $msg["msg"]="This movie is already in another room or cinema";
         }
         echo json_encode($msg,1);
+    }
+
+    public function addDetailsMovie($cinemaId,$movieId,$roomId,$projectionId)
+    {
+        session_start();
+        $cinema_actual = $this->cinemaContr->getCinemaById($cinemaId);
+        $movie_actual = $this->cinemaContr->getById($movieId);
+        $room_actual = $this->roomContr->getById($roomId);
+        $projection_actual = $this->projDao->getById($projectionId);
+        $_SESSION["selectedProjection"]=["cinema" => $cinema_actual,"movie"=> $movie_actual,"room" => $room_actual,"projection" => $projection_actual];
+        include_once(VIEW_PATH."ticket_buys.php");
+    }
+    private function ticketProduction($room, $idProyection)
+    {
+        $capacity = $room->getCapacity();
+        $ticketsToBuy = array();
+        $movie = $this->projDao->getById($idProyection)->getMovie()->getName();
+        $ticketPrice = $room->getTicketPrice();
+        for ($i = 0; $i < $capacity ;$i++)
+        {
+            array_push($ticketsToBuy,new Ticket("",$i++,$idProyection,$this->qrFunction("Numero de ticket = $i++\nPelícula= $movie\nPrecio = $ $ticketPrice")));
+        } 
+        foreach($ticketsToBuy as $key => $value)
+        {
+            $this->ticketDao->add($value);
+        }
+        return $ticketsToBuy;
+    }
+    private function sellTickets($cuantity,$proj_id)
+    {
+        $projActual = $this->projDao->getById($proj_id);
+        $tickets = $projActual->getTickets();
+        $buyedTickets = array();
+        for($i = 0 ; $i < $cuantity; $i++)
+        {
+            array_push($buyedTickets,array_pop($tickets));
+        }
+        $projActual->setTickets($tickets);
+        $this->projDao->update($projActual);
+        $this->ticketDao->sellTickets($buyedTickets);
+        return $buyedTickets;
+        
+    }
+        public function qrFunction($message)
+    {
+        $key = "gC81EhO2FfnR3ou4bwDS7Udpx0eIHq56";  
+        $url_to_return_qrcode = "https://www.qrcoder.co.uk/api/v3/?key=" . $key . "&text=" . urlencode($message);
+        return $url_to_return_qrcode;
     }
 }
