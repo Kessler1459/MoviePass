@@ -12,5 +12,6 @@ define("DB_HOST", "localhost");
 define("DB_NAME", "movie_pass");
 define("DB_USER", "root");
 define("DB_PASS", "");
+define("MOVIEDB_KEY","7aa6621ccfa43667fe6bb6917d72e075");
 
 ?>

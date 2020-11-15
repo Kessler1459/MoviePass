@@ -3,31 +3,27 @@
 namespace DAO;
 
 use Models\Movie;
-use Models\Genre;
 use Controllers\GenreController;
 
-// key  7aa6621ccfa43667fe6bb6917d72e075
-//todo preguntar sobre donde guardar la key
+
 class MoviedbDAO{
     private $movies;
     private $totalPages;
-    private $apiKey;
 
     public function __construct() {     
         $this->movies=array();
-        $this->apiKey="7aa6621ccfa43667fe6bb6917d72e075"; //por ahora la dejo aca
     }
 
     //si no se aclara se usa region argentina
     public function getAll($query,$page=1,$language="es-AR",$region="US")  //puede ser popular , upcoming, top_rated o now_playing(esta es la de carteleras)
     {
-        $filename="https://api.themoviedb.org/3/movie/$query?api_key=$this->apiKey&language=$language&page=$page&region=$region";
+        $filename="https://api.themoviedb.org/3/movie/$query?api_key=".MOVIEDB_KEY."&language=$language&page=$page&region=$region";
         return $this->jsonToArray($filename);
     }
 
     public function searchMovie($query,$page,$language="es-AR",$region="US"){ //talvez agregarle por año
         $query=str_replace(" ","%20",$query);
-        $filename="https://api.themoviedb.org/3/search/movie?api_key=$this->apiKey&language=$language&query=$query&page=$page&include_adult=true";
+        $filename="https://api.themoviedb.org/3/search/movie?api_key=".MOVIEDB_KEY."&language=$language&query=$query&page=$page&include_adult=true";
         return $this->jsonToArray($filename);
     }
 
@@ -52,7 +48,7 @@ class MoviedbDAO{
     }
 
     public function getDetailsById($id, $language="es-AR"){
-        $filename="https://api.themoviedb.org/3/movie/$id?api_key=$this->apiKey&language=$language";
+        $filename="https://api.themoviedb.org/3/movie/$id?api_key=".MOVIEDB_KEY."&language=$language";
         $genreContr=new GenreController();
         $this->movies=array();
         $jsonResults=file_get_contents($filename);
@@ -70,7 +66,7 @@ class MoviedbDAO{
     }
 
     public function getVideo($idMovie,$language="es-AR"){
-        $filename="https://api.themoviedb.org/3/movie/$idMovie/videos?api_key=7aa6621ccfa43667fe6bb6917d72e075&language=$language";
+        $filename="https://api.themoviedb.org/3/movie/$idMovie/videos?api_key=".MOVIEDB_KEY."&language=$language";
         $jsonResults=file_get_contents($filename);
         $array=($jsonResults)?json_decode($jsonResults,true):array();
         if (!empty($array["results"])) {
