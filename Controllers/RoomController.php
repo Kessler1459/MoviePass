@@ -16,12 +16,13 @@ class RoomController{
      */
     public function add ($capacity,$ticketPrice,$description,$cinemaId)
     {
+        $message="";
         try{
             if($capacity>0 && $ticketPrice >=0){
                 $this->roomDao->add($capacity,$ticketPrice,$description,$cinemaId);             
             }
             else{
-                $message="Valor no permitido D:";
+                $message="Valor no permitido.";
             }
         }
         catch(Exception $e){
@@ -34,6 +35,7 @@ class RoomController{
 
     public function remove($id,$cinemaId)
     {
+        $message="";
         try{
             $this->roomDao->remove($id);
         }
@@ -47,6 +49,7 @@ class RoomController{
 
  
     public function modify($capacity,$ticketPrice,$description,$roomId,$cinemaId){
+        $message="";
         if($capacity>0 && $ticketPrice >=0){
             try{
                 $this->roomDao->modify($roomId,$capacity,$ticketPrice,$description);
