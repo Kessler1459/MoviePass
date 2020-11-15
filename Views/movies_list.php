@@ -76,9 +76,10 @@ require_once(VIEWS_PATH . "nav.php");
             <div class="media">
                 <img id="imgModal" class="align-self-center mr-3" src="" width="70%">
                 <div class="media-body">
+                    <br>
                     <h5 class="mt-0" id="modalTitle"></h5>
-
-                    <p id="modalSyn"></p>
+                        
+                    <p id="modalSyn" class="movie_descript"></p>
                     <br><br>
                     <input type="hidden" id="movieIdInput">
                     <button type="submit" class="button-a">Buy</button>

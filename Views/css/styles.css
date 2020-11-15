@@ -118,6 +118,10 @@ nav a,nav a:hover{
 	align-items: center;
 }
 
+.movie_descript{
+	font-size: 1rem;
+	margin-right: 15px;
+}
 
 .title_{
 	color: rgb(240, 240, 240);
