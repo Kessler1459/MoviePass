@@ -32,22 +32,22 @@ class MovieController{
     }
     
     public function filterByGenre($genresArray,$movies){ 
-            $newArray=array();
-            foreach ($movies as $movie) {
-                $jaja=0;
-                $genresMovie=$movie->getGenres();
-                foreach ($genresMovie as $genM) {
-                    foreach ($genresArray as $strGen) {
-                        if ($strGen ==$genM->getName()){
-                            $jaja++;
-                        }
+        $newArray=array();
+        foreach ($movies as $movie) {
+            $jaja=0;
+            $genresMovie=$movie->getGenres();
+            foreach ($genresMovie as $genM) {
+                foreach ($genresArray as $strGen) {
+                    if ($strGen ==$genM->getName()){
+                        $jaja++;
                     }
-                }     
-                if ($jaja==count($genresArray)) {
-                    $newArray[]=$movie;
                 }
+            }     
+            if ($jaja==count($genresArray)) {
+                $newArray[]=$movie;
             }
-            return $newArray;
+        }
+        return $newArray;
     }
 
     public function searchByName($name){

@@ -56,15 +56,15 @@ require_once(VIEWS_PATH . "nav.php");
         </table>
     </div>
     <div>
+    <?php if(isset($message)){
+        echo "<div class='alert alert-danger'><strong>D:</strong> $message</div>";
+    }?>
     <?php 
         if ($_SESSION['userType'] != 3 ) {?> 
             <input type="hidden" name="cinemaId" value=<?php echo $cinemaId ?>>
             <button class="button-a" data-toggle="modal" data-target="#add_room">Add Room</button>  
     <?php } ?>  
     </div>
-    <?php if(isset($message)){
-        echo "<div class='alert alert-success'><strong>D:</strong> $message</div>";
-    }?>
 </main>
 
 <!--MODAL ADDING NEW ROOM-->

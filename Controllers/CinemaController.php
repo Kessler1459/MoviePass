@@ -4,6 +4,7 @@ namespace Controllers;
 use Models\Cinema;
 use DAO\CinemaDAO;
 use Controllers\LocationController;
+use \Exception as Exception;
 
 class CinemaController{
     private $cinemaDao,$provinces,$initCities;
@@ -11,8 +12,14 @@ class CinemaController{
     public function __construct() {
         $this->cinemaDao=new CinemaDAO();
         $locationContr=new LocationController();
-        $this->provinces=$locationContr->getAllProvinces();
-        $this->initCities=$locationContr->getCitiesByProvince(1);  
+        try{
+            $this->provinces=$locationContr->getAllProvinces();
+            $this->initCities=$locationContr->getCitiesByProvince(1);  
+        }
+        catch(Exception $e){
+            $message="Error getting cinemas.";
+            $this->showCinemasList();
+        }
     }
 
     /**
@@ -22,54 +29,92 @@ class CinemaController{
         if(session_status () != 2){
             session_start();  
         }
-        
-        if ($_SESSION["userType"]==3) {
-            return $this->cinemaDao->getAll();
+        try{
+            if ($_SESSION["userType"]==3) {
+                return $this->cinemaDao->getAll();
+            }
+            else{
+                return $this->getAllByUserId($_SESSION["Id"]);
+            }
         }
-        else{
-            return $this->getAllByUserId($_SESSION["Id"]);
+        catch(Exception $e){
+            throw $e;
         }
     }
 
     public function getAllByUserId($userId){
-        return $this->cinemaDao->getAllByUserId($userId);
+        try{
+            return $this->cinemaDao->getAllByUserId($userId);
+        }
+        catch(Exception $e){
+            throw $e;
+        }
     }
 
     public function getAllSorted(){
-        $sorted=$this->getAll();
-        usort($sorted,array("Models\Cinema","compare"));
-        return $sorted;
+        try{
+            $sorted=$this->getAll();
+            usort($sorted,array("Models\Cinema","compare"));
+            return $sorted;
+        }
+        catch(Exception $e){
+            throw $e;
+        }
     }
 
     public function add($name,$provinceId,$cityId,$address){
         session_start();
         $userId=$_SESSION["Id"];
-        $this->cinemaDao->add($name,$provinceId,$cityId,$address,$userId);
-        $this->showCinemasList();
+        try{
+            $this->cinemaDao->add($name,$provinceId,$cityId,$address,$userId);
+        }
+        catch(Exception $e){
+            $message="error adding cinema.";
+        }
+        finally{
+            require_once VIEWS_PATH."cinema_list.php";
+        }
     }
 
     public function modify($name,$id,$provinceId,$cityId,$address){
-        $province=$this->locContro->getProvinceById($provinceId);
-        $city=$this->locContro->getCityById($cityId);
-        $this->cinemaDao->modify(new Cinema($name,$id,$province,$city,$address));
-        $this->showCinemasList();
+        try{
+            $province=$this->locContro->getProvinceById($provinceId);
+            $city=$this->locContro->getCityById($cityId);
+            $this->cinemaDao->modify(new Cinema($name,$id,$province,$city,$address));
+        }
+        catch(Exception $e){
+            $message="error modifying cinema.";
+        }
+        finally{
+            require_once VIEWS_PATH."cinema_list.php";
+        }
     }
 
     public function remove($id){
-        if ($this->cinemaDao->remove($id)>0) {
-            $this->showCinemasList();
+        try{
+            $this->cinemaDao->remove($id);
         }
-        
+        catch(Exception $e){
+            $message="error removing cinema.";
+        }
+        finally{
+            require_once VIEWS_PATH."cinema_list.php";
+        }
     }
 
     public function showCinemasList(){
-        $cinemas=$this->getAll();
-        require_once VIEWS_PATH."cinema_list.php";
+        $cinemas=array();
+        try{
+            $cinemas=$this->getAll();
+        }
+        catch(Exception $e){
+            $message="Error getting cinemas.";
+        }
+        finally{
+            require_once VIEWS_PATH."cinema_list.php";
+        }
     }
 
-    public function showAddCinema(){
-        require_once VIEWS_PATH."add_cinema.php";
-    }
 
 
 }

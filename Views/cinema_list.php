@@ -22,7 +22,9 @@ require_once(VIEWS_PATH . "nav.php");
                 </tr>
             </thead>
             <tbody>
-                <?php foreach ($cinemas as $cine) {
+                <?php 
+                if(isset($cinemas)){
+                foreach ($cinemas as $cine) {
                 ?>
                     <tr class="table-font-alt">
                         <td><?php echo $cine->getName() ?></td>
@@ -50,10 +52,13 @@ require_once(VIEWS_PATH . "nav.php");
                             </form>
                         </td>
                     </tr>
-                <?php } ?>
+                <?php }} ?>
             </tbody>
         </table>
     </div>
+    <?php if(isset($message)){
+        echo "<div class='alert alert-danger'><strong>D:</strong> $message</div>";
+    }?>
     <?php 
         if ($_SESSION['userType'] != 3 ) {?> 
               <button class="button-a" data-toggle="modal" data-target="#add_cinema">New cinema</button>  

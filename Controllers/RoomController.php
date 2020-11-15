@@ -49,6 +49,7 @@ class RoomController{
             }
             catch(Exception $e){
                 $message="Error modifying the room.";
+                $this->showRoom($cinemaId);
             }
         }
         $this->showRoom($cinemaId);
@@ -69,8 +70,16 @@ class RoomController{
 
     public function showRoom($cinemaId)
     {
-        $rooms=$this->getArrayByCinemaId($cinemaId);
-        include VIEWS_PATH."room_admin.php";
+        $rooms=array();
+        try{
+            $rooms=$this->getArrayByCinemaId($cinemaId);
+        }
+        catch(Exception $e){
+            $message="Error getting the rooms.";
+        }
+        finally{
+            include VIEWS_PATH."room_admin.php";
+        }
     }
 
     /**
@@ -81,16 +90,9 @@ class RoomController{
             return $this->roomDao->getArrayByCinemaId($cinemaId);
         }
         catch(Exception $e){
-            $message="Error getting the rooms.";
-            include(VIEWS_PATH."message_view.php");
+            throw $e;
         }
     }
-
-    public function showModifyRoom($id,$cinemaId){
-        $room=$this->roomDao->getById($id);
-        require_once VIEWS_PATH."modify_room.php";
-    }
-
  
 }
 
