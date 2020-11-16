@@ -39,6 +39,17 @@ CREATE TABLE genres_x_movies(
 	CONSTRAINT fk_genre FOREIGN KEY(id_genre) REFERENCES genres(id_genre),    
 	CONSTRAINT fk_movie FOREIGN KEY(id_movie) REFERENCES movies(id_movie));
 
+CREATE TABLE users(
+	id_user INT NOT NULL,
+	email VARCHAR(50) UNIQUE,
+	pass VARCHAR(12),
+	first_name VARCHAR(20),
+	last_name VARCHAR(20),
+	dni INT NOT NULL,
+	user_type INT NOT NULL,
+	role_description VARCHAR(50),
+	CONSTRAINT PRIMARY KEY (id_user));
+
 CREATE TABLE cinemas(
 	id_cinema INT NOT NULL,
 	name_cinema VARCHAR(40),
@@ -48,7 +59,7 @@ CREATE TABLE cinemas(
 	address VARCHAR(40),
 	CONSTRAINT pk_cinemas PRIMARY KEY(id_cinema),
 	CONSTRAINT pk_cinemas_province FOREIGN KEY(id_province) REFERENCES provincia(id),
-	CONSTRAINT pk_cinemas_city FOREIGN KEY(id_city) REFERENCES ciudad(id))CONSTRAINT pk_cinemas_city FOREIGN KEY(id_city) REFERENCES ciudad(id),
+	CONSTRAINT pk_cinemas_city FOREIGN KEY(id_city) REFERENCES ciudad(id),
 	CONSTRAINT fk_id_user foreign key(id_user) references users(id_user) on delete cascade on update cascade);
 
 CREATE TABLE rooms(
@@ -70,16 +81,6 @@ CREATE TABLE projections(
 	CONSTRAINT fk_id_room FOREIGN KEY (id_room) REFERENCES rooms(id_room) ON DELETE CASCADE ON UPDATE CASCADE,
 	CONSTRAINT fk_id_movie FOREIGN KEY (id_movie) REFERENCES movies(id_movie));
     
-CREATE TABLE users(
-	id_user INT NOT NULL,
-	email VARCHAR(50) UNIQUE,
-	pass VARCHAR(12),
-	first_name VARCHAR(20),
-	last_name VARCHAR(20),
-	dni INT NOT NULL,
-	user_type INT NOT NULL,
-	role_description VARCHAR(50),
-	CONSTRAINT PRIMARY KEY (id_user));
 
 CREATE TABLE purchases(
 	id_purchase INT AUTO_INCREMENT,
@@ -89,7 +90,7 @@ CREATE TABLE purchases(
 	purchase_date DATE NOT NULL,
 	total FLOAT NOT NULL,
 	CONSTRAINT pk_id_purchase PRIMARY KEY(id_purchase),
-	CONSTRAINT fk_id_user FOREIGN KEY (id_user) REFERENCES users (id_user));
+	CONSTRAINT fk_id_user_pur FOREIGN KEY (id_user) REFERENCES users (id_user));
 
 CREATE TABLE tickets(
 	id_ticket INT AUTO_INCREMENT,
@@ -98,7 +99,7 @@ CREATE TABLE tickets(
 	nro_ticket INT NOT NULL,
 	CONSTRAINT pk_ticket PRIMARY KEY(id_ticket),
 	CONSTRAINT fk_id_funcion FOREIGN KEY (id_proj) REFERENCES projections (id_proj),
-	CONSTRAINT fk_id_purchase FOREIGN KEY (id_proj) REFERENCES purchases (id_proj));
+	CONSTRAINT fk_id_purchase FOREIGN KEY (id_purchase) REFERENCES purchases (id_purchase));
 
 
 
