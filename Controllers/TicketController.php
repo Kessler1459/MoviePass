@@ -1,7 +1,6 @@
 <?php
 
 namespace Controllers;
-include_once(ROOT."Lib/QR/phpqrcode.php");
 use Lib\QR\QRcode;
 use DAO\TicketDAO;
 use \Exception as Exception;
@@ -68,10 +67,13 @@ class TicketController{
     }
 
     private function setTicketQr($ticket){
-        session_start();
+        require_once(ROOT. 'phpqrcode/qrlib.php');
         $toEncode=$_SESSION["name"].$ticket->getId();
-        $path=IMG_PATH.$toEncode.".png";
-        QRcode::png($toEncode,$path,3,2,3);
+        $toEncode=str_replace(" ","",$toEncode);
+        $path="/Views/img/qr/".$toEncode.".png";
+        $root=ROOT.$path;
+        $path="/MoviePass".$path;
+        \QRcode::png($toEncode,$root,3,3,3);
         $ticket->setQr($path);
         return $ticket;
     }

@@ -112,6 +112,10 @@ nav a,nav a:hover{
 	margin-bottom: 3%;  
 }
 
+.input-group {
+	margin-top: 10px;
+  }
+
 .form-group{	
 	display: flex;
 	flex-direction: column;
@@ -251,6 +255,18 @@ section dl{
 	line-height: 24px;
 	overflow: hidden;
 	width: 272px;
+}
+
+.cajitajaja{
+	margin-top: 2%;
+	margin-bottom: 2%;
+	
+	height: 250px;
+	width: 100%;
+	border: 1px solid grey;
+	background-color: rgba(255, 255, 255, 0.575);
+	border-radius: 7px;
+	box-shadow: 1.5px 1.5px #e217178c;
 }
 
 

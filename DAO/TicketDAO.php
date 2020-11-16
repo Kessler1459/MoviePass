@@ -33,7 +33,7 @@ class TicketDAO{
         } catch (Exception $ex) {
             throw $ex;
         }
-        return $results[0];
+        return $results[0]["count"];
     }
 
     public function getByProjId($idProj){
@@ -52,7 +52,7 @@ class TicketDAO{
     }
 
     public function getByPurchaseId($idPurchase){
-        $query="SELECT * from $this->tableName where id_proj=$idPurchase";
+        $query="SELECT * from $this->tableName where id_purchase=$idPurchase";
         try {
             $this->connection = Connection::getInstance();
             $results=$this->connection->execute($query);
