@@ -108,11 +108,13 @@ CREATE TABLE creditAccounts(
 CREATE TABLE paymentCC(
 	id_paymentCC INT AUTO_INCREMENT,
 	id_creditAccount INT NOT NULL,
+	id_purchase INT NOT NULL,
 	aut_cod INT NOT NULL,
 	paymentCC_date DATE,
 	total FLOAT NOT NULL,
 	CONSTRAINT pk_paymentCC PRIMARY KEY(id_paymentCC),
-	CONSTRAINT fk_id_creditAccount FOREIGN KEY (id_creditAccount) REFERENCES creditAccounts(id_creditAccount));
+	CONSTRAINT fk_id_creditAccount FOREIGN KEY (id_creditAccount) REFERENCES creditAccounts(id_creditAccount),
+	CONSTRAINT fk_id_purchasePay FOREIGN KEY (id_purchase) REFERENCES purchases(id_purchase));
 	
 CREATE TABLE discounts(
 	id_discount INT AUTO_INCREMENT,
