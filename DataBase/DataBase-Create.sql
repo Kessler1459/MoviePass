@@ -81,48 +81,31 @@ CREATE TABLE users(
 	role_description VARCHAR(50),
 	CONSTRAINT PRIMARY KEY (id_user));
 
-CREATE TABLE IF NOT EXISTS tarjeta(
-	id_tarjeta INT AUTO_INCREMENT,
-	doc_type VARCHAR(10) NOT NULL,
-	doc_number VARCHAR(20) NOT NULL,
-	transaction_amount FLOAT NOT NULL,
-	payment_method_id VARCHAR(30) NOT NULL,
-	token VARCHAR(50) NOT NULL,
-	fecha TIMESTAMP DEFAULT current_timestamp,
-	CONSTRAINT pk_compra PRIMARY KEY (id_tarjeta));
-
-CREATE TABLE IF NOT EXISTS entrada(
-	id_entrada INT AUTO_INCREMENT,
-	nro_entrada INT NOT NULL,
-	CONSTRAINT pk_entrada PRIMARY KEY(id_entrada));
-
-CREATE TABLE IF NOT EXISTS compra(
-	id_compra INT AUTO_INCREMENT,
+CREATE TABLE purchases(
+	id_purchase INT AUTO_INCREMENT,
 	id_user INT NOT NULL,
-	id_tarjeta INT NOT NULL,
-	fecha timestamp DEFAULT current_timestamp,
-	descuento FLOAT,
-	cant_entradas INT NOT NULL,
-	total INT,
-	CONSTRAINT pk_compra PRIMARY KEY (id_compra),
-	CONSTRAINT fk_id_userCompra FOREIGN KEY (id_user) REFERENCES users (id_user),
-	CONSTRAINT fk_id_tarjeta FOREIGN KEY (id_tarjeta) REFERENCES tarjeta (id_tarjeta));
+	quantity_tikets INT NOT NULL,
+	discount FLOAT,
+	purchase_date DATE NOT NULL,
+	total FLOAT NOT NULL,
+	CONSTRAINT pk_id_purchase PRIMARY KEY(id_purchase),
+	CONSTRAINT fk_id_user FOREIGN KEY (id_user) REFERENCES users (id_user));
 
-CREATE TABLE IF NOT EXISTS entrada_x_compra(
-	id_entradaxcompra INT AUTO_INCREMENT,
-	id_compra INT NOT NULL,
-	id_entrada INT NOT NULL,
-	CONSTRAINT pk_entradaxcompra PRIMARY KEY(id_entradaxcompra),
-	CONSTRAINT fk_id_compra FOREIGN KEY (id_compra) REFERENCES compra (id_compra),
-	CONSTRAINT fk_id_entradaCompra FOREIGN KEY (id_entrada) REFERENCES entrada (id_entrada));
+CREATE TABLE tickets(
+	id_ticket INT AUTO_INCREMENT,
+	id_proj INT NOT NULL,
+	id_purchase INT NOT NULL,
+	nro_ticket INT NOT NULL,
+	CONSTRAINT pk_ticket PRIMARY KEY(id_ticket),
+	CONSTRAINT fk_id_funcion FOREIGN KEY (id_proj) REFERENCES projections (id_proj),
+	CONSTRAINT fk_id_purchase FOREIGN KEY (id_proj) REFERENCES purchases (id_proj));
 
-CREATE TABLE IF NOT EXISTS entrada_x_funcion(
-	id_entradaxfuncion INT AUTO_INCREMENT,
-	id_entrada INT NOT NULL,
-	id_funcion INT NOT NULL,
-	CONSTRAINT pk_entradaxfuncion PRIMARY KEY (id_entradaxfuncion),
-	CONSTRAINT fk_id_entrada FOREIGN KEY (id_entrada) REFERENCES entrada (id_entrada),
-	CONSTRAINT fk_id_funcion FOREIGN KEY (id_funcion) REFERENCES projections (id_proj));
+
+
+
+
+
+
 
 INSERT INTO genres(id_genre,genre_name) VALUES (28,"Action"),(12,"Adventure"),(16,"Animation"),(35,"Comedy"),(80,"Crime"),(99,"Documentary"),(18,"Drama"),(10751,"Family"),
 						(14,"Fantasy"),(36,"History"),(27,"Horror"),(10402,"Music"),(9648,"Mystery"),(10749,"Romance"),(878,"Science Fiction"),
