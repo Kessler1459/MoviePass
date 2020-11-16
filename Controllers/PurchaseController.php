@@ -88,9 +88,9 @@
             $porc_discount=($discountOBJ==false)? 0 : $discountOBJ->getPercent();
             $final = ($total / 100 ) * (100 - $porc_discount);
 
-            $ticketsArray = $this->sendPurchase($id_creditAccount,$quantity_tickets,$porc_discount,$date,$total,$aut_cod,$id_proj);
+            $id_purch = $this->sendPurchase($id_creditAccount,$quantity_tickets,$porc_discount,$date,$total,$aut_cod,$id_proj);
 
-            include VIEWS_PATH."sold_tickets.php";           
+            $this->ticketController->showTicketsByPurchaseId($id_purch);           
 
             
         }
@@ -112,11 +112,9 @@
             for ($i=0; $i <  $quantity_tickets; $i++) { 
                 $soldTickets++;
                 $idTicket = $this->ticketController->add($soldTickets,$id_proj,$id_purchase);
-                $ticket = new Ticket($idTicket,$soldTickets);
-                array_push($ticketsArray, $ticket);
             }
             
-            return $ticketsArray;
+            return $id_purchase;
         }
 
         public function add($quantity_tickets,$discount,$date,$total) {

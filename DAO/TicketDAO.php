@@ -33,7 +33,11 @@ class TicketDAO{
         } catch (Exception $ex) {
             throw $ex;
         }
-        return $results;
+        $newArr=array();
+        foreach ($results as $value) {
+            $newArr[]=new Ticket($value["id_ticket"],$value["nro_ticket"]);
+        }
+        return $newArr;
     }
 
     public function getByPurchaseId($idPurchase){
@@ -44,7 +48,11 @@ class TicketDAO{
         } catch (Exception $ex) {
             throw $ex;
         }
-        return $results;
+        $newArr=array();
+        foreach ($results as $value) {
+            $newArr[]=new Ticket($value["id_ticket"],$value["nro_ticket"]);
+        }
+        return $newArr;
     }
 
 }
