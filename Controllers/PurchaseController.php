@@ -54,7 +54,7 @@
         }
 
         public function getById($id_ticket){
-            $id_purchase = ;// con el ticket se busca id compra y se pasa por aca
+            $id_purchase = 0;// con el ticket se busca id compra y se pasa por aca
             
             try
             {
