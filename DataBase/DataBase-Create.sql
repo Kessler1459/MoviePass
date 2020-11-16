@@ -81,7 +81,6 @@ CREATE TABLE projections(
 	CONSTRAINT fk_id_room FOREIGN KEY (id_room) REFERENCES rooms(id_room) ON DELETE CASCADE ON UPDATE CASCADE,
 	CONSTRAINT fk_id_movie FOREIGN KEY (id_movie) REFERENCES movies(id_movie));
     
-
 CREATE TABLE purchases(
 	id_purchase INT AUTO_INCREMENT,
 	id_user INT NOT NULL,
@@ -100,12 +99,30 @@ CREATE TABLE tickets(
 	CONSTRAINT pk_ticket PRIMARY KEY(id_ticket),
 	CONSTRAINT fk_id_funcion FOREIGN KEY (id_proj) REFERENCES projections (id_proj),
 	CONSTRAINT fk_id_purchase FOREIGN KEY (id_purchase) REFERENCES purchases (id_purchase));
-
-
-
-
-
-
+	
+CREATE TABLE creditAccounts(
+	id_creditAccount INT AUTO_INCREMENT,
+	company VARCHAR(20),
+	CONSTRAINT pk_creditAccount PRIMARY KEY(id_creditAccount));
+	
+CREATE TABLE paymentCC(
+	id_paymentCC INT AUTO_INCREMENT,
+	id_creditAccount INT NOT NULL,
+	aut_cod INT NOT NULL,
+	paymentCC_date DATE,
+	total FLOAT NOT NULL,
+	CONSTRAINT pk_paymentCC PRIMARY KEY(id_paymentCC),
+	CONSTRAINT fk_id_creditAccount FOREIGN KEY (id_creditAccount) REFERENCES creditAccounts(id_creditAccount));
+	
+CREATE TABLE discounts(
+	id_discount INT AUTO_INCREMENT,
+	id_creditAccount INT NOT NULL,
+	dis_date DATE,
+	dis_perc INT NOT NULL,
+	CONSTRAINT pk_discount PRIMARY KEY(id_discount),
+	CONSTRAINT fk_id_creditAccountDisc FOREIGN KEY (id_creditAccount) REFERENCES creditAccounts(id_creditAccount));
+	 
+	 
 
 
 INSERT INTO genres(id_genre,genre_name) VALUES (28,"Action"),(12,"Adventure"),(16,"Animation"),(35,"Comedy"),(80,"Crime"),(99,"Documentary"),(18,"Drama"),(10751,"Family"),
@@ -114,3 +131,6 @@ INSERT INTO genres(id_genre,genre_name) VALUES (28,"Action"),(12,"Adventure"),(1
 
 INSERT INTO users (id_user,email,pass,first_name,last_name,dni,user_type,role_description) VALUES (1,"nahuelflores@gmail.com","1999","Nahuel","Flores","123456",3,"Admin");
 		
+INSERT INTO creditAccounts(company) VALUES ("Visa"),("Mastercard"),("American Express");
+INSERT INTO discounts(id_creditAccount,dis_date,dis_perc) VALUES (1,NOW(),5),(3,NOW(),10);
+
