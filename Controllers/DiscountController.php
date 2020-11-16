@@ -28,16 +28,16 @@ class DiscountController{
             return $this->discountDao->getByDate($date);
         }
         catch(Exception $e){
-            return null;
+            return false;
         }
     }
 
     public function getByDateAccount($date,$accountId){
         try{
-            $this->discountDao->getByDateAccount($date,$accountId);
+            return $this->discountDao->getByDateAccount($date,$accountId);
         }
         catch(Exception $e){
-            return null;
+            return false;
         }
     }
 }

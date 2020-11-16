@@ -15,6 +15,7 @@
     use Models\Purchase as Purchase;
     use Models\Ticket as Ticket;
     use Models\PaymentCC as PaymentCC;
+    use Models\Discount;
     use \Exception as Exception;
 
 
@@ -27,7 +28,7 @@
         private $paymentCCController;
 
         public function __construct() {
-            $this->purchaseDao = new PurchaseDao();
+            $this->purchaseDAO = new PurchaseDao();
             $this->ticketController = new TicketController();
             $this->projectionController = new ProjectionController();
             $this->discountController = new DiscountController();
@@ -78,22 +79,24 @@
             include VIEWS_PATH."purchase_form.php";
         }
 
-        public function completPurchase($id_creditAccount,$aut_cod,$cardNumber,$quantity_tickets,$id_proj){
+        public function completePurchase($id_creditAccount,$cardNumber,$aut_cod,$quantity_tickets,$id_proj){
             $proj = $this->projectionController->getById($id_proj);
             $ticketPrice = $proj->getRoom()->getTicketPrice();
             $total = $quantity_tickets * $ticketPrice;
             $date = date("yy-m-d");
-            $discountOBJ=$this->discountController->getByDateAccount($date,$accountId);
-            $porc_discount = $discountOBJ->getPercent();
+            $discountOBJ=$this->discountController->getByDateAccount($date,$id_creditAccount);
+            $porc_discount=($discountOBJ==false)? 0 : $discountOBJ->getPercent();
             $final = ($total / 100 ) * (100 - $porc_discount);
 
-            $ticketsArray = $this->sendPurchase($id_creditAccount,$quantity_tickets,$porc_discount,$total,$aut_cod);
+            $ticketsArray = $this->sendPurchase($id_creditAccount,$quantity_tickets,$porc_discount,$date,$total,$aut_cod,$id_proj);
 
             include VIEWS_PATH."sold_tickets.php";           
+
+            
         }
 
 
-        public function sendPurchase($id_creditAccount,$quantity_tickets,$discount,$total,$aut_code) {
+        public function sendPurchase($id_creditAccount,$quantity_tickets,$discount,$date,$total,$aut_code,$id_proj) {
             $soldTickets = $this->ticketController->getByProjId($id_proj);
             $proj = $this->projectionController->getById($id_proj);
             $capacity = $proj->getRoom()->getCapacity();
@@ -102,15 +105,15 @@
  
             $id_purchase = $this->add($quantity_tickets,$discount,$date,$total);
             
-            $this->paymentCCController->add($id_creditAccount,$aut_code,$date,$total)
+            $this->paymentCCController->add($id_purchase,$id_creditAccount,$aut_code,$date,$total);
 
             $ticketsArray = array();
 
             for ($i=0; $i <  $quantity_tickets; $i++) { 
                 $soldTickets++;
-                $idTicket = $ticketController->add($soldTickets,$idProj,$id_purchase);
+                $idTicket = $this->ticketController->add($soldTickets,$id_proj,$id_purchase);
                 $ticket = new Ticket($idTicket,$soldTickets);
-                array_push($ticketsArray, $value);
+                array_push($ticketsArray, $ticket);
             }
             
             return $ticketsArray;
@@ -121,6 +124,7 @@
                 session_start();  
             }
             $id_user = $_SESSION['Id'];
+            $id_purchase="";
             try
             {   
                 $id_purchase = $this->purchaseDAO->add($id_user,$quantity_tickets,$discount,$date,$total);

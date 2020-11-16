@@ -5,7 +5,7 @@ require_once(VIEWS_PATH . "nav.php");
 
 <main class="container">
     <section>
-        <form action="" method="post">
+        <form action="<?php echo FRONT_ROOT."Purchase/completePurchase" ?>" method="post">
             <select name="company" id="cmp" required aria-placeholder="Credit company" class="form-control">
                 <?php
                 foreach ($creditAccounts as $comp) {

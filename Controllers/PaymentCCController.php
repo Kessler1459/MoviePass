@@ -13,9 +13,9 @@ class PaymentCCController{
         $this->paymentCCDao = new PaymentCCDAO();
     }
 
-    public function add($id_creditAccount,$aut_code,$date,$total){
+    public function add($id_purchase,$id_creditAccount,$aut_code,$date,$total){
         try{
-            $this->paymentCCDao->add($id_creditAccount,$aut_code,$date,$total);
+            $this->paymentCCDao->add($id_purchase,$id_creditAccount,$aut_code,$date,$total);
         }
         catch(Exception $e){
             $message="Error payment not added.";
@@ -25,7 +25,7 @@ class PaymentCCController{
 
     public function getById($idPayment){
         try{
-            return $this->paymentCCDao->getId($idPayment);
+            return $this->paymentCCDao->getById($idPayment);
         }
         catch(Exception $e){
             $message="Error getting payment.";

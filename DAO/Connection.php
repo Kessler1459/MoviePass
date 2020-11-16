@@ -96,9 +96,14 @@
             }
         }
 
-        public function getLastInsertId()
+        public function lastInsertId()
         {
-            return $pdo->lastInsertId();
+            try{
+                return $this->pdo->lastInsertId();
+            }
+            catch(Exception $e){
+                throw $e;
+            }
         }
         
     }

@@ -61,3 +61,4 @@
 </main>
 
 <script src="<?php echo JS_PATH ?>verifyPasswords.js"></script>
+<?php require_once(VIEWS_PATH . "footer.php") ?>

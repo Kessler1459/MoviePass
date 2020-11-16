@@ -15,8 +15,9 @@
             $this->tableName = "paymentCC";
         }
 
-        public function add($id_creditAccount,$aut_code,$date,$total){
-            $query="INSERT INTO $this->tableName (id_creditAccount,aut_cod,paymentCC_date,total) VALUES(:id_creditAccount,:aut_cod,:paymentCC_date,:total)";
+        public function add($id_purchase,$id_creditAccount,$aut_code,$date,$total){
+            $query="INSERT INTO $this->tableName (id_purchase,id_creditAccount,aut_cod,paymentCC_date,total) VALUES(:id_purchase,:id_creditAccount,:aut_cod,:paymentCC_date,:total)";
+            $params["id_purchase"]=$id_purchase;
             $params["id_creditAccount"]=$id_creditAccount;
             $params["aut_cod"]=$aut_code;
             $params["paymentCC_date"]=$date;

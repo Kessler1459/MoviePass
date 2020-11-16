@@ -15,15 +15,11 @@
         }
 
         public function add($id_user,$quantity_tikets,$discount,$date,$total){
-             if(session_status () != 2){
-                session_start();  
-              }
-            
-            $query = "INSERT INTO $this->tableName (id_user,quantity_tikets,discount,purchase_date,total) 
-                        VALUES (:id_user,:quantity_tikets,:discount,:purchase_date,:total)";
+            $query = "INSERT INTO $this->tableName (id_user,quantity_tickets,discount,purchase_date,total) 
+                        VALUES (:id_user,:quantity_tickets,:discount,:purchase_date,:total)";
             $parameters["id_user"] = $id_user;
-            $parameters["quantity_tikets"] = $quantity_tikets;
-            $parameters["discount"] = $discount;
+            $parameters["quantity_tickets"] = $quantity_tikets;
+            $parameters["discount"] = floatval($discount);
             $parameters["purchase_date"] = $date;
             $parameters["total"] = $total;
 
