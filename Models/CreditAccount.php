@@ -24,7 +24,7 @@
 
         //-----------------Setters-----------------
     
-        public function setId($Id){
+        public function setId($id){
             return $this->id = $id;
         }
 

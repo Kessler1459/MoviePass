@@ -1,12 +1,14 @@
 <?php
     namespace Controllers;
-    
+    use \Exception as Exception;
+    use DAO\CreditAccountDAO;
+
     class CreditAccountController
     {
         private $creditAccountDao;
 
         public function __construct() {
-            $this->creditAccountDao;
+            $this->creditAccountDao= new CreditAccountDAO();
         }
 
         

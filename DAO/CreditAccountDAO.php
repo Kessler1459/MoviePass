@@ -1,6 +1,7 @@
 <?php
     namespace DAO;
     use Models\CreditAccount as CreditAccount;
+    use \Exception as Exception;
 
     class CreditAccountDAO 
     {
@@ -16,7 +17,7 @@
             } catch (Exception $ex) {
                 throw $ex;
             }
-            $creditAccount = new CreditAccount($id, $row["company"]);
+            $creditAccount = new CreditAccount($id, $resultSet[0]["company"]);
             return $creditAccount;
         }
 
@@ -32,7 +33,7 @@
             }
             $creditAccounts = array();
             foreach ($resultSet as $row) {
-                $account = new CreditAccount($row["id"], $row["company"]);
+                $account = new CreditAccount($row["id_creditAccount"], $row["company"]);
                 array_push($creditAccounts, $account);
             }
             return $creditAccounts;

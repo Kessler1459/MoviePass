@@ -3,6 +3,7 @@
 
     use Models\Purchase as Purchase;
     use \Exception as Exception;
+    use DAO\Connection;
 
     class PurchaseDAO
     {

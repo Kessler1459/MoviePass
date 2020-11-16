@@ -29,9 +29,9 @@
             $this->creditAccountController = new CreditAccountController();
         }
         
-        public function processPurchse($quantity_tickets,$id_proj){
-            $soldTickets = $this->ticketController->getByProjId($idProj);
-            $proj = $this->$projectionController->getById($id_proj);
+        public function processPurchase($quantity_tickets,$id_proj){
+            $soldTickets = $this->ticketController->getByProjId($id_proj);
+            $proj = $this->projectionController->getById($id_proj);
             $capacity = $proj->getRoom()->getCapacity();
 
             $availableTickets = $capacity - $soldTickets;
@@ -45,6 +45,7 @@
                 if ($discountsArray == null) {
                     $discountsArray = array();
                 }
+                include(VIEWS_PATH."payments_view.php");
             }
             else {
                 if($quantity_tickets = 0){
@@ -60,7 +61,7 @@
         }
 
         public function selectProj($id_proj,$message=""){
-            $proj = $this->$projectionController->getById($id_proj);
+            $proj = $this->projectionController->getById($id_proj);
         
             $room = $proj->getRoom();
             $movie = $proj->getMovie();
