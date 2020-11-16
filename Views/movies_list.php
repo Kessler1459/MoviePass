@@ -70,19 +70,24 @@ require_once(VIEWS_PATH . "nav.php");
     </div>
 </main>
 
+<!-- modal portada -->
+
 <div class="modal fade movie" id="" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-lg">
-        <div class="modal-content">
+    <div class="modal-dialog modal-lg modal-dialog-centered">
+        <div class="modal-content modal-c">
             <div class="media">
-                <img id="imgModal" class="align-self-center mr-3" src="" width="70%">
+                <img id="imgModal" class="align-self-center mr-3" src="" width="60%">
                 <div class="media-body">
                     <br>
                     <h5 class="mt-0" id="modalTitle"></h5>
                         
                     <p id="modalSyn" class="movie_descript"></p>
                     <br><br>
-                    <input type="hidden" id="movieIdInput">
-                    <button type="submit" class="button-a">Buy</button>
+                    <form action="<?php echo FRONT_ROOT ?>Projection/selectProjection" method="get">
+                        <input type="hidden"id="cityId" name="cityId">
+                        <input type="hidden" id="movieIdInput" name="movieIdModal">
+                        <button type="submit" class="button-a">Choose cinema</button>
+                    </form>
                 </div>
             </div>
         </div>
@@ -97,7 +102,7 @@ require_once(VIEWS_PATH . "nav.php");
 <script src="<?php echo JS_PATH ?>bootstrap.js"></script>
 <script type='text/javascript' src="<?php echo JS_PATH ?>location_select.js"></script>
 <script src="<?php echo JS_PATH ?>projFilter.js"></script>
-<script src="<?php echo JS_PATH ?>dataChange.js"></script>
+<script src="<?php echo JS_PATH ?>dataChangeProjs.js"></script>
 <script src="<?php echo JS_PATH ?>projSearch.js"></script>
 <script src="<?php echo JS_PATH ?>genres_dropdown.js"></script>
 <?php require_once(VIEWS_PATH . "footer.php") ?>

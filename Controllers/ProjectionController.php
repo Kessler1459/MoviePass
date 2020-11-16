@@ -27,7 +27,7 @@ class ProjectionController
         $locContro=new LocationController();
         $gencontr=new GenreController();
         try{
-            $projectionList=$this->projDao->getAllProjections();
+            $projectionList=$this->projDao->getAllProjectionsGroup();
             $genres=$gencontr->getAll();
             $provinces=$locContro->getAllProvinces();
             $initCities=$locContro->getCitiesByProvince(1);
@@ -118,13 +118,28 @@ class ProjectionController
     /**
      * retorna todas las peliculas que tengan una funcion activa en el futuro sin repetirse.(cartelera hehe)
      */
+    public function getAllProjectionsGroup()
+    {
+        try{
+            return $this->projDao->getAllProjectionsGroup();
+        }
+        catch(Exception $e){
+            $message="Error getting the projections.";
+            include(VIEWS_PATH."message_view.php");
+        }
+    }
+
+    /**
+     * retorna todas las peliculas que tengan una funcion activa en el futuro sin agrupar por pelicula
+     */
     public function getAllProjections()
     {
         try{
             return $this->projDao->getAllProjections();
         }
         catch(Exception $e){
-            return array();
+            $message="Error getting the projections.";
+            include(VIEWS_PATH."message_view.php");
         }
     }
 
@@ -144,7 +159,7 @@ class ProjectionController
      * busca y devuelve array de proyecciones
      */
     public function searchByName($name){
-        $projections=$this->getAllProjections();
+        $projections=$this->getAllProjectionsGroup();
         $arrayFinded = array();
         foreach ($projections as $value) {
             $movie=$value->getMovie();
@@ -244,5 +259,31 @@ class ProjectionController
             $msg["msg"]="This movie is already in another room or cinema";
         }
         echo json_encode($msg,1);
+    }
+
+    public function getAllProjectionsByCity($cityId){
+        try{
+            return $this->projDao->getAllProjectionsByCity($cityId);
+        }
+        catch(Exception $e){
+            $message="Error getting the projections.";
+            include(VIEWS_PATH."message_view.php");
+        }
+    }
+
+    public function selectProjection($cityId,$movieId){
+        if ($cityId!="") {
+            $cityProjs=$this->getAllProjectionsByCity($cityId);
+        }
+        else{
+            $cityProjs=$this->getAllProjections();
+        }
+        $optionsArray=array();
+        foreach ($cityProjs as $value) {
+            if($value->getMovie()->getId()==$movieId){
+                $optionsArray[]=$value;
+            }
+        }
+        include(VIEWS_PATH."select_projection.php");
     }
 }

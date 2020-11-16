@@ -63,10 +63,10 @@ require_once(VIEWS_PATH . "nav.php");
 
 
 <div class="modal fade movie" id="" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-lg">
-        <div class="modal-content">
+    <div class="modal-dialog modal-lg modal-dialog-centered">
+        <div class="modal-content modal-c">
             <div class="media">
-                <img id="imgModal" class="align-self-center mr-3" src="" width="70%">
+                <img id="imgModal" class="align-self-center mr-3" src="" width="60%">
                 <div class="media-body">
                     <br>
                     <h5 class="mt-0" id="modalTitle"></h5>

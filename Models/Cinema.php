@@ -1,8 +1,9 @@
 <?php
 
 namespace Models;
+use JsonSerializable;
 
-class Cinema{
+class Cinema implements JsonSerializable{
     private $name;
     private $id;
     private $province;
@@ -19,6 +20,12 @@ class Cinema{
 
     public static function compare($a, $b) {
         return strcmp($a->getName(), $b->getName());
+    }
+
+    public function jsonSerialize()
+    {
+        $vars=get_object_vars($this);
+        return $vars;
     }
 
     /**

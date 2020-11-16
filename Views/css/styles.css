@@ -189,9 +189,9 @@ table.dataTable thead .sorting_desc_disabled:before {
 }
 
 .modal-c{
-	height: 65%;
+	height: 60%;
 	width: 80%;
-	padding: 5%;
+	padding: 4%;
 	background-color:  rgba(218, 218, 218, 0.794);
 	box-shadow: 1.5px 1.5px #e217178c;
 	border: 1px solid black;
@@ -290,6 +290,11 @@ section dl{
 }
 .dropdown dd ul li a:hover {
 	background-color: #fff;
+}
+
+.align-Projs-table{
+	display: block;
+    text-align-last: end;
 }
 
 .welcome{
