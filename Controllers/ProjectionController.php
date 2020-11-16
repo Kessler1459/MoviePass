@@ -5,6 +5,7 @@ namespace Controllers;
 use DAO\ProjectionDAO;
 use Controllers\MovieController;
 use Controllers\GenreController;
+use Controllers\TicketController;
 use DateTime;
 use \Exception as Exception;
 
@@ -272,6 +273,7 @@ class ProjectionController
     }
 
     public function selectProjection($cityId,$movieId){
+        $ticketContr=new TicketController();
         if ($cityId!="") {
             $cityProjs=$this->getAllProjectionsByCity($cityId);
         }

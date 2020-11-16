@@ -5,7 +5,7 @@ require_once(VIEWS_PATH . "nav.php");
 
 <main class="container">
     <h1 class="title_"><?php echo $optionsArray[0]->getMovie()->getTitle() ?></h1>
-    <form action="" method="POST">
+    <form action="<?php echo FRONT_ROOT ?>Purchase/" method="POST">
         <div class="align-Projs-table">
             <table id="table" class="table text-center table-hover  table-striped table-cinemas">
                     <thead>
@@ -24,25 +24,26 @@ require_once(VIEWS_PATH . "nav.php");
                     </thead>
                     <tbody>
                         <?php 
-                        
                             foreach ($optionsArray as $proj) {
-                                $room=$proj->getRoom();
-                                $cinema=$room->getCinema();
-                                $movie=$proj->getMovie();
-                                ?>
-                            <tr class="table-font-alt">
-                                <td><?php echo $cinema->getName() ?></td>
-                                <td><?php echo $cinema->getProvince()->getName() ?></td>
-                                <td><?php echo $cinema->getCity()->getName() ?></td>
-                                <td><?php echo $cinema->getAddress() ?></td>
-                                <td><?php echo $room->getDescription() ?></td>
-                                <td><?php echo $room->getTicketPrice() ?></td>
-                                <td><?php echo "333" ?></td>
-                                <td><?php echo $proj->getDate() ?></td>
-                                <td><?php echo $proj->getHour() ?></td>
-                                <td> <input type="radio" name="selected" value="<?php $proj->getId() ?>"> </td>
-                            </tr>
-                            <?php } ?>
+                                $ticketsLeft=$proj->getRoom()->getCapacity()-$ticketContr->getByProjId($proj->getId());
+                                if($ticketsLeft>0){
+                                    $room=$proj->getRoom();
+                                    $cinema=$room->getCinema();
+                                    $movie=$proj->getMovie();
+                                    ?>
+                                <tr class="table-font-alt">
+                                    <td><?php echo $cinema->getName() ?></td>
+                                    <td><?php echo $cinema->getProvince()->getName() ?></td>
+                                    <td><?php echo $cinema->getCity()->getName() ?></td>
+                                    <td><?php echo $cinema->getAddress() ?></td>
+                                    <td><?php echo $room->getDescription() ?></td>
+                                    <td><?php echo $room->getTicketPrice() ?></td>
+                                    <td><?php echo $ticketsLeft ?></td>
+                                    <td><?php echo $proj->getDate() ?></td>
+                                    <td><?php echo $proj->getHour() ?></td>
+                                    <td> <input type="radio" name="selected" value="<?php $proj->getId() ?>"> </td>
+                                </tr>
+                            <?php }} ?>
                         </tbody>
                     </table>
             <button type="submit" class="button-a">Payments</button>
