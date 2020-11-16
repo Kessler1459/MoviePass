@@ -36,7 +36,16 @@ class TicketDAO{
         return $results[0]["count"];
     }
 
-
+    public function getByPurchaseId($idPurchase){
+        $query="SELECT count(*) as count from $this->tableName where id_proj=$idPurchase";
+        try {
+            $this->connection = Connection::getInstance();
+            $results=$this->connection->execute($query);
+        } catch (Exception $ex) {
+            throw $ex;
+        }
+        return $results;
+    }
 
 }
 
