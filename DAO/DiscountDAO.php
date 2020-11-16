@@ -26,7 +26,7 @@ class DiscountDAO{
 
     public function getByDate($date){
         $query="SELECT * from $this->tableName d
-                inner join creditAccounts c.id_creditAccount=d.id_creditAccount
+                inner join creditAccounts c on c.id_creditAccount=d.id_creditAccount
                 where d.dis_date=\"$date\"";
         try{
             $this->connection = Connection::getInstance();
