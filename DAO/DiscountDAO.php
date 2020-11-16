@@ -2,6 +2,8 @@
 
 namespace DAO;
 use DAO\Connection;
+use Models\Discount;
+use Models\CreditAccount;
 use \Exception as Exception;
 
 class DiscountDAO{
@@ -28,11 +30,17 @@ class DiscountDAO{
                 where d.dis_date=\"$date\"";
         try{
             $this->connection = Connection::getInstance();
-            $this->connection->execute($query);
+            $results=$this->connection->execute($query);
         }
         catch (Exception $ex) {
             throw $ex;
         }
+        $disArray=array();
+        foreach ($results as $row) {
+            $creditAccount=new CreditAccount($row["id_creditAccount"],$row["company"]);
+            $disArray[]=new Discount($row["id_discount"],$row["dis_perc"],$row["dis_date"],$creditAccount);
+        }
+        return $disArray;
     }
 }
 
