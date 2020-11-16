@@ -42,6 +42,22 @@ class DiscountDAO{
         }
         return $disArray;
     }
+
+    public function getByDateAccount($date,$accountId){
+        $query="SELECT * from $this->tableName d
+                inner join creditAccounts c on c.id_creditAccount=d.id_creditAccount
+                where d.dis_date=\"$date\" and id_creditAccount=$accountId";
+        try{
+            $this->connection = Connection::getInstance();
+            $results=$this->connection->execute($query);
+        }
+        catch (Exception $ex) {
+            throw $ex;
+        }
+        $row=$results[0];
+        $creditAccount=new CreditAccount($row["id_creditAccount"],$row["company"]);
+        return new Discount($row["id_discount"],$row["dis_perc"],$row["dis_date"],$creditAccount);
+    }
 }
 
 ?>
