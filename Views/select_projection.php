@@ -5,7 +5,7 @@ require_once(VIEWS_PATH . "nav.php");
 
 <main class="container">
     <h1 class="title_"><?php echo $optionsArray[0]->getMovie()->getTitle() ?></h1>
-    <form action="<?php echo FRONT_ROOT ?>Purchase/" method="POST">
+    <form action="<?php echo FRONT_ROOT ?>Purchase/selectProj" method="POST">
         <div class="align-Projs-table">
             <table id="table" class="table text-center table-hover  table-striped table-cinemas">
                     <thead>
@@ -41,7 +41,7 @@ require_once(VIEWS_PATH . "nav.php");
                                     <td><?php echo $ticketsLeft ?></td>
                                     <td><?php echo $proj->getDate() ?></td>
                                     <td><?php echo $proj->getHour() ?></td>
-                                    <td> <input type="radio" name="selected" value="<?php $proj->getId() ?>"> </td>
+                                    <td><input type="radio" name="selected" value="<?php echo $proj->getId() ?>" required></td>
                                 </tr>
                             <?php }} ?>
                         </tbody>
