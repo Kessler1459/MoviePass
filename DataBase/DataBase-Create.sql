@@ -102,7 +102,7 @@ CREATE TABLE tickets(
 	
 CREATE TABLE creditAccounts(
 	id_creditAccount INT AUTO_INCREMENT,
-	company VARCHAR(20),
+	company VARCHAR(20) UNIQUE,
 	CONSTRAINT pk_creditAccount PRIMARY KEY(id_creditAccount));
 	
 CREATE TABLE paymentCC(
