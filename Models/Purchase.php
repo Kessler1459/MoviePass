@@ -3,12 +3,14 @@ namespace Models;
 
 class Purchase{
     private $id;
+    private $quantity_tickets;
     private $discount;
     private $date;
     private $total;
     
-    public function __construct($id,$discount,$date,$total) {
+    public function __construct($id,$quantity_tickets,$discount,$date,$total) {
         $this->id = $id;
+        $this->quantity_tickets = $quantity_tickets;
         $this->discount = $discount;
         $this->date = $date;
         $this->total = $total;
@@ -32,6 +34,26 @@ class Purchase{
         $this->id = $id;
 
         return $this;
+    }
+
+    /**
+     * Get the value of quantity_tickets
+     */ 
+    public function getQuantityTickets()
+    {
+        return $this->quantity_tickets;
+    }
+
+    /**
+     * Set the value of quantity_tickets
+     *
+     * @return  self
+     */ 
+    public function setQuantityTickets($quantity_tickets)
+    {
+        $this->quantity_tickets = $quantity_tickets;
+
+        return $this->quantity_tickets;
     }
 
     /**
