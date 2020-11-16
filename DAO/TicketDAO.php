@@ -19,6 +19,7 @@ class TicketDAO{
         try {
             $this->connection = Connection::getInstance();
             $this->connection->executeNonQuery($query,$params);
+            return $this->connection->lastInsertId();
         } catch (Exception $ex) {
             throw $ex;
         }

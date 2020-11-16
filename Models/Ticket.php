@@ -6,7 +6,7 @@ class Ticket{
     private $num;
     private $qr;
 
-    public function __construct($id,$num,$qr) {
+    public function __construct($id,$num,$qr = "") {
         $this->id = $id;
         $this->num = $num;
         $this->qr = $qr;

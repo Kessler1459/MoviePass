@@ -14,7 +14,7 @@ class TicketController{
 
     public function add($num,$idProj,$idPurchase){
         try{
-            $this->ticketDao->add($num, $idProj, $idPurchase);
+            return $this->ticketDao->add($num, $idProj, $idPurchase);
         }
         catch(Exception $e){
             $message="Ticket not added.";
