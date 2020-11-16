@@ -2,13 +2,15 @@
 
     namespace Controllers;
 
-    use DAO\PurchaseDAO as UserDAO;
+    use DAO\PurchaseDAO as PurchaseDAO;
     use Controllers\TicketController as TicketController;
     use Controllers\ProjectionController as ProjectionController;
     use Models\Projection as Projection;
     use Models\Movie as Movie;
     use Models\Room as Room;
     use Models\Cinema as Cinema;
+    use \Exception as Exception;
+
     class PurchaseController{
         private $purchaseDAO;
 
@@ -16,7 +18,6 @@
             $this->purchaseDao = new PurchaseDao();
         }
         
-
 
         public function selectProj($id_proj){
             $projectionController = new ProjectionController();
@@ -41,7 +42,8 @@
             }
             catch(Exception $ex)
             {
-                throw $ex;
+                $message="Error adding the purchase.";
+                include(VIEWS_PATH."message_view.php");
             }
             $ticketController = new TicketController();
             for ($i=0; $i <  $quantity_tickets; $i++) { 
@@ -60,7 +62,8 @@
             }
             catch(Exception $ex)
             {
-                throw $ex;
+                $message="Error getting byId the purchase.";
+                include(VIEWS_PATH."message_view.php");
             }
 
         }        
