@@ -84,7 +84,7 @@ CREATE TABLE users(
 CREATE TABLE purchases(
 	id_purchase INT AUTO_INCREMENT,
 	id_user INT NOT NULL,
-	quantity_tikets INT NOT NULL,
+	quantity_tickets INT NOT NULL,
 	discount FLOAT,
 	purchase_date DATE NOT NULL,
 	total FLOAT NOT NULL,

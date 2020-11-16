@@ -4,6 +4,7 @@
     use Models\User as User;
     use Models\UserProfile as UserProfile;
     use Models\UserRole as UserRole;
+    use \Exception as Exception;
 
     class UserDAO
     {
@@ -31,7 +32,7 @@
                 $this->connection = Connection::getInstance();
                 $this->connection->executeNonQuery($query, $parameters);
             }
-            catch(\Exception $ex)
+            catch(Exception $ex)
             {
                 throw $ex;
             }
@@ -47,7 +48,7 @@
                 $this->connection=Connection::getInstance();
                 $results=$this->connection->execute($query);
 
-            }catch(\Exception $ex){
+            }catch(Exception $ex){
                 throw $ex;
             }
             
@@ -74,7 +75,7 @@
                 $this->connection=Connection::getInstance();
                 $results=$this->connection->execute($query);
 
-            }catch(\Exception $ex){
+            }catch(Exception $ex){
                 throw $ex;
             }
 
@@ -100,7 +101,7 @@
                 $this->connection=Connection::getInstance();
                 $results=$this->connection->execute($query);
             
-            }catch(\Exception $ex){
+            }catch(Exception $ex){
                 throw $ex;
             }   
                 if(!empty($results)){
