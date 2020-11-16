@@ -13,10 +13,14 @@
             $this->tableName = "purchases";
         }
 
-        public function add($quantity_tikets,$discount,$date,$total){
+        public function add($id_user,$quantity_tikets,$discount,$date,$total){
+             if(session_status () != 2){
+                session_start();  
+              }
             
-            $query = "INSERT INTO $this->tableName (quantity_tikets,discount,purchase_date,total) 
-                        VALUES (:quantity_tikets,:discount,:purchase_date,:total)";
+            $query = "INSERT INTO $this->tableName (id_user,quantity_tikets,discount,purchase_date,total) 
+                        VALUES (:id_user,:quantity_tikets,:discount,:purchase_date,:total)";
+            $parameters["id_user"] = $id_user;
             $parameters["quantity_tikets"] = $quantity_tikets;
             $parameters["discount"] = $discount;
             $parameters["purchase_date"] = $date;
@@ -26,6 +30,7 @@
             {
                 $this->connection = Connection::getInstance();
                 $this->connection->executeNonQuery($query, $parameters);
+                return $this->connection->lastInsertId();
             }
             catch(Exception $ex)
             {
@@ -59,6 +64,8 @@
                 }
                 
         }
+
+        
 
     
 ?>
