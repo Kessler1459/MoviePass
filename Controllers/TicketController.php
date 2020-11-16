@@ -23,6 +23,17 @@ class TicketController{
         }
     }
 
+    public function getSoldTicketsByProjId($idProj){
+        try{
+            return $soldTickets = $this->ticketDao->getSoldTicketsByProjId($idProj);
+            
+        }
+        catch(Exception $e){
+            $message="Error getting cant SoldTickets.";
+            include(VIEWS_PATH."message_view.php");
+        }
+    }
+
     public function getByProjId($idProj){
         try{
             $arr =$this->ticketDao->getByProjId($idProj);

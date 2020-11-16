@@ -37,7 +37,7 @@
         }
         
         public function processPurchase($quantity_tickets,$id_proj){
-            $soldTickets = $this->ticketController->getByProjId($id_proj);
+            $soldTickets = $this->ticketController->getSoldTicketsByProjId($id_proj);
             $proj = $this->projectionController->getById($id_proj);
             $capacity = $proj->getRoom()->getCapacity();
 

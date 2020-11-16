@@ -25,8 +25,19 @@ class TicketDAO{
         }
     }
 
-    public function getByProjId($idProj){
+    public function getSoldTicketsByProjId($idProj){
         $query="SELECT count(*) as count from $this->tableName where id_proj=$idProj";
+        try {
+            $this->connection = Connection::getInstance();
+            $results=$this->connection->execute($query);
+        } catch (Exception $ex) {
+            throw $ex;
+        }
+        return $results[0];
+    }
+
+    public function getByProjId($idProj){
+        $query="SELECT * from $this->tableName where id_proj=$idProj";
         try {
             $this->connection = Connection::getInstance();
             $results=$this->connection->execute($query);
@@ -41,7 +52,7 @@ class TicketDAO{
     }
 
     public function getByPurchaseId($idPurchase){
-        $query="SELECT count(*) as count from $this->tableName where id_proj=$idPurchase";
+        $query="SELECT * from $this->tableName where id_proj=$idPurchase";
         try {
             $this->connection = Connection::getInstance();
             $results=$this->connection->execute($query);
