@@ -33,7 +33,7 @@ class TicketDAO{
         } catch (Exception $ex) {
             throw $ex;
         }
-        return $results[0]["count"];
+        return $results;
     }
 
     public function getByPurchaseId($idPurchase){
