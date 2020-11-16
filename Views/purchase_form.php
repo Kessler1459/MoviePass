@@ -38,7 +38,7 @@ require_once(VIEWS_PATH . "nav.php");
                     <td><strong><input class="form-control" type="float" id="resultPrice" value="0" disabled></strong></td>
                 </tr>
             </table>
-            <input type="hidden" value="<?php echo $room->getId()?>">
+            <input type="hidden" value="<?php echo $proj->getId()?>">
             <button class="button-a " type="submit">Next</button>
         </form>
     </section>
