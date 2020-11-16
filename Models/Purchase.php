@@ -1,4 +1,5 @@
 <?php 
+namespace Models;
 
 class Purchase{
     private $id;
