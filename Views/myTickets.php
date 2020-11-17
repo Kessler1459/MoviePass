@@ -14,7 +14,7 @@ require_once(VIEWS_PATH . "nav.php");
         $ticket=$ticketsArray[$i]; ?>
         <div class="cajitajaja">
             <img class="qr" src="<?php echo $ticket->getQr() ?>">
-            <div class="form-group">
+            <div class="form-group centrados">
                 <h2 class="title_"><?php echo $proj->getMovie()->getTitle() ?></h2>
                 <strong><?php echo "Room: ".$proj->getRoom()->getDescription() ?></strong>
                 <div><?php echo "Seat: ".$ticket->getNum() ?></div>

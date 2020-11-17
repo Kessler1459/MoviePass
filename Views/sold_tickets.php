@@ -8,7 +8,7 @@ require_once(VIEWS_PATH . "nav.php");
     foreach ($ticketsArray as  $ticket) { ?>
         <div class="cajitajaja">
             <img class="qr" src="<?php echo $ticket->getQr() ?>">
-            <div class="form-group">
+            <div class="form-group centrados">
                 <h2 class="title_"><?php echo $proj->getMovie()->getTitle() ?></h2>
                 <strong><?php echo "Room: ".$proj->getRoom()->getDescription() ?></strong>
                 <span><?php echo "Seat: ".$ticket->getNum() ?></span>
