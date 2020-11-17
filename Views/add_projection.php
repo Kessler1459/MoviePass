@@ -73,6 +73,10 @@ require_once(VIEWS_PATH . "nav.php");
 
                     <p id="modalSyn" class="movie_descript"></p>
                     <br><br>
+                    <form action="<?php echo FRONT_ROOT ?>Purchase/showMovieStats">
+                        <input type="hidden" id="idMovieStats" name="movieIdStats" value="">
+                        <button type="submit" class="button-a">View stats</button>
+                    </form>
                     <form id="addProjForm" action="<?php echo FRONT_ROOT ?>Projection/add" method="post">
                         <input id="RoomIdInput" type="hidden" name="roomId" value="<?php echo $roomId ?>">
                         <input id="movieIdInput" type="hidden" name="movie_id" id="projection_movie" value="">

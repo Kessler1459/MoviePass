@@ -52,7 +52,13 @@ class PurchaseDAO
         } catch (Exception $ex) {
             throw $ex;
         }
-        return $results[0]["suma"];
+        if(!empty($results)){
+            return $results[0]["suma"];
+        }
+        else
+        {
+            return 0;
+        }
     }
 
     public function totalSoldByCinema($cinemaId, $date1, $date2)
@@ -70,7 +76,13 @@ class PurchaseDAO
         } catch (Exception $ex) {
             throw $ex;
         }
-        return $results[0]["suma"];
+        if(!empty($results)){
+            return $results[0]["suma"];
+        }
+        else
+        {
+            return 0;
+        }
     }
 
     public function getById($id_purchase)

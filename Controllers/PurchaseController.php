@@ -162,6 +162,20 @@
             }
         }
 
+        public function showCinemaStats($cinemaId){
+            include(VIEWS_PATH."cinemaStats.php");
+        }
+
+        public function showMovieStats($movieId){
+            include(VIEWS_PATH."movieStats.php");
+        }
+
+        public function totalSoldByMovieJson($movieId,$date1,$date2){
+            $total=$this->totalSoldByMovie($movieId,$date1,$date2);
+            echo json_encode($total,1);
+        }
+
+
         public function totalSoldByCinema($cinemaId,$date1,$date2){
             try{
                 return $this->purchaseDAO->totalSoldByCinema($cinemaId,$date1,$date2);
@@ -169,6 +183,11 @@
             catch(Exception $ex){
                 return 0;
             }
+        }
+
+        public function totalSoldByCinemaJson($cinemaId,$date1,$date2){
+            $total=$this->totalSoldByCinema($cinemaId,$date1,$date2);
+            echo json_encode($total,1);
         }
         
 

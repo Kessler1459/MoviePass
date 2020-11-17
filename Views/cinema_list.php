@@ -19,6 +19,7 @@ require_once(VIEWS_PATH . "nav.php");
                     <th></th>
                     <th></th>
                     <th></th>
+                    <th></th>
                 </tr>
             </thead>
             <tbody>
@@ -31,6 +32,12 @@ require_once(VIEWS_PATH . "nav.php");
                         <td><?php echo $cine->getProvince()->getName() ?></td>
                         <td><?php echo $cine->getCity()->getName() ?></td>
                         <td><?php echo $cine->getAddress() ?></td>
+                        <td>
+                            <form action="<?php echo FRONT_ROOT ?>Purchase/showCinemaStats" method="POST">
+                                <button name="id" class="btn vinculito" type="submit" value="<?php echo $cine->getId() ?>"><strong>Stats</strong>
+                                </button>
+                            </form>
+                        </td>
                         <td>
                             <form action="<?php echo FRONT_ROOT ?>Room/showRoom" method="POST">
                                 <button name="id" class="btn vinculito" type="submit" value=<?php echo $cine->getId() ?>><strong>Room Admin</strong></button>
