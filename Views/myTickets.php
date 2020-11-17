@@ -5,6 +5,10 @@ require_once(VIEWS_PATH . "nav.php");
 <main class="container">
 
     <?php
+    if(empty($ticketsArray)){         
+        echo "<div class='alert alert-danger'><strong>D:</strong> You don't have tickets yet</div>";     
+    }
+    else{
     for ($i=0; $i <count($ticketsArray); $i++) {
         $proj=$projs[$i];
         $ticket=$ticketsArray[$i]; ?>
@@ -18,6 +22,7 @@ require_once(VIEWS_PATH . "nav.php");
                 <div><?php echo "Time: ".$proj->getHour() ?></div>
             </div>
         </div>
-    <?php } ?>
+    <?php } 
+    } ?>
 
 </main>

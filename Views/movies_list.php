@@ -83,11 +83,17 @@ require_once(VIEWS_PATH . "nav.php");
                         
                     <p id="modalSyn" class="movie_descript"></p>
                     <br><br>
+                <?php if (isset($_SESSION['name'])) { ?>
                     <form action="<?php echo FRONT_ROOT ?>Projection/selectProjection" method="get">
                         <input type="hidden"id="cityId" name="cityId">
                         <input type="hidden" id="movieIdInput" name="movieIdModal">
                         <button type="submit" class="button-a">Choose cinema</button>
                     </form>
+                <?php }else{ ?>
+                    <form action="<?php echo FRONT_ROOT ?>Home/logIn" method="get">
+                        <button type="submit" class="button-a">LogIn</button>
+                    </form>
+                    <?php } ?>
                 </div>
             </div>
         </div>

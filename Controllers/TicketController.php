@@ -71,8 +71,7 @@ class TicketController{
             return $arr;
         }
         catch(Exception $e){
-            $message="Error getting tickets.";
-            include(VIEWS_PATH."message_view.php");
+            return array();
         }
     }
 

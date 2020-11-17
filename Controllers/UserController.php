@@ -93,7 +93,7 @@
             try{
                 $user = $this->userDao->findUser($email,$password);
                 if ($user == null) {
-                    $message = "The username or password is incorrectly.Try again";
+                    $message = "The username or password is incorrect.Try again";
                     $this->logIn($message);
                 } else {
                     $this->startSession($user);

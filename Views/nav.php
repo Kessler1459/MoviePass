@@ -30,6 +30,7 @@
                <li class="nav-item">
                     <a class="nav-link" href=" <?php echo FRONT_ROOT ?>Cinema/showCinemasList">Cinemas</a>
                </li>
+               <?php } if (isset($_SESSION['userType'])) { ?> 
                <li class="nav-item">
                     <a class="nav-link" href=" <?php echo FRONT_ROOT ?>Ticket/showTicketsByUserId">My Tickets</a>
                </li>     
