@@ -54,9 +54,15 @@ class DiscountDAO{
         catch (Exception $ex) {
             throw $ex;
         }
-        $row=$results[0];
-        $creditAccount=new CreditAccount($row["id_creditAccount"],$row["company"]);
-        return new Discount($row["id_discount"],$row["dis_perc"],$row["dis_date"],$creditAccount);
+        if(!empty($results)){
+            $row=$results[0];
+            $creditAccount=new CreditAccount($row["id_creditAccount"],$row["company"]);
+            return new Discount($row["id_discount"],$row["dis_perc"],$row["dis_date"],$creditAccount);
+        }
+        else{
+            return new Discount("",0,$date,$accountId);
+        }
+        
         
         
     }
