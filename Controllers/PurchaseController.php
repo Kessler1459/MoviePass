@@ -151,7 +151,25 @@
                 include(VIEWS_PATH."message_view.php");
             }
 
-        }        
+        }  
+        
+        public function totalSoldByMovie($movieId,$date1,$date2){
+            try{
+                return $this->purchaseDAO->totalSoldByMovie($movieId,$date1,$date2);
+            }
+            catch(Exception $ex){
+                return 0;
+            }
+        }
+
+        public function totalSoldByCinema($cinemaId,$date1,$date2){
+            try{
+                return $this->purchaseDAO->totalSoldByCinema($cinemaId,$date1,$date2);
+            }
+            catch(Exception $ex){
+                return 0;
+            }
+        }
         
 
     }
