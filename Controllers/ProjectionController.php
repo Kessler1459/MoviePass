@@ -65,6 +65,14 @@ class ProjectionController
 
     public function showProjections($roomId){
         $projs=$this->getArrayByRoomId($roomId);
+        $ticketController=new TicketController();
+        foreach ($projs as $proj) {
+            $soldTickets = $ticketController->getSoldTicketsByProjId($proj->GetId());
+            $capacity = $proj->getRoom()->getCapacity();
+            $availableTickets = $capacity - $soldTickets;
+            $availableArr[]=$availableTickets;
+            $soldArr[]=$soldTickets;
+        }
         include(VIEWS_PATH."projection_admin.php");
     }
 

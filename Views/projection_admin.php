@@ -13,11 +13,15 @@ require_once(VIEWS_PATH."nav.php");
                     <th>Length</th>
                     <th>Date</th>
                     <th>Time</th>
+                    <th>Sold tickets</th>
+                    <th>Seats left</th>
                     <th></th>
                 </tr>
             </thead>
             <tbody>
-                <?php foreach ($projs as $projection) {
+                <?php $i=0;
+                    foreach ($projs as $projection) {
+
                     $movie=$projection->getMovie();   
                     ?>
                     <tr>         
@@ -25,7 +29,10 @@ require_once(VIEWS_PATH."nav.php");
                         <td><?php echo $movie->getLength()?></td>
                         <td><?php echo $projection->getDate()?></td>
                         <td><?php echo $projection->getHour()?></td>
+                        <td><?php echo $soldArr[$i]?></td>
+                        <td><?php echo $availableArr[$i]?></td>
                         <td>                       
+                        <?php if($soldArr[$i]==0){?>
                             <form action="<?php echo FRONT_ROOT ?>Projection/remove" method="post">
                                 <input type="hidden" name="id" value=<?php echo $projection->getId() ?>>
                                 <input type="hidden" name="rooId" value=<?php echo $roomId?>>                               
@@ -33,9 +40,10 @@ require_once(VIEWS_PATH."nav.php");
                                 <img src="/MoviePass/Views/img/trash-4x.png" alt="trash_icon">
                                 </button>                          
                             </form>
+                            <?php }?>
                         </td>
                     </tr>
-                <?php } ?>
+                <?php $i++;} ?>
             </tbody>
         </table>
     </div>
