@@ -25,7 +25,7 @@ require_once(VIEWS_PATH . "nav.php");
                     <tbody>
                         <?php 
                             foreach ($optionsArray as $proj) {
-                                $ticketsLeft=$proj->getRoom()->getCapacity()-$ticketContr->getByProjId($proj->getId());
+                                $ticketsLeft=$proj->getRoom()->getCapacity()-$ticketContr->getSoldTicketsByProjId($proj->getId());
                                 if($ticketsLeft>0){
                                     $room=$proj->getRoom();
                                     $cinema=$room->getCinema();

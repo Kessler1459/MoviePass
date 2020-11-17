@@ -269,6 +269,10 @@ section dl{
 	box-shadow: 1.5px 1.5px #e217178c;
 }
 
+.qr{
+	height: 100%;
+}
+
 
 /*
 .dropdown dt a span,

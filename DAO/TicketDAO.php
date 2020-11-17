@@ -59,9 +59,24 @@ class TicketDAO{
         } catch (Exception $ex) {
             throw $ex;
         }
+        return $results[0]["id_proj"];
+    }
+
+    public function getByUserId($usrId){
+        $query="SELECT * from $this->tableName t
+        inner join purchases p on t.id_purchase=p.id_purchase
+        where p.id_user=$usrId";
+        try {
+            $this->connection = Connection::getInstance();
+            $results=$this->connection->execute($query);
+        } catch (Exception $ex) {
+            throw $ex;
+        }
         $newArr=array();
-        
-        return $newArr[0]["id_proj"];
+        foreach ($results as $ticket) {
+            $newArr[]=new Ticket($ticket["id_ticket"],$ticket["nro_ticket"]);
+        }
+        return $newArr;
     }
 
     public function getByPurchaseId($idPurchase){

@@ -176,6 +176,32 @@ class ProjectionDAO
         return $projectionsList;
     }
 
+
+    /**
+     * solo las activas 
+     */
+    public function getAllProjectionsByUser($usrId){
+        $query="SELECT * from $this->tableName pr
+                inner join purchases p on p.id_user=$usrId
+                inner join tickets t on t.id_purchase=p.id_purchase
+                inner join movies m on pr.id_movie=m.id_movie
+                inner join rooms r on r.id_room=pr.id_room
+                where pr.id_proj=t.id_proj and concat(pr.proj_date,' ',pr.proj_time) > now()";
+        try {
+            $this->connection = Connection::getInstance();
+            $results = $this->connection->execute($query);
+        } catch (Exception $ex) {
+            throw $ex;
+        }
+        $projectionList = array();
+        foreach ($results as $row) {
+            $movie = new Movie($row["title"],$row["id_movie"],$row["synopsis"],$row["poster_url"],$row["video_url"],$row["length"],[],$row["release_date"]);
+            $room=new Room($row["id_room"], $row["capacity"], $row["ticket_price"], $row["descript"],"");
+            $projectionList[] = new Projection($row["id_proj"], $movie, $row["proj_date"], $row["proj_time"], $room);
+        }
+        return $projectionList;
+    }
+
     /**
      * devuelve las futuras proyecciones de una ciudad determinada
      */

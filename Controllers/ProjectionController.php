@@ -210,6 +210,15 @@ class ProjectionController
         }
     }
 
+    public function getAllProjectionsByUser($usrId){
+        try{
+            return $this->projDao->getAllProjectionsByUser($usrId);
+        }
+        catch(Exception $e){
+            return array();
+        }
+    }
+
     public function remove($id,$roomId)
     {
         try{
