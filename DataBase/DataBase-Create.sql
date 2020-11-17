@@ -116,7 +116,6 @@ CREATE TABLE paymentCC(
 	CONSTRAINT fk_id_creditAccount FOREIGN KEY (id_creditAccount) REFERENCES creditAccounts(id_creditAccount),
 	CONSTRAINT fk_id_purchasePay FOREIGN KEY (id_purchase) REFERENCES purchases(id_purchase));
     
-    INSERT INTO paymentCC (id_purchase,id_creditAccount,aut_cod,paymentCC_date,total) VALUES(1,)
 	
 CREATE TABLE discounts(
 	id_discount INT AUTO_INCREMENT,
@@ -126,19 +125,8 @@ CREATE TABLE discounts(
 	CONSTRAINT pk_discount PRIMARY KEY(id_discount),
 	CONSTRAINT fk_id_creditAccountDisc FOREIGN KEY (id_creditAccount) REFERENCES creditAccounts(id_creditAccount));
 	 
-     delete from paymentCC;
-     delete from tickets;
-     delete from purchases;
-     
 
      
-     
-	 select * from purchases
-     select * from tickets
-     select * from paymentCC
-     
-     Exception has occurred.
-PDOException: SQLSTATE[23000]: Integrity constraint violation: 1452 Cannot add or update a child row: a foreign key constraint fails (`movie_pass`.`paymentcc`, CONSTRAINT `fk_id_purchasePay` FOREIGN KEY (`id_purchase`) REFERENCES `purchases` (`id_purchase`))
 
 
 INSERT INTO genres(id_genre,genre_name) VALUES (28,"Action"),(12,"Adventure"),(16,"Animation"),(35,"Comedy"),(80,"Crime"),(99,"Documentary"),(18,"Drama"),(10751,"Family"),
