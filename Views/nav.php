@@ -29,6 +29,9 @@
                if (isset($_SESSION['userType']) && $_SESSION['userType'] != 1 ) {?> 
                <li class="nav-item">
                     <a class="nav-link" href=" <?php echo FRONT_ROOT ?>Cinema/showCinemasList">Cinemas</a>
+               </li>
+               <li class="nav-item">
+                    <a class="nav-link" href=" <?php echo FRONT_ROOT ?>Ticket/showTicketsByUserId">My Tickets</a>
                </li>     
           <?php } ?> 
 
