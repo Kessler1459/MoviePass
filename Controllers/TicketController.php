@@ -3,13 +3,16 @@
 namespace Controllers;
 use Lib\QR\QRcode;
 use DAO\TicketDAO;
+use Controllers\ProjectionController as ProjectionController;
 use \Exception as Exception;
 
 class TicketController{
     private $ticketDao;
+    private $projectionController;
 
     public function __construct() {
         $this->ticketDao = new TicketDAO();
+        $this->$projectionController = new ProjectionController();
     }
 
     public function add($num,$idProj,$idPurchase){
@@ -33,6 +36,19 @@ class TicketController{
         }
     }
 
+    public function getProjByIdTicket($idTicket){
+        try{
+            $id = $this->ticketDao->getProjIdByTicketId($idTicket);
+            return $proj = $this->$projectionController->getById($id);
+            
+        }
+        catch(Exception $e){
+            $message="Error getting projection.";
+            include(VIEWS_PATH."message_view.php");
+        }
+
+    }
+
     public function getByProjId($idProj){
         try{
             $arr =$this->ticketDao->getByProjId($idProj);
@@ -46,6 +62,7 @@ class TicketController{
             include(VIEWS_PATH."message_view.php");
         }
     }
+
 
     public function getByPurchaseId($purchId){
         try{
@@ -63,6 +80,7 @@ class TicketController{
 
     public function showTicketsByPurchaseId($purchId){
         $ticketsArray=$this->getByPurchaseId($purchId);
+        $proj = getProjByIdTicket($ticketsArray[0]->getId());
         include VIEWS_PATH."sold_tickets.php";
     }
 

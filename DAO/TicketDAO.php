@@ -51,6 +51,19 @@ class TicketDAO{
         return $newArr;
     }
 
+    public function getProjIdByTicketId($idTicket){
+        $query="SELECT t.id_proj from $this->tableName t where id_ticket=$idTicket";
+        try {
+            $this->connection = Connection::getInstance();
+            $results=$this->connection->execute($query);
+        } catch (Exception $ex) {
+            throw $ex;
+        }
+        $newArr=array();
+        
+        return $newArr[0]["id_proj"];
+    }
+
     public function getByPurchaseId($idPurchase){
         $query="SELECT * from $this->tableName where id_purchase=$idPurchase";
         try {
