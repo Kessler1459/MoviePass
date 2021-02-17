@@ -80,7 +80,7 @@ require_once(VIEWS_PATH . "nav.php");
                     <form id="addProjForm" action="<?php echo FRONT_ROOT ?>Projection/add" method="post">
                         <input id="RoomIdInput" type="hidden" name="roomId" value="<?php echo $roomId ?>">
                         <input id="movieIdInput" type="hidden" name="movie_id" id="projection_movie" value="">
-                        <input class="form-control" id="projDateInput" type="date" name="projection_date" id="projection_date" min=<?php echo date("yy-m-d") ?> value=<?php echo date("yy-m-d") ?> required>
+                        <input class="form-control" id="projDateInput" type="date" name="projection_date" id="projection_date" min=<?php echo date("Y-m-d") ?> value=<?php echo date("Y-m-d") ?> required>
                         <input class="form-control" id="projTimeInput" type="time" name="projection_time" id="projection_time" required>
                         <button id="submitProj" type="submit" class="button-a">Save Projection</button>
                     </form>

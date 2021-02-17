@@ -5,7 +5,22 @@ require_once(VIEWS_PATH . "nav.php");
 <main class="container">
     <h1 class="title_">Movies</h1>
     
-    <dl class="dropdown button-a">
+    
+    <section class="movie_filter">
+
+
+
+        <select name="province" class="form-control" id="province" required>
+            <option value="" disabled selected>Province</option>
+            <?php foreach ($provinces as $value) {
+                echo "<option data-id=" . $value->getId() . " value=" . $value->getId() . ">" . $value->getName() . "</option>";
+            } ?>
+        </select>
+        <select name="city" class="form-control" id="response" required>
+            <option value="" disabled selected>City</option>
+        </select>
+        <input class="form-control" type="date" name="projection_date" id="projection_date" min=<?php echo date("yy-m-d") ?> value="" required>
+        <dl class="dropdown button-a">
         <dt>
             <a href="#">
                 <span class="hida">Genres</span>
@@ -26,21 +41,6 @@ require_once(VIEWS_PATH . "nav.php");
             </div>
         </dd>
     </dl>
-    <section class="movie_filter">
-
-
-
-        <select name="province" class="form-control" id="province" required>
-            <option value="" disabled selected>Province</option>
-            <?php foreach ($provinces as $value) {
-                echo "<option data-id=" . $value->getId() . " value=" . $value->getId() . ">" . $value->getName() . "</option>";
-            } ?>
-        </select>
-        <select name="city" class="form-control" id="response" required>
-            <option value="" disabled selected>City</option>
-        </select>
-        <input class="form-control" type="date" name="projection_date" id="projection_date" min=<?php echo date("yy-m-d") ?> value="" required>
-    
         <button id="filerButton" type="button" class="button-a">Filter</button>
         <button type="button" id="resetBtn" class="button-a">Clear</button>
 

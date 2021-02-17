@@ -234,10 +234,11 @@ table.dataTable thead .sorting_desc_disabled:before {
 	border-radius: 7px;
 	background-color: rgba(255, 255, 255, 0.575);
 	max-width: fit-content;
-	font-size: 1vw;
+	font-size: 0.8em;
 	text-align: center;
-	vertical-align: auto;
 	z-index: 99;
+	height: 4.8vh;
+	padding: 0px;
 }
 
 .dropdown:hover{
