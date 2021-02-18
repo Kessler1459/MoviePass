@@ -19,7 +19,7 @@ require_once(VIEWS_PATH . "nav.php");
         <select name="city" class="form-control" id="response" required>
             <option value="" disabled selected>City</option>
         </select>
-        <input class="form-control" type="date" name="projection_date" id="projection_date" min=<?php echo date("yy-m-d") ?> value="" required>
+        <input class="form-control" type="date" name="projection_date" id="projection_date" min=<?php echo date("Y-m-d") ?> value="" required>
         <dl class="dropdown button-a">
         <dt>
             <a href="#">

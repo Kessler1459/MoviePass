@@ -124,10 +124,17 @@ CREATE TABLE discounts(
 	dis_perc INT NOT NULL,
 	CONSTRAINT pk_discount PRIMARY KEY(id_discount),
 	CONSTRAINT fk_id_creditAccountDisc FOREIGN KEY (id_creditAccount) REFERENCES creditAccounts(id_creditAccount));
-	 
 
-     
-
+delimiter $$
+create procedure select_or_insert(disDate date,creditAccount int,percent int)
+begin
+IF EXISTS (select * from discounts where discounts.dis_date=disDate and discounts.id_creditAccount=creditAccount) then
+                    UPDATE discounts set discounts.dis_perc=percent where discounts.dis_date=disDate and discounts.id_creditAccount=creditAccount;
+                    ELSE
+                    INSERT INTO discounts (dis_perc,dis_date,id_creditAccount) VALUES (percent,disDate,creditAccount);
+                    END IF;
+                    end $$
+delimiter ;
 
 INSERT INTO genres(id_genre,genre_name) VALUES (28,"Action"),(12,"Adventure"),(16,"Animation"),(35,"Comedy"),(80,"Crime"),(99,"Documentary"),(18,"Drama"),(10751,"Family"),
 						(14,"Fantasy"),(36,"History"),(27,"Horror"),(10402,"Music"),(9648,"Mystery"),(10749,"Romance"),(878,"Science Fiction"),
@@ -135,5 +142,7 @@ INSERT INTO genres(id_genre,genre_name) VALUES (28,"Action"),(12,"Adventure"),(1
 
 INSERT INTO users (id_user,email,pass,first_name,last_name,dni,user_type,role_description) VALUES (1,"nahuelflores@gmail.com","1999","Nahuel","Flores","123456",3,"Admin");
 		
+INSERT INTO users (id_user,email,pass,first_name,last_name,dni,user_type,role_description) VALUES (4,"owner2@gmail.com","1999","cosme","fulanito","123456",2,"Owner");
+
 INSERT INTO creditAccounts(company) VALUES ("Visa"),("Mastercard"),("American Express");
 INSERT INTO discounts(id_creditAccount,dis_date,dis_perc) VALUES (1,NOW(),5),(3,NOW(),10);

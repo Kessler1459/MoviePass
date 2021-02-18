@@ -54,7 +54,7 @@ body{
 	max-width: 50%;
 	width: 50%;
 	align-items: center;
-	margin-top: 10vw;
+	margin-top: 7vw;
 }
 
 .vinculito{
@@ -70,6 +70,29 @@ body{
 	display: block;
 	background-color: rgba(255, 255, 255, 0.575);
 	margin-bottom: 1.8%;
+}
+
+.flexcont{
+	display:flex;
+	flex-direction:row;
+	text-align: center;
+	margin-top:3vh
+}
+
+.flexcont .button-a{
+	margin-top: 0;
+}
+
+.flexDiscount input{
+	margin-top: 5vh;
+	margin-bottom: 5vh;
+}
+
+.flexDiscount{
+	display:flex;
+	flex-direction:column;
+	margin: 0 3% 0 3%;
+    width: 30%;
 }
 
 .filters{

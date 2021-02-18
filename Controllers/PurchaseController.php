@@ -44,7 +44,7 @@
             $availableTickets = $capacity - $soldTickets;
 
             if ($quantity_tickets > 0 && $availableTickets >= $quantity_tickets) {
-                $date = date("yy-m-d");
+                $date = date("Y-m-d");
 
                 $discountsArray = $this->discountController->getByDate($date);
                 $creditAccounts = $this->creditAccountController->getAll();
@@ -83,7 +83,7 @@
             $proj = $this->projectionController->getById($id_proj);
             $ticketPrice = $proj->getRoom()->getTicketPrice();
             $total = $quantity_tickets * $ticketPrice;
-            $date = date("yy-m-d");
+            $date = date("Y-m-d");
             $discountOBJ=$this->discountController->getByDateAccount($date,$id_creditAccount);
             $porc_discount=($discountOBJ==false)? 0 : $discountOBJ->getPercent();
             $final = ($total / 100 ) * (100 - $porc_discount);

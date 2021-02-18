@@ -12,16 +12,31 @@ class DiscountDAO{
 
     public function add($percent,$date,$creditAccountId)
     {
-        $query = "INSERT INTO $this->tableName (dis_per,dis_date,id_creditAccount) VALUES (:dis_per,:dis_date,:id_creditAccount)";
-        $parameters["dis_per"] = $percent;
-        $parameters["dis_date"] = $date;
-        $parameters["id_creditAccount"] = $creditAccountId;
+        $query = "call select_or_insert(\"$date\",$creditAccountId,$percent)";
         try {
             $this->connection = Connection::getInstance();
-            $this->connection->executeNonQuery($query, $parameters);
+            $this->connection->executeNonQuery($query);
         } catch (Exception $ex) {
             throw $ex;
         }
+    }
+
+    public function getAll(){
+        $query="SELECT * from $this->tableName d
+                inner join creditAccounts c on c.id_creditAccount=d.id_creditAccount";
+        try{
+            $this->connection = Connection::getInstance();
+            $results=$this->connection->execute($query);
+        }
+        catch (Exception $ex) {
+            throw $ex;
+        }
+        $disArray=array();
+        foreach ($results as $row) {
+            $creditAccount=new CreditAccount($row["id_creditAccount"],$row["company"]);
+            $disArray[]=new Discount($row["id_discount"],$row["dis_perc"],$row["dis_date"],$creditAccount);
+        }
+        return $disArray;
     }
 
     public function getByDate($date){
@@ -67,5 +82,3 @@ class DiscountDAO{
         
     }
 }
-
-?>
